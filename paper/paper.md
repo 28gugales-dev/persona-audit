@@ -27,7 +27,7 @@ We audit one such tool that is already shipped. **Persona**, part of Amphi (amph
 
 | Before the sprint (shipped Nov 1) | During the sprint |
 |---|---|
-| Import of posts and AI chats; word-overlap theme sort; on-device detector; opt-in model step and its prompt (Haiku 5.5); conflict cards with verdicts | "Change of mind" vs live label; this whole evaluation (test sets, real-text sets, harness, runs, prompt variants, model grouping: `evals/conflicts`, `paper/`). None of the repairs is deployed. |
+| Import of posts and AI chats; word-overlap theme sort; on-device detector; opt-in model step and its prompt (Haiku 5.5); conflict cards with verdicts | "Change of mind" vs live label; this whole evaluation (test sets, real-text sets, harness, runs, prompt variants, model grouping: `evals/conflicts`, `paper/`). On Nov 14 we deployed one repair: whole history in one call when it fits (up to 120 excerpts, 50,000 characters), with realX. |
 
 # 2. Related work
 
@@ -112,7 +112,7 @@ With the production prompt Haiku found every unsignalled planted reversal (36/36
 
 ## 4.3 Repairs, on items they were not chosen on
 
-**The prompt.** On the 40 fresh items, over three runs, the rewrite and genX found 8.0 [4.7, 11.3] and 9.0 [6.0, 12.0] more of the 20 narrated reversals than production (bootstrap over items) and flagged no narrated refinement, reaffirmation or doubt. On real development pairs, though, every prompt stayed low (genX 5/21): real authors describe their old view abstractly ("a theory which I formerly held myself"), and genX's own exclusion of "describing someone else's view" catches it. realX adds one paragraph saying a view the writer formerly held counts. Frozen after one development run, it flagged 1 of 82 unseen look-alikes and found 20/20 fresh reversals. On the held-out real set, over three runs, realX found 14/18 and genX 10/18, against production's 3/18; counted by case (found on a majority of runs), 5, 4 and 1 of 6. On the three cases whose announced passage states the new view: 9/9, 7/9 and 3/9. Unannounced real reversals stayed hard for every prompt (held-out 1-3 of 9).
+**The prompt.** On the 40 fresh items, over three runs, the rewrite and genX found 8.0 [4.7, 11.3] and 9.0 [6.0, 12.0] more of the 20 narrated reversals than production and flagged no narrated look-alike. On real development pairs, though, every prompt stayed low (genX 5/21): real authors describe their old view abstractly ("a theory which I formerly held myself"), and genX's own exclusion of "describing someone else's view" catches it. realX adds one paragraph saying a view the writer formerly held counts. Frozen after one development run, it flagged 1 of 82 unseen look-alikes and found 20/20 fresh reversals. On the held-out real set, over three runs, realX found 14/18 and genX 10/18, against production's 3/18; counted by case (found on a majority of runs), 5, 4 and 1 of 6. Unannounced real reversals stayed hard for every prompt (held-out 1-3 of 9).
 
 **The grouping** (Table 6, Appendix D). Model grouping kept 18 of 20 held-out planted conflicts in one group (word sort 11) and, end to end, raised recall from 9/20 to 16/20 with the production prompt (8 gained, 1 lost, p = 0.039) and 18/20 with genX (10-1, p = 0.012), flagging no decoy; every card sat on a planted reversal (53 cards for 18 reversals with genX, because a reversal also pairs with the posts restating its earlier view). On real text the first version failed (1 of 10 development pairs together): it left 46-92 groups per history, mostly of one to three posts. Version 2 groups by the issue a writer could change their mind on; tuned on the development set (4/10), it put 4 of 9 held-out pairs together and, with realX, surfaced 3 of 9 held-out reversals end to end (Darwin, Spencer, Nietzsche on pity), where word grouping surfaces none. It costs about one Haiku call per 30 posts.
 
@@ -148,13 +148,13 @@ Shown items directly, the production prompt flagged 0 of 96 synthetic decoys (74
 
 **What generalises.** Not the specific clause: genX and GPT's strict prompts have different blind spots. Two things do. First, a pipeline that groups by shared words will rarely put a person's earlier and later views together, because people describe a view differently once they have left it. Splitting a record that fits in one context window throws away the comparison the tool exists to make; past that size, grouping must be by meaning. And a prompt tuned for few false alarms can return nothing even when the pair is in view, so recall should be measured end to end, on real records. Second, the audit method: an answer key the tool cannot grade itself on, one-cue edits with a neutral control, clause ablations, simple baselines, and real writing with documented reversals, held out.
 
-**Design.** Use realX, not the shipped definition; send the whole history in one call while it fits, and group by question with a model only beyond that; and for announced changes, a card that confirms ("You moved from X to Y; is that still where you stand?") may fit better than one that asks.
+**Design.** Use realX, not the shipped definition; send the whole history in one call while it fits, and group by question with a model only beyond that. We deployed the first two in Persona on Nov 14 (realX plus the shipped output rules, at most 8 pairs per call); its effect on real users is not measured. For announced changes, a card that confirms ("You moved from X to Y; is that still where you stand?") may fit better than one that asks.
 
 **Not shown:** that people want these cards, or that seeing them improves their decisions. End to end on real text, even the best arm found under half the pairs.
 
 **Limitations** (full list in Appendix A). No users. Thirteen real cases, famous authors the model knows (26 of 27 passages attributed), English, and 19th-century prose; grouping's end-to-end real runs were single runs, whole-history calls varied from 5 to 10 of 19 across runs, both held-out grouping predictions narrowly failed, and the whole-history call was not tested with realX on records too long for one call. One model family, in an agent harness, run by the product's author; card labels from three raters with modest agreement.
 
-**Future work.** A consented study in which people import their own history, list the changes of mind they know they made, rate each card, and revisit verdicts a month later; deploying realX on whole histories, with model grouping beyond one call, and testing that switch on long real records; a cross-family replication.
+**Future work.** A consented study in which people import their own history, list the changes of mind they know they made, rate each card, and revisit verdicts a month later; measuring the deployed whole-history path on users' records, adding model grouping beyond one call, and testing that switch on long real records; a cross-family replication.
 
 # 6. Conclusion
 
@@ -162,7 +162,7 @@ On philosophers' own writing, Persona's shipped pipeline surfaced none of the 19
 
 # Code and data
 
-The evaluation code is in `evals/conflicts/` of the Amphi repository; the data, raw model replies, the real-text cases and a ledger tying every number to its file are in `paper/`. Source texts are public domain; each case lists its URLs, line spans and secondary source (`paper/data/realtext_cases*.json`, `reversals_sources.md`). The product code audited is under `apps/web/src/features/vault/` and `apps/api/src/features/persona/`. [Public link: TODO before submission.]
+Everything is at https://github.com/28gugales-dev/persona-audit: the evaluation code (`evals/conflicts/`); the data, raw model replies, the real-text cases and a ledger tying every number to its file are in `paper/`. Source texts are public domain; each case lists its URLs, line spans and secondary source (`paper/data/realtext_cases*.json`, `reversals_sources.md`). The audited product files, as shipped on Nov 1 and as deployed on Nov 14, are under `product/`.
 
 # References
 
@@ -197,7 +197,7 @@ The evaluation code is in `evals/conflicts/` of the Amphi repository; the data, 
 4. **Contamination and small n.** Haiku named the author of 9 of the 10 paraphrased cases, and of 26 of the 27 real passages shown without names (it took Huxley's 1862 passage for Darwin). This should make the real reversals easier to find, so the production prompt's misses are not explained by it; the repairs' recall may be inflated by it. The held-out real comparisons rest on 6 cases; grouping v2 was tuned on the 6 development histories, and both of its held-out predictions narrowly failed (grouping v1's real-text prediction also failed; Appendix F). The whole-history comparison was added after our mock review asked for it, with three runs per history; its realX arm was predicted before each run (the first threshold equalled the naive baseline's already-seen score), and realX itself was tuned on development pairs shown alone, not on whole histories. Model grouping with the shipped prompt was not run on real text, so "neither fix alone" rests on the two cells we did run (word themes with any prompt; whole histories with the shipped prompt). Our real histories are 72-124 excerpts; a person's years of posts and chats are longer, which is where grouping, not the single call, has to work.
 5. **The fix.**
    - The fix line was written by the author after seeing failures and frozen before held-out runs (commit times, Appendix C). Because it names the cue, its recovery on marked text is partly instruction-following.
-   - The cue-free rewrite avoids this, but was chosen after the ablations, then tested on fresh items, the hand-written sets and end to end (Table 4). Neither repair has been tested in production.
+   - The cue-free rewrite avoids this, but was chosen after the ablations, then tested on fresh items, the hand-written sets and end to end (Table 4). The whole-history realX fix is deployed (Nov 14) but its effect in production is unmeasured; the deployed prompt adds the shipped output rules (neutral question, at most 8 pairs) to the tested realX text.
 6. **Judge.** We corrected four of our own planted labels after the judge disagreed. We report the uncorrected κ (0.69), and the main neutrality claim rests on lean-vs-neutral agreement, which the correction does not affect.
 
 **Dual-use and ethics.**

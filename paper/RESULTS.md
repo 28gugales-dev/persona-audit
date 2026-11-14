@@ -237,3 +237,10 @@ Unnamed decoy types (the exclusion list does not name them): GPT-written D6 hypo
 | Appendix F tally after v17 (one prediction per row, a row fails if any part fails): 38 rows, 3 without a numeric prediction, 1 untestable; 35 numeric, 14 failed (planted 4 of 17, real text 10 of 18) | paper.md Appendix F |
 | TF-IDF partner rank as a share of the history (rank / other posts): median 0.59; 8 of 19 later partners have cosine 0 with the early passage (no shared content word after stop-word removal) | v17_scores.json tfidf_partner_rank |
 | Kind label ("change of mind" vs live) was added on 2026-11-13, during the sprint (commit 5609693d) | git log apps/web/src/features/vault/conflicts.ts |
+
+## Deployment (2026-11-14)
+
+| Claim | Source |
+|---|---|
+| Whole-history + realX deployed to Persona: Amphi main c27f1622 (web auto-deployed, Vercel status success); API deployed by hand, aliased to amphi-api.vercel.app, /health ok. Whole history goes in one request when it has at most 120 excerpts and 50,000 characters; otherwise per-theme requests of 20 as before. Prompt = realX_v1 text plus the shipped output rules (at most 8 pairs, neutral question, data-not-instructions) | product/deployed-2026-11-14/ in the public repo; Amphi commit c27f1622 |
+| Public repository: https://github.com/28gugales-dev/persona-audit | |
