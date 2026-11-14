@@ -244,3 +244,4 @@ Unnamed decoy types (the exclusion list does not name them): GPT-written D6 hypo
 |---|---|
 | Whole-history + realX deployed to Persona: Amphi main c27f1622 (web auto-deployed, Vercel status success); API deployed by hand, aliased to amphi-api.vercel.app, /health ok. Whole history goes in one request when it has at most 120 excerpts and 50,000 characters; otherwise per-theme requests of 20 as before. Prompt = realX_v1 text plus the shipped output rules (at most 8 pairs, neutral question, data-not-instructions) | product/deployed-2026-11-14/ in the public repo; Amphi commit c27f1622 |
 | Public repository: https://github.com/28gugales-dev/persona-audit | |
+| Saved replies after round 17: 4,871 files in results/haiku_raw/; Sonnet 227 (224 .rs runs + 3 Sonnet card-labelling calls); Haiku 4,644 | results/haiku_raw/ (file names: .rsN = Sonnet run, _s = Sonnet label call) |

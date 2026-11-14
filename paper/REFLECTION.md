@@ -195,3 +195,7 @@ Next round, from these: rewrite the abstract and 4.3 around "both the split and 
 ## Constructive round 3 (after v17): belief -> evidence -> change
 
 - **Belief:** the v17 additions (production-on-whole-history, closed-book control, real-text figure) would lift Impact or Presentation. **Evidence:** Impact 3/3/3, Execution 3.5/4/4, Presentation 3/3/3; same as before. New critiques are new angles (strawman: the shipped prompt targets live conflicts; no embedding-retrieval baseline; untested grouping+production cell), not unresolved old ones. **Change:** the run-more-arms loop has hit diminishing returns per token. Stop adding arms. The levers left are the user's: ship the fix in Persona, a consented/own-history check, a public code link, and a presentation pass that cuts the paper to one claim. Fixed the slips the judges found (table numbering, rank wording, label date, reply count, an overclaim).
+
+## Deploy + public repo round (after constructive round 4)
+
+- **Belief:** deploying the fix and publishing the repo would move Impact. **Evidence:** Impact 3/3/3.5, Execution 4/3.5/3.5, Presentation 3/3/3.5; small rise, no mismatches. Judges now ask for third-party-style prompts on the same histories, a related-work comparison table, and an honest downgrade of realX vs naive (2-0, p = 0.5). **Change:** the paper's limit is now n and the absence of users, not missing analyses. Remaining budget is better spent on readability than on more arms.

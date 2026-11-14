@@ -8,7 +8,7 @@ note: "Research conducted at the AI x Epistemics Research Sprint (Apart Research
 # Abstract
 Persona, our shipped tool, shows people where their own views conflict or have changed. We audited it on answer keys it cannot grade itself on, chiefly the public-domain writing of ten authors with 13 documented changes of mind (19 early-to-later passage pairs), split into development and later-sourced held-out sets.
 
-The shipped tool surfaced none of the 19 pairs, for two separate reasons. Its word-overlap theme sort never put the two ends together: by word overlap, a passage's true later partner ranked a median 59% of the way down its history, and 8 of 19 shared no content word with it. And its prompt suppresses the pair even when both ends are present: given the whole history in one call, it still found none, while a naive prompt found 6 and our real-prose variant (realX) 8 (majority of three runs; 5-10 per run). On planted items the same prompt flagged no look-alikes, but one "I've changed my mind" cut detection from 36/36 to 9-17/36 (Claude Haiku 5.5); ablations trace this to its definition (two views the person "asserts") and a default that most themes have none.
+The shipped tool surfaced none of the 19 pairs, for two separate reasons. Its word-overlap theme sort never put the two ends together: by word overlap, a passage's true later partner ranked a median 59% of the way down its history, and 8 of 19 shared no content word with it. And its prompt suppresses the pair even when both ends are present: given the whole history in one call, it still found none, while a naive prompt found 6 and our real-prose variant (realX) 8 (majority of three runs; realX 5-10 per run). On planted items the same prompt flagged no look-alikes, but one "I've changed my mind" cut detection from 36/36 to 9-17/36 (Claude Haiku 5.5); ablations trace this to its definition (two views the person "asserts") and a default that most themes have none.
 
 Without the text, Haiku recalled only 7 of the 13 changes, and half the pairs realX found were among the other six. Changes the author never announced stayed hard (2 of 7). Ten of 18 real-text predictions failed. We did not measure what users want.
 
@@ -70,7 +70,7 @@ Each case has an **early** passage stating the earlier view, a later **announced
 
 **Settings.** *Oracle*: a pair or an item's posts sent as one theme, isolating the model. *End to end*: the shipped theme sort and request builder, unmodified, then the model. *Marker*: "I used to see this differently, but I've changed my mind." placed before post B; *neutral sentence*: "I was reading about this again today." in the same place.
 
-**Model and harness.** Haiku 5.5 through Claude Code subagents, one fresh agent per request (about 4,900 saved replies, all Haiku except about 230 Sonnet). The production prompt is passed verbatim and replies parsed by the production parser. There was no API key, so this is "Haiku in an agent harness"; temperature cannot be set, so key arms were run two or three times.
+**Model and harness.** Haiku 5.5 through Claude Code subagents, one fresh agent per request (4,871 saved replies: 4,644 Haiku, 227 Sonnet). The production prompt is passed verbatim and replies parsed by the production parser. There was no API key, so this is "Haiku in an agent harness"; temperature cannot be set, so key arms were run two or three times.
 
 **Prompts compared.** *Production*: the shipped prompt. *Rewrite*: production with a time-anchored definition and no empty-list default. *genX*: a generic "find contradictions" prompt plus production's exclusion list. *realX*: genX plus one paragraph saying a view the writer formerly held counts. *Naive*: "Where does this person contradict themselves?", no exclusions. Full texts in Appendices B and E.
 
@@ -114,7 +114,7 @@ With the production prompt Haiku found every unsignalled planted reversal (36/36
 
 **The prompt.** On the 40 fresh items, over three runs, the rewrite and genX found 8.0 [4.7, 11.3] and 9.0 [6.0, 12.0] more of the 20 narrated reversals than production and flagged no narrated look-alike. On real development pairs, though, every prompt stayed low (genX 5/21): real authors describe their old view abstractly ("a theory which I formerly held myself"), and genX's own exclusion of "describing someone else's view" catches it. realX adds one paragraph saying a view the writer formerly held counts. Frozen after one development run, it flagged 1 of 82 unseen look-alikes and found 20/20 fresh reversals. On the held-out real set, over three runs, realX found 14/18 and genX 10/18, against production's 3/18; counted by case (found on a majority of runs), 5, 4 and 1 of 6. Unannounced real reversals stayed hard for every prompt (held-out 1-3 of 9).
 
-**The grouping** (Table 6, Appendix D). Model grouping kept 18 of 20 held-out planted conflicts in one group (word sort 11) and, end to end, raised recall from 9/20 to 16/20 with the production prompt (8 gained, 1 lost, p = 0.039) and 18/20 with genX (10-1, p = 0.012), flagging no decoy; every card sat on a planted reversal (53 cards for 18 reversals with genX, because a reversal also pairs with the posts restating its earlier view). On real text the first version failed (1 of 10 development pairs together): it left 46-92 groups per history, mostly of one to three posts. Version 2 groups by the issue a writer could change their mind on; tuned on the development set (4/10), it put 4 of 9 held-out pairs together and, with realX, surfaced 3 of 9 held-out reversals end to end (Darwin, Spencer, Nietzsche on pity), where word grouping surfaces none. It costs about one Haiku call per 30 posts.
+**The grouping** (Table 5, Appendix D). Model grouping kept 18 of 20 held-out planted conflicts in one group (word sort 11) and, end to end, raised recall from 9/20 to 16/20 with the production prompt (8 gained, 1 lost, p = 0.039) and 18/20 with genX (10-1, p = 0.012), flagging no decoy; every card sat on a planted reversal (53 cards for 18 reversals with genX, because a reversal also pairs with the posts restating its earlier view). On real text the first version failed (1 of 10 development pairs together): it left 46-92 groups per history, mostly of one to three posts. Version 2 groups by the issue a writer could change their mind on; tuned on the development set (4/10), it put 4 of 9 held-out pairs together and, with realX, surfaced 3 of 9 held-out reversals end to end (Darwin, Spencer, Nietzsche on pity), where word grouping surfaces none. It costs about one Haiku call per 30 posts.
 
 **Table 4. Each announced reversal** (runs that surfaced the early + announced pair; the shipped pipeline surfaced none). *New view*: the announced passage states the new view. Development realX: its one tuning run.
 
@@ -274,7 +274,7 @@ Every number in this paper is listed with its source file in `paper/RESULTS.md`;
 
 # Appendix D. Paired tests and pipeline losses
 
-**Table 6. End to end** (shipped request builder, one run). Planted: 12 held-out histories (t12-t23). Real: pairs in one group, and reversals surfaced, over the development (10 pairs) and held-out (9) sets; *whole history* sends all 72-124 excerpts of a history in one call, so every pair is together.
+**Table 5. End to end** (shipped request builder, one run). Planted: 12 held-out histories (t12-t23). Real: pairs in one group, and reversals surfaced, over the development (10 pairs) and held-out (9) sets; *whole history* sends all 72-124 excerpts of a history in one call, so every pair is together.
 
 | Grouping + prompt | Planted positives /20 | Planted decoys /40 | Cards (planted) | Real pairs together (dev, held-out) | Real surfaced (dev, held-out) |
 |---|---|---|---|---|---|
@@ -287,7 +287,7 @@ Every number in this paper is listed with its source file in `paper/RESULTS.md`;
 | Whole history + naive prompt (one call; majority of 3 runs) | – | – | – | all | 3/10, 3/9 |
 | **Whole history + realX** (one call; majority of 3 runs) | – | – | – | all | **4/10, 4/9** |
 
-**Table 5.** Each prompt variant (run 1 only; Table 3 uses all runs) against production on the same 36 marked planted items and 10 marked reversals: items gained and lost, exact McNemar p, and the Holm-adjusted p over the five ablations.
+**Table 6.** Each prompt variant (run 1 only; Table 3 uses all runs) against production on the same 36 marked planted items and 10 marked reversals: items gained and lost, exact McNemar p, and the Holm-adjusted p over the five ablations.
 
 | Variant | Planted: gained-lost | p | Holm p | Reversals: gained-lost | p |
 |---|---|---|---|---|---|
