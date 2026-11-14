@@ -258,3 +258,7 @@ Unnamed decoy types (the exclusion list does not name them): GPT-written D6 hypo
 | One-shot test on fresh2 (Lyell x2, Besant, Darwin on Glen Roy, Buckland, Sedgwick), deployed configuration: 6/6 cases, 18/18 looks, controls 0; production 1/6; strict key pairs 22/27 vs 1/9 | v18b_scores.json fresh2, requests_v18c_*.jsonl |
 | Deployed: Amphi main 34bfd61e (web Vercel success); API redeployed by hand, aliased to amphi-api.vercel.app, /health 200 | git log, vercel output |
 | Harness fault found and fixed: 12 of 36 v18 subagents declined the eval step and replied with text containing "ok", which the runner counted; the runner now requires a bare "ok" and states the task source; missing replies re-run | haiku-ids runner, journal |
+| Merged-look control flags (two runs of one prompt per look), longer excerpts: changes x2 0.5 per look (dev), 1.0 (fresh 1); realX x2 0, 0 | v18b_scores.json summary merged_controls_per_look |
+| Fresh set 2 counting the two Lyell cases (same two works) as one: deployed 5/5, production 1/5 | v18b_scores.json cases (final, production) |
+| Appendix F tally after round 18: 42 rows; 3 without a numeric prediction, 1 untestable; 38 numeric, 16 failed (planted 4 of 16, real text 12 of 22). The earlier "35 numeric" count was one too many (34) | paper.md Appendix F, counted by script |
+| Production prompt, whole history: mean pairs returned per history 0.3 (dev), 0.0 (fresh 1), 0.2 (fresh 2) | v18b_scores.json pairs_per_history_run |

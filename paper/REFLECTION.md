@@ -208,3 +208,9 @@ Next round, from these: rewrite the abstract and 4.3 around "both the split and 
 4. **Process:** subagents declined 12 eval calls and the runner counted their prose as "ok" (it matched /ok/ inside other words). Now the runner requires a bare "ok" and every round checks files exist.
 5. **Result:** deployed configuration 6/6 on fresh2 (18/18 looks, no control flags) vs shipped 1/6. The fresh2 cases (geology, religion) mostly announce the new view, so they may be easier than fresh1; both fresh sets are reported.
 6. **Framing change (with the user):** the paper is an audit method that found and fixed a hidden failure, with Persona as the case; not a claim that the tool is good.
+
+## Constructive judging after the audit reframe (round 18)
+
+- **Scores:** Impact 3/3/3, Execution 3/4/3.5, Presentation 3/3/3. The reframe did not move them; every judge's top ask is the same: run naive and realX alone on fresh set 2 (the deployed two-prompt design is not shown necessary there), then a prior-art-style prompt (ContraDoc/BeliefShift-like) on all 24 histories, then a human check of the Claude labellers.
+- **Facts fixed:** prediction tally (38 numeric, 16 failed; the old 35 was one too many), merged-look controls now in the scores file, 7-9 (not 7-10) non-genuine cards, 0.0-0.3 is a mean, looks not runs, Lyell counted once (5/5 vs 1/5), and the marker cliff stated as specific to the shipped prompt.
+- **Belief -> change:** I thought the untouched 6/6 would carry Impact. Judges read it as unproven necessity without the simple arms beside it. The cheap next step is those arms on fresh set 2 (about 36 Haiku calls plus labels); held for the user's call because they asked to stop polishing the full paper.

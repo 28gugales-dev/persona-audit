@@ -74,6 +74,7 @@ for arm, cs in out.items():
             row['merged_majority'] = sum(sum(h) * 2 > len(h) for h in looks.values())
             row['merged_mean'] = round(sum(sum(h) / len(h) for h in looks.values()), 2)
             row['merged_missed'] = [c for c, h in looks.items() if sum(h) * 2 <= len(h)]
+            row['merged_controls_per_look'] = round(sum(sum(x['controls'][i] or x['controls'][i + 1] for i in range(0, 2 * row['merged_looks'], 2)) for x in v.values()) / row['merged_looks'], 2)
         summary[f'{arm}/{s}'] = row
 json.dump({'summary': summary, 'cases': out, 'unlabelled': sorted(unl)}, open(f'{R}/v18b_scores.json', 'w'), indent=1)
 for k, v in summary.items(): print(k, {x: y for x, y in v.items()})
