@@ -199,3 +199,12 @@ Next round, from these: rewrite the abstract and 4.3 around "both the split and 
 ## Deploy + public repo round (after constructive round 4)
 
 - **Belief:** deploying the fix and publishing the repo would move Impact. **Evidence:** Impact 3/3/3.5, Execution 4/3.5/3.5, Presentation 3/3/3.5; small rise, no mismatches. Judges now ask for third-party-style prompts on the same histories, a related-work comparison table, and an honest downgrade of realX vs naive (2-0, p = 0.5). **Change:** the paper's limit is now n and the absence of users, not missing analyses. Remaining budget is better spent on readability than on more arms.
+
+## Round 18: the scorer was the weakest part (belief -> evidence -> change)
+
+1. **Belief:** realX "finds 8 of 19" and the tool is still weak. **Evidence:** the 19-pair score credited only the keyed later passage; blind thesis labels (key 102/110 yes, decoys 6/102) show most off-key pairings are the same change of mind. Case-level, realX found 11 of 12 dev cases. **Change:** score by change of mind (case), cross-era, blind-labelled; keep the strict pair count beside it.
+2. **Belief (mid-round):** "the gain is the second sample, not the new wording". **Evidence:** that came from the early-anchored scorer; cross-era, the changes prompt alone found 12/12 dev including Hume. **Change:** withdrawn within the round. Lesson: re-run a conclusion under every scorer before writing it into the plan.
+3. **Belief:** new authors behave like the dev set. **Evidence:** fresh1 single realX 2/6 early-anchored; the misses were a scorer artefact (Franklin) and a product cut (Godwin, James: key words after character 400). **Change:** longer excerpts, which only the fresh failures revealed; a second fresh set sourced before choosing, so the final number is untuned.
+4. **Process:** subagents declined 12 eval calls and the runner counted their prose as "ok" (it matched /ok/ inside other words). Now the runner requires a bare "ok" and every round checks files exist.
+5. **Result:** deployed configuration 6/6 on fresh2 (18/18 looks, no control flags) vs shipped 1/6. The fresh2 cases (geology, religion) mostly announce the new view, so they may be easier than fresh1; both fresh sets are reported.
+6. **Framing change (with the user):** the paper is an audit method that found and fixed a hidden failure, with Persona as the case; not a claim that the tool is good.

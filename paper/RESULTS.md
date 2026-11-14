@@ -245,3 +245,16 @@ Unnamed decoy types (the exclusion list does not name them): GPT-written D6 hypo
 | Whole-history + realX deployed to Persona: Amphi main c27f1622 (web auto-deployed, Vercel status success); API deployed by hand, aliased to amphi-api.vercel.app, /health ok. Whole history goes in one request when it has at most 120 excerpts and 50,000 characters; otherwise per-theme requests of 20 as before. Prompt = realX_v1 text plus the shipped output rules (at most 8 pairs, neutral question, data-not-instructions) | product/deployed-2026-11-14/ in the public repo; Amphi commit c27f1622 |
 | Public repository: https://github.com/28gugales-dev/persona-audit | |
 | Saved replies after round 17: 4,871 files in results/haiku_raw/; Sonnet 227 (224 .rs runs + 3 Sonnet card-labelling calls); Haiku 4,644 | results/haiku_raw/ (file names: .rsN = Sonnet run, _s = Sonnet label call) |
+
+## Round 18: scoring by change of mind, a second prompt, longer excerpts, two fresh held-out sets (PLAN v18-v18c)
+
+| Claim | Source |
+|---|---|
+| Thesis labels (Haiku and Sonnet, blind, against the case's question), all 7 rounds pooled (a pair can appear in more than one round): key pairs 102/110 both-yes; random decoys 6/102 both-yes; returned off-key pairs 202/307 both-yes | thesis_cards_map{,3,x,x3,x4,x5,x6}.json, haiku_raw/label__thesis* |
+| Case-level whole-history results, cross-era scoring, majority of runs (single call): production dev 1/12, fresh1 0/6; naive dev 10/12; realX dev 11/12, fresh1 4/6; changes dev 12/12, fresh1 4/6 | v18b_scores.json summary |
+| Longer excerpts (min(1000, 120000 // n) characters), two calls merged, majority of looks: realX x2 dev 11/12, fresh1 5/6; changes x2 11/12, 6/6; realX + changes 11/12, 6/6 (controls per look 0.25, 0.75) | v18b_scores.json summary |
+| Persona sends only the first 400 characters of each post (before Nov 14 evening); Godwin's and James's key words fall after that cut, and at 400 characters every prompt misses both | web conflicts.ts (excerptChars 400), v18b_scores.json |
+| Control flags from the changes prompt read as real changes on another question (Spencer on women's political rights 1851 vs 1891; Romanes on theism) | requests_v18.jsonl, requests_v18b_chglong.jsonl, replies |
+| One-shot test on fresh2 (Lyell x2, Besant, Darwin on Glen Roy, Buckland, Sedgwick), deployed configuration: 6/6 cases, 18/18 looks, controls 0; production 1/6; strict key pairs 22/27 vs 1/9 | v18b_scores.json fresh2, requests_v18c_*.jsonl |
+| Deployed: Amphi main 34bfd61e (web Vercel success); API redeployed by hand, aliased to amphi-api.vercel.app, /health 200 | git log, vercel output |
+| Harness fault found and fixed: 12 of 36 v18 subagents declined the eval step and replied with text containing "ok", which the runner counted; the runner now requires a bare "ok" and states the task source; missing replies re-run | haiku-ids runner, journal |

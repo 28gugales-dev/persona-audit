@@ -157,3 +157,33 @@ body += f"<rect x='{x0}' y='14' width='12' height='12' fill='{C_WORD}'/>" + text
 body += f"<rect x='{x0 + 270}' y='14' width='12' height='12' fill='{C_WHOLE}'/>" + text(x0 + 287, 24, 'Whole history in one call', 11)
 body += text(18, y0 + ph / 2, 'Pairs surfaced', 11, 'middle', MUTED).replace('<text', f"<text transform='rotate(-90 18 {y0 + ph / 2})'", 1)
 open(f'{F}/fig0_real.svg', 'w').write(svg(W, H, body))
+
+# ---------- Figure 1 (round 18): documented changes of mind found, by set (case level, cross-era, blind labels)
+S18 = json.load(open(f'{R}/v18b_scores.json'))['summary']
+sets = [('dev', 'Development', '12 cases, tuned on'), ('fresh1', 'Fresh set 1', '6 cases, diagnosed on'), ('fresh2', 'Fresh set 2', '6 cases, untouched')]
+arms = [('Shipped prompt, whole history', '#8a8f98', lambda s: S18.get(f'production/{s}', {}).get('single_majority')),
+        ('realX, one call', '#93c5fd', lambda s: S18.get(f'realX/{s}', {}).get('single_majority')),
+        ('Deployed fix', '#1d4ed8', lambda s: S18.get('final/fresh2' if s == 'fresh2' else f'realX+changes_long/{s}', {}).get('merged_majority'))]
+W, H = 640, 250; x0, y0, ph = 70, 40, 130
+body = ''
+for i in range(0, 101, 25):
+    y = y0 + ph - ph * i / 100
+    body += f"<line x1='{x0}' x2='{W - 20}' y1='{y}' y2='{y}' stroke='{GRID}'/>" + text(x0 - 8, y + 4, f'{i}%', 11, 'end', MUTED)
+gw = (W - 20 - x0) / 3; bw = 44
+for g, (key, name, sub) in enumerate(sets):
+    cx = x0 + gw * g + gw / 2; n = S18[f'production/{key}']['n']
+    for j, (_, col, get) in enumerate(arms):
+        k = get(key); bx = cx + (j - 1) * (bw + 8) - bw / 2
+        if k is None:
+            body += text(bx + bw / 2, y0 + ph - 6, 'not run', 10, 'middle', MUTED); continue
+        p = k / n; lo, hi = wilson(k, n); by = y0 + ph - ph * p
+        body += f"<rect x='{bx}' y='{by}' width='{bw}' height='{ph * p}' fill='{col}'/>"
+        body += f"<line x1='{bx + bw / 2}' x2='{bx + bw / 2}' y1='{y0 + ph - ph * lo}' y2='{y0 + ph - ph * hi}' stroke='{INK}' stroke-width='1.2'/>"
+        body += text(bx + bw / 2, min(by, y0 + ph - ph * hi) - 5, f'{k}/{n}', 11, 'middle', INK, 'bold')
+    body += text(cx, y0 + ph + 18, name, 12, 'middle', INK, 'bold') + text(cx, y0 + ph + 33, sub, 10, 'middle', MUTED)
+lx = x0
+for name, col, _ in arms:
+    body += f"<rect x='{lx}' y='12' width='12' height='12' fill='{col}'/>" + text(lx + 17, 22, name, 11); lx += 17 + len(name) * 6.1 + 22
+body += text(18, y0 + ph / 2, 'Cases found', 11, 'middle', MUTED).replace('<text', f"<text transform='rotate(-90 18 {y0 + ph / 2})'", 1)
+open(f'{F}/fig_cases.svg', 'w').write(svg(W, H, body))
+print('fig_cases', {s: [get(s) for _, _, get in arms] for s, _, _ in sets})

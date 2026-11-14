@@ -1,11 +1,11 @@
-# Persona audit: does a belief-mapping tool find real changes of mind?
+# Persona audit: zero false alarms, missing the point
 
 Code, data and every model reply behind the Apart AI x Epistemics sprint paper (Track 3, Nov 13-16, 2026):
-**"A belief-mapping tool misses the changes of mind people announce: an audit on planted items and philosophers' own writing"** — [`paper/paper.pdf`](paper/paper.pdf).
+**"Zero false alarms, missing the point: auditing a belief-mapping tool on philosophers' documented changes of mind"** — [`paper/paper.pdf`](paper/paper.pdf).
 
-Persona (part of [Amphi](https://amphi-forum.org)) reads what a person has written and shows where their views conflict or have changed. We audited the shipped version against answer keys it cannot grade itself on: planted conflicts with known truth, and 13 documented changes of mind in public-domain writing by ten authors (Hume, Peirce, Nietzsche, Kant, Mill, Russell, Darwin, Newman, Spencer, Huxley).
+Persona (part of [Amphi](https://amphi-forum.org)) reads what a person has written and shows where their views conflict or have changed. We audited the shipped version against answer keys it cannot grade itself on: planted conflicts with known truth, and 24 documented changes of mind in public-domain writing (12 development cases by ten authors, then two sets of six sourced later by agents that never saw our prompts).
 
-**Headline:** the shipped pipeline surfaced 0 of 19 real early-to-later pairs. Its word-overlap theme sort never put the two views together, and its prompt found none even when given the whole history. Sending a history that fits in one call, with a prompt that counts a formerly held view (realX), surfaced 8 of 19 (majority of three runs). That fix was deployed to Persona on Nov 14, 2026.
+**Headline:** the shipped prompt raised no false alarms, yet given each whole history it found the change in 2 of 24 cases, and its word-overlap grouping never put a change's two ends together. Four causes: grouping by shared words, a definition that counts only views asserted at once, a 400-character excerpt cut, and retractions that never restate the old view. The repaired configuration (whole history in one call, the realX and changes prompts merged, longer excerpts) found 17 of 18 cases on the sets it was tuned on and 6 of 6, in all three repeated runs, on a third set sourced after it was frozen and deployed to Persona (Nov 14, 2026; shipped prompt 1 of 6). Our first scorer credited only the keyed passage and understated recall; case-level scores use blind Haiku and Sonnet labels calibrated on known pairs (102/110) and decoys (6/102).
 
 ## Layout
 
@@ -18,10 +18,11 @@ Persona (part of [Amphi](https://amphi-forum.org)) reads what a person has writt
 | `paper/data/` | Planted histories and answer keys, hand-written sets, the real-text cases (passages, source URLs, line spans, secondary sources) and histories. |
 | `paper/results/` | Requests sent (`requests_*.jsonl`, with the exact system prompt), every raw model reply (`haiku_raw/`, `raw/`), and scores (`*_scores.json`). |
 | `paper/research/` | Reviews and critiques of the plan written during the sprint. |
-| `evals/conflicts/gen/` | Python scorers and builders. Run from the repo root, e.g. `python3 evals/conflicts/gen/score_v16.py .` (`score_v17.py` needs `uv run --with scikit-learn`). |
+| `evals/conflicts/gen/` | Python scorers and builders. Run from the repo root, e.g. `python3 evals/conflicts/gen/score_v16.py .` (`score_v17.py` needs `uv run --with scikit-learn`; the case-level round-18 scores come from `score_v18b.py`). |
 | `evals/conflicts/src/` | TypeScript request builders. They import Persona's own request builder and prompt, so they ran inside the Amphi monorepo; `src/shipped.ts` pins the Nov 1 prompt. |
 | `product/shipped-2026-11-01/` | The audited product code (request builder, theme sort, prompt, limits) as shipped. |
-| `product/deployed-2026-11-14/` | The same files after the fix: whole history in one request when it fits, realX prompt. |
+| `product/deployed-2026-11-14/` | After the first fix (afternoon): whole history in one request when it fits, realX prompt. |
+| `product/deployed-2026-11-14-evening/` | The final configuration: realX and changes prompts merged, posts up to 1,000 characters (Amphi main 34bfd61e). |
 
 ## Reproducing numbers
 

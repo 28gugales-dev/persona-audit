@@ -1,0 +1,565 @@
+=== SYSTEM PROMPT ===
+You check pairs of passages by one author against a documented change of mind. Each card gives the QUESTION the author changed his mind on, an EARLIER passage stating his earlier view, and a LATER passage. Answer "yes" only if the later passage, speaking for the author, rejects, abandons, retracts or contradicts the earlier passage's view on that question (stating the new view, or saying the old one was wrong). Answer "no" if the later passage is on another point, merely mentions the topic, describes someone else's view without taking a side, or is consistent with the earlier view. Judge only from the two passages and the question.
+
+Return only JSON: {"labels": [{"card": "<id>", "label": "yes" | "no"}]} with one entry per card.
+
+=== USER MESSAGE ===
+<card id="89e41a08">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+These earnest ones may be informed that I am convinced that art is the highest task and the properly metaphysical activity of this life, as it is understood by the man, to whom, as my sublime protagonist on this path, I would now dedicate this essay.
+</earlier>
+<later>
+Perhaps a few people, or at least my friends, will remember that I made my first plunge into life armed with some errors and some exaggerations, but that, in any case, I began with _hope_ in my heart. In the philosophical pessimism of the nineteenth century, I recognised—who knows by what by-paths of personal experience—the symptom of a higher power of thought, a more triumphant plenitude of life,
+</later>
+</card>
+
+<card id="17848d1b">
+<question>Whether an untested diamond that is never scratched is hard only as a matter of usage (1878 pragmatic maxim, nominalist-leaning) or has a real, though never actualised, hardness (1905 realism about real possibilities).</question>
+<earlier>
+There is absolutely no difference between a hard thing and a soft thing so long as they are not brought to the test. Suppose, then, that a diamond could be crystallized in the midst of a cushion of soft cotton, and should remain there until it was finally burned up. Would it be false to say that that diamond was soft?
+</earlier>
+<later>
+The question is, was that diamond really hard? It is certain that no discernible actual fact determined it to be so. But is its hardness not, nevertheless, a real fact? To say, as the article of Jan. 1878 seems to intend, that it is just as an arbitrary “usage of speech” chooses to arrange its thoughts, is as much as to decide against the reality of the property, since the real is that which is su
+</later>
+</card>
+
+<card id="aefe9adc">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+it is plain that what is sensuously thought is the representation of things as they appear, while the intellectual presentations are the representations of things as they are.
+</earlier>
+<later>
+Idealism consists in the assertion, that there are none but thinking beings, all other things, which we think are perceived in intuition, being nothing but representations in the thinking beings, to which no object external to them corresponds in fact. Whereas I say, that things as objects of our senses existing outside us are given, but we know nothing of what they may be in themselves, knowing o
+</later>
+</card>
+
+<card id="5c1eeb1d">
+<question>Whether a Socialist/Communist organisation of society would destroy individual freedom and so should be opposed (Mill's hostile first-edition treatment of Socialism, later cancelled and replaced by a more favourable one).</question>
+<earlier>
+The perfection of social arrangements would be to secure to all persons complete independence and freedom of action, subject to no restriction but that of not doing injury to others: but the scheme which we are considering abrogates this freedom entirely, and places every action of every member of the community under command.
+</earlier>
+<later>
+In the first place, these poems addressed themselves powerfully to one of the strongest of my pleasurable susceptibilities, the love of rural objects and natural scenery; to which I had been indebted not only for much of the pleasure of my life, but quite recently for relief from one of my longest relapses into depression. In this power of rural beauty over me, there was a foundation laid for taki
+</later>
+</card>
+
+<card id="79da62ab">
+<question>Whether ethics (the law of equal freedom and rights) rests on God's will/purpose (Social Statics) or on a purely naturalistic evolutionary account (Justice, Principles of Ethics).</question>
+<earlier>
+On referring back to Chapter IV., we shall find that the denial of rights amounts to a libel on the Deity. For, as we there saw, that which a man has a right to, is that which God intended for him. And to say that man has no right to freedom of action, is to say that God did not mean him to have it.
+</earlier>
+<later>
+established, and tacitly authorized by the community through its government, there require State - authorizations. As trustee for the nation the government has to decide whether a proposed undertaking — road, canal, railway, dock, &c. — which will so change some tract as to make it permanently useless for ordinary purposes, promises to be of such public utility as to warrant the alienation ; and h
+</later>
+</card>
+
+<card id="be338ec2">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+In these groups there is abundant evidence of variation--none of what is ordinarily understood as progression; and, if the known geological record is to be regarded as even any considerable fragment of the whole, it is inconceivable that any theory of a necessarily progressive development can stand, for the numerous orders and families cited afford no trace of such a process.
+</earlier>
+<later>
+The _Amphibia_ and _Pisces_ tell the same story. There is not a single class of vertebrated animals which, when it first appears, is represented by analogues of the lowest known members of the same class. Therefore, if there is any truth in the doctrine of evolution, every class must be vastly older than the first record of its appearance upon the surface of the globe. But if considerations of thi
+</later>
+</card>
+
+<card id="08ce1bd9">
+<question>Whether tragic art gives a metaphysical comfort and expresses Schopenhauerian metaphysics (The Birth of Tragedy, 1872) or whether that was a mistake to be laughed away (1886 'Attempt at a Self-Criticism').</question>
+<earlier>
+The metaphysical comfort,--with which, as I have here intimated, every true tragedy dismisses us--that, in spite of the perpetual change of phenomena, life at bottom is indestructibly powerful and pleasurable, this comfort appears with corporeal lucidity as the satyric chorus, as the chorus of natural beings, who live ineradicable as it were behind all civilisation, and who, in spite of the ceasel
+</earlier>
+<later>
+No! ye should first of all learn the art of earthly comfort, ye should learn to _laugh,_ my young friends, if ye are at all determined to remain pessimists: if so, you will perhaps, as laughing ones, eventually send all metaphysical comfortism to the devil--and metaphysics first of all!
+</later>
+</card>
+
+<card id="ec6948f3">
+<question>Whether the self-effacing, compassionate 'saint' and idealism are the goal of nature and the highest human ideal (Schopenhauer as Educator, 1874) or pity and idealism are decadent weaknesses to be overcome (Ecce Homo, 1888).</question>
+<earlier>
+Finally, Nature needs the saint. In him the ego has melted away, and the suffering of his life is, practically, no longer felt as individual, but as the spring of the deepest sympathy and intimacy with all living creatures: he sees the wonderful transformation scene that the comedy of "becoming" never reaches, the attainment, at length, of the high state of man after which all nature is striving, 
+</earlier>
+<later>
+It is called a book for free spirits: almost every sentence in it is the expression of a triumph--by means of it I purged myself of everything in me which was foreign to my nature. Idealism is foreign to me: the title of the book means: "Where ye see ideal things I see--human, alas! all-too-human things!" ... I know men better.
+</later>
+</card>
+
+<card id="83c4aae0">
+<question>Whether a Socialist/Communist organisation of society would destroy individual freedom and so should be opposed (Mill's hostile first-edition treatment of Socialism, later cancelled and replaced by a more favourable one).</question>
+<earlier>
+The perfection of social arrangements would be to secure to all persons complete independence and freedom of action, subject to no restriction but that of not doing injury to others: but the scheme which we are considering abrogates this freedom entirely, and places every action of every member of the community under command.
+</earlier>
+<later>
+It would have been wholly inconsistent with my father's ideas of duty, to allow me to acquire impressions contrary to his convictions and feelings respecting religion: and he impressed upon me from the first, that the manner in which the world came into existence was a subject on which nothing was known: that the question, "Who made me?" cannot be answered, because we have no experience or authent
+</later>
+</card>
+
+<card id="4f65b253">
+<question>Whether ethics (the law of equal freedom and rights) rests on God's will/purpose (Social Statics) or on a purely naturalistic evolutionary account (Justice, Principles of Ethics).</question>
+<earlier>
+On referring back to Chapter IV., we shall find that the denial of rights amounts to a libel on the Deity. For, as we there saw, that which a man has a right to, is that which God intended for him. And to say that man has no right to freedom of action, is to say that God did not mean him to have it.
+</earlier>
+<later>
+unduly exalted conception of State-authority (which is natural and in large measure necessary) fosters a multi plicity of tmjust State-actions; there remains, from an ethical point of view, no more to be said. But it will be desirable here to devote some space to the proofs that these actions which are unjust in theory are also impolitic in practice.
+</later>
+</card>
+
+<card id="36f70d6b">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+We must take and deal with things as they are, not as they pretend to be. If we are induced to believe the professions of Rome, and make advances towards her as if a sister or a mother Church, which in theory she is, we shall find too late that we are in the arms of a pitiless and unnatural relative, who will but triumph in the arts which have inveigled us within her reach.
+</earlier>
+<later>
+"For myself, I found _I could not_ hold them. I left them. From the time I began to suspect their unsoundness, I ceased to put them forward. When I was fairly sure of their unsoundness, I gave up my Living. When I was fully confident that the Church of Rome was the only true Church, I joined her.
+</later>
+</card>
+
+<card id="0402ea3c">
+<question>Whether the mind is nothing but a bundle of perceptions with no real connexion among them that can ground personal identity (Hume first asserts the bundle view, then confesses he cannot render his own principles consistent).</question>
+<earlier>
+But setting aside some metaphysicians of this kind, I may venture to affirm of the rest of mankind, that they are nothing but a bundle or collection of different perceptions, which succeed each other with an inconceivable rapidity, and are in a perpetual flux and movement.
+</earlier>
+<later>
+When I view this table and that chimney, nothing is present to me but particular perceptions, which are of a like nature with all the other perceptions. This is the doctrine of philosophers. But this table, which is present to me, and the chimney, may and do exist separately. This is the doctrine of the vulgar, and implies no contradiction. There is no contradiction, therefore, in extending the sa
+</later>
+</card>
+
+<card id="1fcff885">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+These earnest ones may be informed that I am convinced that art is the highest task and the properly metaphysical activity of this life, as it is understood by the man, to whom, as my sublime protagonist on this path, I would now dedicate this essay.
+</earlier>
+<later>
+I place this point of view first and foremost: Wagner’s art is diseased. The problems he sets on the stage are all concerned with hysteria; the convulsiveness of his emotions, his over-excited sensitiveness, his taste which demands ever sharper condimentation, his erraticness which he togged out to look like principles, and, last but not least, his choice of heroes and heroines, considered as phys
+</later>
+</card>
+
+<card id="74a5f9ff">
+<question>Whether the self-effacing, compassionate 'saint' and idealism are the goal of nature and the highest human ideal (Schopenhauer as Educator, 1874) or pity and idealism are decadent weaknesses to be overcome (Ecce Homo, 1888).</question>
+<earlier>
+Finally, Nature needs the saint. In him the ego has melted away, and the suffering of his life is, practically, no longer felt as individual, but as the spring of the deepest sympathy and intimacy with all living creatures: he sees the wonderful transformation scene that the comedy of "becoming" never reaches, the attainment, at length, of the high state of man after which all nature is striving, 
+</earlier>
+<later>
+War, on the other hand, is something different. At heart I am a warrior. Attacking belongs to my instincts. To _be able to be_ an enemy, to _be_ an enemy--maybe these things presuppose a strong nature; in any case all strong natures involve these things. Such natures need resistance, consequently they go in search of obstacles: the pathos of aggression belongs of necessity to strength as much as t
+</later>
+</card>
+
+<card id="718257d1">
+<question>Whether mental phenomena are essentially a relation of acquaintance/consciousness between a subject and an object (Problems of Philosophy 1912) or whether that theory is to be refuted (Analysis of Mind 1921, moving to neutral monism).</question>
+<earlier>
+When I am acquainted with 'my seeing the sun', it seems plain that I am acquainted with two different things in relation to each other. On the one hand there is the sense-datum which represents the sun to me, on the other hand there is that which sees this sense-datum. All acquaintance, such as my acquaintance with the sense-datum which represents the sun, seems obviously a relation between the pe
+</earlier>
+<later>
+Judgments of perception, such as "this buttercup is yellow," are in a quite different position from judgments of logic, and their self-evidence must have a different explanation. In order to arrive at the nucleus of such a judgment, we will eliminate, as far as possible, the use of words which take us beyond the present fact, such as "buttercup" and "yellow." The simplest kind of judgment underlyi
+</later>
+</card>
+
+<card id="566bb00d">
+<question>Whether every detail of an organism's structure must be explained as useful (adaptive), i.e. as shaped by natural selection (Darwin first says every detail is of use to the organism or its ancestors, later admits structures that are neither beneficial nor injurious and that he over-attributed to natural selection).</question>
+<earlier>
+Hence every detail of structure in every living creature (making some little allowance for the direct action of physical conditions) may be viewed, either as having been of special use to some ancestral form, or as being now of special use to the descendants of this form—either directly, or indirectly through the complex laws of growth.
+</earlier>
+<later>
+We can, in our ignorance of most of the lowest animals, only say that their bright tints result either from the chemical nature or the minute structure of their tissues, independently of any benefit thus derived. Hardly any colour is finer than that of arterial blood; but there is no reason to suppose that the colour of the blood is in itself any advantage; and though it adds to the beauty of the 
+</later>
+</card>
+
+<card id="314a56b6">
+<question>Whether every detail of an organism's structure must be explained as useful (adaptive), i.e. as shaped by natural selection (Darwin first says every detail is of use to the organism or its ancestors, later admits structures that are neither beneficial nor injurious and that he over-attributed to natural selection).</question>
+<earlier>
+Hence every detail of structure in every living creature (making some little allowance for the direct action of physical conditions) may be viewed, either as having been of special use to some ancestral form, or as being now of special use to the descendants of this form—either directly, or indirectly through the complex laws of growth.
+</earlier>
+<later>
+So far as the structure of the adult brain is concerned, then, the very considerable additions to our knowledge, which have been made by the researches of so many investigators, during the past ten years, fully justify the statement which I made in 1863. But it has been said, that, admitting the similarity between the adult brains of man and apes, they are nevertheless, in reality, widely differen
+</later>
+</card>
+
+<card id="5fe9c6d4">
+<question>Whether the mind is nothing but a bundle of perceptions with no real connexion among them that can ground personal identity (Hume first asserts the bundle view, then confesses he cannot render his own principles consistent).</question>
+<earlier>
+But setting aside some metaphysicians of this kind, I may venture to affirm of the rest of mankind, that they are nothing but a bundle or collection of different perceptions, which succeed each other with an inconceivable rapidity, and are in a perpetual flux and movement.
+</earlier>
+<later>
+I had entertained some hopes, that however deficient our theory of the intellectual world might be, it would be free from those contradictions, and absurdities, which seem to attend every explication, that human reason can give of the material world. But upon a more strict review of the section concerning personal identity, I find myself involved in such a labyrinth, that, I must confess, I neithe
+</later>
+</card>
+
+<card id="4ede0315">
+<question>Whether a Socialist/Communist organisation of society would destroy individual freedom and so should be opposed (Mill's hostile first-edition treatment of Socialism, later cancelled and replaced by a more favourable one).</question>
+<earlier>
+The perfection of social arrangements would be to secure to all persons complete independence and freedom of action, subject to no restriction but that of not doing injury to others: but the scheme which we are considering abrogates this freedom entirely, and places every action of every member of the community under command.
+</earlier>
+<later>
+In the first edition the difficulties of Socialism were stated so strongly, that the tone was on the whole that of opposition to it. In the year or two which followed, much time was given to the study of the best Socialistic writers on the Continent, and to meditation and discussion on the whole range of topics involved in the controversy: and the result was that most of what had been written on t
+</later>
+</card>
+
+<card id="4a5ca592">
+<question>Whether the self-effacing, compassionate 'saint' and idealism are the goal of nature and the highest human ideal (Schopenhauer as Educator, 1874) or pity and idealism are decadent weaknesses to be overcome (Ecce Homo, 1888).</question>
+<earlier>
+Finally, Nature needs the saint. In him the ego has melted away, and the suffering of his life is, practically, no longer felt as individual, but as the spring of the deepest sympathy and intimacy with all living creatures: he sees the wonderful transformation scene that the comedy of "becoming" never reaches, the attainment, at length, of the high state of man after which all nature is striving, 
+</earlier>
+<later>
+I am, for instance, in no wise a bogey man, or moral monster. On the contrary, I am the very opposite in nature to the kind of man that has been honoured hitherto as virtuous. Between ourselves, it seems to me that this is precisely a matter on which I may feel proud. I am a disciple of the philosopher Dionysus, and I would prefer to be even a satyr than a saint. But just read this book! Maybe I h
+</later>
+</card>
+
+<card id="b8dfe16b">
+<question>Whether mental phenomena are essentially a relation of acquaintance/consciousness between a subject and an object (Problems of Philosophy 1912) or whether that theory is to be refuted (Analysis of Mind 1921, moving to neutral monism).</question>
+<earlier>
+When I am acquainted with 'my seeing the sun', it seems plain that I am acquainted with two different things in relation to each other. On the one hand there is the sense-datum which represents the sun to me, on the other hand there is that which sees this sense-datum. All acquaintance, such as my acquaintance with the sense-datum which represents the sun, seems obviously a relation between the pe
+</earlier>
+<later>
+The stuff of which the world of our experience is composed is, in my belief, neither mind nor matter, but something more primitive than either. Both mind and matter seem to be composite, and the stuff of which they are compounded lies in a sense between the two, in a sense above them both, like a common ancestor.
+</later>
+</card>
+
+<card id="074be721">
+<question>Whether an untested diamond that is never scratched is hard only as a matter of usage (1878 pragmatic maxim, nominalist-leaning) or has a real, though never actualised, hardness (1905 realism about real possibilities).</question>
+<earlier>
+There is absolutely no difference between a hard thing and a soft thing so long as they are not brought to the test. Suppose, then, that a diamond could be crystallized in the midst of a cushion of soft cotton, and should remain there until it was finally burned up. Would it be false to say that that diamond was soft?
+</earlier>
+<later>
+sciousness to be, as it were, a skin, a separate tissue, overlying an unconscious region of the occult nature, mind, soul, or physiological basis. It appears to me that in the present state of our knowledge a sound methodeutic prescribes that, in adhesion to the appearances, the difference is only relative and the demarcation not precise. [
+</later>
+</card>
+
+<card id="b2a7ebde">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+it is plain that what is sensuously thought is the representation of things as they appear, while the intellectual presentations are the representations of things as they are.
+</earlier>
+<later>
+Hence if the pure concepts of the understanding do not refer to objects of experience but to things in themselves (noumena), they have no signification whatever. They serve, as it were, only to decipher appearances, that we may be able to read them as experience. The principles which arise from their reference to the sensible world, only serve our understanding for empirical use.
+</later>
+</card>
+
+<card id="81318b75">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+We must take and deal with things as they are, not as they pretend to be. If we are induced to believe the professions of Rome, and make advances towards her as if a sister or a mother Church, which in theory she is, we shall find too late that we are in the arms of a pitiless and unnatural relative, who will but triumph in the arts which have inveigled us within her reach.
+</earlier>
+<later>
+I had one final advance of mind to accomplish, and one final step to take. That further advance of mind was to be able honestly to say that I was _certain_ of the conclusions at which I had already arrived. That further step, imperative when such certitude was attained, was my _submission_ to the Catholic Church.
+</later>
+</card>
+
+<card id="a6ec70fb">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+In these groups there is abundant evidence of variation--none of what is ordinarily understood as progression; and, if the known geological record is to be regarded as even any considerable fragment of the whole, it is inconceivable that any theory of a necessarily progressive development can stand, for the numerous orders and families cited afford no trace of such a process.
+</earlier>
+<later>
+In the Triassic epoch, the distribution of the dry land and of terrestrial vertebrate life appears to have been, generally, similar to that which existed in the Mesozoic epoch; so that the Triassic continents and their faunae seem to be related to the Mesozoic lands and their faunae, just as those of the Miocene epoch are related to those of the present day. In fact, as I have recently endeavoured
+</later>
+</card>
+
+<card id="b0be9ab0">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+We must take and deal with things as they are, not as they pretend to be. If we are induced to believe the professions of Rome, and make advances towards her as if a sister or a mother Church, which in theory she is, we shall find too late that we are in the arms of a pitiless and unnatural relative, who will but triumph in the arts which have inveigled us within her reach.
+</earlier>
+<later>
+Christmas Bay, 1841. "I have been dreaming of Moberly all night. Should not he and the like see, that it is unwise, unfair, and impatient to ask others, What will you do under circumstances, which have not, which may never come? Why bring fear, suspicion, and disunion into the camp about things which are merely _in posse_? Natural, and exceedingly kind as Barter's and another friend's letters were
+</later>
+</card>
+
+<card id="2dfb50b9">
+<question>Whether the mind is nothing but a bundle of perceptions with no real connexion among them that can ground personal identity (Hume first asserts the bundle view, then confesses he cannot render his own principles consistent).</question>
+<earlier>
+But setting aside some metaphysicians of this kind, I may venture to affirm of the rest of mankind, that they are nothing but a bundle or collection of different perceptions, which succeed each other with an inconceivable rapidity, and are in a perpetual flux and movement.
+</earlier>
+<later>
+When we talk of self or substance, we must have an idea annexed to these terms, otherwise they are altogether unintelligible. Every idea is derived from preceding impressions; and we have no impression of self or substance, as something simple and individual. We have, therefore, no idea of them in that sense.
+</later>
+</card>
+
+<card id="be888cb2">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+it is plain that what is sensuously thought is the representation of things as they appear, while the intellectual presentations are the representations of things as they are.
+</earlier>
+<later>
+But if I venture to go beyond all possible experience with my notions of space and time, which I cannot refrain from doing if I proclaim them qualities inherent in things in themselves (for what should prevent me from letting them hold good of the same things, even though my senses might be different, and unsuited to them?), then a grave error may arise due to illusion, for thus I would proclaim t
+</later>
+</card>
+
+<card id="3af6edfd">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+We must take and deal with things as they are, not as they pretend to be. If we are induced to believe the professions of Rome, and make advances towards her as if a sister or a mother Church, which in theory she is, we shall find too late that we are in the arms of a pitiless and unnatural relative, who will but triumph in the arts which have inveigled us within her reach.
+</earlier>
+<later>
+"May 4, 1843.... At present I fear, as far as I can analyze my own convictions, I consider the Roman Catholic Communion to be the Church of the Apostles, and that what grace is among us (which, through God's mercy, is not little) is extraordinary, and from the overflowings of His dispensation. I am very far more sure that England is in schism, than that the Roman additions to the Primitive Creed m
+</later>
+</card>
+
+<card id="9141921f">
+<question>Whether tragic art gives a metaphysical comfort and expresses Schopenhauerian metaphysics (The Birth of Tragedy, 1872) or whether that was a mistake to be laughed away (1886 'Attempt at a Self-Criticism').</question>
+<earlier>
+The metaphysical comfort,--with which, as I have here intimated, every true tragedy dismisses us--that, in spite of the perpetual change of phenomena, life at bottom is indestructibly powerful and pleasurable, this comfort appears with corporeal lucidity as the satyric chorus, as the chorus of natural beings, who live ineradicable as it were behind all civilisation, and who, in spite of the ceasel
+</earlier>
+<later>
+We can thus guess where the great note of interrogation concerning the value of existence had been set. Is pessimism _necessarily_ the sign of decline, of decay, of failure, of exhausted and weakened instincts?--as was the case with the Indians, as is, to all appearance, the case with us "modern" men and Europeans? Is there a pessimism of _strength_? An intellectual predilection for what is hard, 
+</later>
+</card>
+
+<card id="027ffd69">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+In these groups there is abundant evidence of variation--none of what is ordinarily understood as progression; and, if the known geological record is to be regarded as even any considerable fragment of the whole, it is inconceivable that any theory of a necessarily progressive development can stand, for the numerous orders and families cited afford no trace of such a process.
+</earlier>
+<later>
+When I addressed you in 1862, I should have been bold indeed had I suggested that palaeontology would before long show us the possibility of a direct transition from the type of the lizard to that of the ostrich. At the present moment, we have, in the _Ornithoscelida_, the intercalary type, which proves that transition to be something more than a possibility; but it is very doubtful whether any of
+</later>
+</card>
+
+<card id="d3eddb4b">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+it is plain that what is sensuously thought is the representation of things as they appear, while the intellectual presentations are the representations of things as they are.
+</earlier>
+<later>
+I term this idea cosmological, because it always takes its object only from the sensible world, and does not use any other than those whose object is given to sense, consequently it remains in this respect in its native home, it does not become transcendent, and is therefore so far not mere idea; whereas, to conceive the soul as a simple substance, already means to conceive such an object (the sim
+</later>
+</card>
+
+<card id="660a52ee">
+<question>Whether mental phenomena are essentially a relation of acquaintance/consciousness between a subject and an object (Problems of Philosophy 1912) or whether that theory is to be refuted (Analysis of Mind 1921, moving to neutral monism).</question>
+<earlier>
+When I am acquainted with 'my seeing the sun', it seems plain that I am acquainted with two different things in relation to each other. On the one hand there is the sense-datum which represents the sun to me, on the other hand there is that which sees this sense-datum. All acquaintance, such as my acquaintance with the sense-datum which represents the sun, seems obviously a relation between the pe
+</earlier>
+<later>
+In this lecture we shall be concerned with a very general characteristic which broadly, though not absolutely, distinguishes the behaviour of living organisms from that of dead matter. The characteristic in question is this:
+</later>
+</card>
+
+<card id="53343e8a">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+In these groups there is abundant evidence of variation--none of what is ordinarily understood as progression; and, if the known geological record is to be regarded as even any considerable fragment of the whole, it is inconceivable that any theory of a necessarily progressive development can stand, for the numerous orders and families cited afford no trace of such a process.
+</earlier>
+<later>
+But if it can be shown that A, B, and C exhibit successive stages in the degree of modification, or specialisation, of the same type; and if, further, it can be proved that they occur in successively newer deposits, A being in the oldest and C in the newest, then the intermediate character of B has quite another importance, and I should accept it, without hesitation, as a link in the genealogy of 
+</later>
+</card>
+
+<card id="12f7f051">
+<question>Whether tragic art gives a metaphysical comfort and expresses Schopenhauerian metaphysics (The Birth of Tragedy, 1872) or whether that was a mistake to be laughed away (1886 'Attempt at a Self-Criticism').</question>
+<earlier>
+The metaphysical comfort,--with which, as I have here intimated, every true tragedy dismisses us--that, in spite of the perpetual change of phenomena, life at bottom is indestructibly powerful and pleasurable, this comfort appears with corporeal lucidity as the satyric chorus, as the chorus of natural beings, who live ineradicable as it were behind all civilisation, and who, in spite of the ceasel
+</earlier>
+<later>
+Let us imagine a rising generation with this undauntedness of vision, with this heroic impulse towards the prodigious, let us imagine the bold step of these dragon-slayers, the proud daring with which they turn their backs on all the effeminate doctrines of optimism, in order "to live resolutely" in the Whole and in the Full: _would it not be necessary_ for the tragic man of this culture, with his
+</later>
+</card>
+
+<card id="bfa99c3a">
+<question>Whether the self-effacing, compassionate 'saint' and idealism are the goal of nature and the highest human ideal (Schopenhauer as Educator, 1874) or pity and idealism are decadent weaknesses to be overcome (Ecce Homo, 1888).</question>
+<earlier>
+Finally, Nature needs the saint. In him the ego has melted away, and the suffering of his life is, practically, no longer felt as individual, but as the spring of the deepest sympathy and intimacy with all living creatures: he sees the wonderful transformation scene that the comedy of "becoming" never reaches, the attainment, at length, of the high state of man after which all nature is striving, 
+</earlier>
+<later>
+I am to a great extent aware of my privileges as a writer: in one or two cases it has even been brought home to me how very much the habitual > reading of my works "spoils" a man's taste. Other books simply cannot be endured after mine, and least of all philosophical ones. It is an incomparable distinction to cross the threshold of this noble and subtle world--in order to do so one must certainly 
+</later>
+</card>
+
+<card id="3abfa885">
+<question>Whether mental phenomena are essentially a relation of acquaintance/consciousness between a subject and an object (Problems of Philosophy 1912) or whether that theory is to be refuted (Analysis of Mind 1921, moving to neutral monism).</question>
+<earlier>
+When I am acquainted with 'my seeing the sun', it seems plain that I am acquainted with two different things in relation to each other. On the one hand there is the sense-datum which represents the sun to me, on the other hand there is that which sees this sense-datum. All acquaintance, such as my acquaintance with the sense-datum which represents the sun, seems obviously a relation between the pe
+</earlier>
+<later>
+In this first lecture I shall be concerned to refute a theory which is widely held, and which I formerly held myself: the theory that the essence of everything mental is a certain quite peculiar something called "consciousness," conceived either as a relation to objects, or as a pervading quality of psychical phenomena.
+</later>
+</card>
+
+<card id="6efcc193">
+<question>Whether every detail of an organism's structure must be explained as useful (adaptive), i.e. as shaped by natural selection (Darwin first says every detail is of use to the organism or its ancestors, later admits structures that are neither beneficial nor injurious and that he over-attributed to natural selection).</question>
+<earlier>
+Hence every detail of structure in every living creature (making some little allowance for the direct action of physical conditions) may be viewed, either as having been of special use to some ancestral form, or as being now of special use to the descendants of this form—either directly, or indirectly through the complex laws of growth.
+</earlier>
+<later>
+A most remarkable distinction between the sexes of many beetles is presented by the great horns which rise from the head, thorax, and clypeus of the males; and in some few cases from the under surface of the body. These horns, in the great family of the Lamellicorns, resemble those of various quadrupeds, such as stags, rhinoceroses, etc., and are wonderful both from their size and diversified shap
+</later>
+</card>
+
+<card id="5414b2b8">
+<question>Whether ethics (the law of equal freedom and rights) rests on God's will/purpose (Social Statics) or on a purely naturalistic evolutionary account (Justice, Principles of Ethics).</question>
+<earlier>
+On referring back to Chapter IV., we shall find that the denial of rights amounts to a libel on the Deity. For, as we there saw, that which a man has a right to, is that which God intended for him. And to say that man has no right to freedom of action, is to say that God did not mean him to have it.
+</earlier>
+<later>
+As, from the evolution point of view, human life must be regarded as a further development of sub-human life, it follows that from this same point of view, human justice must be a further development of sub-huma'n justice. For convenience the two are here separately treated, but they are essentially of the same nature, and form parts of a continuous whole.
+</later>
+</card>
+
+<card id="40c8399b">
+<question>Whether an untested diamond that is never scratched is hard only as a matter of usage (1878 pragmatic maxim, nominalist-leaning) or has a real, though never actualised, hardness (1905 realism about real possibilities).</question>
+<earlier>
+There is absolutely no difference between a hard thing and a soft thing so long as they are not brought to the test. Suppose, then, that a diamond could be crystallized in the midst of a cushion of soft cotton, and should remain there until it was finally burned up. Would it be false to say that that diamond was soft?
+</earlier>
+<later>
+I beg my reader also to believe that it would be impossible for me to put into these articles over two per cent. of the pertinent thought which would be necessary in order to present the subject as I have worked it out. I can only make a small selection of what it seems most desirable to submit to his judgment. Not only must all steps be omitted which he can be expected to supply for himself, but 
+</later>
+</card>
+
+<card id="30c4161a">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+In these groups there is abundant evidence of variation--none of what is ordinarily understood as progression; and, if the known geological record is to be regarded as even any considerable fragment of the whole, it is inconceivable that any theory of a necessarily progressive development can stand, for the numerous orders and families cited afford no trace of such a process.
+</earlier>
+<later>
+Again, the skeleton of _Anchitherium_ is extremely equine. M. Christol goes so far as to say that the description of the bones of the horse, or the ass, current in veterinary works, would fit those of _Anchitherium_. And, in a general way, this may be true enough; but there are some most important differences, which, indeed, are justly indicated by the same careful observer. Thus the ulna is compl
+</later>
+</card>
+
+<card id="e21be432">
+<question>Whether the mind is nothing but a bundle of perceptions with no real connexion among them that can ground personal identity (Hume first asserts the bundle view, then confesses he cannot render his own principles consistent).</question>
+<earlier>
+But setting aside some metaphysicians of this kind, I may venture to affirm of the rest of mankind, that they are nothing but a bundle or collection of different perceptions, which succeed each other with an inconceivable rapidity, and are in a perpetual flux and movement.
+</earlier>
+<later>
+This, therefore, being regarded as an undoubted truth, that belief is nothing but a peculiar feeling, different from the simple conception, the next question, that naturally occurs, is, what is the nature of this feeling, or sentiment, and whether it be analogous to any other sentiment of the human mind? This question is important. For if it be not analogous to any other sentiment, we must despair
+</later>
+</card>
+
+<card id="9ed86adc">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+it is plain that what is sensuously thought is the representation of things as they appear, while the intellectual presentations are the representations of things as they are.
+</earlier>
+<later>
+I openly confess, the suggestion of David Hume was the very thing, which many years ago first interrupted my dogmatic slumber, and gave my investigations in the field of speculative philosophy quite a new direction.
+</later>
+</card>
+
+<card id="11703781">
+<question>Whether the self-effacing, compassionate 'saint' and idealism are the goal of nature and the highest human ideal (Schopenhauer as Educator, 1874) or pity and idealism are decadent weaknesses to be overcome (Ecce Homo, 1888).</question>
+<earlier>
+Finally, Nature needs the saint. In him the ego has melted away, and the suffering of his life is, practically, no longer felt as individual, but as the spring of the deepest sympathy and intimacy with all living creatures: he sees the wonderful transformation scene that the comedy of "becoming" never reaches, the attainment, at length, of the high state of man after which all nature is striving, 
+</earlier>
+<later>
+What I reproach the pitiful with is, that they are too ready to forget shame, reverence, and the delicacy of feeling which knows how to keep at a distance; they do not remember that this gushing pity stinks of the mob, and that it is next of kin to bad manners--that pitiful hands may be thrust with results fatally destructive into a great destiny, into a lonely and wounded retirement, and into the
+</later>
+</card>
+
+<card id="ec1c0e20">
+<question>Whether every detail of an organism's structure must be explained as useful (adaptive), i.e. as shaped by natural selection (Darwin first says every detail is of use to the organism or its ancestors, later admits structures that are neither beneficial nor injurious and that he over-attributed to natural selection).</question>
+<earlier>
+Hence every detail of structure in every living creature (making some little allowance for the direct action of physical conditions) may be viewed, either as having been of special use to some ancestral form, or as being now of special use to the descendants of this form—either directly, or indirectly through the complex laws of growth.
+</earlier>
+<later>
+Nevertheless, I did not formerly consider sufficiently the existence of structures, which, as far as we can at present judge, are neither beneficial nor injurious; and this I believe to be one of the greatest oversights as yet detected in my work.
+</later>
+</card>
+
+<card id="7d1e61bd">
+<question>Whether tragic art gives a metaphysical comfort and expresses Schopenhauerian metaphysics (The Birth of Tragedy, 1872) or whether that was a mistake to be laughed away (1886 'Attempt at a Self-Criticism').</question>
+<earlier>
+The metaphysical comfort,--with which, as I have here intimated, every true tragedy dismisses us--that, in spite of the perpetual change of phenomena, life at bottom is indestructibly powerful and pleasurable, this comfort appears with corporeal lucidity as the satyric chorus, as the chorus of natural beings, who live ineradicable as it were behind all civilisation, and who, in spite of the ceasel
+</earlier>
+<later>
+How I now regret, that I had not then the courage (or immodesty?) to allow myself, in all respects, the use of an _individual language_ for such _individual_ contemplations and ventures in the field of thought--that I laboured to express, in Kantian and Schopenhauerian formulæ, strange and new valuations, which ran fundamentally counter to the spirit of Kant and Schopenhauer, as well as to their t
+</later>
+</card>
+
+<card id="b7299db2">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+These earnest ones may be informed that I am convinced that art is the highest task and the properly metaphysical activity of this life, as it is understood by the man, to whom, as my sublime protagonist on this path, I would now dedicate this essay.
+</earlier>
+<later>
+Not that I wish to appear ungrateful to this disease. If in this essay I support the proposition that Wagner is _harmful_, I none the less wish to point out unto whom, in spite of all, he is indispensable—to the philosopher. Anyone else may perhaps be able to get on without Wagner: but the philosopher is not free to pass him by. The philosopher must be the evil conscience of his age,—but to this e
+</later>
+</card>
+
+<card id="d46e4003">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+These earnest ones may be informed that I am convinced that art is the highest task and the properly metaphysical activity of this life, as it is understood by the man, to whom, as my sublime protagonist on this path, I would now dedicate this essay.
+</earlier>
+<later>
+The rarest of all things is this: to have after all another taste—a _second_ taste. Out of such abysses, out of the abyss of _great suspicion_ as well, a man returns as though born again, he has a new skin, he is more susceptible, more full of wickedness; he has a finer taste for joyfulness; he has a more sensitive tongue for all good things; his senses are more cheerful; he has acquired a second,
+</later>
+</card>
+
+<card id="fabb5b3f">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+We must take and deal with things as they are, not as they pretend to be. If we are induced to believe the professions of Rome, and make advances towards her as if a sister or a mother Church, which in theory she is, we shall find too late that we are in the arms of a pitiless and unnatural relative, who will but triumph in the arts which have inveigled us within her reach.
+</earlier>
+<later>
+But now, as to the third point on which I stood in 1833, and which I have utterly renounced and trampled upon since,--my then view of the Church of Rome;--I will speak about it as exactly as I can. When I was young, as I have said already, and after I was grown up, I thought the Pope to be Antichrist. At Christmas 1824-5 I preached a sermon to that effect.
+</later>
+</card>
+
+<card id="1fafb958">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+These earnest ones may be informed that I am convinced that art is the highest task and the properly metaphysical activity of this life, as it is understood by the man, to whom, as my sublime protagonist on this path, I would now dedicate this essay.
+</earlier>
+<later>
+And yet I was one of the most corrupted Wagnerites.… I was able to take Wagner seriously. Oh, this old magician! what tricks has he not played upon us! The first thing his art places in our hands is a magnifying glass: we look through it, and we no longer trust our own eyes
+</later>
+</card>
+
+<card id="f1586d30">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+In these groups there is abundant evidence of variation--none of what is ordinarily understood as progression; and, if the known geological record is to be regarded as even any considerable fragment of the whole, it is inconceivable that any theory of a necessarily progressive development can stand, for the numerous orders and families cited afford no trace of such a process.
+</earlier>
+<later>
+I propose to attempt to deal with this problem, so far as it is exemplified by the distribution of the terrestrial _Vertebrata_, and I shall endeavour to show you that it is capable of solution in a sense entirely favourable to the doctrine of evolution.
+</later>
+</card>
+
+<card id="f63c12bc">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+In these groups there is abundant evidence of variation--none of what is ordinarily understood as progression; and, if the known geological record is to be regarded as even any considerable fragment of the whole, it is inconceivable that any theory of a necessarily progressive development can stand, for the numerous orders and families cited afford no trace of such a process.
+</earlier>
+<later>
+Now, on the hypothesis of evolution, there is no sort of difficulty in admitting that the differences between the Miocene forms of the mammalian Fauna and those which exist at present are the results of gradual modification; and, since such differences in distribution as obtain are readily explained by the changes which have taken place in the physical geography of the world since the Miocene epoc
+</later>
+</card>
+
+<card id="23c1f1d2">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+These earnest ones may be informed that I am convinced that art is the highest task and the properly metaphysical activity of this life, as it is understood by the man, to whom, as my sublime protagonist on this path, I would now dedicate this essay.
+</earlier>
+<later>
+Even in his general sketch of the action, Wagner is above all an actor. The first thing that occurs to him is a scene which is certain to produce a strong effect, a real _actio_,(10) with a basso-relievo of attitudes; an _overwhelming_ scene, this he now proceeds to elaborate more deeply, and out of it he draws his characters. The whole of what remains to be done follows of itself, fully in keepin
+</later>
+</card>
+
+<card id="34da44f1">
+<question>Whether ethics (the law of equal freedom and rights) rests on God's will/purpose (Social Statics) or on a purely naturalistic evolutionary account (Justice, Principles of Ethics).</question>
+<earlier>
+On referring back to Chapter IV., we shall find that the denial of rights amounts to a libel on the Deity. For, as we there saw, that which a man has a right to, is that which God intended for him. And to say that man has no right to freedom of action, is to say that God did not mean him to have it.
+</earlier>
+<later>
+This work covers a field which, to a considerable extent, coincides with that covered by Social Statics, published in 1850; though the two differ, alike in extent, in form, and partially in their ideas. One difference is that what there was in my first book of supernaturalistic interpretation has disappeared, and the interpretation has become exclusively naturalistic — that is, evolutionary. With 
+</later>
+</card>
+
+<card id="dbb96e1c">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+These earnest ones may be informed that I am convinced that art is the highest task and the properly metaphysical activity of this life, as it is understood by the man, to whom, as my sublime protagonist on this path, I would now dedicate this essay.
+</earlier>
+<later>
+Already in the summer of 1876, when the first festival at Bayreuth was at its height, I took leave of Wagner in my soul. I cannot endure anything double-faced. Since Wagner had returned to Germany, he had condescended step by step to everything that I despise—even to anti-Semitism.… As a matter of fact, it was then high time to bid him farewell: but the proof of this came only too soon. Richard Wa
+</later>
+</card>
+
+<card id="dca97999">
+<question>Whether an untested diamond that is never scratched is hard only as a matter of usage (1878 pragmatic maxim, nominalist-leaning) or has a real, though never actualised, hardness (1905 realism about real possibilities).</question>
+<earlier>
+There is absolutely no difference between a hard thing and a soft thing so long as they are not brought to the test. Suppose, then, that a diamond could be crystallized in the midst of a cushion of soft cotton, and should remain there until it was finally burned up. Would it be false to say that that diamond was soft?
+</earlier>
+<later>
+to bespeak some real relation among the diamonds without which a piece of carbon would not be a diamond? Is it not a monstrous perversion of the word and concept real to say that the accident of the non-arrival of the corundum prevented the hardness of the diamond from having the reality which it otherwise, with little doubt, would have had?
+</later>
+</card>

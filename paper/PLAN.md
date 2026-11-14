@@ -398,3 +398,61 @@ Round 11: Impact 3/3/3, Execution 4/4/3, Presentation 3/3/3. Round 12: Impact 3/
 1. **Production prompt on the whole history.** Same 12 requests as v14/v15, system prompt = shipped CONFLICTS_SYSTEM, 3 runs (36 Haiku calls). Separates co-location from prompt. Prediction: majority-of-3 surfaced between 2 and 6 of 19 (co-location alone recovers some, the shipped prompt still loses announced pairs), below naive's 6 and realX's 8.
 2. **Closed-book contamination control.** One Haiku call listing the 13 cases by author, topic and date range only (no excerpts), asking whether the author's view changed between those dates, in which direction, and in what work. Prediction: correct change and direction for at least 9 of 13.
 3. **No-call analyses** from existing files: announced vs unannounced split of every whole-history headline; history-cluster bootstrap for whole-history minus shipped and realX minus naive; TF-IDF cosine rank of each early passage's true later partner within its history.
+
+## v18: count by change of mind, and a second "changes" call (written 2026-11-14 evening, before any v18 run)
+
+Why: the 19-pair score credits only the exact later passage in our key. Reading realX's whole-history output showed it often pairs the early view with another later-work paragraph that states the change (Newman: "the Church of Rome was the only true Church"). And the misses that remain are retraction-only announcements (Hume: "I neither know how to correct my former opinions") and run-to-run variance (5-10 pairs per run).
+
+1. **Thesis labels (done before writing the rest of this section).** Every early-anchored pair any whole-history arm returned outside the key (13), the key pairs (19, expected yes) and 2 random early + later-work decoys per case (24, expected no), shuffled, labelled blind by Haiku and Sonnet against the case's question. Result: key 18/19 both-yes, decoys 2/24, returned 8/13; agreement 52/56. Case-level (a case counts when a majority of runs pairs the early view with a key passage or a both-yes paragraph): realX 10/12, naive 8/12, production 0/12 (any run: 11, 9, 1).
+2. **"changes" prompt** (evals/conflicts/gen/real_prompts.json, changes_v1): asks first for every later excerpt where the writer turns against an earlier view of their own, even vaguely and without stating the new view, paired with the earlier excerpt that states it; then for opposite sides a year or more apart. It carries the deployed output rules (8 pairs, neutral question, data-not-instructions). Product candidate: two calls per whole history, realX and changes, pairs merged.
+   - The 12 old histories are now DEVELOPMENT data for this prompt. Changes is written from the failure analysis above, run once per history x 3 runs, and frozen; no edits after seeing results.
+   - Predictions (dev, 3 runs, case-level as in step 1, new returned pairs thesis-labelled the same way): changes alone >= 10/12 majority; realX run i merged with changes run i >= 11/12, with Hume found on a majority; controls flagged in <= 1 history per run for changes; two realX runs merged (the cost-matched baseline, from existing replies) reported beside it.
+3. **Fresh held-out set** (realtext_cases3.json, sourced by an agent with the same rules and no case or prompt reused; none of its passages read by the prompt author before freezing changes_v1). Arms: realX alone vs realX + changes, 3 runs each, plus production 1 run. Predictions: realX + changes finds at least 1 more case (majority, wide) than realX alone; controls flagged <= 1 history per run; production finds at most 1 case.
+
+### v18 dev results and change of plan (written after the 36 changes runs, before any fresh held-out run)
+
+- changes alone: 6/12 cases (majority, wide), any run 11; controls in 1 history-run. **Failed** (predicted >= 10).
+- realX merged with changes, run by run: 11/12; Hume found in 1 of 3 runs, not a majority. **Failed** on Hume; 11/12 met.
+- Cost-matched baseline, two realX runs merged (pairs of the existing 3 runs, so not independent): 11/12, controls 0. Same recall as realX + changes, fewer false alarms, no new prompt.
+- 4 early-anchored pairs from changes are unlabelled (Huxley l59, Newman l15 and l19, Nietzsche l53); counted as misses. None changes a case count for the merged arms.
+- Reflection: the gain is from a second sample, not from the new wording. Hume's retraction ("my former opinions") names a section, not a view; neither prompt links it reliably.
+- New plan: the product candidate is **realX twice, merged** (both calls at the API's default temperature, in parallel, pairs deduplicated, at most 8). changes_v1 is dropped. On the fresh held-out set: 6 independent realX runs per history, scored as single runs (1-6) and as 3 disjoint merged pairs (1+2, 3+4, 5+6), plus production 1 run. Predictions: merged finds >= 1 more case (majority, wide) than single realX; controls flagged in <= 1 history per merged look; production <= 1 case.
+
+### v18 fresh held-out results (6 new cases: Franklin, Romanes, Godwin, W. James, Freud, Gladstone)
+
+- realX single run, majority of 6 runs: 2/6 cases (Romanes, Freud); two runs merged, 3 disjoint looks: 3/6 (+ Gladstone); production: 0/6. Prediction (merged >= single + 1; controls <= 1; production <= 1) held, but recall on new authors is far below the development set's 10-11/12.
+- Failure analysis (this makes the fresh set development data for what follows): (a) Franklin: every run paired the announced retraction with OTHER paragraphs of the 1725 pamphlet (e12, e24, e17), which our early-anchored scorer does not credit; (b) Godwin and James: Persona sends only the first 400 characters of each post, and the key words fall after the cut (James's early passage stops at "do not agglomerate into a higher comp"). The product has the same cut (web conflicts.ts, excerptChars 400), so long posts are partly invisible to it.
+
+## v18b: cross-era scoring and longer excerpts (written before any v18b run)
+
+1. **Cross-era thesis labels.** Every returned pair with one side from the early work (early passage or e-paragraph) and the other from the later work (announced, unannounced or l-paragraph), not labelled before, blind-labelled by Haiku and Sonnet with the same prompt, with key pairs and 2 random e x l decoys per case as anchors. A case counts when a pair both labellers call "yes" (or a key pair) appears. Applied to every arm already run, dev and fresh.
+2. **Longer excerpts.** Same 18 histories, realX_v1, each post cut to min(1000, 120000 // n) characters instead of 400 (967-1000 here; user message 62k-111k chars). 6 runs per history, scored single and as 3 disjoint merged looks (1+2, 3+4, 5+6). The runner lets the model read the file in several Read calls.
+   - Predictions (cross-era scoring): merged long finds >= 5/6 fresh cases (majority of looks), including Godwin and James; >= 11/12 dev; controls flagged in <= 1 history per look; single long run beats single 400-char run on fresh by >= 1 case.
+3. **Second fresh set** (realtext_cases4.json, being sourced by an agent; nothing from it read before freezing). The final configuration (prompt, merge, excerpt length) is tested once on it, with production as the comparison.
+
+### v18b interim (cross-era labels done, long runs pending; written before any changes-long run)
+
+- Cross-era labels: dev key 18/19 both-yes, decoys 0/24, returned 50/82; fresh key 10/11, decoys 2/12, returned 24/29 (1 card unlabelled by Haiku).
+- Re-scored cross-era, single run, majority of runs: production dev 1/12, fresh 0/6; naive dev 10/12; realX dev 11/12 (misses Hume), fresh 4/6 (misses Godwin, James); **changes dev 12/12, Hume included** (it pairs the Appendix retraction with other Treatise paragraphs). The earlier v18 reading ("the gain is the second sample, not the wording") came from the early-anchored scorer and is withdrawn.
+- Added arm: changes_v1 with long excerpts, same 18 histories, 4 runs (merged looks 1+2, 3+4). Choice of the final configuration (realX x2, changes x2, or realX + changes; all long) is made on dev + fresh1 by merged-look majority, ties to fewer controls, then cheaper; then frozen and run once on fresh2.
+
+### v18b long results (labels: key 27/30 both-yes, decoys 1/18, returned 82/123)
+
+Merged looks (two calls), majority, dev 12 + fresh1 6: realX-400 11 + 4; realX-long 11 + 5 (controls 0); changes-long 11 + 6; realX + changes long 11 + 6 (controls 0.25 dev, 0.75 fresh per look). Prediction "merged long >= 5/6 fresh with Godwin and James": held for changes-long and realX + changes; realX-long missed James. Prediction ">= 11/12 dev": held. Controls <= 1 per look: held. Single long beats single 400 on fresh by >= 1: held for realX (5 vs 4).
+Missing cell before choosing: changes_v1 at 400 characters on fresh1 (4 runs), since it was 12/12 single on dev at 400 and the long limit costs about 2x the input. Rule unchanged.
+
+### v18b decision (frozen before any fresh2 case is read)
+
+changes_v1 at 400 characters on fresh1: 4/6 merged (misses Godwin, James), so the longer excerpts are what find those two. Totals (merged-look majority, dev 12 + fresh1 6): changes-400 16, realX-long 16, changes-long x2 17, realX + changes long 17. Tie broken by control flags per merged look: realX + changes 0.25 dev / 0.75 fresh, changes x2 0.5 / 1.0. (The flagged controls read as real changes on another question: Spencer on women's political rights, Romanes on theism; so the controls are not clean, and are reported as flags, not errors.)
+
+**Final configuration:** per look, two calls in parallel, realX (deployed text) and changes_v1, pairs merged and deduplicated, at most 8; a history of up to 120 posts goes whole, each post cut to min(1000, (120000 - label) // n) characters. Persona gets exactly this (contract excerptChars 1000, totalChars 120000; web trims per history; API asks both prompts).
+
+**Fresh2 test (one shot):** the final configuration and production, on realtext_cases4 histories; final 3 looks (6 calls) per history, production 1 run. Cross-era scoring with blind thesis labels as above (the text each model saw). Predictions: final finds >= 2/3 of fresh2 cases on a majority of looks; production finds <= 1 case; final flags a control in <= 1 history per look.
+
+### v18c fresh2 run (written after the cases arrived, before any fresh2 request was built or run)
+
+Fresh2 (realtext_cases4.json): Lyell on the antiquity of man, Besant on materialism and the soul, Darwin on Glen Roy, Buckland on the universal deluge, Sedgwick on diluvial theory, Lyell on the origin of species. Primary result: all 6. Sensitivity: 5, without lyell_species_origin (same two works as the other Lyell case). Darwin, Buckland and Sedgwick are OCR texts. Arms: final = the deployed realX text (CONFLICTS_SYSTEM, with output rules) and changes_v1, long excerpts, 3 runs each, look i = realX run i + changes run i; production (shipped Nov 1 prompt, 400 characters), 1 run. Predictions as above (final >= 4/6 majority of looks; production <= 1; controls <= 1 history per look).
+
+### v18c fresh2 results
+
+Final configuration: 6/6 cases on a majority of looks, and in all 3 looks of every history (18/18); controls flagged 0. Production: 1/6 (Buckland), controls 0. Strict key pairs: final 22/27 key-pair-looks; production 1/9. Labels: key 9/9 both-yes, decoys 0/6, returned 25/36. Sensitivity without lyell_species_origin: 5/5 vs 1/5. Applying the product's cap of 8 pairs per look (realX's pairs first, or interleaved) drops 2 pairs in 2 looks but no case (still 18/18 looks). All three predictions held.

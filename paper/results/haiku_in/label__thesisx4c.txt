@@ -1,0 +1,575 @@
+=== SYSTEM PROMPT ===
+You check pairs of passages by one author against a documented change of mind. Each card gives the QUESTION the author changed his mind on, an EARLIER passage stating his earlier view, and a LATER passage. Answer "yes" only if the later passage, speaking for the author, rejects, abandons, retracts or contradicts the earlier passage's view on that question (stating the new view, or saying the old one was wrong). Answer "no" if the later passage is on another point, merely mentions the topic, describes someone else's view without taking a side, or is consistent with the earlier view. Judge only from the two passages and the question.
+
+Return only JSON: {"labels": [{"card": "<id>", "label": "yes" | "no"}]} with one entry per card.
+
+=== USER MESSAGE ===
+<card id="22abbd4d">
+<question>Whether an untested diamond that is never scratched is hard only as a matter of usage (1878 pragmatic maxim, nominalist-leaning) or has a real, though never actualised, hardness (1905 realism about real possibilities).</question>
+<earlier>
+But it may be objected, "Why make so much of these remote considerations, especially when it is your principle that only practical distinctions have a meaning?" Well, I must confess that it makes very little difference whether we say that a stone on the bottom of the ocean, in complete darkness, is brilliant or not—that is to say, that it probably makes no difference, remembering always that that stone may be fished up to-morrow. But that there are gems at the bottom of the sea, flowers in the untraveled desert, etc., are propositions which, like that about a diamond being hard when it is not pressed, concern much more the arrangement of our language than they do the meaning of our ideas.
+</earlier>
+<later>
+to bespeak some real relation among the diamonds without which a piece of carbon would not be a diamond? Is it not a monstrous perversion of the word and concept real to say that the accident of the non-arrival of the corundum prevented the hardness of the diamond from having the reality which it otherwise, with little doubt, would have had?
+</later>
+</card>
+
+<card id="db5ca408">
+<question>Whether hysteria is caused by actual sexual seduction or abuse in early childhood (the 1896 paper asserts that at the bottom of every case lie real premature sexual experiences; the 1905 paper says he overestimated their frequency and had mistaken the patients' phantasies for memories).</question>
+<earlier>
+Lastly, the results of my analysis may speak for themselves. In all the eighteen cases (of pure hysteria and hysteria combined with obsessions: six men and twelve women) I have, as I said, discovered such sexual experiences in childhood. I may divide my cases into three groups, according to the source of the sexual excitation. In the first group it was a question of assaults---single or at any rate isolated instances of abuse by grown-up strangers (who took care to avoid gross mechanical injury) where consent by the children did not enter into the matter and the first and preponderating result of the experience was terror. A second group consists of those far more numerous cases in which some adult attendant of the child---a maid, nurse, governess, teacher, unhappily only too often a near relation---initiated the child into sexual intercourse and maintained a regular love-relation {204} with him, often for years, which had its mental counterpart. To the third group belong finally the r
+</earlier>
+<later>
+After this correction, the 'infantile sexual traumas' were in a sense supplanted by the 'infantilism' of the sexuality in these cases. It was not a far step to a second modification of the original theory. When the frequency of seduction in childhood was no longer assumed, there vanished also the overemphasis on the 'accidental', external influencing of the sexuality to which I had attributed the chief part in the causation of the disease, without, however, denying the existence of constitutional and hereditary elements. In connection with the details of the various sexual experiences of childhood, I had even hoped to solve the problem of the 'choice of neurosis', that is, to ascertain what form of psychoneurosis would develop from each type of experience; I believed at that time, though with some reservations, that passivity in such experiences produced a specific predisposition to hysteria, and activity to obsessional neurosis. These views I was later compelled to abandon entirely, a
+</later>
+</card>
+
+<card id="b27142ce">
+<question>Whether private and domestic attachments may override impartial justice (Political Justice: 'what magic is there in the pronoun my'; the 1799 St. Leon preface says he wishes to modify the earlier chapters because domestic and private affections are inseparable from human nature and compatible with justice).</question>
+<earlier>
+This would not alter the truth of the proposition. The life of Fenelon would still be more valuable than that of the valet ; and justice, pure, unadulterated justice, would still have preferred that which was most valuable. Justice would have taught me to save the life of Fenelon at the expense of the other. What magic is there in the pronoun " my," that should justify us in overturning the decisions of impartial truth ?
+</earlier>
+<later>
+In answer to this objection, all I think it necessary to say on the present occasion is, that, for more than four years, I have been anxious for opportunity and leisure to modify some of the earlier chapters of that work in conformity to the sentiments inculcated in this. Not that I see cause to make any change respecting the principle of justice, or any thing else fundamental to the system there delivered; but that I apprehend domestic and private affections inseparable from the nature of man, and from what may be styled the culture of the heart, and am fully persuaded that they are not incompatible with a profound and active sense of justice in the mind of him that cherishes them.
+</later>
+</card>
+
+<card id="30885b9b">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+If, however, in the exemplification herewith indicated we have rightly associated the evanescence of the Dionysian spirit with a most striking, but hitherto unexplained transformation and degeneration of the Hellene--what hopes must revive in us when the most trustworthy auspices guarantee _the reverse process, the gradual awakening of the Dionysian spirit_ in our modern world! It is impossible for the divine strength of Herakles to languish for ever in voluptuous bondage to Omphale. Out of the Dionysian root of the German spirit a power has arisen which has nothing in common with the primitive conditions of Socratic culture, and can neither be explained nor excused thereby, but is rather regarded by this culture as something terribly inexplicable and overwhelmingly hostile,--namely, _German music_ as we have to understand it, especially in its vast solar orbit from Bach to Beethoven, from Beethoven to Wagner. What even under the most favourable circums
+</earlier>
+<later>
+Perhaps a few people, or at least my friends, will remember that I made my first plunge into life armed with some errors and some exaggerations, but that, in any case, I began with _hope_ in my heart. In the philosophical pessimism of the nineteenth century, I recognised—who knows by what by-paths of personal experience—the symptom of a higher power of thought, a more triumphant plenitude of life, than had manifested itself hitherto in the philosophies of Hume, Kant and Hegel!—I regarded _tragic_ knowledge as the most beautiful luxury of our culture, as its most precious, most noble, most dangerous kind of prodigality; but, nevertheless, in view of its overflowing wealth, as a justifiable _luxury_. In the same way, I began by interpreting Wagner’s music as the expression of a Dionysian powerfulness of soul. In it I thought I heard the earthquake by means of which a primeval life-force, which had been constrained for ages, was seeking at last to burst it
+</later>
+</card>
+
+<card id="c1c49408">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+None of these writers regarded the subject in the aspect most imperatively required by present circumstances : namely, that which shows that governments are, by " dutiful necessity," cognizant of religious truth and falsehood, and bound to the maintenance and propagation of the former.
+</earlier>
+<later>
+Scarcely had my work issued from the press when I became aware that there was no party, no section of a party, no individual person probably in the House of Commons, who was prepared to act upon it. I found myself the last man on the sinking ship. Exclusive support to the established religion of the country, with a limited and local exception for Scotland under the Treaty of Union with that country, had been up to that time the actual rule of our policy; the instances to the contrary being of equivocal construction, and of infinitesimal amount. But the attempt to give this rule a vitality other than that of sufferance was an anachronism in time and in place. When I bid it live, it was just about to die. It was really a quickened and not a deadened conscience in the country, which insisted on enlarging the circle of State support, even while it tended to restrain the range of political interference in religion. The condition of our poor, of our criminals
+</later>
+</card>
+
+<card id="678cdabd">
+<question>Whether mental phenomena are essentially a relation of acquaintance/consciousness between a subject and an object (Problems of Philosophy 1912) or whether that theory is to be refuted (Analysis of Mind 1921, moving to neutral monism).</question>
+<earlier>
+When I am acquainted with 'my seeing the sun', it seems plain that I am acquainted with two different things in relation to each other. On the one hand there is the sense-datum which represents the sun to me, on the other hand there is that which sees this sense-datum. All acquaintance, such as my acquaintance with the sense-datum which represents the sun, seems obviously a relation between the person acquainted and the object with which the person is acquainted.
+</earlier>
+<later>
+In this first lecture I shall be concerned to refute a theory which is widely held, and which I formerly held myself: the theory that the essence of everything mental is a certain quite peculiar something called "consciousness," conceived either as a relation to objects, or as a pervading quality of psychical phenomena.
+</later>
+</card>
+
+<card id="831f388a">
+<question>Whether many minds or mental states can compound into a single higher consciousness, and hence whether a compound 'absolute' mind is possible (the Principles of Psychology denies it and calls the mind-dust theory untenable; A Pluralistic Universe says the absolute is not the impossible being he once thought).</question>
+<earlier>
+We talk of the 'spirit of the age,' and the 'sentiment of the people,' and in various ways we hypostatize 'public opinion.' But we know this to be symbolic speech, and never dream that the spirit, opinion, sentiment, etc., constitute a consciousness other than, and additional to, that of the several individuals whom the words 'age,' 'people,' or 'public' denote. The private minds do not agglomerate into a higher compound mind.
+</earlier>
+<later>
+The absolute is not the impossible being I once thought it. Mental facts do function both singly and together, at once, and we finite minds may simultaneously be co-conscious with one another in a superhuman intelligence.
+</later>
+</card>
+
+<card id="4609611f">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+Let us recollect furthermore how Kant and Schopenhauer made it possible for the spirit of _German philosophy_ streaming from the same sources to annihilate the satisfied delight in existence of scientific Socratism by the delimitation of the boundaries thereof; how through this delimitation an infinitely profounder and more serious view of ethical problems and of art was inaugurated, which we may unhesitatingly designate as _Dionysian_ wisdom comprised in concepts. To what then does the mystery of this oneness of German music and philosophy point, if not to a new form of existence, concerning the substance of which we can only inform ourselves presentiently from Hellenic analogies? For to us who stand on the boundary line between two different forms of existence, the Hellenic prototype retains the immeasurable value, that therein all these transitions and struggles are imprinted in a classically instructive form: except that we, as it were, experience a
+</earlier>
+<later>
+—I have mentioned the sphere to which Wagner belongs—certainly not to the history of music. What, however, does he mean historically?—_The rise of the actor in music_: a momentous event which not only leads me to think but also to fear.
+</later>
+</card>
+
+<card id="af98be8a">
+<question>Whether tragic art gives a metaphysical comfort and expresses Schopenhauerian metaphysics (The Birth of Tragedy, 1872) or whether that was a mistake to be laughed away (1886 'Attempt at a Self-Criticism').</question>
+<earlier>
+Perhaps we may lead up to this primitive problem with the question: what æsthetic effect results when the intrinsically separate art-powers, the Apollonian and the Dionysian, enter into concurrent actions? Or, in briefer form: how is music related to image and concept?--Schopenhauer, whom Richard Wagner, with especial reference to this point, accredits with an unsurpassable clearness and perspicuity of exposition, expresses himself most copiously on the subject in the following passage which I shall cite here at full length[21] (_Welt als Wille und Vorstellung,_ I. p. 309): "According to all this, we may regard the phenomenal world, or nature, and music as two different expressions of the same thing,[20] which is therefore itself the only medium of the analogy between these two expressions, so that a knowledge of this medium is required in order to understand that analogy. Music, therefore, if regarded as an expression of the world, is in the highest degree a universal language, which 
+</earlier>
+<later>
+How I now regret, that I had not then the courage (or immodesty?) to allow myself, in all respects, the use of an _individual language_ for such _individual_ contemplations and ventures in the field of thought--that I laboured to express, in Kantian and Schopenhauerian formulæ, strange and new valuations, which ran fundamentally counter to the spirit of Kant and Schopenhauer, as well as to their taste!
+</later>
+</card>
+
+<card id="b9db3f3b">
+<question>Whether ethics (the law of equal freedom and rights) rests on God's will/purpose (Social Statics) or on a purely naturalistic evolutionary account (Justice, Principles of Ethics).</question>
+<earlier>
+On referring back to Chapter IV., we shall find that the denial of rights amounts to a libel on the Deity. For, as we there saw, that which a man has a right to, is that which God intended for him. And to say that man has no right to freedom of action, is to say that God did not mean him to have it.
+</earlier>
+<later>
+As, from the evolution point of view, human life must be regarded as a further development of sub-human life, it follows that from this same point of view, human justice must be a further development of sub-huma'n justice. For convenience the two are here separately treated, but they are essentially of the same nature, and form parts of a continuous whole.
+</later>
+</card>
+
+<card id="8f320a84">
+<question>Whether every detail of an organism's structure must be explained as useful (adaptive), i.e. as shaped by natural selection (Darwin first says every detail is of use to the organism or its ancestors, later admits structures that are neither beneficial nor injurious and that he over-attributed to natural selection).</question>
+<earlier>
+Hence every detail of structure in every living creature (making some little allowance for the direct action of physical conditions) may be viewed, either as having been of special use to some ancestral form, or as being now of special use to the descendants of this form—either directly, or indirectly through the complex laws of growth.
+</earlier>
+<later>
+We can, in our ignorance of most of the lowest animals, only say that their bright tints result either from the chemical nature or the minute structure of their tissues, independently of any benefit thus derived. Hardly any colour is finer than that of arterial blood; but there is no reason to suppose that the colour of the blood is in itself any advantage; and though it adds to the beauty of the maiden’s cheek, no one will pretend that it has been acquired for this purpose.
+</later>
+</card>
+
+<card id="cf07380b">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+But although phenomena are properly the appearances of things, but not ideas, or express the inner and absolute quality of objects, their cognition is nevertheless of the truest. For in the first place, being apprehended sensual concepts, they, being consequences, witness the presence of the object, contrary to IdeaHsm ; and as regards judgments concerning that which is sensuously known, since truth in judging con- sists in the agreement of the predicate with the given subject, and since the concept of the subject as a phenomenon is given only by relation to the sensuous cognitive faculty, the sensuously observable predicates being given according to the same, it is plain that the representations of subject and predicate are made according to common laws, and hence give occasion for perfectly true cognition.
+</earlier>
+<later>
+Experience consists of intuitions, which belong to the sensibility, and of judgments, which are entirely a work of the understanding. But the judgments, which the understanding forms alone from sensuous intuitions, are far from being judgments of experience. For in the one case the judgment connects only the perceptions as they are given in the sensuous intuition, while in the other the judgments must express what experience in general, and not what the mere perception (which possesses only subjective validity) contains. The judgment of experience must therefore add to the sensuous intuition and its logical connexion in a judgment (after it has been rendered universal by comparison) something that determines the synthetical judgment as necessary and therefore as universally valid. This can be nothing else than that concept which represents the intuition as determined in itself with regard to one form of judgment rather than another, viz., a concept of t
+</later>
+</card>
+
+<card id="dce7d07c">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+But perhaps it will be granted, that these doctrines were not part of the formal teaching of the early Church; but will nevertheless be maintained that they were floating opinions, commonly received, and true, though unrecognized as true, mixed with error as held by individuals, and undefined; but that, when the necessity arose, they were sifted, accurately determined, and enforced, and so became an addition to the Rule of Faith. Nay, but we are expressly told by the Fathers that this Rule does not admit of increase [Note 6]; it is, "sole, unalterable, unreformable;" not a hint been given us of the Church's power over it. To guard and to transmit it, not to remodel it, is her sole duty, as St. Paul has determined in his 2nd Epistle to Timothy. What a contrast to passages such as the foregoing, what a violation of them, is the Creed of Pope Pius, which was the result of the proceedings at Trent! whether or not its articles be true, which is a distinct question. 
+</earlier>
+<later>
+"May 4, 1843.... At present I fear, as far as I can analyze my own convictions, I consider the Roman Catholic Communion to be the Church of the Apostles, and that what grace is among us (which, through God's mercy, is not little) is extraordinary, and from the overflowings of His dispensation. I am very far more sure that England is in schism, than that the Roman additions to the Primitive Creed may not be developments, arising out of a keen and vivid realizing of the Divine Depositum of Faith.
+</later>
+</card>
+
+<card id="58135b48">
+<question>Whether tragic art gives a metaphysical comfort and expresses Schopenhauerian metaphysics (The Birth of Tragedy, 1872) or whether that was a mistake to be laughed away (1886 'Attempt at a Self-Criticism').</question>
+<earlier>
+The metaphysical comfort,--with which, as I have here intimated, every true tragedy dismisses us--that, in spite of the perpetual change of phenomena, life at bottom is indestructibly powerful and pleasurable, this comfort appears with corporeal lucidity as the satyric chorus, as the chorus of natural beings, who live ineradicable as it were behind all civilisation, and who, in spite of the ceaseless change of generations and the history of nations, remain for ever the same.
+</earlier>
+<later>
+No! ye should first of all learn the art of earthly comfort, ye should learn to _laugh,_ my young friends, if ye are at all determined to remain pessimists: if so, you will perhaps, as laughing ones, eventually send all metaphysical comfortism to the devil--and metaphysics first of all!
+</later>
+</card>
+
+<card id="a2be709e">
+<question>Whether the self-effacing, compassionate 'saint' and idealism are the goal of nature and the highest human ideal (Schopenhauer as Educator, 1874) or pity and idealism are decadent weaknesses to be overcome (Ecce Homo, 1888).</question>
+<earlier>
+And if, unfortunately, a good many Germans will allow themselves to be thus moulded, one must continually say to them, till at last they listen:--"The old German way is no longer yours: it was hard, rough, and full of resistance; but it is still the most valuable material--one which only the greatest modellers can work with, for they alone are worthy to use it. What you have in you now is a soft pulpy stuff: make what you will out of it,--elegant dolls and interesting idols--Richard Wagner's phrase will still hold good, 'The German is awkward and ungainly when he wishes to be polite; he is high above all others, when he begins to take fire.'" All the elegant people have reason to beware of this German fire; it may one day devour them with all their wax dolls and idols.--The prevailing love of "good form" in Germany may have a deeper cause in the breathless seizing at what the moment can give, the haste that plucks the fruit too green, the race and the s
+</earlier>
+<later>
+To the most exceptional of my readers I should like to say just one word about what I really exact from music. It must be cheerful and yet profound, like an October afternoon. It must be original, exuberant, and tender, and like a dainty, soft woman in roguishness and grace ... I shall never admit that a German _can_ understand what music is. Those musicians who are called German, the greatest and most famous foremost, are all foreigners, either Slavs, Croats, Italians, Dutchmen--or Jews; or else, like Heinrich Schütz, Bach, and Händel, they are Germans of a strong race which is now extinct. For my own part, I have still enough of the Pole left in me to let all other music go, if only I can keep Chopin. For three reasons I would except Wagner's _Siegfried Idyll,_ and perhaps also one or two things of Liszt, who excelled all other musicians in the noble tone of his orchestration; and finally everything that has been produced beyond the Alps_--this side_ 
+</later>
+</card>
+
+<card id="da88b028">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+symbolical cognition, and intellection is granted us only by- universal concepts in the abstract, not by the concrete singu- lar. For all intuition is restricted by some principle of form under which alone anything can be discerned by the mind immediately or as singular, and not merely conceived dis- cursively by general concepts. This formal principle of our intuition — space and time^is the condition under which something can be an object of our senses, and hence as a condition of sensuous knowledge is not a medium for intel- lectual intuition. Besides, all the material of our cognition is given only by the senses, but the noumenon, as such, is not conceivable by representations drawn from sensations ; hence the intellectual concept, as such, is destitute of all data of human intuition. For the intuition of our mind is always passive, and therefore possible only to the extent to which something can affect our senses. But the divine in- tuition, the ca
+</earlier>
+<later>
+=================================== {20} We speak of the "intelligible world," not (as the usual expression is) "intellectual world." For cognitions are intellectual through the understanding, and refer to our world of sense also; but objects, so far as they can be represented merely by the understanding, and to which none of our sensible intuitions can refer, are termed "intelligible." But as some possible intuition must correspond to every object, we would have to assume an understanding that intuites things immediately; but of such we have not the least notion, nor have we of the things of the understanding [Verstandeswesen], to which it should be applied. ===================================
+</later>
+</card>
+
+<card id="c9193c2b">
+<question>Whether an untested diamond that is never scratched is hard only as a matter of usage (1878 pragmatic maxim, nominalist-leaning) or has a real, though never actualised, hardness (1905 realism about real possibilities).</question>
+<earlier>
+But it may be objected, "Why make so much of these remote considerations, especially when it is your principle that only practical distinctions have a meaning?" Well, I must confess that it makes very little difference whether we say that a stone on the bottom of the ocean, in complete darkness, is brilliant or not—that is to say, that it probably makes no difference, remembering always that that stone may be fished up to-morrow. But that there are gems at the bottom of the sea, flowers in the untraveled desert, etc., are propositions which, like that about a diamond being hard when it is not pressed, concern much more the arrangement of our language than they do the meaning of our ideas.
+</earlier>
+<later>
+At the same time, we must dismiss the idea that the occult state of things (be it a relation among atoms or something else), which constitutes the reality of a diamond’s hardness can possibly consist in anything but in the truth of a general conditional propo- sition. For to what else does the entire teaching of chemistry re- late except to the “behavior” of different possible kinds of material substance? And in what does that behavior consist except that if a substance of a certain kind should be exposed to an agency of a certain kind, a certain kind of sensible result would ensue, according to our experiences hitherto. As for the pragmaticist, it is precisely his position that nothing else than this can be so much as meant by saying that an object possesses a character. He is therefore obliged to subscribe to the doctrine of a real Modality, including real Necessity and real Possibility.
+</later>
+</card>
+
+<card id="381704fa">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+This, then, is a second and not the least observable peculiarity of Roman theology. It professes to be a complete theology [Note 20]. It arranges, adjusts, explains, exhausts every part of the Divine Economy. It may be said to leave no region unexplored, no heights unattempted, rounding off its doctrines with a neatness and finish which are destructive of many of the most noble and most salutary exercises of mind in the individual Christian. That feeling of awe which the mysteriousness of the Gospel should excite, fades away under this fictitious illumination which is poured over the entire Dispensation. Criticism, we know, is commonly considered fatal to poetical fervour and imagination; and in like manner this technical religion destroys the delicacy and reverence of the Christian mind. So little has actually been revealed to us in a systematic way, that the genuine science of theology carried to its {92} furthest limits, has no tendency to foster a spirit of
+</earlier>
+<later>
+Supposing then it to be the Will of the Creator to interfere in human affairs, and to make provisions for retaining in the world a knowledge of Himself, so definite and distinct as to be proof against the energy of human scepticism, in such a case,--I am far from saying that there was no other way,--but there is nothing to surprise the mind, if He should think fit to introduce a power into the world, invested with the prerogative of infallibility in religious matters. Such a provision would be a direct, immediate, active, and prompt means of withstanding the difficulty; it would be an instrument suited to the need; and, when I find that this is the very claim of the Catholic Church, not only do I feel no difficulty in admitting the idea, but there is a fitness in it, which recommends it to my mind. And thus I am brought to speak of the Church's infallibility, as a provision, adapted by the mercy of the Creator, to preserve religion in the world, and to restrain
+</later>
+</card>
+
+<card id="27341bce">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+In these groups there is abundant evidence of variation--none of what is ordinarily understood as progression; and, if the known geological record is to be regarded as even any considerable fragment of the whole, it is inconceivable that any theory of a necessarily progressive development can stand, for the numerous orders and families cited afford no trace of such a process.
+</earlier>
+<later>
+When I addressed you in 1862, I should have been bold indeed had I suggested that palaeontology would before long show us the possibility of a direct transition from the type of the lizard to that of the ostrich. At the present moment, we have, in the _Ornithoscelida_, the intercalary type, which proves that transition to be something more than a possibility; but it is very doubtful whether any of the genera of _Ornithoscelida_ with which we are at present acquainted are the actual linear types by which the transition from the lizard to the bird was effected.
+</later>
+</card>
+
+<card id="2be5f90b">
+<question>Whether many minds or mental states can compound into a single higher consciousness, and hence whether a compound 'absolute' mind is possible (the Principles of Psychology denies it and calls the mind-dust theory untenable; A Pluralistic Universe says the absolute is not the impossible being he once thought).</question>
+<earlier>
+We talk of the 'spirit of the age,' and the 'sentiment of the people,' and in various ways we hypostatize 'public opinion.' But we know this to be symbolic speech, and never dream that the spirit, opinion, sentiment, etc., constitute a consciousness other than, and additional to, that of the several individuals whom the words 'age,' 'people,' or 'public' denote. The private minds do not agglomerate into a higher compound mind.
+</earlier>
+<later>
+--But here I must stop my reporting and send you to his volumes. Thus is the universe alive, according to this philosopher! I think you will admit that he makes it more _thickly_ alive than do the other philosophers who, following rationalistic methods solely, gain the same results, but only in the thinnest outlines. Both Fechner and Professor Royce, for example, believe ultimately in one all-inclusive mind. Both believe that we, just as we stand here, are constituent parts of that mind. No other _content_ has it than us, with all the other creatures like or unlike us, and the relations which it finds between us. Our eaches, collected into one, are substantively identical with its all, tho the all is perfect while no each is perfect, so that we have to admit that new qualities as well as unperceived relations accrue from the collective form. It is thus superior to the distributive form. But having reached this result, Royce (tho his treatment of the sub
+</later>
+</card>
+
+<card id="ef7c9fa5">
+<question>Whether many minds or mental states can compound into a single higher consciousness, and hence whether a compound 'absolute' mind is possible (the Principles of Psychology denies it and calls the mind-dust theory untenable; A Pluralistic Universe says the absolute is not the impossible being he once thought).</question>
+<earlier>
+Moreover, if feelings can mix into a _tertium quid_, why do we not take a feeling of greenness and a feeling of redness, and make a feeling of yellowness out of them? Why has optics neglected the open road to truth, and wasted centuries in disputing about theories of color-composition which two minutes of introspection would have settled forever[171] We cannot mix feelings as such, though we may mix the objects we feel, and from _their_ mixture get new feelings. We cannot even (as we shall later see) have two feelings in our mind at once. At most we can compare together _objects previously presented_ to us in distinct feelings; but then we find each object stubbornly maintaining its separate identity before consciousness, whatever the verdict of the comparison may be.[172]
+</earlier>
+<later>
+In _principle_, then, the real units of our immediately-felt life are unlike the units that intellectualist logic holds to and makes its calculations with. They are not separate from their own others, and you have to take them at widely separated dates to find any two of them that seem unblent. Then indeed they do appear separate even as their concepts are separate; a chasm yawns between them; but the chasm itself is but an intellectualist fiction, got by abstracting from the continuous sheet of experiences with which the intermediary time was filled.
+</later>
+</card>
+
+<card id="cc5f4253">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+We should also have to regard our German character with despair and sorrow, if it had already become inextricably entangled in, or even identical with this culture, in a similar manner as we can observe it to our horror to be the case in civilised France; and that which for a long time was the great advantage of France and the cause of her vast preponderance, to wit, this very identity of people and culture, might compel us at the sight thereof to congratulate ourselves that this culture of ours, which is so questionable, has hitherto had nothing in common with the noble kernel of the character of our people. All our hopes, on the contrary, stretch out longingly towards the perception that beneath this restlessly palpitating civilised life and educational convulsion there is concealed a glorious, intrinsically healthy, primeval power, which, to be sure, stirs vigorously only at intervals in stupendous moments, and then dreams on again in view of a futur
+</earlier>
+<later>
+The following chapters have been selected from past works of mine, and not without care. Some of them date back as far as 1877. Here and there, of course, they will be found to have been made a little more intelligible, but above all, more brief. Read consecutively, they can leave no one in any doubt, either concerning myself, or concerning Wagner: we are antipodes. The reader will come to other conclusions, too, in his perusal of these pages: for instance, that this is an essay for psychologists and _not_ for Germans.… I have my readers everywhere, in Vienna, St Petersburg, Copenhagen, Stockholm, Paris, and New York—but _I have none_ in Europe’s Flat-land—Germany.… And I might even have something to say to Italians whom I love just as much as I … _Quousque tandem, Crispi_ … Triple alliance: a people can only conclude a _mésalliance_ with the “Empire.”…
+</later>
+</card>
+
+<card id="68292ed7">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+36. And thus we forget that there is a substantive, changeless truth of God revealed, for which we ought ever to be striving, and of which unity is the essential condition, as well as freedom. Unity is the essential condition of that truth in itself. Free assent is the essential condition of its satisfactory reception, of its reasonable indwelling in us. The Roman Catholic church suppressed, in her tyranny, the latter of these great laws. The spirit of infidelity, assuming the name and the colours of Protestantism, has equally set aside the former. And now, instead of mourning over our divi- sions, and labouring and praying them away, we treat them as matters of no moment ; we deal with truth as if it had no prototype, but were a mere image, deriving its origin from each individual mind, and having no higher existence beyond it : we rest in our own defective
+</earlier>
+<later>
+The book entitled 'The State in its Relations with the Church' was printed during the autumn of 1838, while I was making a tour in the South of Europe, which the state of my eyesight had rendered it prudent to undertake. Three editions of it were published without textual change; and in the year 1841 a fourth, greatly enlarged, though in other respects little altered, issued from the press. All interest in it had, however, even at that time, long gone by, and it lived for nearly thirty years only in the vigorous and brilliant, though not (in my opinion) entirely faithful picture, drawn by the accomplished hand of Lord Macaulay. During the present year, as I understand from good authority, it has again been in demand, and in my hearing it has received the emphatic suffrages of many, of whose approval I was never made aware during the earlier and less noisy stages of its existence.
+</later>
+</card>
+
+<card id="cd6dc00a">
+<question>Whether every detail of an organism's structure must be explained as useful (adaptive), i.e. as shaped by natural selection (Darwin first says every detail is of use to the organism or its ancestors, later admits structures that are neither beneficial nor injurious and that he over-attributed to natural selection).</question>
+<earlier>
+Thus, as I believe, a considerable number of plants, a few terrestrial animals, and some marine productions, migrated during the Glacial period from the northern and southern temperate zones into the intertropical regions, and some even crossed the equator. As the warmth returned, these temperate forms would naturally ascend the higher mountains, being exterminated on the lowlands; those which had not reached the equator, would re-migrate northward or southward towards their former homes; but the forms, chiefly northern, which had crossed the equator, would travel still further from their homes into the more temperate latitudes of the opposite hemisphere. Although we have reason to believe from geological evidence that the whole body of arctic shells underwent scarcely any modification during their long southern migration and re-migration northward, the case may have been wholly different with those intruding forms which settled themselves on the intert
+</earlier>
+<later>
+The peacock with his long train appears more like a dandy than a warrior, but he sometimes engages in fierce contests: the Rev. W. Darwin Fox informs me that at some little distance from Chester two peacocks became so excited whilst fighting, that they flew over the whole city, still engaged, until they alighted on the top of St. John’s tower.
+</later>
+</card>
+
+<card id="d0832d9e">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+If, in answer to this statement, it be urged that the peculiar claim set up by Rome to be the true Church to the exclusion of ourselves, is so serious as to perplex the inquirer, and almost to lead him to join himself to her communion as the safest course, whatever be the identity of doctrine between the two systems on greater points, let it be considered whether on the other hand there be not some peculiarities hanging about her, which are sufficient from the same prudential motives to keep us at a distance from her. Our Lord said of false prophets, "By their fruits shall ye know them;" and, however the mind may be entangled theoretically, yet surely it will be struck with certain marks in Rome which seem intended to convey to the simple and honest inquirer a solemn warning to keep clear of her, while she carries them about her. Such are her denying the cup to the laity, her idolatrous worship of the Blessed Virgin, her Image-worship, her recklessness in anath
+</earlier>
+<later>
+"May 4, 1843.... At present I fear, as far as I can analyze my own convictions, I consider the Roman Catholic Communion to be the Church of the Apostles, and that what grace is among us (which, through God's mercy, is not little) is extraordinary, and from the overflowings of His dispensation. I am very far more sure that England is in schism, than that the Roman additions to the Primitive Creed may not be developments, arising out of a keen and vivid realizing of the Divine Depositum of Faith.
+</later>
+</card>
+
+<card id="dbb16802">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+If, however, in the exemplification herewith indicated we have rightly associated the evanescence of the Dionysian spirit with a most striking, but hitherto unexplained transformation and degeneration of the Hellene--what hopes must revive in us when the most trustworthy auspices guarantee _the reverse process, the gradual awakening of the Dionysian spirit_ in our modern world! It is impossible for the divine strength of Herakles to languish for ever in voluptuous bondage to Omphale. Out of the Dionysian root of the German spirit a power has arisen which has nothing in common with the primitive conditions of Socratic culture, and can neither be explained nor excused thereby, but is rather regarded by this culture as something terribly inexplicable and overwhelmingly hostile,--namely, _German music_ as we have to understand it, especially in its vast solar orbit from Bach to Beethoven, from Beethoven to Wagner. What even under the most favourable circums
+</earlier>
+<later>
+I place this point of view first and foremost: Wagner’s art is diseased. The problems he sets on the stage are all concerned with hysteria; the convulsiveness of his emotions, his over-excited sensitiveness, his taste which demands ever sharper condimentation, his erraticness which he togged out to look like principles, and, last but not least, his choice of heroes and heroines, considered as physiological types (—a hospital ward!—): the whole represents a morbid picture; of this there can be no doubt.
+</later>
+</card>
+
+<card id="3de781fd">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+3. Under this complex view, then, let us proceed to declare, as follows, the general doctrine Avhich is em- bodied, as respects our own case, in the phrase " Church and State." That in national societies of men generally the governing body should, in its capacity as such, pro- fess and maintain a religion according to its conscience, both as being composed of individuals who have indivi- dual responsibilities to discharge and individual pur- puses to fulfil, and as being itself, collectively, the seat of a national personality, with national responsibilities to discharge, and national purposes to fulfil : that it must have the extrinsic, and, in proportion as it is a good government, Avill have the intrinsic, qualifications for professing and maintaining such religion : that re- ligion offers sufficient inducements to such a policy : that as, in respect of its extension, it should, for the benefit of the state, be the greatest possible, and we are there
+</earlier>
+<later>
+These, I think, were the leading propositions of the work. In one important point, however, it was inconsistent with itself; it contained a full admission that a State might, by its nature and circumstances, be incapacitated from upholding and propagating a definite form of religion.[2]
+</later>
+</card>
+
+<card id="91866df8">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+Paragraph p The purpose of intellectual concepts is mainly twofold ; in the first place refutative, by which they are of negative use, when, shutting off sensuous concepts from noumena, though not advancing science a hair's breadth, they maintain how- ever its immunity from the contagion of error. In the second place dogmatic, following which the general principles of pure intellect, such as are set forth in ontology or rational psychology, go forth into an exemplar inconceivable except by pure intellect, and the common measure of all other things considered as realities, namely, noumenal perfection. The latter is such either in the theoretical or in the practical sense.' In the former it is the highest being, God. In the latter sense, it is moral perfection. Moral philosophy, then, inasmuch as supplying the first principles of judgment, is not cognized except by pure intellect, and itself belongs to pure philosophy, and Epicurus reducing its criteria t
+</earlier>
+<later>
+And thus there remains our original proposition, which is the résumé of the whole Critique: "that reason by all its a priori principles never teaches us anything more than objects of possible experience, and even of these nothing more than can be cognised in experience." But this limitation does not prevent reason leading us to the objective boundary of experience, viz., to the reference to something which is not itself an object of experience, but is the ground of all experience. Reason does not however teach us anything concerning the thing in itself: it only instructs us as regards its own complete and highest use in the field of possible experience. But this is all that can be reasonably desired in the present case, and with which we have cause to be satisfied.
+</later>
+</card>
+
+<card id="05e1ecc5">
+<question>Whether the mind is nothing but a bundle of perceptions with no real connexion among them that can ground personal identity (Hume first asserts the bundle view, then confesses he cannot render his own principles consistent).</question>
+<earlier>
+Thus it appears, that the belief or assent, which always attends the memory and senses, is nothing but the vivacity of those perceptions they present; and that this alone distinguishes them from the imagination. To believe is in this case to feel an immediate impression of the senses, or a repetition of that impression in the memory. It is merely the force and liveliness of the perception, which constitutes the first act of the judgment, and lays the foundation of that reasoning, which we build upon it, when we trace the relation of cause and effect.
+</earlier>
+<later>
+I shall also take this opportunity of confessing two other errors of less importance, which more mature reflection has discovered to me in my reasoning. The first may be found in Vol. I. page 106. where I say, that the distance betwixt two bodies is known, among other things, by the angles, which the rays of light flowing from the bodies make with each other. It is certain, that these angles are not known to the mind, and consequently can never discover the distance. The second error may be found in Vol. I. page 144 where I say, that two ideas of the same object can only be different by their different degrees of force and vivacity. I believe there are other differences among ideas, which cannot properly be comprehended under these terms. Had I said, that two ideas of the same object can only be different by their different feeling, I should have been nearer the truth.
+</later>
+</card>
+
+<card id="11867457">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+And even as regards the Mammalia, the scanty remains of Triassic and Oolitic species afford no foundation for the supposition that the organisation of the oldest forms differed nearly so much from some of those which now live as these differ from one another.
+</earlier>
+<later>
+So far as the Upper Eocene and the Miocene Mammalian Faunae are comparable, their relations are such as in no way to oppose the hypothesis that the older are the progenitors of the more recent forms, while, in some cases, they distinctly favour that hypothesis. The period in tine and the changes in physical geography represented by the nummulitic deposits are undoubtedly very great, while the remains of Middle Eocene and Older Eocene Mammals are comparatively few. The general facies of the Middle Eocene Fauna, however, is quite that of the Upper. The Older Eocene pre-nummulitic mammalian Fauna contains Bats, two genera of _Carivora_, three genera of _Ungulata_ (probably all perissodactyle), and a didelphid Marsupial; all these forms, except perhaps the Bat and the Opossum, belong to genera which are not known to occur out of the Lower Eocene formation. The _Coryphodon_ appears to have been allied to the Miocene and later Tapirs, while _Pliolophus_, in its skull
+</later>
+</card>
+
+<card id="c7db6ce6">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+We have therefore, according to the doctrine of Schopenhauer, an immediate understanding of music as the language of the will, and feel our imagination stimulated to give form to this invisible and yet so actively stirred spirit-world which speaks to us, and prompted to embody it in an analogous example. On the other hand, image and concept, under the influence of a truly conformable music, acquire a higher significance. Dionysian art therefore is wont to exercise--two kinds of influences, on the Apollonian art-faculty: music firstly incites to the _symbolic intuition_ of Dionysian universality, and, secondly, it causes the symbolic image to stand forth _in its fullest significance._ From these facts, intelligible in themselves and not inaccessible to profounder observation, I infer the capacity of music to give birth to _myth,_ that is to say, the most significant exemplar, and precisely _tragic_ myth: the myth which speaks of Dionysian knowledge in sy
+</earlier>
+<later>
+My greatest preoccupation hitherto has been the problem of _decadence_, and I had reasons for this. “Good and evil” form only a playful subdivision of this problem. If one has trained one’s eye to detect the symptoms of decline, one also understands morality,—one understands what lies concealed beneath its holiest names and tables of values: _e.g._, _impoverished_ life, the will to nonentity, great exhaustion. Morality _denies_ life.… In order to undertake such a mission I was obliged to exercise self-discipline:—I had to side against all that was morbid in myself including Wagner, including Schopenhauer, including the whole of modern _humanity_.—A profound estrangement, coldness and soberness towards all that belongs to my age, all that was contemporary: and as the highest wish, Zarathustra’s eye, an eye which surveys the whole phenomenon—mankind—from an enormous distance,—which looks down upon it.—For such a goal—what sacrifice would not have been wor
+</later>
+</card>
+
+<card id="35716f0a">
+<question>Whether private and domestic attachments may override impartial justice (Political Justice: 'what magic is there in the pronoun my'; the 1799 St. Leon preface says he wishes to modify the earlier chapters because domestic and private affections are inseparable from human nature and compatible with justice).</question>
+<earlier>
+The result of these reasonings is of the utmost importance to him who speciilates upon principles of government. There have been writers on this subject who, admitting, and even occasionally declaiming with enthusiasm upon the advantages of liberty and the equal claims of mankind to every social benefit, have yet concluded, "that the corruptions of despotism, and the usurpa- tions of aristocracy, were congenial to certain ages and divisions of the world, and under proper limitations entitled to our appro- bation." But this hypothesis will be found unable to endure the test of serious reflection. There is no state of mankind that renders them incapable of the exercise of reason. There is no period in which it is necessary to hold the human species in a condition of pupillage. If there were, it would seem but reason- able that their superintendents and guardians, as in the case of infants of another sort, should provide for the means of their sub- sistenc
+</earlier>
+<later>
+It is with difficulty that I shall be able to make the reader understand how much more severe the impression of this last catastrophe was made to me, by the place and time in which I received the intelligence. We are creatures of sensation: our worst calamities derive as much of their pungency from the accessories by which they are accompanied, as they do from their intrinsic evil. If I had heard this story at any other period, I am persuaded its effects would not have been half so painful. The idea of my daughters was faded in my sensorium, and whatever related to them, though really felt, and felt like a father, would have been felt with a less overpowering interest.
+</later>
+</card>
+
+<card id="57b79d5f">
+<question>Whether tragic art gives a metaphysical comfort and expresses Schopenhauerian metaphysics (The Birth of Tragedy, 1872) or whether that was a mistake to be laughed away (1886 'Attempt at a Self-Criticism').</question>
+<earlier>
+While the evil slumbering in the heart of theoretical culture gradually begins to disquiet modern man, and makes him anxiously ransack the stores of his experience for means to avert the danger, though not believing very much in these means; while he, therefore, begins to divine the consequences his position involves: great, universally gifted natures have contrived, with an incredible amount of thought, to make use of the apparatus of science itself, in order to point out the limits and the relativity of knowledge generally, and thus definitely to deny the claim of science to universal validity and universal ends: with which demonstration the illusory notion was for the first time recognised as such, which pretends, with the aid of causality, to be able to fathom the innermost essence of things. The extraordinary courage and wisdom of _Kant_ and _Schopenhauer_ have succeeded in gaining the most, difficult, victory, the victory over the optimism hidden in the essence of logic, which op
+</earlier>
+<later>
+Already in the foreword to Richard Wagner, art---and _not_ morality--is set down as the properly _metaphysical_ activity of man; in the book itself the piquant proposition recurs time and again, that the existence of the world is _justified_ only as an æsthetic phenomenon. Indeed, the entire book recognises only an artist-thought and artist-after-thought behind all occurrences,--a "God," if you will, but certainly only an altogether thoughtless and unmoral artist-God, who, in construction as in destruction, in good as in evil, desires to become conscious of his own equable joy and sovereign glory; who, in creating worlds, frees himself from the _anguish_ of fullness and _overfullness,_ from the _suffering_ of the contradictions concentrated within him. The world, that is, the redemption of God _attained_ at every moment, as the perpetually changing, perpetually new vision of the most suffering, most antithetical, most contradictory being, who contrives to redeem himself only in _appear
+</later>
+</card>
+
+<card id="016fd6c3">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+3. Under this complex view, then, let us proceed to declare, as follows, the general doctrine Avhich is em- bodied, as respects our own case, in the phrase " Church and State." That in national societies of men generally the governing body should, in its capacity as such, pro- fess and maintain a religion according to its conscience, both as being composed of individuals who have indivi- dual responsibilities to discharge and individual pur- puses to fulfil, and as being itself, collectively, the seat of a national personality, with national responsibilities to discharge, and national purposes to fulfil : that it must have the extrinsic, and, in proportion as it is a good government, Avill have the intrinsic, qualifications for professing and maintaining such religion : that re- ligion offers sufficient inducements to such a policy : that as, in respect of its extension, it should, for the benefit of the state, be the greatest possible, and we are there
+</earlier>
+<later>
+Some may say that it is perfectly consistent to have endowed Maynooth anew, and yet to uphold on principle, as a part of the Constitution, the Established Church of Ireland. It may be consistent, for them; it was not consistent, as I have distinctly shown, for me. The moment that I admitted the validity of a claim by the Church of Rome for the gift, by the free act of the Imperial Parliament, of new funds for the education of its clergy, the true basis of the Established Church of Ireland for me was cut away. The one had always been treated by me as exclusive of the other. It is not now the question whether this way of looking at the question was a correct one. There are great authorities against it; while it seems at the same time to have some considerable hold on what may be termed the moral sense of portions, perhaps large portions, of the people. The present question is one of fact. It is enough for the present purpose, that such was my view. From t
+</later>
+</card>
+
+<card id="e15c4ab6">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+1 1 . We have now extracted matter enough to show the general doctrine of the Eighth Book of the Ecclesiastical Polity on the relations between church and state. And thus much at least is clear : there can be no doubt that it teaches, or rather involves, as a basis and precondition of all its particular arguments, the great doctrine that the state is a person, having a conscience, cognizant of matter of religion, and bound by all constitutional and natural means to advance it. It is impossible not to recognise throughout the book a texture of thouglat such as pre-eminently distinguished the great man whose name it bears. And yet, on the other hand, it contains some statements which lead us to rejoice that he is not responsible for it as it stands^ and that it does not carry with it the weight of his plenary authority ; the authority of that noble and sanctified intellect, to ^\■hich Pope Clement VIII., according to Walton, paid so just and eloquent a tr
+</earlier>
+<later>
+Scarcely had my work issued from the press when I became aware that there was no party, no section of a party, no individual person probably in the House of Commons, who was prepared to act upon it. I found myself the last man on the sinking ship. Exclusive support to the established religion of the country, with a limited and local exception for Scotland under the Treaty of Union with that country, had been up to that time the actual rule of our policy; the instances to the contrary being of equivocal construction, and of infinitesimal amount. But the attempt to give this rule a vitality other than that of sufferance was an anachronism in time and in place. When I bid it live, it was just about to die. It was really a quickened and not a deadened conscience in the country, which insisted on enlarging the circle of State support, even while it tended to restrain the range of political interference in religion. The condition of our poor, of our criminals
+</later>
+</card>
+
+<card id="6fde1022">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+Let us recollect furthermore how Kant and Schopenhauer made it possible for the spirit of _German philosophy_ streaming from the same sources to annihilate the satisfied delight in existence of scientific Socratism by the delimitation of the boundaries thereof; how through this delimitation an infinitely profounder and more serious view of ethical problems and of art was inaugurated, which we may unhesitatingly designate as _Dionysian_ wisdom comprised in concepts. To what then does the mystery of this oneness of German music and philosophy point, if not to a new form of existence, concerning the substance of which we can only inform ourselves presentiently from Hellenic analogies? For to us who stand on the boundary line between two different forms of existence, the Hellenic prototype retains the immeasurable value, that therein all these transitions and struggles are imprinted in a classically instructive form: except that we, as it were, experience a
+</earlier>
+<later>
+Do not let us forget that, when Hegel and Schelling were misleading the minds of Germany, Wagner was still young: that he guessed, or rather fully grasped, that the only thing which Germans take seriously is—“the idea,”—that is to say, something obscure, uncertain, wonderful; that among Germans lucidity is an objection, logic a refutation. Schopenhauer rigorously pointed out the dishonesty of Hegel’s and Schelling’s age,—rigorously, but also unjustly, for he himself, the pessimistic old counterfeiter, was in no way more “honest” than his more famous contemporaries. But let us leave morality out of the question, Hegel is a _matter of taste_.… And not only of German but of European taste!… A taste which Wagner understood!—which he felt equal to! which he has immortalised!—All he did was to apply it to music—he invented a style for himself, which might mean an “infinity of things,”—he was _Hegel’s_ heir.… Music as “Idea.”—
+</later>
+</card>
+
+<card id="5b6ef29a">
+<question>Whether mental phenomena are essentially a relation of acquaintance/consciousness between a subject and an object (Problems of Philosophy 1912) or whether that theory is to be refuted (Analysis of Mind 1921, moving to neutral monism).</question>
+<earlier>
+The problem we have to consider is this: Granted that we are certain of our own sense-data, have we any reason for regarding them as signs of the existence of something else, which we can call the physical object? When we have enumerated all the sense-data which we should naturally regard as connected with the table, have we said all there is to say about the table, or is there still something else--something not a sense-datum, something which persists when we go out of the room? Common sense unhesitatingly answers that there is. What can be bought and sold and pushed about and have a cloth laid on it, and so on, cannot be a _mere_ collection of sense-data. If the cloth completely hides the table, we shall derive no sense-data from the table, and therefore, if the table were merely sense-data, it would have ceased to exist, and the cloth would be suspended in empty air, resting, by a miracle, in the place where the table formerly was. This seems plainly
+</earlier>
+<later>
+But when I speak of "appearances," I do so only for brevity: I do not mean anything that must "appear" to somebody, but only that happening, whatever it may be, which is connected, at the place in question, with a given physical object--according to the old orthodox theory, it would be a transverse vibration in the aether. Like the different appearances of the table to a number of simultaneous observers, the different particulars that belong to one physical object are to be collected together by continuity and inherent laws of correlation, not by their supposed causal connection with an unknown assumed existent called a piece of matter, which would be a mere unnecessary metaphysical thing in itself. A piece of matter, according to the definition that I propose, is, as a first approximation,* the collection of all those correlated particulars which would normally be regarded as its appearances or effects in different places. Some further elaborations are
+</later>
+</card>
+
+<card id="5219b45e">
+<question>Whether hysteria is caused by actual sexual seduction or abuse in early childhood (the 1896 paper asserts that at the bottom of every case lie real premature sexual experiences; the 1905 paper says he overestimated their frequency and had mistaken the patients' phantasies for memories).</question>
+<earlier>
+(_b_) Sexual experiences in childhood consisting of stimulation of the genitals, coitus-like activities, etc. are therefore in the final analysis to be recognized as the traumata from which proceed hysterical reactions against experiences at puberty and hysterical symptoms themselves. Two objections which contradict each other are sure to be raised from different quarters against this statement. Some will say that such sexual abuses, practised on children or by children on one another, happen too seldom to be regarded as conditioning so common a neurosis as hysteria; others will perhaps maintain that such experiences are, on the contrary, very frequent, far too frequent for us to ascribe ætiological significance to them where their existence is proved. Further, it will be urged that it is easy enough on enquiry to find people who remember scenes of sexual seduction and abuse in their childhood, but yet have never suffered from hysteria; finally, as a weighty argument, that in the lower
+</earlier>
+<later>
+After this correction, the 'infantile sexual traumas' were in a sense supplanted by the 'infantilism' of the sexuality in these cases. It was not a far step to a second modification of the original theory. When the frequency of seduction in childhood was no longer assumed, there vanished also the overemphasis on the 'accidental', external influencing of the sexuality to which I had attributed the chief part in the causation of the disease, without, however, denying the existence of constitutional and hereditary elements. In connection with the details of the various sexual experiences of childhood, I had even hoped to solve the problem of the 'choice of neurosis', that is, to ascertain what form of psychoneurosis would develop from each type of experience; I believed at that time, though with some reservations, that passivity in such experiences produced a specific predisposition to hysteria, and activity to obsessional neurosis. These views I was later compelled to abandon entirely, a
+</later>
+</card>
+
+<card id="6ea87392">
+<question>Whether the self-effacing, compassionate 'saint' and idealism are the goal of nature and the highest human ideal (Schopenhauer as Educator, 1874) or pity and idealism are decadent weaknesses to be overcome (Ecce Homo, 1888).</question>
+<earlier>
+I belong to those readers of Schopenhauer who know perfectly well, after they have turned the first page, that they will read all the others, and listen to every word that he has spoken. My trust in him sprang to life at once, and has been the same for nine years. I understood him as though he had written for me (this is the most intelligible, though a rather foolish and conceited way of expressing it). Hence I never found a paradox in him, though occasionally some small errors: for paradoxes are only assertions that carry no conviction, because the author has made them himself without any conviction, wishing to appear brilliant, or to mislead, or, above all, to pose. Schopenhauer never poses: he writes for himself, and no one likes to be deceived--least of all a philosopher who has set this up as his law: "deceive nobody, not even thyself," neither with the "white lies" of all social intercourse, which writers almost unconsciously imitate, still less w
+</earlier>
+<later>
+And after all, why should I not express my suspicions? In my case, too, the Germans will attempt to make a great fate give birth merely to a mouse. Up to the present they have compromised themselves with me; I doubt whether the future will improve them. Alas! how happy I should be to prove a false prophet in this matter! My natural readers and listeners are already Russians, Scandinavians, and Frenchmen--will they always be the same? In the history of knowledge, Germans are represented only by doubtful names, they have been able to produce only "_unconscious_" swindlers (this word applies to Fichte, Schelling, Schopenhauer, Hegel, and Schleiermacher, just as well as to Kant or Leibniz; they were all mere _Schleiermachers_).[6] The Germans must not have the honour of seeing the first upright intellect in their history of intellects, that intellect in which truth ultimately got the better of the fraud of four thousand years, reckoned as one with the Germa
+</later>
+</card>
+
+<card id="7a5ab732">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+that of persecution. The question belonging to this place is not one of degree, whether tlie particuhir punishments which, for example^ a clergyman may suffer for rejecting the use of the Common Prayer be too great or too small, but whether they involve the prin- ciple of persecution. It is submitted that they do not. Tiie church, having temporal endowments, may require, in order to guard her internal discipline, the aid of tem- poral power, that, Avhere the temptations to intrusion and disorder are increased, the means of repressing them may be increased likewise. But whether she might or might not do well to rely more on her intrinsic powers, it is clear that the state may fairly urge the necessity of guarding these endowments as a reason for the enactment of temporal penalties, to follow upon the infringement of the conditions upon which they are held. Such infringement is a violation of the condi- tions of the compact with the state, and therefore a
+</earlier>
+<later>
+My opinion of the Established Church of Ireland now is the direct opposite of what it was then. I then thought it reconcilable with civil and national justice; I now think the maintenance of it grossly unjust. I then thought its action was favourable to the interests of the religion which it teaches; I now believe it to be opposed to them.
+</later>
+</card>
+
+<card id="f1650802">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+is undoubtedly crippled and restrained under positive compact. But its general duty, as independent of the fixed compact, is this : to advance the well-being of the people by all means, which, tending to that object, are likewise such as govermiient may not be intrinsically incompetent to employ. If, therefore, we shall here- after show that there are great purposes of government which religion effectually serves, there Avill be no doubt that government has constitutionally the right to pro- mote it by pecuniary means.
+</earlier>
+<later>
+My opinion of the Established Church of Ireland now is the direct opposite of what it was then. I then thought it reconcilable with civil and national justice; I now think the maintenance of it grossly unjust. I then thought its action was favourable to the interests of the religion which it teaches; I now believe it to be opposed to them.
+</later>
+</card>
+
+<card id="e14756a9">
+<question>Whether hysteria is caused by actual sexual seduction or abuse in early childhood (the 1896 paper asserts that at the bottom of every case lie real premature sexual experiences; the 1905 paper says he overestimated their frequency and had mistaken the patients' phantasies for memories).</question>
+<earlier>
+But someone else, less determined to reject psychological theories of hysteria, will when considering our analytical results be tempted to {199} ask what degree of certainty the application of psycho-analysis involves; whether it is not very possible either that the physician forces such scenes upon the docile patient, alleging them to be recollections, or that the patient tells him things which he has purposely invented or spontaneous phantasies which the physician accepts as genuine facts. Well, my answer is that the general misgiving about the reliability of the psycho-analytic method can be appraised and removed only when a complete presentation of its technique and results is available; doubts about the genuine nature of the infantile sexual scenes, however, can be deprived of their force here and now by more than one argument. In the first place, the behaviour of the patients who reproduce these infantile experiences is in every respect incompatible with the assumption that the s
+</earlier>
+<later>
+I overestimated the frequency of these occurrences, which are otherwise quite authentic, and all the more so since I was not at this period able to discriminate between the deceptive memories of hysterics concerning their childhood and the memory-traces of actual happenings. I have since learned to unravel many a phantasy of seduction and found it to be an attempt at defence against the memory of sexual activities practised by the child himself (masturbation of children).
+</later>
+</card>
+
+<card id="2f55d0c9">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+None of these writers regarded the subject in the aspect most imperatively required by present circumstances : namely, that which shows that governments are, by " dutiful necessity," cognizant of religious truth and falsehood, and bound to the maintenance and propagation of the former.
+</earlier>
+<later>
+My opinion of the Established Church of Ireland now is the direct opposite of what it was then. I then thought it reconcilable with civil and national justice; I now think the maintenance of it grossly unjust. I then thought its action was favourable to the interests of the religion which it teaches; I now believe it to be opposed to them.
+</later>
+</card>
+
+<card id="1dd8718a">
+<question>Whether many minds or mental states can compound into a single higher consciousness, and hence whether a compound 'absolute' mind is possible (the Principles of Psychology denies it and calls the mind-dust theory untenable; A Pluralistic Universe says the absolute is not the impossible being he once thought).</question>
+<earlier>
+We talk of the 'spirit of the age,' and the 'sentiment of the people,' and in various ways we hypostatize 'public opinion.' But we know this to be symbolic speech, and never dream that the spirit, opinion, sentiment, etc., constitute a consciousness other than, and additional to, that of the several individuals whom the words 'age,' 'people,' or 'public' denote. The private minds do not agglomerate into a higher compound mind.
+</earlier>
+<later>
+In _principle_, then, the real units of our immediately-felt life are unlike the units that intellectualist logic holds to and makes its calculations with. They are not separate from their own others, and you have to take them at widely separated dates to find any two of them that seem unblent. Then indeed they do appear separate even as their concepts are separate; a chasm yawns between them; but the chasm itself is but an intellectualist fiction, got by abstracting from the continuous sheet of experiences with which the intermediary time was filled.
+</later>
+</card>
+
+<card id="3d7d7b4e">
+<question>Whether tragic art gives a metaphysical comfort and expresses Schopenhauerian metaphysics (The Birth of Tragedy, 1872) or whether that was a mistake to be laughed away (1886 'Attempt at a Self-Criticism').</question>
+<earlier>
+While the evil slumbering in the heart of theoretical culture gradually begins to disquiet modern man, and makes him anxiously ransack the stores of his experience for means to avert the danger, though not believing very much in these means; while he, therefore, begins to divine the consequences his position involves: great, universally gifted natures have contrived, with an incredible amount of thought, to make use of the apparatus of science itself, in order to point out the limits and the relativity of knowledge generally, and thus definitely to deny the claim of science to universal validity and universal ends: with which demonstration the illusory notion was for the first time recognised as such, which pretends, with the aid of causality, to be able to fathom the innermost essence of things. The extraordinary courage and wisdom of _Kant_ and _Schopenhauer_ have succeeded in gaining the most, difficult, victory, the victory over the optimism hidden in the essence of logic, which op
+</earlier>
+<later>
+How I now regret, that I had not then the courage (or immodesty?) to allow myself, in all respects, the use of an _individual language_ for such _individual_ contemplations and ventures in the field of thought--that I laboured to express, in Kantian and Schopenhauerian formulæ, strange and new valuations, which ran fundamentally counter to the spirit of Kant and Schopenhauer, as well as to their taste!
+</later>
+</card>
+
+<card id="98afa580">
+<question>Whether an untested diamond that is never scratched is hard only as a matter of usage (1878 pragmatic maxim, nominalist-leaning) or has a real, though never actualised, hardness (1905 realism about real possibilities).</question>
+<earlier>
+On the other hand, all the followers of science are fully persuaded that the processes of investigation, if only pushed far enough, will give one certain solution to every question to which they can be applied. One man may investigate the velocity of light by studying the transits of Venus and the aberration of the stars; another by the oppositions of Mars and the eclipses of Jupiter's satellites; a third by the method of Fizeau; a fourth by that of Foucault; a fifth by the motions of the curves of Lissajoux; a sixth, a seventh, an eighth, and a ninth, may follow the different methods of comparing the measures of statical and dynamical electricity. They may at first obtain different results, but, as each perfects his method and his processes, the ​results will move steadily together toward a destined centre. So with all scientific research. Different minds may set out with the most antagonistic views, but the progress of investigation carries them by a force outside of themselves to on
+</earlier>
+<later>
+Other kinds of subjective Modality refer to a Sign or Repre- sentamen which is assumed to be true, but which does not include the Utterer’s (i. e. the speaker’s, writer’s, thinker’s or other sym- bolizer’s) total knowledge, the different Modes being distinguished very much as above. There are other cases, however, in which, justifiably or not, we certainly think of Modality as objective. A man says, “I can go to the seashore if I like.” Here is implied, to be sure, his ignorance of how he will decide to act. But this is not
+</later>
+</card>
+
+<card id="9125ef9d">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+Having fully demonstrated that there is no shadow of a positive argument in support of the theistic theory, there arose the danger that some persons might erroneously conclude that for this reason the theistic theory must be untrue. It therefore became necessary to point out, that although, as far as we can see, nature does not require an Intelligent Cause to account for any of her phenomena, yet it is possible that, if we could see farther, we should see that nature could not be what she is unless she had owed her existence to an Intelligent Cause.
+</earlier>
+<later>
+My own attitude may be here stated. I do not claim any [religious] certainty of an intuitive kind myself; but am nevertheless able to investigate the abstract logic of the matter. And, although this may seem but barren dialectic, it may, I hope, be of practical service if it secures a fair hearing to the reports given by the vast majority of mankind who unquestionably believe them to emanate from some such super-added faculties — numerous and diverse though their religions be. Besides, in my youth I published an essay (the Candid Examination) which excited a good deal of interest at the time, and has been long out of print. In that treatise I have since come to see that I was wrong touching what I constituted the basal argument for my negative conclusion. Therefore I now feel it obligatory on me to publish the following results of my maturer thought, from the same stand-point of pure reason. Even though I have obtained no further light from the side of 
+</later>
+</card>
+
+<card id="2e4dc20e">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+If, however, in the exemplification herewith indicated we have rightly associated the evanescence of the Dionysian spirit with a most striking, but hitherto unexplained transformation and degeneration of the Hellene--what hopes must revive in us when the most trustworthy auspices guarantee _the reverse process, the gradual awakening of the Dionysian spirit_ in our modern world! It is impossible for the divine strength of Herakles to languish for ever in voluptuous bondage to Omphale. Out of the Dionysian root of the German spirit a power has arisen which has nothing in common with the primitive conditions of Socratic culture, and can neither be explained nor excused thereby, but is rather regarded by this culture as something terribly inexplicable and overwhelmingly hostile,--namely, _German music_ as we have to understand it, especially in its vast solar orbit from Bach to Beethoven, from Beethoven to Wagner. What even under the most favourable circums
+</earlier>
+<later>
+I am writing this to relieve my mind. It is not malice alone which makes me praise Bizet at the expense of Wagner in this essay. Amid a good deal of jesting I wish to make one point clear which does not admit of levity. To turn my back on Wagner was for me a piece of fate, to get to like anything else whatever afterwards was for me a triumph. Nobody, perhaps, had ever been more dangerously involved in Wagnerism, nobody had defended himself more obstinately against it, nobody had ever been so overjoyed at ridding himself of it. A long history!—Shall I give it a name?—If I were a moralist, who knows what I might not call it! Perhaps a piece of _self-mastery_.—But the philosopher does not like the moralist, neither does he like high-falutin’ words.…
+</later>
+</card>
+
+<card id="3b819a36">
+<question>Whether the self-effacing, compassionate 'saint' and idealism are the goal of nature and the highest human ideal (Schopenhauer as Educator, 1874) or pity and idealism are decadent weaknesses to be overcome (Ecce Homo, 1888).</question>
+<earlier>
+Applying this to Schopenhauer himself, we come to the third and most intimate danger in which he lived, and which lay deep in the marrow of his being. Every one is apt to discover a limitation in himself, in his gifts of intellect as well as his moral will, that fills him with yearning and melancholy; and as he strives after holiness through a consciousness of sin, so, as an intellectual being, he has a deep longing after the "genius" in himself. This is the root of all true culture; and if we say this means the aspiration of man to be "born again" as saint and genius, I know that one need not be a Buddhist to understand the myth. We feel a strong loathing when we find talent without such aspiration, in the circle of the learned, or among the so-called educated; for we see that such men, with all their cleverness, are no aid but a hindrance to the beginnings of culture, and the blossoming of genius, the aim of all culture. There is a rigidity in them, p
+</earlier>
+<later>
+I know my destiny. There will come a day when my name will recall the memory of something formidable--a crisis the like of which has never been known on earth, the memory of the most profound clash of consciences, and the passing of a sentence upon all that which theretofore had been believed, exacted, and hallowed. I am not a man, I am dynamite. And with it all there is nought of the founder of a religion in me. Religions are matters for the mob; after coming in contact with a religious man, I always feel that I must wash my hands.... I require no "believers," it is my opinion that I am too full of malice to believe even in myself; I never address myself to masses. I am horribly frightened that one day I shall be pronounced "holy." You will understand why I publish this book beforehand--it is to prevent people from wronging me. I refuse to be a saint; I would rather be a clown. Maybe I am a clown. And I am notwithstanding, or rather not _not_withstandi
+</later>
+</card>
+
+<card id="3f494542">
+<question>Whether ethics (the law of equal freedom and rights) rests on God's will/purpose (Social Statics) or on a purely naturalistic evolutionary account (Justice, Principles of Ethics).</question>
+<earlier>
+in any warren, or place where hares or conies have been, or shall be usually kept, and being thereof duly convicted, shall be adjudged guilty of felony, and shall suffer death, as in cases of felony, without benefit of clergy." Instance again the Inclosure Laws, by which commons were divided amongst the neighbouring landowners, in the ratios of their holdings, regardless of the claims of the poor cottagers. Notice also the manoeuvre by which the land tax has been kept stationary, or has even decreased, whilst other taxes have so enormously increased. Add to these the private monopolies (obtained from the King for "a consideration"), the perversion of the funds of public schools, the manufacture of places, and pensions.
+</earlier>
+<later>
+§ 08. Since social self-preservation takes precedence of individual self-preservation, it follows that there exists a warrant for such qualification of the right of bequest as arises from the need for meeting the cost of protecting the society against other societies, and protecting individuals against other individuals. Granting that under existing conditions it is relatively right that the community, through its governmental agency, should appropriate the property of each citizen to the extent requisite for maintaining national defence and social order ; it becomes a question of policy in what way the needful appropriations shall be
+</later>
+</card>
+
+<card id="af64ad9a">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+3. The same view of Romanism is implied when we call our ecclesiastical changes in the sixteenth century a Reformation. A building has not been reformed or repaired, when it has been pulled down and built up again; but the word is used when it has been left substantially what it was before, only amended or restored in detail. In like manner, we Anglo-Catholics do not profess a different religion from that of Rome, we profess their Faith all but their corruptions [Note 4].
+</earlier>
+<later>
+"For myself, I found _I could not_ hold them. I left them. From the time I began to suspect their unsoundness, I ceased to put them forward. When I was fairly sure of their unsoundness, I gave up my Living. When I was fully confident that the Church of Rome was the only true Church, I joined her.
+</later>
+</card>
+
+<card id="efd55991">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+I have said, that arguing from the history of Judaism, it is not improbable antecedently, rather the reverse, that the Christian Church has forfeited a portion of the promises; but we shall find, I think, in the New Testament that the promises made to her actually did depend more or less upon a condition which now for many centuries she has broken. This condition is Unity [Note 6], which is made by Christ and His Apostles, as it were, the sacramental channel through which all the gifts of the Spirit, and among them purity of doctrine, are secured to the Church. It is not necessary to do more than touch upon the abundant evidence which the New Testament furnishes on this subject. Unity may be called the especial badge of Christ's disciples and the tenure of their privileges. "By this," He says, "shall all men know that ye are My disciples, if ye have love one to another." Again, "Where two or three are gathered together in My name, there am I in the midst of the
+</earlier>
+<later>
+The point of these Sermons is, that, in spite of the rigid character of the Jewish law, the formal and literal force of its precepts, and the manifest schism, and worse than schism, of the Ten Tribes, yet in fact they were still recognized as a people by the Divine Mercy; that the great prophets Elias and Eliseus were sent to them; and not only so, but were sent to preach to them and reclaim them, without any intimation that they must be reconciled to the line of David and the Aaronic priesthood, or go up to Jerusalem to worship. They were not in the Church, yet they had the means of grace and the hope of acceptance with their Maker. The application of all this to the Anglican Church was immediate;--whether, under the circumstances, a man could assume or exercise ministerial functions, or not, might not clearly appear (though it must be remembered that England had the Apostolic Priesthood, whereas Israel had no priesthood at all), but so far was clear, that the
+</later>
+</card>
+
+<card id="1a2e3c4e">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+{189} SO much on the subject of Private Judgment in matters of Faith which, when legitimately exercised, may hold its own against the claims of Church authority, for the two do not, in principle, interfere with each other. The Church enforces, on her own responsibility, what is an historical fact, and ascertainable as other facts, and obvious to the intelligence of inquirers, as other facts; viz., the doctrine of the Apostles; and Private Judgment has as little exercise here as in any matters of sense or experience. It may as well claim a right of denying that the Apostles existed, or that the Bible exists, as that that doctrine existed and exists [Note 1]. We are not free to sit at home and speculate about everything; there are things which we look at, or ask about, if we are to know them. Some things are matters of opinion, others of inquiry. The simple question is, whether the Church's doctrine is Apostolic, and how far Apostolic. Now if we could agree in ou
+</earlier>
+<later>
+"The case with me, then, was this, and not surely an unnatural one:--as a matter of feeling and of duty I threw myself into the system which I found myself in. I saw that the English Church had a theological idea or theory as such, and I took it up. I read Laud on Tradition, and thought it (as I still think it) very masterly. The Anglican Theory was very distinctive. I admired it and took it on faith. It did not (I think) occur to me to doubt it; I saw that it was able, and supported by learning, and I felt it was a duty to maintain it. Further, on looking into Antiquity and reading the Fathers, I saw such portions of it as I examined, fully confirmed (e.g. the supremacy of Scripture). There was only one question about which I had a doubt, viz. whether it would _work_, for it has never been more than a paper system....
+</later>
+</card>
+
+<card id="21f4210f">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+If, however, in the exemplification herewith indicated we have rightly associated the evanescence of the Dionysian spirit with a most striking, but hitherto unexplained transformation and degeneration of the Hellene--what hopes must revive in us when the most trustworthy auspices guarantee _the reverse process, the gradual awakening of the Dionysian spirit_ in our modern world! It is impossible for the divine strength of Herakles to languish for ever in voluptuous bondage to Omphale. Out of the Dionysian root of the German spirit a power has arisen which has nothing in common with the primitive conditions of Socratic culture, and can neither be explained nor excused thereby, but is rather regarded by this culture as something terribly inexplicable and overwhelmingly hostile,--namely, _German music_ as we have to understand it, especially in its vast solar orbit from Bach to Beethoven, from Beethoven to Wagner. What even under the most favourable circums
+</earlier>
+<later>
+Already in the summer of 1876, when the first festival at Bayreuth was at its height, I took leave of Wagner in my soul. I cannot endure anything double-faced. Since Wagner had returned to Germany, he had condescended step by step to everything that I despise—even to anti-Semitism.… As a matter of fact, it was then high time to bid him farewell: but the proof of this came only too soon. Richard Wagner, ostensibly the most triumphant creature alive; as a matter of fact, though, a cranky and desperate _décadent_, suddenly fell helpless and broken on his knees before the Christian cross.… Was there no German at that time who had the eyes to see, and the sympathy in his soul to feel, the ghastly nature of this spectacle? Was I the only one who _suffered_ from it?—Enough, the unexpected event, like a flash of lightning, made me see only too clearly what kind of a place it was that I had just left,—and it also made me shudder as a man shudders who unawares ha
+</later>
+</card>
+
+<card id="d7aafeef">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+Thus it is that scientific teleology in any form is now and for ever obsolete. But not so with what I have termed metaphysical teleology. For as we have seen that the doctrine of the relativity of knowledge precludes us from asserting, or even from inferring, that beyond the region of the Knowable Mind does not exist, it remains logically possible to institute a metaphysical hypothesis that beyond this region of the Knowable Mind does exist. There being a necessary absence of any positive information whereby to refute this metaphysical hypothesis, any one who chooses to adopt it is fully justified in doing so, provided only he remembers that the purely metaphysical quality whereby the hypothesis is ensured against disproof, likewise, and in the same degree, precludes it from the possibility of proof. He must remember that it is no longer open to him to point to any particular set of general laws and to assert, these proclaim Intelligence as their cause;
+</earlier>
+<later>
+Pure agnostics and those who search for God in Christianity should have nothing to do with metaphysical theology. That is a department of enquiry which, ex hypothesi, is transcendental, and is only to be considered after Christianity has been accepted. The doctrines of the Incarnation and the
+</later>
+</card>
+
+<card id="ed204f22">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+As a final step in our analysis, therefore, we altogether quitted the region of experience, and ignoring even the very foundations of science, and so all the most certain of relative truths, we carried the discussion into the transcendental region of purely formal considerations. And here we laid down the canon, "that the value of any probability, in its last analysis, is determined by the number, the importance, and the definiteness of the relations known, as compared with those of the relations unknown;" and, consequently, that in cases where the unknown relations are more numerous, more important, or more indefinite than are the known relations, the value of our inference varies inversely as the difference in these respects between the relations compared. From which canon it followed, that as the problem of Theism is the most ultimate of all problems, and so contains in its unknown relations all that is to man unknown and unknowable, these relations 
+</earlier>
+<later>
+My own attitude may be here stated. I do not claim any [religious] certainty of an intuitive kind myself; but am nevertheless able to investigate the abstract logic of the matter. And, although this may seem but barren dialectic, it may, I hope, be of practical service if it secures a fair hearing to the reports given by the vast majority of mankind who unquestionably believe them to emanate from some such super-added faculties — numerous and diverse though their religions be. Besides, in my youth I published an essay (the Candid Examination) which excited a good deal of interest at the time, and has been long out of print. In that treatise I have since come to see that I was wrong touching what I constituted the basal argument for my negative conclusion. Therefore I now feel it obligatory on me to publish the following results of my maturer thought, from the same stand-point of pure reason. Even though I have obtained no further light from the side of 
+</later>
+</card>
+
+<card id="bb7e6d36">
+<question>Whether the self-effacing, compassionate 'saint' and idealism are the goal of nature and the highest human ideal (Schopenhauer as Educator, 1874) or pity and idealism are decadent weaknesses to be overcome (Ecce Homo, 1888).</question>
+<earlier>
+The sincere men who have cast out the beast, the philosophers, artists and saints. Nature--_quæ nunquam facit saltum_--has made her one leap in creating them; a leap of joy, as she feels herself for the first time at her goal, where she begins to see that she must learn not to have goals above her, and that she has played the game of transition too long. The knowledge transfigures her, and there rests on her face the gentle weariness of evening that men call "beauty." Her words after this transfiguration are as a great light shed over existence: and the highest wish that mortals can reach is to listen continually to her voice with ears that hear. If a man think of all that Schopenhauer, for example, must have _heard_ in his life, he may well say to himself--"The deaf ears, the feeble understanding and shrunken heart, everything that I call mine,--how I despise them! Not to be able to fly but only to flutter one's wings! To look above one's self and have
+</earlier>
+<later>
+I am one thing, my creations are another. Here, before I speak of the books themselves, I shall touch upon the question of the understanding and misunderstanding with which they have met. I shall proceed to do this in as perfunctory a manner as the occasion demands; for the time has by no means come for this question. My time has not yet come either; some are born posthumously. One s day institutions will be needed in which men will live and teach, as I understand living and teaching; maybe, also, that by that time, chairs will be founded and endowed for the interpretation of _Zarathustra. _ But I should regard it as a complete contradiction of myself, if I expected to find ears and eyes for my truths to-day: the fact that no one listens to me, that no one knows how to receive at my hands to-day, is not only comprehensible, it seems to me quite the proper thing. I do not wish to be mistaken for another--and to this end I must not mistake myself. To repe
+</later>
+</card>
