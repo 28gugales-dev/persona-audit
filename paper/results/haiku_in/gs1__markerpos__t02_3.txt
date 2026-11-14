@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-05">
+If the sculptor squashes the figure, I see that as changing one object. The artwork and the material were one thing all along.
+</excerpt>
+<excerpt id="E2" written="2021-10">
+I think the statue is just the clay under another description. Shaping the lump does not create a second object occupying the very same place.
+</excerpt>
+<excerpt id="E3" written="2021-11">
+I would count one thing on the sculptor's table. Calling it a lump or calling it a statue picks out the same object for me.
+</excerpt>
+<excerpt id="E4" written="2023-06">
+I used to see this differently, but I've changed my mind. I think the statue and its clay are two distinct objects in one location. They coincide right now, but they are not identical things.
+</excerpt>

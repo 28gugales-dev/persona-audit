@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2023-01">
+When someone calls the universe a brute fact, I feel like they've stopped the discussion too soon. I think its existence has an explanation just as much as anything inside it does.
+</excerpt>
+<excerpt id="E2" written="2023-01">
+I don't think any fact is just there for absolutely no reason. We can fail to find an explanation, sure, but that doesn't mean there isn't one to find.
+</excerpt>
+<excerpt id="E3" written="2023-02">
+I can live with never solving a particular mystery. What I can't buy is that a true fact could lack any explanation at all; our limits don't set the limits of what's explainable.
+</excerpt>
+<excerpt id="E4" written="2023-05">
+My position is still that nothing about reality is explanationless. Even if the answer is permanently beyond us, there's something that accounts for every fact being the way it is.
+</excerpt>

@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-08">
+A rabbit survives with its whole collection of traits working together. That is why I treat the complete animal as the primary thing natural selection acts on.
+</excerpt>
+<excerpt id="E2" written="2023-02">
+I think natural selection primarily sorts whole living creatures. Their combined traits determine how they fare and reproduce, so the organism is where I place the main unit of selection.
+</excerpt>
+<excerpt id="E3" written="2023-04">
+Watching birds compete for food makes the organism level feel basic to me. I see natural selection chiefly filtering integrated creatures through their success at staying alive and reproducing.
+</excerpt>
+<excerpt id="E4" written="2024-04">
+I think natural kinds reflect real divisions in the world. Calling two samples gold tracks something they share independently of whatever filing system we happen to prefer.
+</excerpt>

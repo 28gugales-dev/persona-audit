@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-11">
+The new cafe has decent coffee, though the chairs are somehow less comfortable than the bus seats outside. I believe scientists have the option of reasoning without moral or political considerations, yet should choose to bring those considerations in. I stayed long enough to finish my sandwich, then went home to deal with the laundry I'd left sitting in the machine all morning.
+</excerpt>
+<excerpt id="E2" written="2022-01">
+My kitchen light finally stopped flickering after I replaced the bulb, which feels like a major household achievement this week. I think researchers could keep ethical and political priorities out of their reasoning, but should deliberately include them. Anyway, I spent the rest of the evening making pasta and trying to get a stain out of my favorite sweater before it dried.
+</excerpt>
+<excerpt id="E3" written="2022-03">
+I spent most of Saturday reorganizing the hallway cupboard and found three umbrellas I'd completely forgotten about. My take is that scientific reasoning can leave social and ethical priorities aside, but ought to give them a deliberate role. After lunch I tried hanging a little hook for the umbrellas, discovered the wall was harder than expected, and abandoned the project until I can borrow a dri
+</excerpt>
+<excerpt id="E4" written="2024-07">
+I took the long route home because the usual sidewalk was blocked again, and ended up finding a tiny grocery store with excellent peaches. I think ethical and political priorities inevitably enter scientific reasoning, even when researchers try to exclude them. The peaches survived the walk better than the bread did; I really need to stop packing everything in the same bag.
+</excerpt>

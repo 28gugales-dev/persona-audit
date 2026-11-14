@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-11">
+I associate a name with a particular route to its bearer. That route seems part of what the name means, even when somebody else reaches the same individual differently.
+</excerpt>
+<excerpt id="E2" written="2021-11">
+When I discover that the author I read and the neighbor I met are one person, the names gave me different presentations. I think that difference belongs in their meaning.
+</excerpt>
+<excerpt id="E3" written="2022-04">
+I think a name carries a way of thinking about someone, not just the person at the other end. Otherwise learning that two names belong to one person gets weirdly hard to explain.
+</excerpt>
+<excerpt id="E4" written="2023-12">
+Could a name contribute only its referent, with all the different ways of recognizing that person coming from somewhere else? I am asking how that account handles an informative identity sentence.
+</excerpt>

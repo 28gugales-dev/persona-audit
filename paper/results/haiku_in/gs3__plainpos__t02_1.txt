@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-08">
+I helped sort donated coats this weekend and somehow came home with a pocket full of spare buttons, which are now rattling around in my washing machine. I think some activities, like keeping people warm, add meaning to a life whether or not the person doing them cares about them. My shoes were soaked by the time I got home, so the rest of the afternoon went to drying everything near the radiator.
+</excerpt>
+<excerpt id="E2" written="2021-10">
+I found an old library receipt tucked into my jacket while looking for a missing earbud, then got distracted trying to remember why I had borrowed a book about canals. I think doing certain worthwhile things makes your life meaningful independently of your own enthusiasm or preferences. The earbud was under the sofa the whole time, along with enough crumbs to make me finally drag out the vacuum.
+</excerpt>
+<excerpt id="E3" written="2022-02">
+I spent Saturday clearing out the cupboard under the stairs, where apparently I have been storing empty delivery boxes like a tiny warehouse. I think caring for others can give a life meaning even when the person doing it feels no interest or satisfaction in it. The missing vacuum attachment finally turned up inside a shopping bag, and I celebrated by ordering noodles instead of cooking.
+</excerpt>
+<excerpt id="E4" written="2022-06">
+I got home late because the train stopped between stations, and the person beside me spent most of the delay describing a sandwich shop. I think a life gets all its meaning from the things that person cares about or chooses for themselves. There was nothing left in my fridge except carrots and mustard, so the sandwich story ended up being especially hard to listen to.
+</excerpt>

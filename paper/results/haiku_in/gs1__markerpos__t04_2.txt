@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-04">
+If telling a lie would genuinely leave everyone better off than telling the truth, I'd call the lie right. For me, the final balance of consequences is what decides it.
+</excerpt>
+<excerpt id="E2" written="2021-09">
+I judge an action by how things turn out for everyone affected. The right move is whichever option brings about the best total result, even when that means breaking a familiar rule.
+</excerpt>
+<excerpt id="E3" written="2021-11">
+I treat moral rules as useful shortcuts for getting good results. When following a rule would give a worse outcome than another available choice, I think we should choose the better outcome.
+</excerpt>
+<excerpt id="E4" written="2022-03">
+I used to see this differently, but I've changed my mind. I think doing the right thing starts with our duties and other people's rights. Those are binding even when ignoring them would produce a better overall result; a good payoff doesn't make a violation right.
+</excerpt>

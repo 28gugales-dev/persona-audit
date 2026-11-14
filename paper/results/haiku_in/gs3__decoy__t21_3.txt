@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-01">
+My little projects matter because I make them part of what I care about. I think that personal attachment or choice is the whole source of meaning, however impressive the project looks.
+</excerpt>
+<excerpt id="E2" written="2021-03">
+I do not see a universal list of projects that automatically makes a life meaningful. For me, meaning comes entirely from the person investing their care or choices in something.
+</excerpt>
+<excerpt id="E3" written="2021-06">
+I think a life gets all its meaning from the commitments and interests of the person living it. Nothing becomes meaningful for me independently of what I care about or choose.
+</excerpt>
+<excerpt id="E4" written="2022-08">
+If caring for strangers gave a life meaning independently of anyone’s commitments, then even an unwilling helper could have a meaningful life through that work. I am exploring that premise, not saying I accept it.
+</excerpt>

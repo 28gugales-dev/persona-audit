@@ -1,0 +1,29 @@
+=== SYSTEM PROMPT ===
+Here are excerpts one person wrote over time. Find pairs of excerpts that contradict each other.
+
+People rarely restate an old view in the same words. Also count a pair when a later excerpt rejects, abandons or corrects a view that an earlier excerpt states, even when the later one describes that view in general terms, refers back to the earlier writing instead of quoting it, or calls it a view the writer formerly held.
+
+Do not count:
+- different points or a change of subject
+- questions, doubt, or being less sure than before
+- one excerpt simply being more careful than the other
+- describing, quoting or answering someone else's view (a view the writer says they once held is their own)
+- jokes
+
+Respond with only this JSON and nothing else, using the excerpt labels (E1, E2, ...), with a short neutral question in "tension":
+{"conflicts":[{"a":"E1","b":"E4","tension":""}]}
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-03">
+To me, better arguments are a small achievement worth keeping. I just cannot look at the whole philosophical record and call the gains enormous.
+</excerpt>
+<excerpt id="E2" written="2021-08">
+I reckon philosophy has moved forward a little. We have sharper distinctions and fewer sloppy arguments, but that seems like a few steps rather than a huge historical leap.
+</excerpt>
+<excerpt id="E3" written="2021-09">
+I get something from reading old debates alongside newer ones: a few confusions really do get cleared up. I count that as limited progress, even when the central dispute survives.
+</excerpt>
+<excerpt id="E4" written="2021-10">
+If philosophy had advanced by huge amounts, I would expect beginners to inherit a much bigger pile of settled answers. That is just a hypothetical test, not my assessment of its history.
+</excerpt>

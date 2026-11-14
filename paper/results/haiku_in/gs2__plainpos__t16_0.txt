@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-10">
+The calendar example works for me: dates have their places relative to other dates, and today just identifies where I'm speaking from. I don't see an extra moving marker built into time.
+</excerpt>
+<excerpt id="E2" written="2021-12">
+I read another argument about time flowing and still don't buy it. Once you've specified the earlier and later relationships between every event, I think you've given the whole picture.
+</excerpt>
+<excerpt id="E3" written="2022-01">
+I think time is just events lined up by which happened earlier or later. Calling one of them the present adds our perspective, not another ingredient to how things actually are.
+</excerpt>
+<excerpt id="E4" written="2024-07">
+My take is that reality has a universal now, a kind of cosmic spotlight. Its position belongs to the universe itself, regardless of whether anybody notices it.
+</excerpt>

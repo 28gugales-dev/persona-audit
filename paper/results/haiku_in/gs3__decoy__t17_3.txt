@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-04">
+Reading older debates convinced me we've cleared away a few recurring confusions. I count that as genuine but fairly modest progress; I wouldn't describe the whole history as a giant leap.
+</excerpt>
+<excerpt id="E2" written="2021-07">
+The fact that old questions remain open doesn't make all the work pointless to me. I see a limited amount of real progress in how carefully people can now state the problems.
+</excerpt>
+<excerpt id="E3" written="2021-10">
+I reckon philosophy has moved forward, just not dramatically. We have better distinctions and have dropped some bad arguments, but that adds up to modest progress rather than a huge transformation.
+</excerpt>
+<excerpt id="E4" written="2022-12">
+I'm less confident about calling philosophy's progress small after that history course. Some of those improvements look bigger than I allowed, though I'm still unsure what would justify calling the overall advance substantial.
+</excerpt>

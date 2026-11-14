@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-04">
+I do not require things to touch or work together before they count as parts of a whole. Every collection qualifies for me, including the bizarre ones nobody discusses.
+</excerpt>
+<excerpt id="E2" written="2022-05">
+I would accept a composite made from my shoes and every third tree on this street. Its uselessness does not matter; I think composition happens for absolutely any collection.
+</excerpt>
+<excerpt id="E3" written="2022-08">
+I think any collection of objects makes up a further object, however random the selection. My mug and a distant asteroid compose something too; we just have little reason to name it.
+</excerpt>
+<excerpt id="E4" written="2023-05">
+I used to see this differently, but I've changed my mind. My view is that joining into a whole requires the right sort of connection, and many groups fail that requirement. A scattered assortment often adds no extra entity to reality.
+</excerpt>

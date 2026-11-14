@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2020-12">
+I finally organized the photographs on my laptop after putting it off for months, mostly because I needed space for a game update. I take a proper name to supply its referent and nothing further to meaning. There were about forty pictures of the same blurry pigeon in one folder, and deleting those felt like the only actual progress I made all evening.
+</excerpt>
+<excerpt id="E2" written="2021-03">
+I spent the afternoon rearranging my desk and found the cable I replaced last month hiding under a notebook. I think a personal name contributes just its bearer to what a sentence means. The new desk arrangement gives me more elbow room, although the lamp now shines directly into my eyes, so this supposedly quick improvement still needs another round tomorrow.
+</excerpt>
+<excerpt id="E3" written="2021-05">
+My headphones have started making a faint clicking noise whenever I walk, which is slowly driving me up the wall. As I see it, the meaning of a name stops at the individual it designates. I tried cleaning the hinge during lunch, lost a tiny screw on the floor, and ended up listening through the old wired pair for the rest of the afternoon.
+</excerpt>
+<excerpt id="E4" written="2021-09">
+I made soup for the week and somehow used every spoon in the kitchen before it was done. My view is that a personal name carries a way of thinking about its bearer as part of its meaning. The soup turned out fine, but I forgot to buy containers again, so the fridge is currently dominated by one enormous pot and a very awkward lid.
+</excerpt>

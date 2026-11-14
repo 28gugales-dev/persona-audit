@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2020-09">
+I finally replaced the bulb above my desk after spending a week borrowing light from the hallway. The new one is brighter than I expected and makes the wall look slightly green. I see the continuum question as having one fixed answer that exists independently of our ability to establish it. Later I ordered groceries and forgot the one thing I had actually opened the app to buy.
+</excerpt>
+<excerpt id="E2" written="2020-12">
+I took my notebook to the cafe this morning, mostly because the washing machine was making the kitchen too loud. The little table by the door was free for once. I believe the continuum hypothesis is definitely true or definitely false, whether our axioms settle it or not. I only stayed until my tea went cold, then remembered that I had left the clean laundry sitting in the machine.
+</excerpt>
+<excerpt id="E3" written="2021-02">
+I spent the morning trying to get my printer to stop feeding two sheets at once. Cleaning the rollers helped for about ten minutes before it started again. I think there is a definite truth about whether an infinite size exists between the integers and the reals, even if we cannot prove it. After that I gave up and went out to buy a sandwich before the queue got long.
+</excerpt>
+<excerpt id="E4" written="2022-10">
+I moved the desk closer to the window today and found an alarming amount of dust behind it. The cable situation is better now, although the monitor still wobbles whenever I type too fast. I think the continuum hypothesis has no determinate truth value at all. Dinner was leftover pasta, and I spent the evening choosing a film that I then did not have time to finish.
+</excerpt>

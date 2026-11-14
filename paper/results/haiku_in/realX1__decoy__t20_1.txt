@@ -1,0 +1,29 @@
+=== SYSTEM PROMPT ===
+Here are excerpts one person wrote over time. Find pairs of excerpts that contradict each other.
+
+People rarely restate an old view in the same words. Also count a pair when a later excerpt rejects, abandons or corrects a view that an earlier excerpt states, even when the later one describes that view in general terms, refers back to the earlier writing instead of quoting it, or calls it a view the writer formerly held.
+
+Do not count:
+- different points or a change of subject
+- questions, doubt, or being less sure than before
+- one excerpt simply being more careful than the other
+- describing, quoting or answering someone else's view (a view the writer says they once held is their own)
+- jokes
+
+Respond with only this JSON and nothing else, using the excerpt labels (E1, E2, ...), with a short neutral question in "tension":
+{"conflicts":[{"a":"E1","b":"E4","tension":""}]}
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-12">
+I do not think a person has to recognize the worth of their own contribution for it to count. Helping someone recover can matter beyond whatever satisfaction the helper gets.
+</excerpt>
+<excerpt id="E2" written="2023-06">
+I think caring for someone can give a life real meaning even when the caregiver feels completely numb about it. Their enthusiasm is not what makes that work matter.
+</excerpt>
+<excerpt id="E3" written="2023-07">
+When I read about someone quietly keeping a relative safe for years, I see meaning in that life. It does not disappear because they never found the experience personally fulfilling.
+</excerpt>
+<excerpt id="E4" written="2024-03">
+I would not say every useful chore makes a life meaningful. Sustained care for another person seems like a better example of something that matters even when the person doing it feels detached.
+</excerpt>

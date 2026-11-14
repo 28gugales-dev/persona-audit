@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-08">
+The sculptor has not put one object beside another, but I still think there are two there. Sharing every bit of space does not erase the distinction between artwork and lump.
+</excerpt>
+<excerpt id="E2" written="2021-10">
+I count a clay sculpture and the material composing it separately. They coincide right now, but what each can survive is different enough to make them different things.
+</excerpt>
+<excerpt id="E3" written="2022-01">
+I think the statue and its clay are two objects occupying the same spot. Squashing it can end the statue while the lump survives, which tells me they are distinct.
+</excerpt>
+<excerpt id="E4" written="2022-07">
+I used to see this differently, but I've changed my mind. My answer is that there is just one thing here, described in two ways. Giving a shaped material a new label does not add another entity to the room.
+</excerpt>

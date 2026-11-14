@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-08">
+Losing my diary would make remembering appointments harder, but I wouldn't say a part of my mind had gone missing. I locate mental states within the person, even when tools are useful.
+</excerpt>
+<excerpt id="E2" written="2021-09">
+I can rely heavily on a map without its markings becoming part of a mental state. In my view, the cognition itself remains in my brain and body; the map supports it from outside.
+</excerpt>
+<excerpt id="E3" written="2022-01">
+I think my mental states stay inside my brain and body. A notebook can help me remember things, but it's an external aid rather than an actual piece of my mind.
+</excerpt>
+<excerpt id="E4" written="2022-03">
+I used to see this differently, but I've changed my mind. I'd count a routinely consulted phone as literally helping constitute someone's cognition. For me, thinking can genuinely span a person and their equipment, instead of ending at the skin.
+</excerpt>

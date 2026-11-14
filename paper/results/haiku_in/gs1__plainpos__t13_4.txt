@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-08">
+The sculptor has not put one object beside another, but I still think there are two there. Sharing every bit of space does not erase the distinction between artwork and lump.
+</excerpt>
+<excerpt id="E2" written="2021-10">
+I count a clay sculpture and the material composing it separately. They coincide right now, but what each can survive is different enough to make them different things.
+</excerpt>
+<excerpt id="E3" written="2022-01">
+I think the statue and its clay are two objects occupying the same spot. Squashing it can end the statue while the lump survives, which tells me they are distinct.
+</excerpt>
+<excerpt id="E4" written="2022-07">
+My answer is that there is just one thing here, described in two ways. Giving a shaped material a new label does not add another entity to the room.
+</excerpt>

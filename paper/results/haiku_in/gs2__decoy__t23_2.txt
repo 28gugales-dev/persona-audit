@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2023-04">
+I do not assume the existence of the universe has a further reason behind it. I think reality includes brute facts, even if identifying a particular one is difficult.
+</excerpt>
+<excerpt id="E2" written="2023-04">
+I think some facts simply have no explanation. At some point reality just is a certain way, and asking why does not guarantee there is an answer waiting.
+</excerpt>
+<excerpt id="E3" written="2023-06">
+An endless demand for reasons does not convince me that reasons are always available. My view is that some facts really are inexplicable, rather than merely unexplained so far.
+</excerpt>
+<excerpt id="E4" written="2025-10">
+I am wondering how someone could defend the claim that absolutely every fact has an explanation. Would that require an endless chain, or could a final explanation account for itself too?
+</excerpt>

@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2020-11">
+I count the components of my chair as making a chair. I do not think adding a cloud to that collection automatically gives us another object as well.
+</excerpt>
+<excerpt id="E2" written="2021-01">
+I am comfortable admitting some composite things without admitting a whole for every random selection. Organization matters to me, even if I cannot draw every borderline cleanly.
+</excerpt>
+<excerpt id="E3" written="2021-02">
+I think some groups of things form a bigger object and others do not. A working bicycle counts for me; a wheel here and a pebble across town do not automatically make something together.
+</excerpt>
+<excerpt id="E4" written="2021-11">
+I should clarify that touching is not the rule I mean. Parts of a functioning system can form a whole across gaps, while an arbitrary scattered collection still need not compose anything.
+</excerpt>

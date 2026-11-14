@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-10">
+If I weigh the clay statue, I am weighing the clay itself. I do not think there are two objects there just because I can describe its material and its shape.
+</excerpt>
+<excerpt id="E2" written="2021-10">
+The gallery label makes the clay sound grander, but I see the statue as that lump shaped a certain way. Giving it a title does not multiply what is on display.
+</excerpt>
+<excerpt id="E3" written="2021-12">
+I count just one thing on the sculptor’s table. Calling it clay or calling it a statue gives me different descriptions of that very same object.
+</excerpt>
+<excerpt id="E4" written="2022-09">
+I still count one object, though the statue label only fits while it has the relevant shape. Squashing it changes what I can call it without adding or removing a second occupant.
+</excerpt>

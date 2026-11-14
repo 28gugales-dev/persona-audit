@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-09">
+I do not think numbers depend on anyone having counted something. In my view they exist timelessly, with no location, whether or not a mind ever considers them.
+</excerpt>
+<excerpt id="E2" written="2022-09">
+I see mathematics as investigating real abstract objects. A set does not need to sit anywhere or last for a stretch of time to exist.
+</excerpt>
+<excerpt id="E3" written="2022-10">
+I think numbers and sets really exist apart from the physical world. They do not occupy a place or happen at a time, but that does not make them imaginary.
+</excerpt>
+<excerpt id="E4" written="2024-06">
+I think everything real exists somewhere in space and time. Numbers and sets are ways we describe concrete things, not additional abstract entities existing outside the physical world.
+</excerpt>

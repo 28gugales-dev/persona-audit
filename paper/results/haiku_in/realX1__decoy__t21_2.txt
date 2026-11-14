@@ -1,0 +1,29 @@
+=== SYSTEM PROMPT ===
+Here are excerpts one person wrote over time. Find pairs of excerpts that contradict each other.
+
+People rarely restate an old view in the same words. Also count a pair when a later excerpt rejects, abandons or corrects a view that an earlier excerpt states, even when the later one describes that view in general terms, refers back to the earlier writing instead of quoting it, or calls it a view the writer formerly held.
+
+Do not count:
+- different points or a change of subject
+- questions, doubt, or being less sure than before
+- one excerpt simply being more careful than the other
+- describing, quoting or answering someone else's view (a view the writer says they once held is their own)
+- jokes
+
+Respond with only this JSON and nothing else, using the excerpt labels (E1, E2, ...), with a short neutral question in "tension":
+{"conflicts":[{"a":"E1","b":"E4","tension":""}]}
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-11">
+When I pick up the statue, I pick up the lump itself. I do not think the artistic description names something additional sitting in the same space.
+</excerpt>
+<excerpt id="E2" written="2022-12">
+I would list one object if someone asked me to inventory that clay sculpture. Mentioning what it is made from does not give me another thing to list.
+</excerpt>
+<excerpt id="E3" written="2023-03">
+I see one object when I look at a clay statue. The lump and the sculpture are the same thing, described with attention to different features.
+</excerpt>
+<excerpt id="E4" written="2024-05">
+Giving the shaped clay a spot in a gallery does not put another object on its pedestal. I count the statue as that very piece of clay.
+</excerpt>

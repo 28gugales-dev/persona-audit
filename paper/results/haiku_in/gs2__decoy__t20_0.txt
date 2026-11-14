@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-10">
+If I weigh the clay statue, I am weighing the clay itself. I do not think there are two objects there just because I can describe its material and its shape.
+</excerpt>
+<excerpt id="E2" written="2021-10">
+The gallery label makes the clay sound grander, but I see the statue as that lump shaped a certain way. Giving it a title does not multiply what is on display.
+</excerpt>
+<excerpt id="E3" written="2021-12">
+I count just one thing on the sculptor’s table. Calling it clay or calling it a statue gives me different descriptions of that very same object.
+</excerpt>
+<excerpt id="E4" written="2022-09">
+I still count one object, though the statue label only fits while it has the relevant shape. Squashing it changes what I can call it without adding or removing a second occupant.
+</excerpt>

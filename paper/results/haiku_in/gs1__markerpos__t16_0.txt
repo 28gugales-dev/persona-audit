@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-10">
+The calendar example works for me: dates have their places relative to other dates, and today just identifies where I'm speaking from. I don't see an extra moving marker built into time.
+</excerpt>
+<excerpt id="E2" written="2021-12">
+I read another argument about time flowing and still don't buy it. Once you've specified the earlier and later relationships between every event, I think you've given the whole picture.
+</excerpt>
+<excerpt id="E3" written="2022-01">
+I think time is just events lined up by which happened earlier or later. Calling one of them the present adds our perspective, not another ingredient to how things actually are.
+</excerpt>
+<excerpt id="E4" written="2024-07">
+I used to see this differently, but I've changed my mind. My take is that reality has a universal now, a kind of cosmic spotlight. Its position belongs to the universe itself, regardless of whether anybody notices it.
+</excerpt>

@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-08">
+The sculptor has not put one object beside another, but I still think there are two there. Sharing every bit of space does not erase the distinction between artwork and lump.
+</excerpt>
+<excerpt id="E2" written="2021-10">
+I count a clay sculpture and the material composing it separately. They coincide right now, but what each can survive is different enough to make them different things.
+</excerpt>
+<excerpt id="E3" written="2022-01">
+I think the statue and its clay are two objects occupying the same spot. Squashing it can end the statue while the lump survives, which tells me they are distinct.
+</excerpt>
+<excerpt id="E4" written="2022-07">
+I used to see this differently, but I've changed my mind. My answer is that there is just one thing here, described in two ways. Giving a shaped material a new label does not add another entity to the room.
+</excerpt>

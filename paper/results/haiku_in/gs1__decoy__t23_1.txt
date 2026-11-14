@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-02">
+I would not call framing an innocent person right just because it calms a crowd. I see respecting their rights as the basic moral requirement, regardless of the payoff.
+</excerpt>
+<excerpt id="E2" written="2022-02">
+When I assess an action, I put duties and rights first. I do not think favorable consequences can turn a violation of those requirements into the right act.
+</excerpt>
+<excerpt id="E3" written="2022-05">
+I think doing the right thing comes down to respecting people’s rights and meeting our duties. A better total outcome does not make violating those basic constraints morally right.
+</excerpt>
+<excerpt id="E4" written="2022-11">
+I am trying out a challenge: why should I keep a duty if breaking it produces the best overall result? Could maximizing the consequences be the whole basis of right action?
+</excerpt>

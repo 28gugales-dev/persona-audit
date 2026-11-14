@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2020-10">
+The map analogy doesn't settle it for me. Earlier and later tell us where moments sit relative to each other, but I think there's also a fact about which one is present.
+</excerpt>
+<excerpt id="E2" written="2021-03">
+Even if every clock and conscious creature vanished, I think one moment would still genuinely be happening now. Being present seems like a feature of reality itself to me.
+</excerpt>
+<excerpt id="E3" written="2021-04">
+I think there really is a present moment, whether anyone is around to experience it or not. Now isn't just a label each observer sticks on their own spot.
+</excerpt>
+<excerpt id="E4" written="2022-01">
+If time were nothing beyond an ordering of events, I'd have to treat now like here: dependent on who's speaking. That's a consequence I'm exploring under that assumption, not my account of reality.
+</excerpt>

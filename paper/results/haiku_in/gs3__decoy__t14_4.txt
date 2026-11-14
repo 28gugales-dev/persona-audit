@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-09">
+The fact that an animal lives or dies does not settle the unit question for me. I think genes are the fundamental players whose changing representation selection explains.
+</excerpt>
+<excerpt id="E2" written="2022-09">
+I think genes are the basic units of natural selection. Bodies are the vehicles, but what gets differentially carried forward across generations is particular inherited genetic material.
+</excerpt>
+<excerpt id="E3" written="2022-10">
+I look at an adaptation and ask which inherited variants became more common. To me, selection is fundamentally a contest among genes, even when the visible action happens between animals.
+</excerpt>
+<excerpt id="E4" written="2023-01">
+If whole organisms were the primary units of selection, I would organize the explanation around their competing survival and reproduction. I am exploring that assumption here, not saying it is my account.
+</excerpt>

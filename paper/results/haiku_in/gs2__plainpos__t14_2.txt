@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2020-12">
+If I point at that clay figure, I am pointing at one object that can be described as a lump or as a statue. I do not see two coincident things.
+</excerpt>
+<excerpt id="E2" written="2020-12">
+I would not count an extra object when someone finishes shaping the clay. To me, the material and the finished sculpture are the very same thing.
+</excerpt>
+<excerpt id="E3" written="2021-01">
+I think the statue is simply the lump of clay in a particular shape. There is one object there, even if we have different names for it.
+</excerpt>
+<excerpt id="E4" written="2022-09">
+I think there are two objects in that spot: the clay and the statue it composes. They share their material and location, but they are not identical.
+</excerpt>

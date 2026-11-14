@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-05">
+I think some collections form a bigger object and others don't. A working bicycle counts, but a pedal here and a pebble across town don't automatically make another thing together.
+</excerpt>
+<excerpt id="E2" written="2021-07">
+I don't think you get a new object just by listing any random bits of matter. Some parts really do compose a whole, though, so for me composition happens selectively.
+</excerpt>
+<excerpt id="E3" written="2021-07">
+Building a table seems to make a genuine whole out of its parts. I think that differs from merely grouping unrelated scraps in a sentence; some collections compose objects and some fail to.
+</excerpt>
+<excerpt id="E4" written="2022-07">
+The book's author says any collection whatsoever forms a further object, including my shoe and a distant moon. I'm describing his proposal, not signing up to that huge inventory of things.
+</excerpt>

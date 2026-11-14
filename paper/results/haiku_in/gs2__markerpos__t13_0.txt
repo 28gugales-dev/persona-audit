@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-06">
+My afternoon disappeared into sorting old postcards and finding somewhere to put them. There were enough duplicates to fill a small box, and I kept stopping to read the backs. I see aesthetic quality as something an object has independently of any audience reaction. Now the desk is clear, but the floor has become a temporary storage area, which is probably how this started last time.
+</excerpt>
+<excerpt id="E2" written="2022-08">
+I went downtown for printer ink and ended up ducking into an exhibition while a shower passed. My shoes squeaked on the floor, which made me unnecessarily self conscious. I believe a painting can possess beauty even if nobody ever likes looking at it. By the time I left, the ink shop was closing, so that errand has somehow landed back on tomorrow’s list.
+</excerpt>
+<excerpt id="E3" written="2022-10">
+I spent Saturday wandering around a little gallery because the rain wrecked my plans for a walk. The coat rack was already full, so I carried my wet jacket the whole time. I think artistic merit belongs to the artwork itself, regardless of how anybody responds to it. Afterward I got a sandwich and discovered that the cafe had stopped serving my favorite filling.
+</excerpt>
+<excerpt id="E4" written="2025-04">
+I used to see this differently, but I've changed my mind. I finally hung the print that had been leaning against my bookshelf for months. Finding the hooks took longer than choosing a spot, and I managed to drop one behind the radiator. I think artistic merit depends on how people experience a work. The room looks more finished now, though the empty packaging is still sitting beside the door waiti
+</excerpt>

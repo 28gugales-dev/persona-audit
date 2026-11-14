@@ -1,0 +1,29 @@
+=== SYSTEM PROMPT ===
+Here are excerpts one person wrote over time. Find pairs of excerpts that contradict each other.
+
+People rarely restate an old view in the same words. Also count a pair when a later excerpt rejects, abandons or corrects a view that an earlier excerpt states, even when the later one describes that view in general terms, refers back to the earlier writing instead of quoting it, or calls it a view the writer formerly held.
+
+Do not count:
+- different points or a change of subject
+- questions, doubt, or being less sure than before
+- one excerpt simply being more careful than the other
+- describing, quoting or answering someone else's view (a view the writer says they once held is their own)
+- jokes
+
+Respond with only this JSON and nothing else, using the excerpt labels (E1, E2, ...), with a short neutral question in "tension":
+{"conflicts":[{"a":"E1","b":"E4","tension":""}]}
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-02">
+I like mathematics without feeling committed to a separate realm of mathematical entities. My inventory of what exists still consists entirely of concrete things with a place in space and time.
+</excerpt>
+<excerpt id="E2" written="2022-04">
+I think anything that actually exists has to be something concrete, somewhere in space and time. Numbers are useful ways of talking, but I don't treat them as extra things floating beyond all that.
+</excerpt>
+<excerpt id="E3" written="2022-04">
+When I count chairs, I don't think I've found the chairs plus another object called three. As far as I'm concerned, existence is for concrete things located in the world.
+</excerpt>
+<excerpt id="E4" written="2024-10">
+Could numbers exist independently of any physical example or anyone thinking about them? I'm asking because I can't quite see how their being outside space and time would work, not because I've accepted it.
+</excerpt>

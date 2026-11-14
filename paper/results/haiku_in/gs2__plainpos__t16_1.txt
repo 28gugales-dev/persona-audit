@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-01">
+I cleaned out my downloads folder while waiting for a delivery and found three versions of the same recipe. None of them had the oven temperature on the first page, which feels like a personal attack. To me, advice gives someone a reason to act only through something they already care about. The delivery eventually turned up at the wrong entrance. At least the walk downstairs counted as a break.
+</excerpt>
+<excerpt id="E2" written="2021-04">
+I spent most of Sunday trying to repair a drawer and somehow ended up buying another screwdriver. The instructions were terrible, although the little diagrams were pretty funny. I think a reason to do anything ultimately needs a foothold in something you already want. Anyway, the drawer shuts now, but it makes a noise that definitely wasn't part of the original design. I'm calling that a qualified
+</excerpt>
+<excerpt id="E3" written="2021-05">
+The running shoes finally arrived, though the box was large enough to house a microwave. I tried them around the kitchen while dinner heated up and nearly slipped on a pea. I reckon even a reason to exercise has to connect with some desire of mine, like wanting more energy or enjoying the run. They seem comfortable so far. The real test will be whether the heel rubs on an actual pavement.
+</excerpt>
+<excerpt id="E4" written="2023-10">
+My lunch leaked in my bag again, so I've been looking at containers with those ridiculous locking lids. The reviews are mostly people arguing about whether soup counts as a fair test. I think our deepest reasons for acting come from what makes a human life go well, regardless of our current wants. I ordered the smallest set because my cupboard is already a disaster. Hopefully they actually stack l
+</excerpt>

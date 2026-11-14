@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-01">
+The question about an intermediate infinite size seems perfectly definite to me. Our inability to prove an answer does not remove the answer that exists.
+</excerpt>
+<excerpt id="E2" written="2021-04">
+I do not take independence from our usual axioms to mean the continuum hypothesis is genuinely undecided. I think it is true or false anyway.
+</excerpt>
+<excerpt id="E3" written="2021-05">
+I think the continuum hypothesis has a definite truth value. There is a right answer about whether an infinite size falls between the integers and the real numbers.
+</excerpt>
+<excerpt id="E4" written="2021-07">
+I used to see this differently, but I've changed my mind. To me, alternative mathematical universes leave that particular conjecture unsettled in reality itself. Neither verdict is privileged; extra axioms establish a framework rather than uncover a uniquely correct outcome.
+</excerpt>

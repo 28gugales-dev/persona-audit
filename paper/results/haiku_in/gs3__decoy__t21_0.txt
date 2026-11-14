@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-08">
+A rabbit survives with its whole collection of traits working together. That is why I treat the complete animal as the primary thing natural selection acts on.
+</excerpt>
+<excerpt id="E2" written="2023-02">
+I think natural selection primarily sorts whole living creatures. Their combined traits determine how they fare and reproduce, so the organism is where I place the main unit of selection.
+</excerpt>
+<excerpt id="E3" written="2023-04">
+Watching birds compete for food makes the organism level feel basic to me. I see natural selection chiefly filtering integrated creatures through their success at staying alive and reproducing.
+</excerpt>
+<excerpt id="E4" written="2024-04">
+I think natural kinds reflect real divisions in the world. Calling two samples gold tracks something they share independently of whatever filing system we happen to prefer.
+</excerpt>

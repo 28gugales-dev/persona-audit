@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-02">
+I would use the transporter to visit Mars without thinking I was sacrificing myself. What matters to me is that my mental life picks up there exactly where it left off.
+</excerpt>
+<excerpt id="E2" written="2022-03">
+The replacement body does not bother me in that example. I regard the person remembering my departure on Mars as my continued existence, rather than merely a convincing souvenir.
+</excerpt>
+<excerpt id="E3" written="2022-08">
+I would call the Mars arrival me. If the machine carries over my memories, personality, and whole mental life exactly, destroying the old body does not end my survival.
+</excerpt>
+<excerpt id="E4" written="2025-02">
+A forum commenter argued that the scanner amounts to an execution, with a fresh copy waking up on Mars afterward. I understand their story, but I am reporting their position here, not endorsing it.
+</excerpt>

@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2020-12">
+For me, a belief has an internal item as its content. What I do can reveal that connection, but the connection to the mental representation is what the belief fundamentally is.
+</excerpt>
+<excerpt id="E2" written="2021-03">
+I think believing or wanting something means standing in a certain relation to a representation inside your head. The mental content is there even when nothing obvious shows in your behavior.
+</excerpt>
+<excerpt id="E3" written="2021-04">
+I can want a holiday while sitting perfectly still. I take that wanting to involve an internal representation of the trip, with me relating to it in a particular way.
+</excerpt>
+<excerpt id="E4" written="2023-09">
+I used to see this differently, but I've changed my mind. My take is that convictions and wishes fundamentally amount to characteristic tendencies: how somebody responds, reasons, and feels across situations. There is no separate inner token they must connect with.
+</excerpt>

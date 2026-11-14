@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Here are excerpts one person wrote over time. Find pairs of excerpts that contradict each other.
+
+People rarely restate an old view in the same words. Also count a pair when a later excerpt rejects, abandons or corrects a view that an earlier excerpt states, even when the later one describes that view in general terms, refers back to the earlier writing instead of quoting it, or calls it a view the writer formerly held.
+
+Do not count:
+- different points or a change of subject
+- questions, doubt, or being less sure than before
+- one excerpt simply being more careful than the other
+- describing, quoting or answering someone else's view (a view the writer says they once held is their own)
+- jokes
+
+Respond with only this JSON and nothing else, using the excerpt labels (E1, E2, ...), with a short neutral question in "tension":
+{"conflicts":[{"a":"E1","b":"E4","tension":""}]}
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2018-03">
+If a machine destroyed my body and rebuilt an exact copy elsewhere, I would be dead. The copy could feel like me without actually being me.
+</excerpt>
+<excerpt id="E2" written="2023-03">
+The copy having all my memories did make me reconsider. I still think I would die when the original body was destroyed, even if the copy sincerely said the trip went fine.
+</excerpt>

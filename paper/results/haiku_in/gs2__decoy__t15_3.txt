@@ -1,0 +1,27 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-07">
+I do not think all knowledge of reality starts with looking or listening. There are some genuine truths about the world that I think we can reach through reason alone.
+</excerpt>
+<excerpt id="E2" written="2022-11">
+I think reasoning on its own can tell us some substantial things about reality. Sensory evidence is useful, but it is not required for every genuine discovery about the world.
+</excerpt>
+<excerpt id="E3" written="2022-12">
+For me, an argument can sometimes establish how reality must be without borrowing its support from sensory experience. I count that as knowledge of the world, not just wordplay.
+</excerpt>
+<excerpt id="E4" written="2023-05">
+I am only claiming that pure reasoning delivers some worldly knowledge, not a complete inventory of reality. I still need observation to learn what is actually inside my refrigerator.
+</excerpt>

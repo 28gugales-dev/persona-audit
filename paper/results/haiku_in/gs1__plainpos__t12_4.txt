@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2020-12">
+For me, a belief has an internal item as its content. What I do can reveal that connection, but the connection to the mental representation is what the belief fundamentally is.
+</excerpt>
+<excerpt id="E2" written="2021-03">
+I think believing or wanting something means standing in a certain relation to a representation inside your head. The mental content is there even when nothing obvious shows in your behavior.
+</excerpt>
+<excerpt id="E3" written="2021-04">
+I can want a holiday while sitting perfectly still. I take that wanting to involve an internal representation of the trip, with me relating to it in a particular way.
+</excerpt>
+<excerpt id="E4" written="2023-09">
+My take is that convictions and wishes fundamentally amount to characteristic tendencies: how somebody responds, reasons, and feels across situations. There is no separate inner token they must connect with.
+</excerpt>

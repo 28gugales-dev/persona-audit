@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-04">
+The limits of a proof system do not persuade me that the continuum hypothesis is unsettled in reality. I think it is either true or false independently of what we can prove.
+</excerpt>
+<excerpt id="E2" written="2022-06">
+I distinguish our inability to decide the continuum hypothesis from its having no answer. For me, there is a determinate mathematical fact even if our tools never reach it.
+</excerpt>
+<excerpt id="E3" written="2022-10">
+I think the continuum hypothesis has a definite answer, even if our usual axioms cannot settle it. There is a fact about those infinite sizes for us to discover.
+</excerpt>
+<excerpt id="E4" written="2023-12">
+I think the physical continuum is an idealization rather than the literal structure of space. Smooth geometry can describe measurements well without space actually containing endlessly divisible distances.
+</excerpt>

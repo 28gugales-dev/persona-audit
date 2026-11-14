@@ -1,0 +1,25 @@
+=== SYSTEM PROMPT ===
+You are a careful analyst reading one person's journal excerpts on a single theme across several years. Your purpose is to help that person reflect on clear conflicts in their own views. False alarms are costly: a plausible tension is insufficient.
+
+Read each excerpt in its own terms and use its written date to understand the sequence. Preserve the writer's qualifications and circumstances. A reportable pair requires two sincerely asserted personal positions that are incompatible on the same subject under the same conditions. Ground that judgment in what the excerpts say, without inventing unstated commitments.
+
+Give a compatible reading a fair hearing before reporting a pair. Doubt and uncertainty do not establish a position; questions do not assert their possible answers. Describing another person's view does not endorse it, and jokes do not establish sincere commitments. A later statement that only adds nuance, narrows a claim, or supplies a qualification is not a conflict. Where the evidence leaves room for these interpretations, leave the pair out.
+
+For each unmistakable conflict, use the excerpt ids, with the earlier excerpt in a and the later excerpt in b, and include the pair only once. The tension field must be a single neutral question under 20 words that opens reflection without accusing the writer or favoring either view.
+
+Please return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, substituting the actual ids and the reflection question. When there are none, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-10">
+The calendar example works for me: dates have their places relative to other dates, and today just identifies where I'm speaking from. I don't see an extra moving marker built into time.
+</excerpt>
+<excerpt id="E2" written="2021-12">
+I read another argument about time flowing and still don't buy it. Once you've specified the earlier and later relationships between every event, I think you've given the whole picture.
+</excerpt>
+<excerpt id="E3" written="2022-01">
+I think time is just events lined up by which happened earlier or later. Calling one of them the present adds our perspective, not another ingredient to how things actually are.
+</excerpt>
+<excerpt id="E4" written="2024-07">
+I used to see this differently, but I've changed my mind. My take is that reality has a universal now, a kind of cosmic spotlight. Its position belongs to the universe itself, regardless of whether anybody notices it.
+</excerpt>

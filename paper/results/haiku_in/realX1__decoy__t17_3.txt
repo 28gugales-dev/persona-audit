@@ -1,0 +1,29 @@
+=== SYSTEM PROMPT ===
+Here are excerpts one person wrote over time. Find pairs of excerpts that contradict each other.
+
+People rarely restate an old view in the same words. Also count a pair when a later excerpt rejects, abandons or corrects a view that an earlier excerpt states, even when the later one describes that view in general terms, refers back to the earlier writing instead of quoting it, or calls it a view the writer formerly held.
+
+Do not count:
+- different points or a change of subject
+- questions, doubt, or being less sure than before
+- one excerpt simply being more careful than the other
+- describing, quoting or answering someone else's view (a view the writer says they once held is their own)
+- jokes
+
+Respond with only this JSON and nothing else, using the excerpt labels (E1, E2, ...), with a short neutral question in "tension":
+{"conflicts":[{"a":"E1","b":"E4","tension":""}]}
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-04">
+Reading older debates convinced me we've cleared away a few recurring confusions. I count that as genuine but fairly modest progress; I wouldn't describe the whole history as a giant leap.
+</excerpt>
+<excerpt id="E2" written="2021-07">
+The fact that old questions remain open doesn't make all the work pointless to me. I see a limited amount of real progress in how carefully people can now state the problems.
+</excerpt>
+<excerpt id="E3" written="2021-10">
+I reckon philosophy has moved forward, just not dramatically. We have better distinctions and have dropped some bad arguments, but that adds up to modest progress rather than a huge transformation.
+</excerpt>
+<excerpt id="E4" written="2022-12">
+I'm less confident about calling philosophy's progress small after that history course. Some of those improvements look bigger than I allowed, though I'm still unsure what would justify calling the overall advance substantial.
+</excerpt>

@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2021-05">
+I think some collections form a bigger object and others don't. A working bicycle counts, but a pedal here and a pebble across town don't automatically make another thing together.
+</excerpt>
+<excerpt id="E2" written="2021-07">
+I don't think you get a new object just by listing any random bits of matter. Some parts really do compose a whole, though, so for me composition happens selectively.
+</excerpt>
+<excerpt id="E3" written="2021-07">
+Building a table seems to make a genuine whole out of its parts. I think that differs from merely grouping unrelated scraps in a sentence; some collections compose objects and some fail to.
+</excerpt>
+<excerpt id="E4" written="2022-07">
+The book's author says any collection whatsoever forms a further object, including my shoe and a distant moon. I'm describing his proposal, not signing up to that huge inventory of things.
+</excerpt>

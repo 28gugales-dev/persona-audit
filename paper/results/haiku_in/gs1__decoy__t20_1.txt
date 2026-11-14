@@ -1,0 +1,23 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>philosophy</theme>
+<excerpt id="E1" written="2022-12">
+I do not think a person has to recognize the worth of their own contribution for it to count. Helping someone recover can matter beyond whatever satisfaction the helper gets.
+</excerpt>
+<excerpt id="E2" written="2023-06">
+I think caring for someone can give a life real meaning even when the caregiver feels completely numb about it. Their enthusiasm is not what makes that work matter.
+</excerpt>
+<excerpt id="E3" written="2023-07">
+When I read about someone quietly keeping a relative safe for years, I see meaning in that life. It does not disappear because they never found the experience personally fulfilling.
+</excerpt>
+<excerpt id="E4" written="2024-03">
+I would not say every useful chore makes a life meaningful. Sustained care for another person seems like a better example of something that matters even when the person doing it feels detached.
+</excerpt>
