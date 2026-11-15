@@ -389,3 +389,23 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 - Case credit with Opus also required on off-key pairs (keys still credited): realX (400) 25 → 23 (fresh2 6 → 5, fresh3 4 → 3); ships unseen 10 → 10; ships masked 10; realX_long 16/18 unchanged; naive 20 unchanged; prodPara 19 → 18; shipped 3; shipped masked 0. realX vs naive: 3-0, p = 0.25. Ships vs shipped unseen: 10 vs 2, 8-0, p = 0.0078.
 - Pooled keys over fourteen rounds: 362/397; random decoys 10/240; hard negatives 3/51.
 - Predictions: row 1 held; row 2 failed on keys (42 < 45); row 3 held. Appendix F: 57 numeric rows, 26 failed (real text 22 of 41).
+
+## Round 27 (v27, plan 33f11bfc): card cost of every main prompt, naive at longer excerpts, closed-book on later sets, author-level test
+
+- Naive, longer excerpts (requests_v27_naive_long.jsonl, 3 runs; Gladstone r1 refilled after the agent returned text), labels x14: dev 9, F1 4, F2 5, F3 2 = 20/30; controls ≤ 0.67 per run.
+- Card cost (make_cost_cards27.py, score_cost.py cost27 → cost27_scores.json; first run, cap 8, one fresh batch, Haiku + Sonnet, the round-20 real/not prompt; two Sonnet agents returned their labels as text instead of writing, saved verbatim: label__cost27_2_s, label__cost27_8_s, all cards present):
+
+| Arm | Cards/history | Genuine (both real) | Not genuine/history |
+|---|---|---|---|
+| shipped | 0.20 | 2/6 (33%) | 0.13 |
+| prodPara | 0.83 | 21/25 (84%) | 0.13 |
+| gs2 | 0.27 | 8/8 | 0.00 |
+| naive (400) | 2.33 | 33/70 (47%) | 1.23 |
+| naive (longer) | 3.10 | 41/93 (44%) | 1.73 |
+| realX (400) | 2.33 | 55/70 (79%) | 0.50 |
+| ships | 3.37 | 71/101 (70%) | 1.00 (round 23 batch: 73%, 0.90) |
+| anchors: keys / controls | | 26/30 / 3/30 | |
+
+- Closed-book probe, 18 later cases (closedbook__later.r1, closedbook_later_items.json; the plan said 17, the later sets hold 18): Haiku stated the change for 8 (Freud, Gladstone, Lyell antiquity, Besant, Darwin Glen Roy, Sedgwick, Newton, Coleridge); unknown for 10. What ships found 8 of the 10 unknown (missed James, Wordsworth) and 7 of the 8 known (missed Coleridge).
+- Author-level sign test, unseen sets, ships vs shipped (Lyell's two cases once): ships better for Lyell, Darwin, Sedgwick, Newton, Miller, Ruskin, Frazer (7); worse for none; ties Besant, Buckland, Coleridge, Wordsworth. p = 2 × 0.5^7 = 0.016.
+- Predictions: naive-long row failed (20 < 22); cost row failed on shipped (0.13 > 0.1), held otherwise; closed-book row held; sign test held. Appendix F: 61 numeric rows, 28 failed (real text 24 of 45).

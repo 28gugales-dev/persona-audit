@@ -538,3 +538,16 @@ Why (round-24 judges, all three): every case-level number rests on two Claude la
 2. **Third judge with evidence**: Opus 5.5 labels, blind and shuffled, the 116 credited off-key pairs, the 51 hard negatives and the 51 keyed pairs, with the same prompt plus: for each yes, copy the words of the later passage that reject or abandon the earlier view. A yes counts only if the quote appears verbatim. Passages are shown up to 1,000 characters.
    - Predictions: Opus yes on keys ≥ 45/51; on hard negatives ≤ 5/51; on the 116 credited pairs ≥ 80%.
    - Rescoring with Opus agreement also required on off-key pairs: realX (400) ≥ 23/30; ships unseen ≥ 9/12; shipped ≤ 3; naive ≥ 17/30.
+
+## v27: what each prompt costs in non-genuine cards, the naive prompt at longer excerpts, and recall vs memory on the later sets (committed before any v27 request, card or label existed)
+
+Why (round-26 mock judges): is the shipped prompt a design trade-off (on a recall vs false-card frontier) or dominated; is the rewrite better than a naive prompt on precision if not on recall; is naive held back only by the 400-character cut; do the later sets' finds rest on recall from memory.
+
+1. **Naive prompt, longer excerpts** (min(1000, 120000 / posts)), 30 histories, 3 runs, case level, blind thesis labels for new pairs.
+   - Predictions: ≥ 22/30; controls ≤ 1 history per run.
+2. **Card cost, every main prompt, all 30 histories, first run, capped at 8 as Persona does**: shipped, naive (400), naive (longer), realX (400), shipped + paragraph (prodPara), GPT strict gs2, what ships. One fresh batch of the round-20 blind real/not label prompt (Haiku and Sonnet; a card counts as genuine when both say real), plus a keyed and a control anchor per history.
+   - Predictions: non-genuine cards per history: shipped ≤ 0.1, naive (400) ≥ 0.6, prodPara ≤ 0.3; realX (400) has a genuine share at least 5 points above naive (400); what ships at least 5 points above naive (longer).
+3. **Closed-book probe on the 17 later cases** (fresh sets 1-3; author, years, question; one Haiku call, the round-17 prompt).
+   - Predictions: Haiku states the documented change and its direction for ≤ 9 of 17; what ships finds ≥ 70% of the later cases it could not state.
+4. **Clustered test** (existing replies): the unseen comparison of what ships against the shipped prompt as a sign test over authors (Lyell's two cases counted once).
+   - Prediction: p < 0.05.

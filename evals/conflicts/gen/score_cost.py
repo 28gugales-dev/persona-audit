@@ -1,6 +1,6 @@
 """PLAN v20 scoring: cards per history and the share both blind labellers (Haiku, Sonnet) call a real change or tension, per arm.
 Reads results/cost_cards_map.json and haiku_raw/label__cost<i>{,_s}.r1.txt. Writes results/cost_scores.json.
-Run: python3 evals/conflicts/gen/score_cost.py <repo root> [map prefix: cost (default) | cost23]"""
+Run: python3 evals/conflicts/gen/score_cost.py <repo root> [map prefix: cost (default) | cost23 | cost27]"""
 import json, sys, collections
 R = f'{sys.argv[1]}/paper/results'
 P = sys.argv[2] if len(sys.argv) > 2 else 'cost'
@@ -11,8 +11,7 @@ for f in M['files']:
         t = open(f'{R}/haiku_raw/{f}{suf}.r1.txt').read()
         L[i].update({x['card']: x['label'] for x in json.loads(t[t.find('{'):t.rfind('}') + 1])['labels']})
 n = len(M['per_history']); out = {}
-for arm in ('production', 'realX', 'deployed', 'ships', 'anchor_key', 'anchor_control'):
-    if not any(c['arm'] == arm for c in M['cards']): continue
+for arm in sorted({c['arm'] for c in M['cards']}):
     cs = [c for c in M['cards'] if c['arm'] == arm]
     lab = [(L[0].get(c['card']), L[1].get(c['card'])) for c in cs]
     out[arm] = {'cards': len(cs), 'per_history': round(len(cs) / n, 2), 'both_real': sum(a == b == 'real' for a, b in lab),
