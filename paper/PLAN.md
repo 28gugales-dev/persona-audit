@@ -473,3 +473,17 @@ Why (round-19 mock judges): recall gains were reported without the cards they co
 
 Design: existing replies only, first run (or first look) per history, all 24 histories. Arms: shipped prompt (whole history, 400 characters), realX alone (400), deployed (realX + changes, longer excerpts, one look, merged and capped at 8 as Persona does). Every card (pair) is labelled blind to arm by the earlier card prompt ("a real change or tension in the author's own views": real / not), Haiku and Sonnet, shown the text the model saw. Anchors: per history the keyed early + announced pair (expect real) and the control + announced pair (expect not). Cards are shuffled across arms and split into files of about 50.
 - Predictions: cards per history per look: shipped ≤ 0.5, realX 1.5-3, deployed 3-6; deployed cards hitting the 8 cap in ≤ 3 of 24 histories. Genuine share (both labellers "real"): realX ≥ 70%, deployed ≥ 60%, and deployed within 20 points of realX. Anchors: keys ≥ 20/24 real, control pairs ≤ 3/24 real.
+
+## v21: a hard held-out set (fresh set 3), committed before any of its cases exist
+
+Why (round-19/20 mock judges; REFLECTION after round 19): fresh set 2 could not separate the repaired configurations (simple prompts found 5-6/6), and its brief favoured passages inside the first 400 characters. The claim that the second prompt and longer excerpts matter rests on three tuning cases (Godwin, James, Hume).
+
+Sourcing: one Sonnet agent, same method and schema as sets 1-2, not shown prompts, results or the paper. Its brief says nothing about how the tool reads text (no position or length hint). It asks for changes of mind of the kind the earlier sets show to be hard: at least 4 of 6 announced passages retract, disown or refer back to the old view without restating the new one ("my former opinion", "what I then wrote"). This aims the set at causes 3 and 4 and is disclosed as such. Target 6, stop at 8. Then nothing is chosen on it.
+
+Arms (Haiku, whole history, 3 runs or looks each, case level by blind thesis labels as in v18b-v19): shipped prompt (400), naive (400), realX_v1 (400), changes_v1 (400), beliefshift_style (400), deployed configuration (realX_deployed + changes_v1, excerpts min(1000, 120000 / posts), merged look = run i of each).
+
+Predictions:
+- Shipped ≤ 1/6; naive ≤ 3/6; realX-400 ≤ 4/6; changes-400 ≥ realX-400.
+- Deployed ≥ 4/6 and ≥ realX-400 + 1 case (the necessity test). If deployed ≤ realX-400, the paper says the second prompt and longer excerpts are not shown to help on unseen cases.
+- beliefshift_style ≥ realX-400.
+- Controls flagged in ≤ 1 history per run or look, every arm.

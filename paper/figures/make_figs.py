@@ -160,16 +160,16 @@ open(f'{F}/fig0_real.svg', 'w').write(svg(W, H, body))
 
 # ---------- Figure 1 (round 18): documented changes of mind found, by set (case level, cross-era, blind labels)
 S18 = json.load(open(f'{R}/v18b_scores.json'))['summary']
-sets = [('dev', 'Development', '12 cases, tuned on'), ('fresh1', 'Fresh set 1', '6 cases, diagnosed on'), ('fresh2', 'Fresh set 2', '6 cases, untouched')]
+sets = [('dev', 'Development', '12 cases, tuned on'), ('fresh1', 'Fresh set 1', '6 cases, diagnosed on'), ('fresh2', 'Fresh set 2', '6 cases, untouched'), ('fresh3', 'Fresh set 3', '6 cases, untouched, hard')]
 arms = [('Shipped prompt, whole history', '#8a8f98', lambda s: S18.get(f'production/{s}', {}).get('single_majority')),
         ('realX, one call', '#93c5fd', lambda s: S18.get(f'realX/{s}', {}).get('single_majority')),
-        ('Deployed fix', '#1d4ed8', lambda s: S18.get('final/fresh2' if s == 'fresh2' else f'realX+changes_long/{s}', {}).get('merged_majority'))]
+        ('Deployed fix', '#1d4ed8', lambda s: S18.get(f'final/{s}' if s in ('fresh2', 'fresh3') else f'realX+changes_long/{s}', {}).get('merged_majority'))]
 W, H = 640, 250; x0, y0, ph = 70, 40, 130
 body = ''
 for i in range(0, 101, 25):
     y = y0 + ph - ph * i / 100
     body += f"<line x1='{x0}' x2='{W - 20}' y1='{y}' y2='{y}' stroke='{GRID}'/>" + text(x0 - 8, y + 4, f'{i}%', 11, 'end', MUTED)
-gw = (W - 20 - x0) / 3; bw = 44
+gw = (W - 20 - x0) / len(sets); bw = 36
 for g, (key, name, sub) in enumerate(sets):
     cx = x0 + gw * g + gw / 2; n = S18[f'production/{key}']['n']
     for j, (_, col, get) in enumerate(arms):

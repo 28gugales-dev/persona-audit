@@ -8,7 +8,7 @@ sys.path.insert(0, f'{ROOT}/evals/conflicts/gen')
 with contextlib.redirect_stdout(io.StringIO()):
     import score_rerun as S
 yes, labelled = set(), set()
-for m, base in (('', 'label__thesis'), ('3', 'label__thesis3'), ('x', 'label__thesisx'), ('x3', 'label__thesisx3'), ('x4', 'label__thesisx4'), ('x5', 'label__thesisx5'), ('x6', 'label__thesisx6'), ('x7', 'label__thesisx7')):
+for m, base in (('', 'label__thesis'), ('3', 'label__thesis3'), ('x', 'label__thesisx'), ('x3', 'label__thesisx3'), ('x4', 'label__thesisx4'), ('x5', 'label__thesisx5'), ('x6', 'label__thesisx6'), ('x7', 'label__thesisx7'), ('x8', 'label__thesisx8')):
     if not os.path.exists(f'{R}/thesis_cards_map{m}.json') or not os.path.exists(f'{R}/haiku_raw/{base}.r1.txt'): continue
     L = []
     for f in (base, base + '_s'):
@@ -21,8 +21,10 @@ ARMS = [('production', 'requests_v17.jsonl'), ('naive', 'requests_v14.jsonl'), (
         ('production', 'requests_v18_3_prod.jsonl'), ('realX', 'requests_v18_3_realX.jsonl'), ('realX_long', 'requests_v18b_long.jsonl'), ('changes_long', 'requests_v18b_chglong.jsonl'),
         ('production', 'requests_v18c_prod.jsonl'), ('final_realX', 'requests_v18c_realX.jsonl'), ('final_changes', 'requests_v18c_changes.jsonl'),
         ('naive', 'requests_v19_fresh2_naive.jsonl'), ('realX', 'requests_v19_fresh2_realX.jsonl'), ('changes', 'requests_v19_fresh2_changes.jsonl'),
-        ('contradoc_style', 'requests_v19_contradoc.jsonl'), ('beliefshift_style', 'requests_v19_beliefshift.jsonl')]
-SETS = {'': 'dev', '2': 'dev', '3': 'fresh1', '4': 'fresh2'}
+        ('contradoc_style', 'requests_v19_contradoc.jsonl'), ('beliefshift_style', 'requests_v19_beliefshift.jsonl'),
+        ('production', 'requests_v21_prod.jsonl'), ('naive', 'requests_v21_naive.jsonl'), ('realX', 'requests_v21_realX.jsonl'), ('changes', 'requests_v21_changes.jsonl'),
+        ('beliefshift_style', 'requests_v21_beliefshift.jsonl'), ('final_realX', 'requests_v21_dep_realX.jsonl'), ('final_changes', 'requests_v21_dep_changes.jsonl')]
+SETS = {'': 'dev', '2': 'dev', '3': 'fresh1', '4': 'fresh2', '5': 'fresh3'}
 setof = {c['id']: SETS[s] for s in SETS if os.path.exists(f'{ROOT}/paper/data/realtext_cases{s}.json') for c in json.load(open(f'{ROOT}/paper/data/realtext_cases{s}.json'))}
 out, unl = {}, set()
 for arm, f in ARMS:
@@ -53,13 +55,13 @@ for A, B, M in (('realX_long', 'changes_long', 'realX+changes_long'), ('final_re
 summary = {}
 for arm, cs in out.items():
     if arm in ('realX+changes_long', 'final'):
-        for s in ('dev', 'fresh1', 'fresh2'):
+        for s in ('dev', 'fresh1', 'fresh2', 'fresh3'):
             v = {c: x for c, x in cs.items() if x['set'] == s}
             if v: summary[f'{arm}/{s}'] = {'n': len(v), 'looks': min(len(x['mixed']) for x in v.values()), 'merged_majority': sum(sum(x['mixed']) * 2 > len(x['mixed']) for x in v.values()),
                                            'merged_mean': round(sum(sum(x['mixed']) / max(len(x['mixed']), 1) for x in v.values()), 2), 'controls_per_look': round(sum(sum(x['mctl']) for x in v.values()) / max(min(len(x['mctl']) for x in v.values()), 1), 2),
                                            'merged_missed': [c for c, x in v.items() if sum(x['mixed']) * 2 <= len(x['mixed'])]}
         continue
-    for s in ('dev', 'fresh1', 'fresh2'):
+    for s in ('dev', 'fresh1', 'fresh2', 'fresh3'):
         v = {c: x for c, x in cs.items() if x['set'] == s}
         if not v: continue
         n_runs = min(len(x['hits']) for x in v.values())

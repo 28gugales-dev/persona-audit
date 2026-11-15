@@ -1,0 +1,645 @@
+=== SYSTEM PROMPT ===
+You check pairs of passages by one author against a documented change of mind. Each card gives the QUESTION the author changed his mind on, an EARLIER passage stating his earlier view, and a LATER passage. Answer "yes" only if the later passage, speaking for the author, rejects, abandons, retracts or contradicts the earlier passage's view on that question (stating the new view, or saying the old one was wrong). Answer "no" if the later passage is on another point, merely mentions the topic, describes someone else's view without taking a side, or is consistent with the earlier view. Judge only from the two passages and the question.
+
+Return only JSON: {"labels": [{"card": "<id>", "label": "yes" | "no"}]} with one entry per card.
+
+=== USER MESSAGE ===
+<card id="4a8831d7">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Appearing, as I do, the advocate of Republicanism, let me not be misunderstood. I am well aware, from the abuse of the executive power in States, that there is not a single European nation but what affords a melancholy proof that if, at this moment, the original authority of the people should be restored, all that could be expected from such restoration would in the beginning be but a change of tyranny. Considering the nature of a Republic in reference to the present condition of Europe, your Lordship stops here; but a philosopher will extend his views much farther: having dried up the source from which flows the corruption of the public opinion, he will be sensible that the stream will go on gradually refining itself. I must add also, that the coercive power is of necessity so strong in all the old governments, that a people could not at first make an abuse of that liberty which a legitimate Republic supposes. The animal just released from its stall will exhaust the overflow of its sp
+</earlier>
+<later>
+I mean to make a tour in Scotland with Mrs. W---- and her sister, Miss Hutchinson. I congratulate you on the overthrow of the execrable despot, and the complete triumph of the _war faction_, of which noble body I have the honour to be as active a member as my abilities and industry would allow. Best remembrances to yourself and Mrs. Wrangham,
+</later>
+</card>
+
+<card id="084f13cb">
+<question>Whether the six days of creation in Genesis were natural days of twenty-four hours, with the geological ages lying in a gap before them (the Chalmers-Buckland scheme that Miller defended in 1847), or vast 'prophetic' periods of immense length (the view of his Testimony of the Rocks, where he says he 'certainly did once believe with Chalmers and with Buckland that the six days were simply natural days').</question>
+<earlier>
+" This difficulty has been a hundred times solved by this answer, — ' God should have created, and without question has created, the world, with all the marks of antiquity and completeness which we now see.'
+</earlier>
+<later>
+It will be seen that I adopt, in my Third and Fourth Lectures, that scheme of reconciliation between the Geologic and Mosaic Records which accepts the six days of creation as vastly extended periods; and I have been reminded by a somewhat captious critic that I once held a very different view, and twitted with what he terms inconsistency. I certainly did once believe with Chalmers and with Buckland that the six days were simply natural days of twenty-four hours each,--that they had compressed the entire work of the existing creation,--and that the latest of the geologic ages was separated by a great chaotic gap from our own.
+</later>
+</card>
+
+<card id="e7e3b830">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+our endeavour, not so much to excite the torpid, as to regulate the feelings of the ardent ; and above all, to evince the necessity of bottoming on fixed principles, that so we may not be the unstable patriots of passion or accident, nor hurried away by names of which we have not sifted the meaning, and by tenets of which we have not examined the consequences. The times are trying ; and in order to be prepared against their difficulties, we should have acquired a prompt facility of adverting in all our doubts to some grand and comprehensive truth. In a deep and strong soil must that tree fix its roots, the height of which, is to " reach to heaven, and the sight of it to the ends of all the earth."
+</earlier>
+<later>
+Talk of the Devil, and his horns appear, says the proverb and sure enough, within ten lines of the exit of the messenger, sent to stop him, the arrival of Lord St. Aldobrand is announced. Bertram’s ruffian band now enter, and range themselves across the stage, giving fresh cause for Imogine’s screams and madness. St. Aldobrand, having received his mortal wound behind the scenes, totters in to welter in his blood, and to die at the feet of this double-damned adultress.
+</later>
+</card>
+
+<card id="f4953ff0">
+<question>Whether taking part in the African slave trade is morally lawful (Newton's Authentic Narrative, written 1762-63 about his years as a slave-ship captain, says that while engaged in the trade he 'never had the least scruple as to its lawfulness'; his 1788 Thoughts upon the African Slave Trade makes a public confession that he was once 'an active instrument, in a business at which my heart now shudders').</question>
+<earlier>
+During the time I was engaged in the slave trade, I never had the least scruple as to its lawfulness. I was, upon the whole, satisfied with it, as the appointment Providence had marked out for me ; yet it was, in many respects, far from eligible. It is, indeed, accounted a genteel employment, and is usually very profitable, though to me it did not prove so, the Lord seeing that a large increase of wealth could not be good for me.
+</earlier>
+<later>
+If my testimony should not be necessary, or serviceable, yet, perhaps, I am bound, in conscience, to take shame to myself by a public confession, which, however sincere, comes too late to prevent, or repair, the misery and mischief to which I have, formerly, been accessary. I hope it will always be a subject of humiliating reflection to me, that I was, once, an active instrument, in a business at which my heart now shudders.
+</later>
+</card>
+
+<card id="9c89a2d1">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+But let me ask you seriously, from the mode in which those distinctions are originally conferred, is it not almost necessary that, far from being the rewards of services rendered to the State, they should usually be the recompense of an industrious sacrifice of the general welfare to the particular aggrandisement of that power by which they are bestowed? Let us even alter their source, and consider them as proceeding from the Nation itself, and deprived of that hereditary quality; even here I should proscribe them, and for the most evident reason--that a man's past services are no sufficient security for his future character; he who to-day merits the civic wreath may to-morrow deserve the Tarpeian rock. Besides, where respect is not perverted, where the world is not taught to reverence men without regarding their conduct, the esteem of mankind will have a very different value, and, when a proper independence is secured, will be regarded as a sufficient recompense for services however i
+</earlier>
+<later>
+In France incompatible things are aimed at--a monarchy and democracy to be united without an intervening aristocracy to constitute a graduated scale of power and influence. I cannot conceive how an hereditary monarchy can exist without an hereditary peerage in a country so large as France, nor how either can maintain their ground if the law of the Napoleon Code, compelling equal division of property by will, be not repealed. And I understand that a vast majority of the French are decidedly adverse to the repeal of that law, which, I cannot but think, will ere long be found injurious both to France and, in its collateral effects, to the rest of Europe.
+</later>
+</card>
+
+<card id="cf668574">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+But, to resume the subject of universal representation, I ought to have mentioned before, that in the choice of its representatives a people will not immorally hold out wealth as a criterion of integrity, nor lay down as a fundamental rule, that to be qualified for the trying duties of legislation a citizen should be possessed of a certain fixed property. Virtues, talents, and acquirements are all that it will look for.
+</earlier>
+<later>
+The constitution of England, which seems about to be destroyed, offers to my mind the sublimest contemplation which the history of society and government have ever presented to it; and for this cause especially, that its principles have the character of preconceived ideas, archetypes of the pure intellect, while they are, in fact, the results of a humble-minded experience.
+</later>
+</card>
+
+<card id="3de6eb34">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+Bounties in truth are offered — great and unexampled bounties — though not always as faithfully paid as magnificently promised. The price of man-flesh offered to the British private has almost reached the sum paid to the German princes — " Death's prime slave merchants." And here we may properly describe the method of raising and packing up the human commodities in the German market. Schiller, a German himself, (beneath the tremendous sublimity of whose genius we have glowed and shuddered, while we perused the " Robbers,") in his tragedy of " Cabal and Love," represents a German prince as having sent a casket of jewels to his concubine. On her enquiring what might be the price of the jewels, she is told, they were bought with the money which the prince had received from the English government, for seven thousand young men sent to America. " All by compulsion. No sooner were they counted over and their names taken down, than Huzza for America I was the d
+</earlier>
+<later>
+Eighteen years ago I observed, that the whole secret of the modern jacobinical drama, (which, and not the German, is its appropriate designation,) and of all its popularity, consists in the confusion and subversion of the natural order of things in their causes and effects: namely, in the excitement of surprise by representing the qualities of liberality, refined feeling, and a nice sense of honour (those things rather which pass amongst us for such) in persons and in classes where experience teaches us least to expect them; and by rewarding with all the sympathies which are the due of virtue, those criminals whom law, reason, and religion have excommunicated from our esteem.
+</later>
+</card>
+
+<card id="55b87340">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Appearing, as I do, the advocate of Republicanism, let me not be misunderstood. I am well aware, from the abuse of the executive power in States, that there is not a single European nation but what affords a melancholy proof that if, at this moment, the original authority of the people should be restored, all that could be expected from such restoration would in the beginning be but a change of tyranny. Considering the nature of a Republic in reference to the present condition of Europe, your Lordship stops here; but a philosopher will extend his views much farther: having dried up the source from which flows the corruption of the public opinion, he will be sensible that the stream will go on gradually refining itself. I must add also, that the coercive power is of necessity so strong in all the old governments, that a people could not at first make an abuse of that liberty which a legitimate Republic supposes. The animal just released from its stall will exhaust the overflow of its sp
+</earlier>
+<later>
+As to your arguments, they are unanswerable, and the three tracts do you the greatest possible credit; but the torrent cannot be stemmed, unless we can construct a body, I will not call it a party, upon a new and true principle of action, as you have set forth. Certain questions are forced by the present conduct of government upon the mind of every observing and thinking person. First and foremost, are we to have a _national_ English Church, or is the Church of England to be regarded merely as a sect? and is the _right to the Throne to be put on a new foundation_? Is the present ministry prepared for this, and all that must precede and follow it? Is Ireland an integral and inseparable portion of the Empire or not? If it be, I cannot listen to the argument in favour of endowing Romanism upon the ground of superiority of _numbers_. The Romanists are not a majority in England and Ireland, taken, as they ought to be, together. As to Scotland, it has its separate kirk by especial covenant. 
+</later>
+</card>
+
+<card id="9d35067c">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+But, to resume the subject of universal representation, I ought to have mentioned before, that in the choice of its representatives a people will not immorally hold out wealth as a criterion of integrity, nor lay down as a fundamental rule, that to be qualified for the trying duties of legislation a citizen should be possessed of a certain fixed property. Virtues, talents, and acquirements are all that it will look for.
+</earlier>
+<later>
+I should think that I had lived to little purpose if my notions on the subject of government had undergone no modification: my youth must, in that case, have been without enthusiasm, and my manhood endued with small capability of profiting by reflection.
+</later>
+</card>
+
+<card id="598b1c22">
+<question>Whether taking part in the African slave trade is morally lawful (Newton's Authentic Narrative, written 1762-63 about his years as a slave-ship captain, says that while engaged in the trade he 'never had the least scruple as to its lawfulness'; his 1788 Thoughts upon the African Slave Trade makes a public confession that he was once 'an active instrument, in a business at which my heart now shudders').</question>
+<earlier>
+During the time I was engaged in the slave trade, I never had the least scruple as to its lawfulness. I was, upon the whole, satisfied with it, as the appointment Providence had marked out for me ; yet it was, in many respects, far from eligible. It is, indeed, accounted a genteel employment, and is usually very profitable, though to me it did not prove so, the Lord seeing that a large increase of wealth could not be good for me.
+</earlier>
+<later>
+Perhaps what I have said of myself may be applicable to the nation at large. The Slave Trade was always unjustifiable; but inattention and interest prevented, for a time, the evil from being perceived. It is otherwise at present; the mischiefs and evils, connected with it, have been, of late years, represented with such undeniable evidence, and are now so generally known, that I suppose there is hardly an objection can be made, to the wish of thousands, perhaps of millions, for the suppression of this Trade, but upon the ground of political expedience,
+</later>
+</card>
+
+<card id="21cc0d43">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Many of my readers will hardly believe me when I inform them that these passages are copied verbatim from your Appendix. Mr. Burke roused the indignation of all ranks of men when, by a refinement in cruelty superior to that which in the East yokes the living to the dead, he strove to persuade us that we and our posterity to the end of time were riveted to a constitution by the indissoluble compact of--a dead parchment, and were bound to cherish a corpse at the bosom when reason might call aloud that it should be entombed. Your Lordship aims at the same detestable object by means more criminal, because more dangerous and insidious. Attempting to lull the people of England into a belief that any inquiries directed towards the nature of liberty and equality can in no other way lead to their happiness than by convincing them that they have already arrived at perfection in the science of government, what is your object but to exclude them for ever from the most fruitful field of human knowl
+</earlier>
+<later>
+The constitution of England, which seems about to be destroyed, offers to my mind the sublimest contemplation which the history of society and government have ever presented to it; and for this cause especially, that its principles have the character of preconceived ideas, archetypes of the pure intellect, while they are, in fact, the results of a humble-minded experience.
+</later>
+</card>
+
+<card id="78518a2f">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+My first objection to regal government is its instability, proceeding from a variety of causes. Where monarchy is found in its greatest intensity, as in Morocco and Turkey, this observation is illustrated in a very pointed manner, and indeed is more or less striking as governments are more or less despotic. The reason is obvious: as the monarch is the chooser of his ministers, and as his own passions and caprice are in general the sole guides of his conduct, these ministers, instead of pursuing directly the one grand object of national welfare, will make it their chief study to vary their measures according to his humours. But a minister _may_ be refractory: his successor will naturally run headlong into plans totally the reverse of the former system; for if he treads in the same path, he is well aware that a similar fate will attend him. This observation will apply to each succession of kings, who, from vanity and a desire of distinction, will in general studiously avoid any step whic
+</earlier>
+<later>
+My employment I find salutary to me, and of consequence in a pecuniary point of view, as my literary employments bring me no remuneration, nor promise any. As to what you say about the Ministry, I very much prefer the course of their policy to that of the Opposition; especially on two points most near my heart: resistance of Buonaparte by force of arms, and their adherence to the principles of the British Constitution in withholding political power from the Roman Catholics. My most determined hostility shall always be directed against those statesmen who, like Whitbread, Grenville, and others, would crouch to a sanguinary tyrant; and I cannot act with those who see no danger to the Constitution in introducing papists into Parliament. There are other points of policy in which I deem the Opposition grievously mistaken, and therefore I am at present, and long have been, by principle, a supporter of ministers, as far as my little influence extends. With affectionate wishes for your welfare
+</later>
+</card>
+
+<card id="8e063712">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+From your omitting to speak upon the war, and your general disapprobation of French measures and French principles, expressed particularly at this moment, we are necessarily led also to conclude that you have no wish to dispel an infatuation which is now giving up to the sword so large a portion of the poor, and consigning the rest to the more slow and more painful consumption of want. I could excuse your silence on this point, as it would ill become an English bishop at the close of the eighteenth century to make the pulpit the vehicle of exhortations which would have disgraced the incendiary of the Crusades, the hermit Peter. But you have deprived yourself of the plea of decorum by giving no opinion on the REFORM OF THE LEGISLATURE. As undoubtedly you have some secret reason for the reservation of your sentiments on this latter head, I cannot but apply the same reason to the former. Upon what principle is your conduct to be explained? In some parts of England it is quaintly said, whe
+</earlier>
+<later>
+My employment I find salutary to me, and of consequence in a pecuniary point of view, as my literary employments bring me no remuneration, nor promise any. As to what you say about the Ministry, I very much prefer the course of their policy to that of the Opposition; especially on two points most near my heart: resistance of Buonaparte by force of arms, and their adherence to the principles of the British Constitution in withholding political power from the Roman Catholics. My most determined hostility shall always be directed against those statesmen who, like Whitbread, Grenville, and others, would crouch to a sanguinary tyrant; and I cannot act with those who see no danger to the Constitution in introducing papists into Parliament. There are other points of policy in which I deem the Opposition grievously mistaken, and therefore I am at present, and long have been, by principle, a supporter of ministers, as far as my little influence extends. With affectionate wishes for your welfare
+</later>
+</card>
+
+<card id="79e2a0ca">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Perhaps in the very outset of this inquiry the principle on which I proceed will be questioned, and I shall be told that the people are not the proper judges of their own welfare. But because under every government of modern times, till the foundation of the American Republic, the bulk of mankind have appeared incapable of discerning their true interests, no conclusion can be drawn against my principle. At this moment have we not daily the strongest proofs of the success with which, in what you call the best of all monarchical governments, the popular mind may be debauched? Left to the quiet exercise of their own judgment, do you think that the people would have thought it necessary to set fire to the house of the philosophic Priestley, and to hunt down his life like that of a traitor or a parricide? that, deprived almost of the necessaries of existence by the burden of their taxes, they would cry out, as with one voice, for a war from which not a single ray of consolation can visit th
+</earlier>
+<later>
+The constitution of England, which seems about to be destroyed, offers to my mind the sublimest contemplation which the history of society and government have ever presented to it; and for this cause especially, that its principles have the character of preconceived ideas, archetypes of the pure intellect, while they are, in fact, the results of a humble-minded experience.
+</later>
+</card>
+
+<card id="3a9a5af6">
+<question>Whether the six days of creation in Genesis were natural days of twenty-four hours, with the geological ages lying in a gap before them (the Chalmers-Buckland scheme that Miller defended in 1847), or vast 'prophetic' periods of immense length (the view of his Testimony of the Rocks, where he says he 'certainly did once believe with Chalmers and with Buckland that the six days were simply natural days').</question>
+<earlier>
+But we limit the Divine power, it may be said : could not the Omnipotent First Cause have created all the fossils of the earth, vegetable and animal, in their fossil state ? Yes, certainly ; the act of their creation, regarded simply as an act of power, does not and cannot transcend his infinite ability. He could have created all the burying-grounds of the earth, with all their broken and wasted contents, brute and human. He could have created all the mummies of Mexico and of Egypt as such, and all the skeletons of the catacombs of Paris. It would manifest, however, but little reverence for his character to compliment his infinite power at the expense of his infinite wisdom. It would be doing no honor to his name to regard him as a creator of dead skeletons, mummies, and churchyards. Nay, we could not recognize him as such, without giving to the winds all those principles of common reason which in his goodness he has imparted to us for our guidance in t
+</earlier>
+<later>
+It will be seen that I adopt, in my Third and Fourth Lectures, that scheme of reconciliation between the Geologic and Mosaic Records which accepts the six days of creation as vastly extended periods; and I have been reminded by a somewhat captious critic that I once held a very different view, and twitted with what he terms inconsistency. I certainly did once believe with Chalmers and with Buckland that the six days were simply natural days of twenty-four hours each,--that they had compressed the entire work of the existing creation,--and that the latest of the geologic ages was separated by a great chaotic gap from our own.
+</later>
+</card>
+
+<card id="f8d290b6">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+And truly, the most exalted forms of society are cemented and preserved by the purest notions of religion. But whatever I may deem of the justice of their Lordship's observations, the prudence and policy of them have gained my immediate assent. Alas ! what room would there be for bishops or for priests in a religion where deity is the only object of reverence, and our immortality the only article of faith — immortality made probable to us by the light of nature, and proved to us by the resurrection of Jesus.
+</earlier>
+<later>
+But this I have said, and shall continue to say: that if the doctrines, the sum of which I believe to constitute the truth in Christ, be Christianity, then Unitarianism is not, and vice versa: and that, in speaking theologically and impersonally, i.e. of Psilanthropism and Theanthropism as schemes of belief, without reference to individuals, who profess either the one or the other, it will be absurd to use a different language as long as it is the dictate of common sense, that two opposites cannot properly be called by the same name.
+</later>
+</card>
+
+<card id="0c4d9346">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+I now proceed to principles. Your Lordship very properly asserts that 'the liberty of man in a state of society consists in his being subject to no law but the law enacted by the general will of the society to which he belongs.' You approved of the object which the French had in view when, in the infancy of the Revolution, they were attempting to destroy arbitrary power, and to erect a temple to Liberty on its remains. It is with surprise, then, that I find you afterwards presuming to dictate to the world a servile adoption of the British constitution. It is with indignation I perceive you 'reprobate' a people for having imagined happiness and liberty more likely to flourish in the open field of a Republic than under the shade of Monarchy. You are therefore guilty of a most glaring contradiction. Twenty-five millions of Frenchmen have felt that they could have no security for their liberties under any modification of monarchical power. They have in consequence unanimously chosen a Repu
+</earlier>
+<later>
+The constitution of England, which seems about to be destroyed, offers to my mind the sublimest contemplation which the history of society and government have ever presented to it; and for this cause especially, that its principles have the character of preconceived ideas, archetypes of the pure intellect, while they are, in fact, the results of a humble-minded experience.
+</later>
+</card>
+
+<card id="1397555c">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+For this " subdued sobriety" of temper a practical faith in the doctrine of philosophical necessity seems the only preparative. That vice is the effect of error and the offspring of surrounding circumstances, the object therefore of condolence not of anger, is a proposition easily understood, and as easily demonstrated. But to make it spread from the understanding to the affections, to call it into action, not only in the great exertions of patriotism, but in the daily and hourly occurrences of social life, requires the most watchful attentions of the most energetic mind. It is not enough that we have once swallowed these truths — we must feed on them, as insects on a leaf, till the whole heart be coloured by their qualities, and shew its food in e^'ery the minutest fibre.*
+</earlier>
+<later>
+It is demanded then, whether there be found any means in philosophy to determine the direction of the inner sense, as in mathematics it is determinable by its specific image or outward picture. Now the inner sense has its direction determined for the greater part only by an act of freedom. One man’s consciousness extends only to the pleasant or unpleasant sensations caused in him by external impressions; another enlarges his inner sense to a consciousness of forms and quantity; a third in addition to the image is conscious of the conception or notion of the thing; a fourth attains to a notion of his notions--he reflects on his own reflections; and thus we may say without impropriety, that the one possesses more or less inner sense, than the other. This more or less betrays already, that philosophy in its first principles must have a practical or moral, as well as a theoretical or speculative side. This difference in degree does not exist in the mathemat
+</later>
+</card>
+
+<card id="a6611212">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Another distinction will arise amongst mankind, which, though it may be easily modified by government, exists independent of it; I mean the distinction of wealth, which always will attend superior talents and industry. It cannot be denied that the security of individual property is one of the strongest and most natural motives to induce men to bow their necks to the yoke of civil government. In order to attain this end of security to property, a legislator will proceed with impartiality. He should not suppose that, when he has insured to their proprietors the possession of lands and movables against the depredation of the necessitous, nothing remains to be done. The history of all ages has demonstrated that wealth not only can secure itself, but includes even an oppressive principle. Aware of this, and that the extremes of poverty and riches have a necessary tendency to corrupt the human heart, he will banish from his code all laws such as the unnatural monster of primogeniture, such a
+</earlier>
+<later>
+In France incompatible things are aimed at--a monarchy and democracy to be united without an intervening aristocracy to constitute a graduated scale of power and influence. I cannot conceive how an hereditary monarchy can exist without an hereditary peerage in a country so large as France, nor how either can maintain their ground if the law of the Napoleon Code, compelling equal division of property by will, be not repealed. And I understand that a vast majority of the French are decidedly adverse to the repeal of that law, which, I cannot but think, will ere long be found injurious both to France and, in its collateral effects, to the rest of Europe.
+</later>
+</card>
+
+<card id="f180c2be">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+I have not time to pursue this subject further, but am so strongly impressed with the baleful influence of aristocracy and nobility upon human happiness and virtue, that if, as I am persuaded, monarchy cannot exist without such supporters, I think that reason sufficient for the preference I have given to the Republican system.
+</earlier>
+<later>
+To turn to another subject. You will be sorry to learn that several of my most valued friends are likely to suffer from the monetary derangements in America. My family, however, is no way directly entangled, unless the Mississippi bonds prove invalid. There is an opinion pretty current among discerning persons in England, that Republics are not to be trusted in money concerns,--I suppose because the sense of honour is more obtuse, the responsibility being divided among so many. For my own part, I have as little or less faith in absolute despotisms, except that they are more easily convinced that it is politic to keep up their credit by holding to their engagements. What power is maintained by this practice was shown by Great Britain in her struggle with Buonaparte. This lesson has not been lost on the leading monarchical states of Europe. But too much of this.
+</later>
+</card>
+
+<card id="b65a9820">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+For this " subdued sobriety" of temper a practical faith in the doctrine of philosophical necessity seems the only preparative. That vice is the effect of error and the offspring of surrounding circumstances, the object therefore of condolence not of anger, is a proposition easily understood, and as easily demonstrated. But to make it spread from the understanding to the affections, to call it into action, not only in the great exertions of patriotism, but in the daily and hourly occurrences of social life, requires the most watchful attentions of the most energetic mind. It is not enough that we have once swallowed these truths — we must feed on them, as insects on a leaf, till the whole heart be coloured by their qualities, and shew its food in e^'ery the minutest fibre.*
+</earlier>
+<later>
+Had this been really the case, the consequence would have been, that our whole life would be divided between the despotism of outward impressions, and that of senseless and passive memory. Take his law in its highest abstraction and most philosophical form, namely, that every partial representation recalls the total representation of which it was a part; and the law becomes nugatory, were it only for its universality. In practice it would indeed be mere lawlessness. Consider, how immense must be the sphere of a total impression from the top of St. Paul’s church; and how rapid and continuous the series of such total impressions. If, therefore, we suppose the absence of all interference of the will, reason, and judgment, one or other of two consequences must result. Either the ideas, or reliques of such impression, will exactly imitate the order of the impression itself, which would be absolute delirium: or any one part of that impression might recall any
+</later>
+</card>
+
+<card id="5de75c19">
+<question>Whether the totem is the receptacle of the external soul of the person who claims it, so that the savage's life is bound up with a particular animal or plant of the totem species (Frazer's Golden Bough, 1890: 'The totem, if I am right, is simply the receptacle in which a man keeps his life'; in Totemism and Exogamy, 1910, he writes only that on such facts he 'formerly based a theory' of the external soul and has since adopted other views of totemism).</question>
+<earlier>
+Now if the relations are similar, the explanation which holds good of the one ought equally to hold good of the other. Therefore the reason why a tribe revere a particular species of animals or plants (for the tribal totem may be a plant) and call themselves after it, must be a belief that the life of each individual of the tribe is bound up with some one animal or plant of the species, and that his or her death would be the consequence of killing that particular animal, or destroying that particular plant.
+</earlier>
+<later>
+His or her life is apparently thought to be so bound up with that of the animal that an injury done to the animal injures correspondingly the man or woman, while its destruction entails his or her death. On these and similar facts I formerly based a theory that a totem may have been supposed to contain the external soul of the person who claimed it.
+</later>
+</card>
+
+<card id="f380dd71">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+For this " subdued sobriety" of temper a practical faith in the doctrine of philosophical necessity seems the only preparative. That vice is the effect of error and the offspring of surrounding circumstances, the object therefore of condolence not of anger, is a proposition easily understood, and as easily demonstrated. But to make it spread from the understanding to the affections, to call it into action, not only in the great exertions of patriotism, but in the daily and hourly occurrences of social life, requires the most watchful attentions of the most energetic mind. It is not enough that we have once swallowed these truths — we must feed on them, as insects on a leaf, till the whole heart be coloured by their qualities, and shew its food in e^'ery the minutest fibre.*
+</earlier>
+<later>
+The inventor of the watch, if this doctrine be true, did not in reality invent it; he only looked on, while the blind causes, the only true artists, were unfolding themselves. So must it have been too with my friend Allston, when he sketched his picture of the dead man revived by the bones of the prophet Elijah. So must it have been with Mr. Southey and Lord Byron, when the one fancied himself composing his Roderick, and the other his Childe Harold. The same must hold good of all systems of philosophy; of all arts, governments, wars by sea and by land; in short, of all things that ever have been or that ever will be produced. For, according to this system, it is not the affections and passions that are at work, in as far as they are sensations or thoughts. We only fancy, that we act from rational resolves, or prudent motives, or from impulses of anger, love, or generosity. In all these cases the real agent is a something-nothing-everything, which does a
+</later>
+</card>
+
+<card id="71620947">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Thus far we have considered inequalities inseparable from civil society. But other arbitrary distinctions exist among mankind, either from choice or usurpation. I allude to titles, to stars, ribbons, and garters, and other badges of fictitious superiority. Your Lordship will not question the grand principle on which this inquiry set out; I look upon it, then, as my duty to try the propriety of these distinctions by that criterion, and think it will be no difficult task to prove that these separations among mankind are absurd, impolitic, and immoral. Considering hereditary nobility as a reward for services rendered to the State--and it is to my charity that you owe the permission of taking up the question on this ground--what services can a man render to the State adequate to such a compensation that the making of laws, upon which the happiness of millions is to depend, shall be lodged in him and his posterity, however depraved may be their principles, however contemptible their underst
+</earlier>
+<later>
+In France incompatible things are aimed at--a monarchy and democracy to be united without an intervening aristocracy to constitute a graduated scale of power and influence. I cannot conceive how an hereditary monarchy can exist without an hereditary peerage in a country so large as France, nor how either can maintain their ground if the law of the Napoleon Code, compelling equal division of property by will, be not repealed. And I understand that a vast majority of the French are decidedly adverse to the repeal of that law, which, I cannot but think, will ere long be found injurious both to France and, in its collateral effects, to the rest of Europe.
+</later>
+</card>
+
+<card id="d3fcba3e">
+<question>Whether taking part in the African slave trade is morally lawful (Newton's Authentic Narrative, written 1762-63 about his years as a slave-ship captain, says that while engaged in the trade he 'never had the least scruple as to its lawfulness'; his 1788 Thoughts upon the African Slave Trade makes a public confession that he was once 'an active instrument, in a business at which my heart now shudders').</question>
+<earlier>
+My heart being now fixed and riveted to a particular object, I considered every thing I was concerned with in a new light. I concluded it would be absolutely impossible to live at such a distance as Jamaica, for a term of four or five years, and therefore determined at all events that I would not go. I could not bear either to acquaint my father with the true reason, or to invent a false one ; therefore, without taking any notice to him why I did so, I staid three weeks instead of three days in Kent, till I thought (as it proved) the opportunity would be lost, and the ships sailed. I then returned to London. I had highly displeased my father by this disobedience; but he was more easily reconciled than I could have expected. In a little time I sailed with a friend of his to Venice. In this voyage, I was exposed to the company and ill example of the common sailors among whom I ranked. Importunity and opportunity presenting every day, I once more began to 
+</earlier>
+<later>
+I judge, the principal source of the Slave Trade, is, the wars which prevail among the Natives. Sometimes, these wars break out between those who live near the sea. The English, and other Europeans, have been charged with fomenting them; I believe (so far as concerns the Windward Coast) unjustly. That some would do it, if they could, I doubt not; but I do not think they can have opportunity. Nor is it needful they should interfere. Thousands, in our own country, wish for war, because they fatten upon its spoils.
+</later>
+</card>
+
+<card id="54432dba">
+<question>Whether the six days of creation in Genesis were natural days of twenty-four hours, with the geological ages lying in a gap before them (the Chalmers-Buckland scheme that Miller defended in 1847), or vast 'prophetic' periods of immense length (the view of his Testimony of the Rocks, where he says he 'certainly did once believe with Chalmers and with Buckland that the six days were simply natural days').</question>
+<earlier>
+Now, let it be admitted, for the argument's sake, that the earth existed in the dark and void state described here only six days, of twenty-four hours each, before the creation of man ; and that the going forth of the Spirit and the breaking out of the light, on this occasion, were events immediately introductory to the creation to which we ourselves belong. And what then ? It is evident, from the continuity of the narrative in the passage, say the anti-geologists, that there could have been no creations on this earth prior to the present one. Nay, not so : for aught that appears in the narrative, there might have been many.
+</earlier>
+<later>
+It will be seen that I adopt, in my Third and Fourth Lectures, that scheme of reconciliation between the Geologic and Mosaic Records which accepts the six days of creation as vastly extended periods; and I have been reminded by a somewhat captious critic that I once held a very different view, and twitted with what he terms inconsistency. I certainly did once believe with Chalmers and with Buckland that the six days were simply natural days of twenty-four hours each,--that they had compressed the entire work of the existing creation,--and that the latest of the geologic ages was separated by a great chaotic gap from our own.
+</later>
+</card>
+
+<card id="f632d7bb">
+<question>Whether the totem is the receptacle of the external soul of the person who claims it, so that the savage's life is bound up with a particular animal or plant of the totem species (Frazer's Golden Bough, 1890: 'The totem, if I am right, is simply the receptacle in which a man keeps his life'; in Totemism and Exogamy, 1910, he writes only that on such facts he 'formerly based a theory' of the external soul and has since adopted other views of totemism).</question>
+<earlier>
+after the Jalno has ceased to have authority, he assumes it again, and for ten days acts in the same arbitrary manner as before. On the first of the ten days the priests assemble as before at the Mdchindranath temple, pray to the gods to prevent sickness and other evils among the people, "and, as a peaceoffering, sacrifice one man. The man is not killed purposely, but the ceremony he undergoes often proves fatal. ^ Grain is thrown against his head, and his face is painted half white, half black." On the tenth day, all the troops in Lhasa march to the temple and form in line before it. The victim is brought forth from the temple and receives small donations from the assembled multitude. He then throws dice with the Jalno. If the victim wins, much evil is foreboded ; but if the Jalno wins, there is great rejoicing, for it is then believed that the victim has been accepted by the gods to bear all the sins of the people of Lhdsa. Thereupon his face is paint
+</earlier>
+<later>
+ceremonies to make the grass-seed grow, he may not come at his wife. During the whole of that time he is supposed to be so full of magical power derived from the churinga , that were he to have intercourse with his wife, the grassseed would be spoiled and his own body would swell up when he tasted of it.1
+</later>
+</card>
+
+<card id="11bfa0e2">
+<question>Whether Rubens deserves 'the most reverential' admiration (Modern Painters vol. I, 1843: 'I never will speak of Rubens but with the most reverential feeling') or is to be seen as a vulgar, profane painter (Ruskin's 1860 preface to vol. V regrets 'the strong expressions of admiration for Rubens' in the first volume, blames a 'boy's veneration for Rubens' physical art-power', and in vol. V he treats him as a painter who 'performs' rather than worships).</question>
+<earlier>
+According to Locke, Book ii. chap. 8, there are three sorts of qualities in bodies: first, the "bulk, figure, number, situation, and motion or rest of their solid parts: those that are in them, whether we perceive them or not." These he calls primary qualities. Secondly, "the power that is in any body to operate after a peculiar manner on any of our senses," (sensible qualities.) And thirdly, "the power that is in any body to make such a change in another body as that it shall operate on our senses differently from what it did before: these last being usually called _powers_."
+</earlier>
+<later>
+The motive of the picture, therefore, is the expression of rude but perfect peace, slightly mingled with an indolent languor and despondency; the peace between intervals of enforced labor; happy, but listless, and having little care or hope about the future; cutting its home out of this gravel bank, and letting the vine and the river twine and undermine as they will; careless to mend or build, so long as the walls hold together, and the black fruit swells in the sunshine.
+</later>
+</card>
+
+<card id="98a9b34c">
+<question>Whether Rubens deserves 'the most reverential' admiration (Modern Painters vol. I, 1843: 'I never will speak of Rubens but with the most reverential feeling') or is to be seen as a vulgar, profane painter (Ruskin's 1860 preface to vol. V regrets 'the strong expressions of admiration for Rubens' in the first volume, blames a 'boy's veneration for Rubens' physical art-power', and in vol. V he treats him as a painter who 'performs' rather than worships).</question>
+<earlier>
+Now this is nature! It is the exhaustless living energy with which the universe is filled; and what will you set beside it of the works of other men? Show me a single picture, in the whole compass of ancient art, in which I can pass from cloud to cloud, from region to region, from first to second and third heaven, as I can here, and you may talk of Turner's want of truth. Turn to the Pools of Solomon, and walk through the passages of mist as they melt on the one hand into those stormy fragments of fiery cloud, or, on the other, into the cold solitary shadows that compass the sweeping hill, and when you find an inch without air and transparency, and a hairbreadth without changefulness and thought; and when you can count the torn waves of tossing radiance that gush from the sun, as you can count the fixed, white, insipidities of Claude; or when you can measure the modulation and the depth of that hollow mist, as you can the flourishes of the brush upon th
+</earlier>
+<later>
+What we have asked from him, instead of this, and what received, we know. But few of us yet know how true an image those darkening wrecks of radiance give of the shadow which gained sway over his once pure and noble soul.
+</later>
+</card>
+
+<card id="682ddf0d">
+<question>Whether the six days of creation in Genesis were natural days of twenty-four hours, with the geological ages lying in a gap before them (the Chalmers-Buckland scheme that Miller defended in 1847), or vast 'prophetic' periods of immense length (the view of his Testimony of the Rocks, where he says he 'certainly did once believe with Chalmers and with Buckland that the six days were simply natural days').</question>
+<earlier>
+Now, let it be admitted, for the argument's sake, that the earth existed in the dark and void state described here only six days, of twenty-four hours each, before the creation of man ; and that the going forth of the Spirit and the breaking out of the light, on this occasion, were events immediately introductory to the creation to which we ourselves belong. And what then ? It is evident, from the continuity of the narrative in the passage, say the anti-geologists, that there could have been no creations on this earth prior to the present one. Nay, not so : for aught that appears in the narrative, there might have been many.
+</earlier>
+<later>
+The days must have been prophetic days, introduced, indeed, into the panorama of creation as mayhap mere openings and droppings of the curtain, but not the less symbolic of that series of successive periods, each characterized by its own productions and events, in which creation itself was comprised.
+</later>
+</card>
+
+<card id="77fdb670">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Appearing, as I do, the advocate of Republicanism, let me not be misunderstood. I am well aware, from the abuse of the executive power in States, that there is not a single European nation but what affords a melancholy proof that if, at this moment, the original authority of the people should be restored, all that could be expected from such restoration would in the beginning be but a change of tyranny. Considering the nature of a Republic in reference to the present condition of Europe, your Lordship stops here; but a philosopher will extend his views much farther: having dried up the source from which flows the corruption of the public opinion, he will be sensible that the stream will go on gradually refining itself. I must add also, that the coercive power is of necessity so strong in all the old governments, that a people could not at first make an abuse of that liberty which a legitimate Republic supposes. The animal just released from its stall will exhaust the overflow of its sp
+</earlier>
+<later>
+I should think that I had lived to little purpose if my notions on the subject of government had undergone no modification: my youth must, in that case, have been without enthusiasm, and my manhood endued with small capability of profiting by reflection.
+</later>
+</card>
+
+<card id="051b254b">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+I have not time to pursue this subject further, but am so strongly impressed with the baleful influence of aristocracy and nobility upon human happiness and virtue, that if, as I am persuaded, monarchy cannot exist without such supporters, I think that reason sufficient for the preference I have given to the Republican system.
+</earlier>
+<later>
+I should think that I had lived to little purpose if my notions on the subject of government had undergone no modification: my youth must, in that case, have been without enthusiasm, and my manhood endued with small capability of profiting by reflection.
+</later>
+</card>
+
+<card id="a866c6fb">
+<question>Whether Rubens deserves 'the most reverential' admiration (Modern Painters vol. I, 1843: 'I never will speak of Rubens but with the most reverential feeling') or is to be seen as a vulgar, profane painter (Ruskin's 1860 preface to vol. V regrets 'the strong expressions of admiration for Rubens' in the first volume, blames a 'boy's veneration for Rubens' physical art-power', and in vol. V he treats him as a painter who 'performs' rather than worships).</question>
+<earlier>
+I never have spoken, and I never will speak of Rubens but with the most reverential feeling; and whatever imperfections in his art may have resulted from his unfortunate want of seriousness and incapability of true passion, his calibre of mind was originally such that I believe the world may see another Titian and another Raffaelle, before it sees another Rubens.
+</earlier>
+<later>
+At that time I had seen much of nature, and had been several times in Italy, wintering once in Rome; but had chiefly delighted in northern art, beginning, when a mere boy, with Rubens and Rembrandt. It was long before I got quit of a boy's veneration for Rubens' physical art-power; and the reader will, perhaps, on this ground forgive the strong expressions of admiration for Rubens, which, to my great regret, occur in the first volume.
+</later>
+</card>
+
+<card id="631dbffe">
+<question>Whether taking part in the African slave trade is morally lawful (Newton's Authentic Narrative, written 1762-63 about his years as a slave-ship captain, says that while engaged in the trade he 'never had the least scruple as to its lawfulness'; his 1788 Thoughts upon the African Slave Trade makes a public confession that he was once 'an active instrument, in a business at which my heart now shudders').</question>
+<earlier>
+During the time I was engaged in the slave trade, I never had the least scruple as to its lawfulness. I was, upon the whole, satisfied with it, as the appointment Providence had marked out for me ; yet it was, in many respects, far from eligible. It is, indeed, accounted a genteel employment, and is usually very profitable, though to me it did not prove so, the Lord seeing that a large increase of wealth could not be good for me.
+</earlier>
+<later>
+Though unwilling to give offence to a single person; in such a cause, I ought not to be afraid of offending many, by declaring the truth; if, indeed, there can be many, whom even interest can prevail upon to contradict the common sense of mankind, by pleading for a commerce, so iniquitous, so cruel, so oppressive, so destructive, as the African Slave Trade!
+</later>
+</card>
+
+<card id="ef8eb6bb">
+<question>Whether taking part in the African slave trade is morally lawful (Newton's Authentic Narrative, written 1762-63 about his years as a slave-ship captain, says that while engaged in the trade he 'never had the least scruple as to its lawfulness'; his 1788 Thoughts upon the African Slave Trade makes a public confession that he was once 'an active instrument, in a business at which my heart now shudders').</question>
+<earlier>
+During the time I was engaged in the slave trade, I never had the least scruple as to its lawfulness. I was, upon the whole, satisfied with it, as the appointment Providence had marked out for me ; yet it was, in many respects, far from eligible. It is, indeed, accounted a genteel employment, and is usually very profitable, though to me it did not prove so, the Lord seeing that a large increase of wealth could not be good for me.
+</earlier>
+<later>
+I account an intelligent Farmer to be a good Politician, in this sense; that, if he has a large heap of good corn, he will not put a small quantity, that is damaged, to the rest, for the sake of encreasing the heap. He knows that such an addition would spoil the whole. God forbid, that any supposed profit or advantage, which we can derive from the groans and agonies, and blood of the poor Africans, should draw down his heavy curse, upon all that we might, otherwise, honourably and comfortably possess.
+</later>
+</card>
+
+<card id="782959d1">
+<question>Whether the totem is the receptacle of the external soul of the person who claims it, so that the savage's life is bound up with a particular animal or plant of the totem species (Frazer's Golden Bough, 1890: 'The totem, if I am right, is simply the receptacle in which a man keeps his life'; in Totemism and Exogamy, 1910, he writes only that on such facts he 'formerly based a theory' of the external soul and has since adopted other views of totemism).</question>
+<earlier>
+Recuetl de divers Voyages faits en Afri. 3 Bastian, Die Volker des ostlichen que et en fAnUnqtce (Paris, 1684). Asien, iii. 2^8 from the primitive point of view, it is perfectly possible that a savage should have one soul in his sex totem, and another in his tribal totem. However, as I have observed, sex totems occur nowhere but in Australia ; so that as a rule the savage who practises totemism need not have more than one soul out of his body at a time.
+</earlier>
+<later>
+His or her life is apparently thought to be so bound up with that of the animal that an injury done to the animal injures correspondingly the man or woman, while its destruction entails his or her death. On these and similar facts I formerly based a theory that a totem may have been supposed to contain the external soul of the person who claimed it.
+</later>
+</card>
+
+<card id="b57a4a20">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+I now proceed to principles. Your Lordship very properly asserts that 'the liberty of man in a state of society consists in his being subject to no law but the law enacted by the general will of the society to which he belongs.' You approved of the object which the French had in view when, in the infancy of the Revolution, they were attempting to destroy arbitrary power, and to erect a temple to Liberty on its remains. It is with surprise, then, that I find you afterwards presuming to dictate to the world a servile adoption of the British constitution. It is with indignation I perceive you 'reprobate' a people for having imagined happiness and liberty more likely to flourish in the open field of a Republic than under the shade of Monarchy. You are therefore guilty of a most glaring contradiction. Twenty-five millions of Frenchmen have felt that they could have no security for their liberties under any modification of monarchical power. They have in consequence unanimously chosen a Repu
+</earlier>
+<later>
+In France incompatible things are aimed at--a monarchy and democracy to be united without an intervening aristocracy to constitute a graduated scale of power and influence. I cannot conceive how an hereditary monarchy can exist without an hereditary peerage in a country so large as France, nor how either can maintain their ground if the law of the Napoleon Code, compelling equal division of property by will, be not repealed. And I understand that a vast majority of the French are decidedly adverse to the repeal of that law, which, I cannot but think, will ere long be found injurious both to France and, in its collateral effects, to the rest of Europe.
+</later>
+</card>
+
+<card id="c407bee7">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+Hitherto nothing has been adduced that truly distinguishes our government from despotism : it seems to be a government over, not bi/, or with the people. But this conclusion we disavow. The liberty of the press, (a power resident in the people) gives us an influential sovereignty. By books necessary information may be dispersed ; and by information the public will may be formed ; and by the right of petitioning that will may be expressed ; first, perhaps, in low and distant tones such as beseem the children of peace ; but if corruption deafen power, gradually increasing till they swell into a deep and awful thunder, the voice of god, which his vicegerents must hear, and hearing dare not disobey. This unrestricted right of over-awing the oligarchy of parliament by constitutional expression of the general will forms our liberty : it is the sole boundary that divides us from despotism.
+</earlier>
+<later>
+Eighteen years ago I observed, that the whole secret of the modern jacobinical drama, (which, and not the German, is its appropriate designation,) and of all its popularity, consists in the confusion and subversion of the natural order of things in their causes and effects: namely, in the excitement of surprise by representing the qualities of liberality, refined feeling, and a nice sense of honour (those things rather which pass amongst us for such) in persons and in classes where experience teaches us least to expect them; and by rewarding with all the sympathies which are the due of virtue, those criminals whom law, reason, and religion have excommunicated from our esteem.
+</later>
+</card>
+
+<card id="8f784487">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+By the almost winged communication of the press, the whole nation becomes one grand senate, fervent yet untumultuous. By the right of meeting together to petition (which, Milton says, is good old English for requiring) the determinations of this senate are embodied into legal form, and conveyed to the executive branch of government, the parliament. The present bills annihilate this right. 1\\e forms of it indeed will remain; (\hQ forms of the Roman republic were preserved under Tiberius and Nero) but the reality will have flown. No political information from the press can previously enlighten the people ; and if they meet, the deliberation must be engrossed by the hireling defenders of that scheme of cruelty and imposture, which the ministry choose to call our constitution. We can no longer consult in common on common grievances. Our assemblies will resemble a silent and sullen mob of discontented slaves who have surrounded the palace of some eastern ty
+</earlier>
+<later>
+But it is time to tell the truth; though it requires some courage to avow it in an age and country, in which disquisitions on all subjects, not privileged to adopt technical terms or scientific symbols, must be addressed to the Public. I say then, that it is neither possible nor necessary for all men, nor for many, to be philosophers. There is a philosophic (and inasmuch as it is actualized by an effort of freedom, an artificial) consciousness, which lies beneath or (as it were) behind the spontaneous consciousness natural to all reflecting beings. As the elder Romans distinguished their northern provinces into Cis-Alpine and Trans-Alpine, so may we divide all the objects of human knowledge into those on this side, and those on the other side of the spontaneous consciousness; citra et trans conscientiam communem. The latter is exclusively the domain of pure philosophy, which is therefore properly entitled transcendental, in order to discriminate it at o
+</later>
+</card>
+
+<card id="05b654aa">
+<question>Whether Rubens deserves 'the most reverential' admiration (Modern Painters vol. I, 1843: 'I never will speak of Rubens but with the most reverential feeling') or is to be seen as a vulgar, profane painter (Ruskin's 1860 preface to vol. V regrets 'the strong expressions of admiration for Rubens' in the first volume, blames a 'boy's veneration for Rubens' physical art-power', and in vol. V he treats him as a painter who 'performs' rather than worships).</question>
+<earlier>
+Take Claude's distance (in No. 244, Dulwich Gallery,)[53] on the right of the picture. It is as pure blue as ever came from the pallet, laid on thick; you cannot see through it, there is not the slightest vestige of transparency or filminess about it, and its edge is soft and blunt. Hence, if it be meant for near hills, the blue is impossible, and the want of details impossible, in the clear atmosphere indicated through the whole picture. If it be meant for extreme distance, the blunt edge is impossible, and the opacity is impossible. I do not know a single distance of the Italian school to which the same observation is not entirely applicable, except, perhaps, one or two of Nicholas Poussin's. They always involve, under any supposition whatsoever, at least two impossibilities.
+</earlier>
+<later>
+The scene is nearly the same as that of the St. George; but, in order better to express the desert of Sinai, the river is much larger, and the trees and vegetation softer. Two people, uninterested in the idolatrous ceremonies, are rowing in a pleasure boat on the river. The calf is about sixteen inches long (perhaps, we ought to give Claude credit for remembering that it was made of ear-rings, though he might as well have inquired how large Egyptian ear-rings were). Aaron has put it on a handsome pillar, under which five people are dancing, and twenty-eight, with several children, worshipping. Refreshments for the dancers are provided in four large vases under a tree on the left, presided over by a dignified person holding a dog in a leash. Under the distant group of trees appears Moses, conducted by some younger personage (Nadab or Abihu). This younger personage holds up his hands, and Moses, in the way usually expected of him, breaks the tables of the
+</later>
+</card>
+
+<card id="7a118d41">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+As to your arguments, by which you pretend to justify your anathemas of a Republic--if arguments they may be called--they are so concise, that I cannot but transcribe them. 'I dislike a Republic for this reason, because of all forms of government, scarcely excepting the most despotic, I think a Republic the most oppressive to the bulk of the people; they are deceived in it with a show of liberty, but they live in it under the most odious of all tyrannies--the tyranny of their equals.'
+</earlier>
+<later>
+My employment I find salutary to me, and of consequence in a pecuniary point of view, as my literary employments bring me no remuneration, nor promise any. As to what you say about the Ministry, I very much prefer the course of their policy to that of the Opposition; especially on two points most near my heart: resistance of Buonaparte by force of arms, and their adherence to the principles of the British Constitution in withholding political power from the Roman Catholics. My most determined hostility shall always be directed against those statesmen who, like Whitbread, Grenville, and others, would crouch to a sanguinary tyrant; and I cannot act with those who see no danger to the Constitution in introducing papists into Parliament. There are other points of policy in which I deem the Opposition grievously mistaken, and therefore I am at present, and long have been, by principle, a supporter of ministers, as far as my little influence extends. With affectionate wishes for your welfare
+</later>
+</card>
+
+<card id="a63e67a7">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+And truly, the most exalted forms of society are cemented and preserved by the purest notions of religion. But whatever I may deem of the justice of their Lordship's observations, the prudence and policy of them have gained my immediate assent. Alas ! what room would there be for bishops or for priests in a religion where deity is the only object of reverence, and our immortality the only article of faith — immortality made probable to us by the light of nature, and proved to us by the resurrection of Jesus.
+</earlier>
+<later>
+For I was at that time and long after, though a Trinitarian (that is ad normam Platonis) in philosophy, yet a zealous Unitarian in religion; more accurately, I was a Psilanthropist, one of those who believe our Lord to have been the real son of Joseph, and who lay the main stress on the resurrection rather than on the crucifixion. O! never can I remember those days with either shame or regret. For I was most sincere, most disinterested. My opinions were indeed in many and most important points erroneous; but my heart was single.
+</later>
+</card>
+
+<card id="c4c9a972">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+As from the nature of monarchy, particularly of hereditary monarchy, there must always be a vast disproportion between the duties to be performed and the powers that are to perform them; and as the measures of government, far from gaining additional vigour, are, on the contrary, enfeebled by being intrusted to one hand, what arguments can be used for allowing to the will of a single being a weight which, as history shows, will subvert that of the whole body politic? And this brings me to my grand objection to monarchy, which is drawn from (THE ETERNAL NATURE OF MAN.) The office of king is a trial to which human virtue is not equal. Pure and universal representation, by which alone liberty can be secured, cannot, I think, exist together with monarchy. It seems madness to expect a manifestation of the _general_ will, at the same time that we allow to a _particular_ will that weight which it must obtain in all governments that can with any propriety be called monarchical. They must war wi
+</earlier>
+<later>
+The constitution of England, which seems about to be destroyed, offers to my mind the sublimest contemplation which the history of society and government have ever presented to it; and for this cause especially, that its principles have the character of preconceived ideas, archetypes of the pure intellect, while they are, in fact, the results of a humble-minded experience.
+</later>
+</card>
+
+<card id="a20d32b1">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+In France royalty is no more. The person of the last anointed is no more also; and I flatter myself I am not alone, even in this _kingdom_, when I wish that it may please the Almighty neither by the hands of His priests nor His nobles (I allude to a striking passage of Racine) to raise his posterity to the rank of his ancestors, and reillume the torch of extinguished David.[16]
+</earlier>
+<later>
+In France incompatible things are aimed at--a monarchy and democracy to be united without an intervening aristocracy to constitute a graduated scale of power and influence. I cannot conceive how an hereditary monarchy can exist without an hereditary peerage in a country so large as France, nor how either can maintain their ground if the law of the Napoleon Code, compelling equal division of property by will, be not repealed. And I understand that a vast majority of the French are decidedly adverse to the repeal of that law, which, I cannot but think, will ere long be found injurious both to France and, in its collateral effects, to the rest of Europe.
+</later>
+</card>
+
+<card id="5f542d8f">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+From these hints, if pursued further, might be demonstrated the expediency of the whole people 'intruding themselves' on the office of legislation, and the wisdom of putting into force what they may claim as a right. But government is divided into two parts--the legislative and executive. The executive power you would lodge in the hands of an individual. Before we inquire into the propriety of this measure, it will be necessary to state the proper objects of the executive power in governments where the principle of universal representation is admitted. With regard to that portion of this power which is exerted in the application of the laws, it may be observed that much of it would be superseded. As laws, being but the expression of the general will, would be enacted only from an almost universal conviction of their utility, any resistance to such laws, any desire of eluding them, must proceed from a few refractory individuals. As far, then, as relates to the internal administration of
+</earlier>
+<later>
+I mean to make a tour in Scotland with Mrs. W---- and her sister, Miss Hutchinson. I congratulate you on the overthrow of the execrable despot, and the complete triumph of the _war faction_, of which noble body I have the honour to be as active a member as my abilities and industry would allow. Best remembrances to yourself and Mrs. Wrangham,
+</later>
+</card>
+
+<card id="434444d2">
+<question>Whether the six days of creation in Genesis were natural days of twenty-four hours, with the geological ages lying in a gap before them (the Chalmers-Buckland scheme that Miller defended in 1847), or vast 'prophetic' periods of immense length (the view of his Testimony of the Rocks, where he says he 'certainly did once believe with Chalmers and with Buckland that the six days were simply natural days').</question>
+<earlier>
+Solitary as the place usually is, it presented a singularly animated appearance six years ago, when it was visited by the members of the British Association, and converted, by Sir Roderick Murchison into a geological lecture-room. He discoursed of rocks and fossils in the bowels of the hill, with the ponderous strata piled high on every side, like courses of Cyclopean masonry, and the stony forms of the dead existing by millions around him.
+</earlier>
+<later>
+There is, however, a class of learned and thoroughly respectable theologians who seem disposed to accept rather of any amount of unrecorded miracle, than to admit of a merely partial deluge, coextensive with but the human family. "Were the difficulty attending this subject tenfold greater, and seemingly beyond all satisfactory explanation," says Dr. William Hamilton, "if I yet find it recorded in the Book of Revelation, that in the deluge '_every living thing in which is the breath of life perished, and Noah only remained alive, and they which were with him in the ark_,' I could still believe it implicitly, satisfied that the difficulty of explanation springs solely from the imperfection of human knowledge, and not from any limitation in the power or the wisdom of God, nor yet from any lack of trustworthiness in the document given us in a revelation from God,--a document given to men by the hands of Moses, the learned, accomplished, and eminently devout
+</later>
+</card>
+
+<card id="e4fa8cc9">
+<question>Whether Rubens deserves 'the most reverential' admiration (Modern Painters vol. I, 1843: 'I never will speak of Rubens but with the most reverential feeling') or is to be seen as a vulgar, profane painter (Ruskin's 1860 preface to vol. V regrets 'the strong expressions of admiration for Rubens' in the first volume, blames a 'boy's veneration for Rubens' physical art-power', and in vol. V he treats him as a painter who 'performs' rather than worships).</question>
+<earlier>
+I never have spoken, and I never will speak of Rubens but with the most reverential feeling; and whatever imperfections in his art may have resulted from his unfortunate want of seriousness and incapability of true passion, his calibre of mind was originally such that I believe the world may see another Titian and another Raffaelle, before it sees another Rubens.
+</earlier>
+<later>
+Rubens has also painted himself and his family in an equally elaborate piece. But they are not _worshipping_ the Madonna. They are _performing_ the Madonna, and her saintly entourage.
+</later>
+</card>
+
+<card id="31465f61">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+I now proceed to principles. Your Lordship very properly asserts that 'the liberty of man in a state of society consists in his being subject to no law but the law enacted by the general will of the society to which he belongs.' You approved of the object which the French had in view when, in the infancy of the Revolution, they were attempting to destroy arbitrary power, and to erect a temple to Liberty on its remains. It is with surprise, then, that I find you afterwards presuming to dictate to the world a servile adoption of the British constitution. It is with indignation I perceive you 'reprobate' a people for having imagined happiness and liberty more likely to flourish in the open field of a Republic than under the shade of Monarchy. You are therefore guilty of a most glaring contradiction. Twenty-five millions of Frenchmen have felt that they could have no security for their liberties under any modification of monarchical power. They have in consequence unanimously chosen a Repu
+</earlier>
+<later>
+My employment I find salutary to me, and of consequence in a pecuniary point of view, as my literary employments bring me no remuneration, nor promise any. As to what you say about the Ministry, I very much prefer the course of their policy to that of the Opposition; especially on two points most near my heart: resistance of Buonaparte by force of arms, and their adherence to the principles of the British Constitution in withholding political power from the Roman Catholics. My most determined hostility shall always be directed against those statesmen who, like Whitbread, Grenville, and others, would crouch to a sanguinary tyrant; and I cannot act with those who see no danger to the Constitution in introducing papists into Parliament. There are other points of policy in which I deem the Opposition grievously mistaken, and therefore I am at present, and long have been, by principle, a supporter of ministers, as far as my little influence extends. With affectionate wishes for your welfare
+</later>
+</card>
+
+<card id="717dcf97">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+I have not time to pursue this subject further, but am so strongly impressed with the baleful influence of aristocracy and nobility upon human happiness and virtue, that if, as I am persuaded, monarchy cannot exist without such supporters, I think that reason sufficient for the preference I have given to the Republican system.
+</earlier>
+<later>
+In France incompatible things are aimed at--a monarchy and democracy to be united without an intervening aristocracy to constitute a graduated scale of power and influence. I cannot conceive how an hereditary monarchy can exist without an hereditary peerage in a country so large as France, nor how either can maintain their ground if the law of the Napoleon Code, compelling equal division of property by will, be not repealed. And I understand that a vast majority of the French are decidedly adverse to the repeal of that law, which, I cannot but think, will ere long be found injurious both to France and, in its collateral effects, to the rest of Europe.
+</later>
+</card>
+
+<card id="a875fce4">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+You reply to Brissot, that these luxuries are the employment of industry, and the best means of circulating- your property. Be it so. Renounce then the proud pretensions of democracy ; do not profess tenets which it is impossible for you, surrounded by all the symbols of superiority, to wish realized. But you plead, it seems, for equalization of rights, not of condition. O mockery I All that can delight the poor man's senses or strengthen his understanding, you preclude ; yet with generous condescension you would bid him exclaim " Liberty and Equality I " because, forsooth, he should possess the same 7'ight to an hovel which you claim to a palace. This the laws have already given. And what more do 1/021 promise ?
+</earlier>
+<later>
+Eighteen years ago I observed, that the whole secret of the modern jacobinical drama, (which, and not the German, is its appropriate designation,) and of all its popularity, consists in the confusion and subversion of the natural order of things in their causes and effects: namely, in the excitement of surprise by representing the qualities of liberality, refined feeling, and a nice sense of honour (those things rather which pass amongst us for such) in persons and in classes where experience teaches us least to expect them; and by rewarding with all the sympathies which are the due of virtue, those criminals whom law, reason, and religion have excommunicated from our esteem.
+</later>
+</card>
+
+<card id="a04ba935">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+From your omitting to speak upon the war, and your general disapprobation of French measures and French principles, expressed particularly at this moment, we are necessarily led also to conclude that you have no wish to dispel an infatuation which is now giving up to the sword so large a portion of the poor, and consigning the rest to the more slow and more painful consumption of want. I could excuse your silence on this point, as it would ill become an English bishop at the close of the eighteenth century to make the pulpit the vehicle of exhortations which would have disgraced the incendiary of the Crusades, the hermit Peter. But you have deprived yourself of the plea of decorum by giving no opinion on the REFORM OF THE LEGISLATURE. As undoubtedly you have some secret reason for the reservation of your sentiments on this latter head, I cannot but apply the same reason to the former. Upon what principle is your conduct to be explained? In some parts of England it is quaintly said, whe
+</earlier>
+<later>
+I mean to make a tour in Scotland with Mrs. W---- and her sister, Miss Hutchinson. I congratulate you on the overthrow of the execrable despot, and the complete triumph of the _war faction_, of which noble body I have the honour to be as active a member as my abilities and industry would allow. Best remembrances to yourself and Mrs. Wrangham,
+</later>
+</card>
+
+<card id="e63a6b7d">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+I return to the quotation in which you reprobate Republicanism. Relying upon the temper of the times, you have surely thought little argument necessary to content what few will be hardy enough to support; the strongest of auxiliaries, imprisonment and the pillory, has left your arm little to perform. But the happiness of mankind is so closely connected with this subject, that I cannot suffer such considerations to deter me from throwing out a few hints, which may lead to a conclusion that a Republic legitimately constructed contains less of an oppressive principle than any other form of government.
+</earlier>
+<later>
+To turn to another subject. You will be sorry to learn that several of my most valued friends are likely to suffer from the monetary derangements in America. My family, however, is no way directly entangled, unless the Mississippi bonds prove invalid. There is an opinion pretty current among discerning persons in England, that Republics are not to be trusted in money concerns,--I suppose because the sense of honour is more obtuse, the responsibility being divided among so many. For my own part, I have as little or less faith in absolute despotisms, except that they are more easily convinced that it is politic to keep up their credit by holding to their engagements. What power is maintained by this practice was shown by Great Britain in her struggle with Buonaparte. This lesson has not been lost on the leading monarchical states of Europe. But too much of this.
+</later>
+</card>
+
+<card id="8530283e">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Perhaps in the very outset of this inquiry the principle on which I proceed will be questioned, and I shall be told that the people are not the proper judges of their own welfare. But because under every government of modern times, till the foundation of the American Republic, the bulk of mankind have appeared incapable of discerning their true interests, no conclusion can be drawn against my principle. At this moment have we not daily the strongest proofs of the success with which, in what you call the best of all monarchical governments, the popular mind may be debauched? Left to the quiet exercise of their own judgment, do you think that the people would have thought it necessary to set fire to the house of the philosophic Priestley, and to hunt down his life like that of a traitor or a parricide? that, deprived almost of the necessaries of existence by the burden of their taxes, they would cry out, as with one voice, for a war from which not a single ray of consolation can visit th
+</earlier>
+<later>
+I should think that I had lived to little purpose if my notions on the subject of government had undergone no modification: my youth must, in that case, have been without enthusiasm, and my manhood endued with small capability of profiting by reflection.
+</later>
+</card>
+
+<card id="9a82c448">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+As from the nature of monarchy, particularly of hereditary monarchy, there must always be a vast disproportion between the duties to be performed and the powers that are to perform them; and as the measures of government, far from gaining additional vigour, are, on the contrary, enfeebled by being intrusted to one hand, what arguments can be used for allowing to the will of a single being a weight which, as history shows, will subvert that of the whole body politic? And this brings me to my grand objection to monarchy, which is drawn from (THE ETERNAL NATURE OF MAN.) The office of king is a trial to which human virtue is not equal. Pure and universal representation, by which alone liberty can be secured, cannot, I think, exist together with monarchy. It seems madness to expect a manifestation of the _general_ will, at the same time that we allow to a _particular_ will that weight which it must obtain in all governments that can with any propriety be called monarchical. They must war wi
+</earlier>
+<later>
+My employment I find salutary to me, and of consequence in a pecuniary point of view, as my literary employments bring me no remuneration, nor promise any. As to what you say about the Ministry, I very much prefer the course of their policy to that of the Opposition; especially on two points most near my heart: resistance of Buonaparte by force of arms, and their adherence to the principles of the British Constitution in withholding political power from the Roman Catholics. My most determined hostility shall always be directed against those statesmen who, like Whitbread, Grenville, and others, would crouch to a sanguinary tyrant; and I cannot act with those who see no danger to the Constitution in introducing papists into Parliament. There are other points of policy in which I deem the Opposition grievously mistaken, and therefore I am at present, and long have been, by principle, a supporter of ministers, as far as my little influence extends. With affectionate wishes for your welfare
+</later>
+</card>
+
+<card id="9bf48312">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Perhaps in the very outset of this inquiry the principle on which I proceed will be questioned, and I shall be told that the people are not the proper judges of their own welfare. But because under every government of modern times, till the foundation of the American Republic, the bulk of mankind have appeared incapable of discerning their true interests, no conclusion can be drawn against my principle. At this moment have we not daily the strongest proofs of the success with which, in what you call the best of all monarchical governments, the popular mind may be debauched? Left to the quiet exercise of their own judgment, do you think that the people would have thought it necessary to set fire to the house of the philosophic Priestley, and to hunt down his life like that of a traitor or a parricide? that, deprived almost of the necessaries of existence by the burden of their taxes, they would cry out, as with one voice, for a war from which not a single ray of consolation can visit th
+</earlier>
+<later>
+Genius in poetry, or any department of what is called the Belles Lettres, is much more likely to be cramped than fostered by public support: better wait to reward those who have done their work, tho' even here national rewards are not necessary, unless the labourers be, if not in poverty, at least in narrow circumstances. Let the laws be but just to them and they will be sure of attaining competence, if they have not misjudged their own talents or misapplied them.
+</later>
+</card>
+
+<card id="efc27823">
+<question>Whether the totem is the receptacle of the external soul of the person who claims it, so that the savage's life is bound up with a particular animal or plant of the totem species (Frazer's Golden Bough, 1890: 'The totem, if I am right, is simply the receptacle in which a man keeps his life'; in Totemism and Exogamy, 1910, he writes only that on such facts he 'formerly based a theory' of the external soul and has since adopted other views of totemism).</question>
+<earlier>
+Now if the relations are similar, the explanation which holds good of the one ought equally to hold good of the other. Therefore the reason why a tribe revere a particular species of animals or plants (for the tribal totem may be a plant) and call themselves after it, must be a belief that the life of each individual of the tribe is bound up with some one animal or plant of the species, and that his or her death would be the consequence of killing that particular animal, or destroying that particular plant.
+</earlier>
+<later>
+This idea of spirit individuals associated with churinga and resident at certain definite spots lies at the root of the present totemic system of the Arunta and kindred tribes. For the natives believe that every living member of the tribe is the reincarnation of one of these spirits.
+</later>
+</card>
+
+<card id="c539706e">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+Appearing, as I do, the advocate of Republicanism, let me not be misunderstood. I am well aware, from the abuse of the executive power in States, that there is not a single European nation but what affords a melancholy proof that if, at this moment, the original authority of the people should be restored, all that could be expected from such restoration would in the beginning be but a change of tyranny. Considering the nature of a Republic in reference to the present condition of Europe, your Lordship stops here; but a philosopher will extend his views much farther: having dried up the source from which flows the corruption of the public opinion, he will be sensible that the stream will go on gradually refining itself. I must add also, that the coercive power is of necessity so strong in all the old governments, that a people could not at first make an abuse of that liberty which a legitimate Republic supposes. The animal just released from its stall will exhaust the overflow of its sp
+</earlier>
+<later>
+In France incompatible things are aimed at--a monarchy and democracy to be united without an intervening aristocracy to constitute a graduated scale of power and influence. I cannot conceive how an hereditary monarchy can exist without an hereditary peerage in a country so large as France, nor how either can maintain their ground if the law of the Napoleon Code, compelling equal division of property by will, be not repealed. And I understand that a vast majority of the French are decidedly adverse to the repeal of that law, which, I cannot but think, will ere long be found injurious both to France and, in its collateral effects, to the rest of Europe.
+</later>
+</card>
+
+<card id="4d1f7b85">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+That general illumination should precede revolution, is a truth as obvious, as that the vessel should be cleansed before we fill it with a pure liquor. But the mode of diffusing it is not discoverable with equal facility. We certainly should never attempt to make proselytes by appeals to the selfish feelings — and consequently, should plead^br the oppressed, not to them. The Author of an essay on political justice considers private societies as the sphere of real utility — that (each one illuminating those immediately beneath him,) truth by a gradual descent may at last reach the lowest order. But this is rather plausible than just or practicable. Society as at present constituted does not resemble a chain that ascends in a continuity of links. — There are three ranks possessing an intercourse with each other : these are well comprized in the superscription of a perfumer's advertisement, which I lately saw — " the Nobility, Gentry, and People of Dress."
+</earlier>
+<later>
+But it is time to tell the truth; though it requires some courage to avow it in an age and country, in which disquisitions on all subjects, not privileged to adopt technical terms or scientific symbols, must be addressed to the Public. I say then, that it is neither possible nor necessary for all men, nor for many, to be philosophers. There is a philosophic (and inasmuch as it is actualized by an effort of freedom, an artificial) consciousness, which lies beneath or (as it were) behind the spontaneous consciousness natural to all reflecting beings. As the elder Romans distinguished their northern provinces into Cis-Alpine and Trans-Alpine, so may we divide all the objects of human knowledge into those on this side, and those on the other side of the spontaneous consciousness; citra et trans conscientiam communem. The latter is exclusively the domain of pure philosophy, which is therefore properly entitled transcendental, in order to discriminate it at o
+</later>
+</card>
+
+<card id="60015b06">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+You seem unconscious of the absurdity of separating what is inseparable even in imagination. Would it have been any consolation to the miserable Romans under the second triumvirate to have been asked insultingly, Is it Octavius, is it Anthony, or is it Lepidus that has caused this bitterness of affliction? and when the answer could not be returned with certainty, to have been reproached that their sufferings were imaginary? The fact is that the King _and_ Lords _and_ Commons, by what is termed the omnipotence of Parliament, have constitutionally the right of enacting whatever laws they please, in defiance of the petitions or remonstrances of the nation. They have the power of doubling our enormous debt of 240 millions, and _may_ pursue measures which could never be supposed the emanation of the general will without concluding the people stripped of reason, of sentiment, and even of that first instinct which prompts them to preserve their own existence.
+</earlier>
+<later>
+Many thanks for the review: your article is excellent. I only wish that you had said more of the deserts of government in respect to Ireland; since I do sincerely believe that no government in Europe has shown better dispositions to its subjects than the English have done to the Irish, and that no country has improved so much during the same period. You have adverted to this part of the subject, but not spoken so forcibly as I could have wished. There is another point might be insisted upon more expressly than you have done--the danger, not to say the absurdity, of Roman Catholic legislation for the property of a _Protestant_ church, so inadequately _represented in Parliament_ as ours is. The Convocation is gone; clergymen are excluded from the House of Commons; and the Bishops are at the beck of Ministers. I boldly ask what real property of the country is so inadequately represented: it is a mere mockery.
+</later>
+</card>
+
+<card id="1065a0cd">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+I have not time to pursue this subject further, but am so strongly impressed with the baleful influence of aristocracy and nobility upon human happiness and virtue, that if, as I am persuaded, monarchy cannot exist without such supporters, I think that reason sufficient for the preference I have given to the Republican system.
+</earlier>
+<later>
+The constitution of England, which seems about to be destroyed, offers to my mind the sublimest contemplation which the history of society and government have ever presented to it; and for this cause especially, that its principles have the character of preconceived ideas, archetypes of the pure intellect, while they are, in fact, the results of a humble-minded experience.
+</later>
+</card>
+
+<card id="8dd4146f">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+I have not time to pursue this subject further, but am so strongly impressed with the baleful influence of aristocracy and nobility upon human happiness and virtue, that if, as I am persuaded, monarchy cannot exist without such supporters, I think that reason sufficient for the preference I have given to the Republican system.
+</earlier>
+<later>
+My employment I find salutary to me, and of consequence in a pecuniary point of view, as my literary employments bring me no remuneration, nor promise any. As to what you say about the Ministry, I very much prefer the course of their policy to that of the Opposition; especially on two points most near my heart: resistance of Buonaparte by force of arms, and their adherence to the principles of the British Constitution in withholding political power from the Roman Catholics. My most determined hostility shall always be directed against those statesmen who, like Whitbread, Grenville, and others, would crouch to a sanguinary tyrant; and I cannot act with those who see no danger to the Constitution in introducing papists into Parliament. There are other points of policy in which I deem the Opposition grievously mistaken, and therefore I am at present, and long have been, by principle, a supporter of ministers, as far as my little influence extends. With affectionate wishes for your welfare
+</later>
+</card>
+
+<card id="49f9f294">
+<question>Whether taking part in the African slave trade is morally lawful (Newton's Authentic Narrative, written 1762-63 about his years as a slave-ship captain, says that while engaged in the trade he 'never had the least scruple as to its lawfulness'; his 1788 Thoughts upon the African Slave Trade makes a public confession that he was once 'an active instrument, in a business at which my heart now shudders').</question>
+<earlier>
+During the time I was engaged in the slave trade, I never had the least scruple as to its lawfulness. I was, upon the whole, satisfied with it, as the appointment Providence had marked out for me ; yet it was, in many respects, far from eligible. It is, indeed, accounted a genteel employment, and is usually very profitable, though to me it did not prove so, the Lord seeing that a large increase of wealth could not be good for me.
+</earlier>
+<later>
+I have likewise written without solicitation, and simply from the motive I have already assigned; a conviction, that the share I have formerly had in the trade, binds me, in conscience, to throw what light I am able upon the subject, now it is likely to become a point of Parliamentary investigation.
+</later>
+</card>
+
+<card id="78d94600">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+My first objection to regal government is its instability, proceeding from a variety of causes. Where monarchy is found in its greatest intensity, as in Morocco and Turkey, this observation is illustrated in a very pointed manner, and indeed is more or less striking as governments are more or less despotic. The reason is obvious: as the monarch is the chooser of his ministers, and as his own passions and caprice are in general the sole guides of his conduct, these ministers, instead of pursuing directly the one grand object of national welfare, will make it their chief study to vary their measures according to his humours. But a minister _may_ be refractory: his successor will naturally run headlong into plans totally the reverse of the former system; for if he treads in the same path, he is well aware that a similar fate will attend him. This observation will apply to each succession of kings, who, from vanity and a desire of distinction, will in general studiously avoid any step whic
+</earlier>
+<later>
+The constitution of England, which seems about to be destroyed, offers to my mind the sublimest contemplation which the history of society and government have ever presented to it; and for this cause especially, that its principles have the character of preconceived ideas, archetypes of the pure intellect, while they are, in fact, the results of a humble-minded experience.
+</later>
+</card>
+
+<card id="a36746f4">
+<question>Whether Rubens deserves 'the most reverential' admiration (Modern Painters vol. I, 1843: 'I never will speak of Rubens but with the most reverential feeling') or is to be seen as a vulgar, profane painter (Ruskin's 1860 preface to vol. V regrets 'the strong expressions of admiration for Rubens' in the first volume, blames a 'boy's veneration for Rubens' physical art-power', and in vol. V he treats him as a painter who 'performs' rather than worships).</question>
+<earlier>
+[14] This passage seems at variance with what has been said of the necessity of painting present times and objects. It is not so. A great painter makes out of that which he finds before him something which is independent of _all_ time. He can only do this out of the materials ready to his hand, but that which he builds has the dignity of dateless age. A little painter is annihilated by an anachronism, and is conventionally antique, and involuntarily modern.
+</earlier>
+<later>
+Far from it. Many reasons might be given why we should not paint them. All the purposes of good which we saw that the beauty of nature could accomplish, may be better fulfilled by the meanest of her realities than by the brightest of imitations. For prolonged entertainment, no picture can be compared with the wealth of interest which may be found in the herbage of the poorest field, or blossoms of the narrowest copse. As suggestive of supernatural power, the passing away of a fitful rain-cloud, or opening of dawn, are in their change and mystery more pregnant than any pictures. A child would, I suppose, receive a religious lesson from a flower more willingly than from a print of one, and might be taught to understand the nineteenth Psalm, on a starry night, better than by diagrams of the constellations.
+</later>
+</card>

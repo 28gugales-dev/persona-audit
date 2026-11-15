@@ -291,3 +291,20 @@ Unnamed decoy types (the exclusion list does not name them): GPT-written D6 hypo
 - Deployed exceeded the 8-card cap in 2 of 24 histories. Labeller agreement: realX 54/60, deployed 104/119.
 - Prediction (PLAN v20): all parts held except controls ≤ 3/24 (5). Appendix F: 42 numeric rows, 18 failed (real text 14 of 26).
 - Files: evals/conflicts/gen/make_cost_cards.py, score_cost.py; results/cost_cards_map.json, cost_scores.json.
+
+## Round 21 (v21): fresh set 3, hard and sourced blind (Haiku, whole history, 3 runs or looks, case level, blind labels map x8)
+
+Commits: plan + predictions e083b001 (02:18:52 ET Nov 15), cases cc168613 (02:51:20), first run after. Five of six announcements retract without restating the new view.
+
+| Arm | Found /6 | Missed | Controls per run or look |
+|---|---|---|---|
+| Shipped prompt (400) | 0 | all | 0 |
+| naive (400) | 2 | Coleridge, Miller, Frazer, Wordsworth | 0.33 |
+| realX_v1 (400) | 4 | Coleridge, Wordsworth | 0.33 |
+| changes_v1 (400) | 4 | Coleridge, Wordsworth | 0.33 |
+| beliefshift_style (400) | 4 | Coleridge, Wordsworth | 0 |
+| Deployed (realX_deployed + changes, longer; 12/18 looks) | 4 | Coleridge, Wordsworth | 0 |
+
+- x8 labels: keys 9/12 both-yes (Wordsworth keys split 1-1, Frazer unannounced 0-2), decoys 0/6, returned 6/46. Pooled over nine rounds: keys 148/161, decoys 7/132, returned 231/410.
+- Predictions: all held except the necessity test (deployed ≥ realX + 1): 4 vs 4. By the rule written beforehand, the second prompt and longer excerpts are not shown to help on unseen cases. Across both unseen sets: realX 10/12, deployed 10/12. All 30 cases: realX-400 25, deployed 27, shipped 2.
+- Appendix F: 43 numeric rows, 19 failed (real text 15 of 27). Cost: 126 Haiku replies, 2 label calls, one Sonnet sourcing agent.
