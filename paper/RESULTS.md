@@ -345,3 +345,19 @@ What ships (realX, longer excerpts; first run; 30 histories; blind real/not card
 - x10 labels: keys 44/51 both-yes (the same 51 drew 48 in x9), decoys 1/30, returned 1/1. Pooled over eleven rounds: keys 240/263, decoys 10/192.
 - Predictions: strict row failed (gs1 and gs3 below the shipped prompt's 3), its main clause held (all ≤ 15); card row failed on genuine share (73% < 75%). Appendix F: 47 numeric rows, 23 failed (real text 19 of 31).
 - Reproducibility note: make_cost_cards.py keeps an arbitrary 8 cards for histories over the cap (S.pairs returns a set); 2 of 24 histories, 1 card differs between runs; round-20 files restored as committed.
+
+## Round 24 (v24, plan b8d1a401): what ships as itself; the retraction paragraph crossed with the shipped prompt
+
+Whole history, Haiku, 3 runs, case level (majority), blind thesis labels map x11 (Haiku + Sonnet), score_v18b.py. Request files requests_v24_genx.jsonl (prodPara, defNoEmptyPara, genX at 400 characters) and requests_v24_ships.jsonl (deployed realX text, min(1000, 120000 / posts)).
+
+| Arm | Dev /12 | F1 /6 | F2 /6 | F3 /6 | Total | Controls |
+|---|---|---|---|---|---|---|
+| prodPara (shipped + realX's retraction paragraph + "a view the writer says they once held is their own") | 8 | 4 | 5 | 2 | 19/30 [0.46, 0.78] | 0 |
+| defNoEmptyPara (time-anchored, no empty default, + same) | 9 | 4 | 5 | 3 | 21/30 [0.52, 0.83] | 0 |
+| genX (realX without those additions) | 7 | 2 | 2 | 2 | 13/30 [0.27, 0.61] | F3 0.33 per run (1 history, 1 run) |
+| ships (realX deployed, longer), own runs | – | – | 6 | 4 | 10/12 [0.55, 0.95] | 0 |
+
+- Ships vs shipped prompt (2/12: Besant, Buckland) on the 12 unseen histories: ships-only 8, shipped-only 0, exact McNemar p = 0.0078. Missed: Coleridge, Wordsworth.
+- Comparison cells (round 22, 23, earlier): shipped 3, defOnly 6, defNoEmpty 11, realX 25. Paragraph adds +16 (shipped), +10 (defNoEmpty), +12 (genX → realX).
+- x11 labels: keys 47/51 both-yes (same 51 drew 48 in x9, 44 in x10), decoys 0/30, returned 13/23. Pooled over twelve rounds: keys 287/314, decoys 10/222.
+- Predictions: ships row held (10 ≥ 9; p = 0.008 < 0.05; 0 controls). Factorial row failed: prodPara 19 > 12; defNoEmptyPara 21 ≥ 18 held; genX 13 ≤ 15 held; controls held. Appendix F: 49 numeric rows, 24 failed (real text 20 of 33).

@@ -506,3 +506,12 @@ Why (round-22 mock judges): the field-level claim ("a prompt tuned for few false
    - If all three find ≥ 20/30, the paper says the shipped prompt was an outlier and drops the general claim.
 2. **Card cost of what ships** (realX with longer excerpts, deployed text on fresh sets 2-3): existing first runs, 30 histories, blind real/not card labels as in v20 (Haiku + Sonnet), with keyed and control anchors per history.
    - Predictions: 2.5-5 cards per history; both labellers "real" on ≥ 75%; anchors: keys ≥ 26/30, controls ≤ 6/30.
+
+## v24: what ships, tested as itself; and where the rest of the shipped prompt's loss sits (committed before any v24 request)
+
+Why (round-23 mock judges): the shipped configuration's unseen numbers are first calls borrowed from two-call looks, with no interval or paired test; and after round 22, two edits explain 3 → 11 of 30 while realX reaches 25, so the remaining gap is unexplained.
+
+1. **realX as shipped, its own runs**: the deployed realX text, longer excerpts (min(1000, 120000 / posts)), 3 new runs on the 12 unseen histories (fresh sets 2-3). Case level, blind labels. Wilson interval; exact McNemar against the shipped prompt (3 runs, majority).
+   - Predictions: ≥ 9/12; McNemar p < 0.05 against the shipped prompt's 2/12; controls ≤ 1 history per run.
+2. **Factorial cells on real text** (whole history, 400 characters, 3 runs, 30 histories): prodPara = shipped prompt + realX's retraction paragraph after its first line + "(a view the writer says they once held is their own)"; defNoEmptyPara = defNoEmpty + the same two additions; genX = realX without them.
+   - Predictions: prodPara ≤ 12/30 (the "asserts both" definition still blocks); defNoEmptyPara ≥ 18/30; genX ≤ 15/30 (the paragraph, not the generic base, carries most of realX's gain); controls ≤ 1 history per run each.
