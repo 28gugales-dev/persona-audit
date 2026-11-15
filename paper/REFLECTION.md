@@ -320,3 +320,7 @@ Belief: the shipped prompt's 3 of 30 is the prompt, not the agent harness readin
 ## After round 35
 
 Belief: the gap is about the prompt, not Haiku. Evidence: Sonnet reproduces it on the unseen sets (11 vs 1 of 12; Haiku: 10 vs 2), and the stronger model does not rescue the shipped prompt. Held as predicted. Change: "one model" narrows to "one model family". New risk noted: Sonnet's classifier blocks some reads of historical text on slavery and religion (4 of 72 runs), which a product on Sonnet would have to handle. Next: the open judge items are framing (endorsement proxy) and a cross-family replication we cannot run here; the paper's measured claims are now as checked as this sprint allows.
+
+## After round 36
+
+Belief: Persona's low false-card rate (0.27 per history) would hold on writing without a clear change. Evidence: on two-work histories with the documented change removed it rose to 0.60 (naive 1.17), while still finding about one genuine undocumented change per history. Failed by 0.1. Change: the paper now reports this as a cost: with no obvious change to report, the prompt reaches for weaker pairs. Product implication (not acted on; no rule was written): a confidence threshold or a "nothing found" path would be the next thing to test.

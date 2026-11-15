@@ -618,3 +618,8 @@ Why (judge look 5): the shipped prompt's 3 of 30 could be an artefact of running
 
 Why (judge look 6): every detection run used Haiku; the claim is about prompts, so it should survive a stronger model of the same family. Sonnet 5.5 through the same harness, the 12 unseen histories (fresh sets 2 and 3), shipped prompt (400 characters) and what Persona runs (longer excerpts), 3 runs each, case level; new cross-era pairs labelled blind (Haiku + Sonnet thesis prompt, map x19).
 - Predictions: Persona now ≥ 9 of 12; shipped ≤ 4 of 12; Persona now finds at least 5 more than shipped; controls ≤ 1 history per run for each.
+
+## v36: false cards on two-work histories with the documented change removed (committed before any v36 request existed)
+
+Why (judge look 6): the no-change test (round 28) used one work redated across six years; a person's record spans works and years. Here each real history keeps both works but loses its keyed early, announced and unannounced passages (control kept), so no documented change remains, though the later work may hold other, undocumented changes. Persona now (longer excerpts) and naive (400), one run each, whole history; first-run cards (capped at 8) labelled by Sonnet and Opus with the round-27 real/not prompt in one batch, plus a control anchor per history paired with its first later-work paragraph.
+- Predictions: Persona now ≤ 0.5 non-genuine cards per history, naive ≥ 1.0; Persona now's genuine share ≥ naive's + 20 points; Persona now ≥ 0.5 genuine cards per history (undocumented changes the later works do contain).

@@ -503,3 +503,10 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 - Sonnet's safety classifier stopped 4 of 72 runs (shipped: Besant r2, Darwin Glen Roy r1 and r3; Persona now: Miller r1). Not retried. 7 agents returned their reply instead of writing it; saved verbatim. The first label workflow hung (> 60 min, no output) and was stopped and rerun.
 - Persona now: 11 of 12 (missed Miller, 0 of 2 runs); shipped: 1 of 12 (Besant, 2 of 2 runs). Counting blocked runs as misses gives the same 11 and 1. Persona-only 10, shipped-only 0: exact McNemar p = 0.002. Controls 0 for both.
 - Predictions: all held. Appendix F: 72 numeric rows, 33 failed (real text 29 of 56).
+
+## Round 36 (v36, plan 30d15c36): two-work histories without the documented change
+
+- make_twowork.py → requests_v36_v36n.jsonl (Persona now, longer) and requests_v36_v36v.jsonl (naive, 400): each real history minus its keyed early, announced and unannounced posts (control kept); one Haiku run each. make_cost_cards36.py → cost36_cards_map.json (131 cards, 3 files), Sonnet + Opus, one batch; cost36_scores.json.
+- Persona now: 47 cards (1.57 per history), 29 both real (62%), 0.60 non-genuine and 0.97 genuine per history. Naive: 54 cards, 19 both real (35%), 1.17 non-genuine, 0.63 genuine per history. Control anchors (control × first later-work paragraph): 0 of 30 real.
+- Predictions: Persona now ≤ 0.5 failed (0.60); naive ≥ 1.0 held; gap ≥ 20 points held (27); Persona now ≥ 0.5 genuine held (0.97). Appendix F: 73 numeric rows, 34 failed (real text 30 of 57).
+- Also this turn: Figure 1 now plots what Persona runs (depNoCap) instead of the pre-Nov-15 deployed text (same total 26, different per-set split) and adds recall against non-genuine cards; contribution 3 and the conclusion now state the precision edge and say the masked result is for the deployed text.
