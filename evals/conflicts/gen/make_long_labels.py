@@ -8,7 +8,7 @@ ROOT = sys.argv[1]; R = f'{ROOT}/paper/results'
 M = sys.argv[2] if len(sys.argv) > 2 else 'x4'
 FILES = sys.argv[3].split(',') if len(sys.argv) > 3 else ['requests_v18b_long.jsonl', 'requests_v18b_chglong.jsonl']
 ARM = sys.argv[4] if len(sys.argv) > 4 else None
-cases = {c['id']: c for f in ('realtext_cases.json', 'realtext_cases2.json', 'realtext_cases3.json', 'realtext_cases4.json', 'realtext_cases5.json') if os.path.exists(f'{ROOT}/paper/data/{f}') for c in json.load(open(f'{ROOT}/paper/data/{f}'))}
+cases = {c['id']: c for f in ('realtext_cases.json', 'realtext_cases2.json', 'realtext_cases3.json', 'realtext_cases4.json', 'realtext_cases5.json', 'realtext_cases6.json') if os.path.exists(f'{ROOT}/paper/data/{f}') for c in json.load(open(f'{ROOT}/paper/data/{f}'))}
 text = {}
 for f in FILES:
     for l in open(f'{R}/{f}'):

@@ -7,7 +7,7 @@ note: "Research conducted at the AI x Epistemics Research Sprint (Apart Research
 
 # Abstract
 
-A tool that shows people where their views have changed can look safe while missing what it exists to find. We audited Persona, a belief-mapping tool we had shipped, against 30 changes of mind that authors documented in their own published writing. Given each whole history, the shipped prompt raised no false alarm and found 3 of the 30. We isolated four causes: grouping posts by shared words, a definition that counts only views held at the same time, a 400-character excerpt cut, and retractions that never restate the old view. A rewritten prompt, frozen before two later test sets were sourced, found 10 of their 12 changes where the shipped prompt found 2 (p = 0.008). The deployed rewrite held up with author names and dates masked, on changes the model cannot state from memory, and on a second model (11 against 1 of 12). Its edge over a one-line naive prompt, which found 20 of 30, is precision: 88% of its cards were judged genuine, against 50%. Persona now runs it. The general lesson is that a tool validated only on false alarms hides its misses; our own first scorer hid most of the repair's effect until we checked it. We report every prediction, including the 35 of 74 that failed. Whether surfacing these changes helps people decide is unmeasured.
+A tool that shows people where their views have changed can look safe while missing what it exists to find. We audited Persona, a belief-mapping tool we had shipped, against 30 changes of mind that authors documented in their own published writing. Given each whole history, the shipped prompt raised no false alarm and found 3 of the 30. We isolated four causes: grouping posts by shared words, a definition that counts only views held at the same time, a 400-character excerpt cut, and retractions that never restate the old view. A rewritten prompt, frozen before two later test sets were sourced, found 10 of their 12 changes where the shipped prompt found 2 (p = 0.008). The deployed rewrite held up with author names and dates masked, on changes the model cannot state from memory, and on a second model (11 against 1 of 12). On a fourth set, sourced after Persona's current prompt shipped and run once, it found 6 of 7 changes and the shipped prompt 1. Its edge over a one-line naive prompt, which found 20 of 30, is precision: 88% of its cards were judged genuine, against 50%. Persona now runs it. The general lesson is that a tool validated only on false alarms hides its misses; our own first scorer hid most of the repair's effect until we checked it. We report every prediction, including the 35 of 75 that failed. Whether surfacing these changes helps people decide is unmeasured.
 
 # 1. Introduction
 
@@ -17,8 +17,8 @@ We audited one such tool that was already shipped. **Persona**, part of Amphi (a
 
 1. **A silent failure, measured on real records.** On 30 documented changes of mind in four sets, the shipped prompt found 3 even when shown each whole history, and flagged no control; the shipped grouping never placed the two ends of a change together. The same harness finds a planted reversal in 29 of 30 of these histories, so the misses are the prompt's.
 2. **Its four causes**, each isolated (Table 3): word grouping, the prompt's definition, a 400-character excerpt cut, and retractions that never restate the old view. Three strict prompts written independently by GPT for few false alarms found 1-6 of 30, so the failure is not peculiar to our wording.
-3. **A repair tested on records it was not tuned on.** A rewritten prompt, frozen before two later sets were sourced, found 10 of their 12 changes where the shipped prompt found 2, with no control flagged; on Sonnet, 11 against 1. Its edge over a one-line naive prompt is precision more than recall. Persona now runs it (Table 1).
-4. **A general lesson and an audit method.** A zero false-alarm rate was our evidence that the tool was safe; it was the symptom. The method: answer keys from documented changes, blind labellers calibrated on decoys, predictions committed before each run (35 of 74 failed), test sets sourced after deployment, and a check of the scorer itself: our first one, crediting only keyed passages, reported 8 of 19 pairs where the tool finds 11 of 12 cases. Section 5 turns this into a five-step checklist.
+3. **A repair tested on records it was not tuned on.** A rewritten prompt, frozen before two later sets were sourced, found 10 of their 12 changes where the shipped prompt found 2, with no control flagged; on Sonnet, 11 against 1; on a fourth set sourced after Persona's current prompt shipped, 6 of 7 against 1. Its edge over a one-line naive prompt is precision more than recall. Persona now runs it (Table 1).
+4. **A general lesson and an audit method.** A zero false-alarm rate was our evidence that the tool was safe; it was the symptom. The method: answer keys from documented changes, blind labellers calibrated on decoys, predictions committed before each run (35 of 75 failed), test sets sourced after deployment, and a check of the scorer itself: our first one, crediting only keyed passages, reported 8 of 19 pairs where the tool finds 11 of 12 cases. Section 5 turns this into a five-step checklist.
 
 **Table 1. Built before the sprint vs during it (Nov 13-15, 2026).**
 
@@ -51,6 +51,7 @@ We audited one such tool that was already shipped. **Persona**, part of Amphi (a
 - *Fresh set 1* (6), sourced by a separate agent with no access to prompts or results: Franklin, Romanes, Godwin, W. James, Freud, Gladstone. Used to diagnose the repairs, so not untouched.
 - *Fresh set 2* (6), sourced by another agent after the configuration was frozen and deployed (cases written 14 minutes after deployment), run once: Lyell x2, Besant, Darwin (Glen Roy), Buckland, Sedgwick. Its brief asked for passages near the start of their paragraph, which favoured the shipped 400-character cut (cause 3).
 - *Fresh set 3* (6), sourced the next day by a third agent blind to how the tool reads text, asked for announcements that retract without restating the new view (5 of 6 do); brief and predictions committed before the cases existed; run once: Newton (slave trade), Coleridge (Unitarianism), Miller (the days of Genesis), Ruskin (Rubens), Frazer (totems), Wordsworth (representation).
+- *Fresh set 4* (7), sourced by a fourth agent after Persona's current prompt shipped, with no hint about how the tool reads and no constraint on retraction type; brief, predictions and cases committed before any run; run once: Johnson (fixing the language), Weismann (variability of unicellular organisms; two volumes of one title, essays six years apart), Wilde (pain and pleasure), Jane Harrison (primitive religion), Schliemann (the burnt city at Troy), Martineau (a future life), Murchison (the Tilestones). Four are OCR scans whose errors are kept verbatim. It is reported apart from the 30 used everywhere else.
 
 Whether each announced passage states the new view or only retracts ("I neither know how to correct my former opinions") was coded before any run (Appendix E).
 
@@ -107,20 +108,20 @@ Whether each announced passage states the new view or only retracts ("I neither 
 
 ## 4.3 The repair, on records it was not tuned on
 
-**Table 4. The repair against baselines** (Haiku; cases found on a majority of three or more runs, credited by blind labels; whole history in one call). *Tuning*: development and fresh set 1, used to choose the rewrite; *unseen*: fresh sets 2 and 3, sourced after it was deployed. † first run with unseen results in view. *Controls*: histories with a control flagged, per run. *Non-genuine*: cards per history on the first run, capped at 8 as Persona does, that Sonnet and Opus did not both judge a real change or tension in the author's own views (one shuffled batch; key anchors 26 and control anchors 3 of 30 judged real; italic: an earlier Haiku + Sonnet batch). *No change*: the same on 30 histories built from the early works alone. Per-set counts: Figure 1; every other configuration: Table 4b.
+**Table 4. The repair against baselines** (Haiku; cases found on a majority of three or more runs, credited by blind labels; whole history in one call). *Tuning*: development and fresh set 1, used to choose the rewrite; *unseen*: fresh sets 2 and 3, sourced after it was deployed; *set 4*: sourced after Persona's current prompt shipped, run once. † first run with unseen results in view. *Controls*: histories with a control flagged, per run. *Non-genuine*: cards per history on the first run, capped at 8 as Persona does, that Sonnet and Opus did not both judge a real change or tension in the author's own views (one shuffled batch; key anchors 26 and control anchors 3 of 30 judged real; italic: an earlier Haiku + Sonnet batch). *No change*: the same on 30 histories built from the early works alone. Per-set counts: Figure 1; every other configuration: Table 4b.
 
-| Prompt | Tuning (18) | Unseen (12) | All (30) | Controls | Non-genuine | No change |
-|---|---|---|---|---|---|---|
-| Shipped | 1 | 2 | **3** | 0 | 0.07 | 0.00 |
-| † Shipped + retraction paragraph | 12 | 7 | 19 | 0 | 0.07 | – |
-| † Three strict prompts by GPT | 1, 5, 1 | 0, 1, 0 | 1, 6, 1 | 0 | *0* | – |
-| Naive ("contradict themselves?") | 13 | 7 | 20 | 0.7 | 1.17 | 0.93 |
-| † Naive ("changed their mind?") | 15 | 10 | 25 | 0 | 0.93 | 0.67 |
-| Rewrite, 400 characters (frozen) | 15 | 10 | 25 | 0.33 | 0.47 | 0.30 |
-| Rewrite, longer (deployed Nov 14-15) | 16 | 10 | 26 | 0 | *1.00* | *1.10* |
-| **† Persona now: longer, no "at most 8"** | 16 | 10 | **26** | 0.67 | **0.27** | 0.40 |
+| Prompt | Tuning (18) | Unseen (12) | All (30) | Set 4 (7) | Controls | Non-genuine | No change |
+|---|---|---|---|---|---|---|---|
+| Shipped | 1 | 2 | **3** | 1 | 0 | 0.07 | 0.00 |
+| † Shipped + retraction paragraph | 12 | 7 | 19 | – | 0 | 0.07 | – |
+| † Three strict prompts by GPT | 1, 5, 1 | 0, 1, 0 | 1, 6, 1 | – | 0 | *0* | – |
+| Naive ("contradict themselves?") | 13 | 7 | 20 | – | 0.7 | 1.17 | 0.93 |
+| † Naive ("changed their mind?") | 15 | 10 | 25 | – | 0 | 0.93 | 0.67 |
+| Rewrite, 400 characters (frozen) | 15 | 10 | 25 | – | 0.33 | 0.47 | 0.30 |
+| Rewrite, longer (deployed Nov 14-15) | 16 | 10 | 26 | – | 0 | *1.00* | *1.10* |
+| **† Persona now: longer, no "at most 8"** | 16 | 10 | **26** | **6** | 0.67 | **0.27** | 0.40 |
 
-**On the unseen sets.** The rewrite was frozen before fresh sets 2 and 3 existed. On them it found 10 of 12 changes where the shipped prompt found 2 (8-0, exact McNemar p = 0.008; set 3 alone, 4 against 0, p = 0.125). A two-prompt configuration deployed with it tied it (10 of 12), so we removed the second prompt (Table 1). Every prompt missed Coleridge, whose early view sits inside a political address, and Wordsworth, whose 1821 retraction names nothing. The deployed prompt held up under three further checks, each with predictions committed first: with author names and own-work titles replaced and dates shifted to 2001, it found the same 10 and the shipped prompt none (p = 0.002); counted by author, it won for 7 and lost for none (sign test p = 0.016); and on Sonnet 5.5 instead of Haiku, Persona's current prompt found 11 of 12 and the shipped prompt 1 (p = 0.002; a safety classifier blocked 4 of 72 runs, changing no case).
+**On the unseen sets.** The rewrite was frozen before fresh sets 2 and 3 existed. On them it found 10 of 12 changes where the shipped prompt found 2 (8-0, exact McNemar p = 0.008; set 3 alone, 4 against 0, p = 0.125). A two-prompt configuration deployed with it tied it (10 of 12), so we removed the second prompt (Table 1). Every prompt missed Coleridge, whose early view sits inside a political address, and Wordsworth, whose 1821 retraction names nothing. The deployed prompt held up under three further checks, each with predictions committed first: with author names and own-work titles replaced and dates shifted to 2001, it found the same 10 and the shipped prompt none (p = 0.002); counted by author, it won for 7 and lost for none (sign test p = 0.016); and on Sonnet 5.5 instead of Haiku, Persona's current prompt found 11 of 12 and the shipped prompt 1 (p = 0.002; a safety classifier blocked 4 of 72 runs, changing no case). On fresh set 4, the one set sourced after Persona's current prompt shipped, it found 6 of 7 and the shipped prompt 1 (5-0, p = 0.06; missed Murchison, whose retraction is in a noisy two-column scan); across the 19 cases sourced after deployment, 16 against 3 (13-0, p = 0.0002).
 
 **Reading, not remembering.** The authors are famous. From author, years and question alone Haiku stated 14 of the 30 changes; Persona's prompt found 14 of the 16 it could not state and 12 of the 14 it could, while the naive prompt fell from 11 of 14 to 9 of 16. With the post announcing each change deleted from the history, Persona's prompt still found 16 of 30 (5 of 12 unseen). Its recall edge over the naive prompt is small: at 400 characters it found all of the naive prompt's 20 and 5 more (exact McNemar p = 0.06).
 
@@ -288,6 +289,7 @@ Each arm's design was committed before any of its outputs were written (commit t
 | 669f2a3e | 14:15:33 (Nov 15) | Sonnet on the unseen cases, shipped vs Persona now (v35), before any request existed |
 | 30d15c36 | 14:41:24 (Nov 15) | Two-work histories without the documented change (v36), before any request existed |
 | beb18ad0 | 15:17:11 (Nov 15) | Fresh set 4 brief and predictions (v37), before any case existed |
+| 41fe2702 | 15:47:58 (Nov 15) | Fresh set 4 cases (7), before any run |
 | 347186f6 | 15:19:37 (Nov 15) | Quote-required prompt and its decision rule (v38), before any request existed |
 
 Every number in this paper is listed with its source file in `paper/RESULTS.md`; scoring scripts are in `evals/conflicts/gen/`.
@@ -490,7 +492,7 @@ Every number in the report is tied to a result file in `paper/RESULTS.md`; numbe
 
 # Appendix F. Every arm and its prediction
 
-Each row through round 16 was committed before its outputs existed (Appendix C); rounds 18-20's rows were written in `PLAN.md` before their runs and committed afterwards; rounds 21-38 were committed before their cases or requests existed. Three rows had no numeric prediction, as marked, and one was untestable. Failed predictions are kept in the paper. Counts in the text take one prediction per row (74 rows with a numeric prediction; 35 failed: 4 of 16 on planted items, 31 of 58 on real text) and count a row as failed if any part of it failed.
+Each row through round 16 was committed before its outputs existed (Appendix C); rounds 18-20's rows were written in `PLAN.md` before their runs and committed afterwards; rounds 21-38 were committed before their cases or requests existed. Three rows had no numeric prediction, as marked, and one was untestable. Failed predictions are kept in the paper. Counts in the text take one prediction per row (75 rows with a numeric prediction; 35 failed: 4 of 16 on planted items, 31 of 59 on real text) and count a row as failed if any part of it failed.
 
 | Round | Arm (Haiku unless stated) | Prediction | Outcome |
 |---|---|---|---|
@@ -571,6 +573,7 @@ Each row through round 16 was committed before its outputs existed (Appendix C);
 | 34 | Shipped prompt, planted canary in each real history | Canary on a majority in ≥ 26 of 30; ≤ 4 documented changes; ≤ 1 canary-real pair per run | Held: 29; 1; 0 |
 | 35 | Sonnet 5.5, 12 unseen cases, shipped vs Persona now | Persona now ≥ 9; shipped ≤ 4; difference ≥ 5; controls ≤ 1 per run | Held: 11; 1; 10; 0 |
 | 36 | Two-work histories without the documented change, Persona now vs naive | ≤ 0.5 and ≥ 1.0 non-genuine per history; share gap ≥ 20 points; Persona now ≥ 0.5 genuine per history | **Failed**: 0.60. Held: 1.17; 27 points; 0.97 |
+| 37 | Fresh set 4 (7 cases, run once), shipped vs Persona now | Persona now ≥ 70% of n; shipped ≤ 25%; difference ≥ 3; controls ≤ 1 per run | Held: 6 of 7; 1 of 7; 5; 0 |
 | 38 | Quote required for every card (product decision) | 24-26 and 10 of 12; two-work non-genuine 0.30-0.45; real 0.15-0.30; so ship; quotes ≥ 90% verbatim | **Failed**: 9 of 12; 0.47; rule says keep. Held: 24; 0.30; 96% |
 
 The v12 prediction for model grouping + genX end to end on real text was not tested (version 1 was replaced before any real end-to-end run).

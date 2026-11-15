@@ -328,3 +328,7 @@ Belief: Persona's low false-card rate (0.27 per history) would hold on writing w
 ## After round 38
 
 Belief: demanding evidence (a verbatim quote) would drop weak cards without costing recall. Evidence: it dropped some (0.63 → 0.47 on two-work writing) but also dropped real finds (James, Miller: 26 → 24) and its real-history cards got worse, not better (0.30 vs 0.17 in the same batch). The quotes themselves were verbatim 96% of the time, so the model can quote; requiring it changes which pairs it picks. Change: no product change; the paper reports a tested fix that did not pass its rule. The batch drift (0.27 vs 0.17 for the same cards) is a reminder that comparisons are only fair within one batch, which is how both product decisions were made.
+
+## After round 37
+
+Belief: the repair generalises to cases chosen with no knowledge of it. Evidence: a fourth set sourced after the current prompt shipped, with no constraints that favour either prompt, gave 6 of 7 against 1, as predicted. Change: the paper now has one fully clean test of what Persona runs, reported apart. It is small (7) and its p-value alone is 0.06, so the claim rests on the pattern across four independently sourced sets, not on any one.

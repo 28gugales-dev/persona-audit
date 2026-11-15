@@ -520,3 +520,11 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 - Batch drift note: the current prompt's real-history non-genuine rate was 0.27 in round 32's batch and 0.17 here; two-work 0.60 (round 36) and 0.63 here.
 - Predictions: row failed (unseen 9; 0.47; "so ship"). Appendix F: 74 numeric rows, 35 failed (real text 31 of 58).
 - Also this turn: main body rewritten for a fast reader (8aba8a39): plain abstract (222 words), contributions end on the general lesson, Table 4 as tuning vs unseen with plain names, Section 4.3 in three parts, no round numbers in the results.
+
+## Round 37 (v37, plan beb18ad0, cases 41fe2702): fresh set 4, run once
+
+- Sourced by a new Sonnet agent from paper/data/fresh4_brief.txt (no hint about the reading window, no retraction-type constraint), after main 2a5e359e; 7 cases kept (15 leads dropped, realtext_dropped6.json), verifier ALL OK. Caveats: Weismann's two works are volumes I and II of one title (essays written 1885 and 1891); Harrison, Schliemann, Martineau and Murchison are archive.org OCR, passages kept verbatim with OCR errors; Wilde's announcement does not state the new view.
+- requests_v37_set4_prod.jsonl (shipped, 400) and requests_v37_set4_now.jsonl (Persona now, longer), Haiku, 3 runs; labels x21 (38 cards: keys 11 of 14 both-yes, returned 8 of 17, decoys 2 of 7). v37_set4_scores.json.
+- Persona now: 6 of 7 (Johnson 2/3, Weismann 3/3, Wilde 3/3, Harrison 3/3, Schliemann 3/3, Martineau 2/3; missed Murchison 0/3). Shipped: 1 of 7 (Wilde 2/3). Controls 0 for both. Discordant 5-0, exact McNemar p = 0.0625.
+- All 19 cases sourced after deployment (sets 2-4): Persona now 16, shipped 3, 13-0, p = 0.0002 (sets 2-3 were in view when Persona now was chosen; set 4 was not).
+- Predictions: all held. Appendix F: 75 numeric rows, 35 failed (real text 31 of 59).
