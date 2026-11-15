@@ -84,7 +84,7 @@ Whether each announced passage states the new view or only retracts ("I neither 
 
 ## 4.1 The shipped tool finds almost none of the documented changes, silently
 
-![**Figure 1.** Documented changes of mind found, by set (Haiku; case level, majority of three or more runs; Wilson 95% intervals). All arms see the whole history in one call. Shipped prompt and the rewrite at 400 characters per post; what Persona runs now: the rewrite with posts up to 1,000 characters (26 of 30). Fresh sets 2 and 3 were sourced after deployment; set 3 is mostly retraction-only.](figures/fig_cases.svg)
+![**Figure 1.** Documented changes of mind found, by set (Haiku; case level, majority of three or more runs; Wilson 95% intervals). All arms see the whole history in one call. Shipped prompt and the rewrite at 400 characters per post; what Persona runs now: the rewrite with posts up to 1,000 characters and no "at most 8 pairs" line. Fresh sets 2 and 3 were sourced after deployment; set 3 is mostly retraction-only. Right: cases found of all 30 against non-genuine cards per history on the first run (one Sonnet + Opus labelling batch, round 32); the shipped prompt is precise but finds almost nothing, the naive prompts find more at a high false-card cost.](figures/fig_cases.svg)
 
 **Grouping.** The word-overlap theme sort put the early and later passage in one theme for 0 of 19 keyed pairs in the development histories. Authors do not reuse their words across decades ("acquainted" in Russell's 1912 view, "widely held" in his 1921 retraction): ranked by TF-IDF similarity to the early passage, the true later partner came a median 59% of the way down its history, and shared no content word with it for 8 of 19.
 

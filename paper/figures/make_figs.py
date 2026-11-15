@@ -160,16 +160,16 @@ open(f'{F}/fig0_real.svg', 'w').write(svg(W, H, body))
 
 # ---------- Figure 1 (round 18): documented changes of mind found, by set (case level, cross-era, blind labels)
 S18 = json.load(open(f'{R}/v18b_scores.json'))['summary']
-sets = [('dev', 'Development', '12 cases, tuned on'), ('fresh1', 'Fresh set 1', '6 cases, diagnosed on'), ('fresh2', 'Fresh set 2', '6 cases, tested once, then reused'), ('fresh3', 'Fresh set 3', '6 cases, tested once, hard')]
+sets = [('dev', 'Development', 'tuned on'), ('fresh1', 'Fresh set 1', 'diagnosed on'), ('fresh2', 'Fresh set 2', 'unseen, then reused'), ('fresh3', 'Fresh set 3', 'unseen, hard')]
 arms = [('Shipped prompt', '#8a8f98', lambda s: S18.get(f'production/{s}', {}).get('single_majority')),
         ('Rewrite, 400 characters', '#93c5fd', lambda s: S18.get(f'realX/{s}', {}).get('single_majority')),
-        ('Rewrite, longer posts (ships now)', '#1d4ed8', lambda s: S18.get(f'final_realX/{s}' if s in ('fresh2', 'fresh3') else f'realX_long/{s}', {}).get('single_majority'))]
-W, H = 640, 250; x0, y0, ph = 70, 40, 130
+        ('What Persona runs now', '#1d4ed8', lambda s: S18.get(f'depNoCap/{s}', {}).get('single_majority'))]
+W, H = 900, 250; x0, y0, ph = 60, 40, 130; PW = 580
 body = ''
 for i in range(0, 101, 25):
     y = y0 + ph - ph * i / 100
-    body += f"<line x1='{x0}' x2='{W - 20}' y1='{y}' y2='{y}' stroke='{GRID}'/>" + text(x0 - 8, y + 4, f'{i}%', 11, 'end', MUTED)
-gw = (W - 20 - x0) / len(sets); bw = 36
+    body += f"<line x1='{x0}' x2='{PW - 20}' y1='{y}' y2='{y}' stroke='{GRID}'/>" + text(x0 - 8, y + 4, f'{i}%', 11, 'end', MUTED)
+gw = (PW - 20 - x0) / len(sets); bw = 32
 for g, (key, name, sub) in enumerate(sets):
     cx = x0 + gw * g + gw / 2; n = S18[f'production/{key}']['n']
     for j, (_, col, get) in enumerate(arms):
@@ -185,5 +185,24 @@ lx = x0
 for name, col, _ in arms:
     body += f"<rect x='{lx}' y='12' width='12' height='12' fill='{col}'/>" + text(lx + 17, 22, name, 11); lx += 17 + len(name) * 6.1 + 22
 body += text(18, y0 + ph / 2, 'Cases found', 11, 'middle', MUTED).replace('<text', f"<text transform='rotate(-90 18 {y0 + ph / 2})'", 1)
+# right panel (round 32): cases found of 30 against non-genuine cards per history, one Sonnet + Opus labelling batch
+C32 = json.load(open(f'{R}/cost32_scores.json'))
+tot = lambda a: sum(S18[f'{a}/{s}']['single_majority'] for s, _, _ in sets)
+pts = [('Shipped', 'production', 'shipped', '#8a8f98', 'start', 8, 4), ('Shipped + paragraph', 'prodPara', 'prodPara', '#8a8f98', 'start', 8, 4),
+       ('Naive', 'naive', 'naive400', '#c2410c', 'end', -8, 4), ('One-liner', 'naiveChange', 'naiveChange', '#c2410c', 'end', -8, -6),
+       ('Rewrite, 400', 'realX', 'realX400', '#93c5fd', 'middle', 0, 19), ('Persona now', 'depNoCap', 'depNoCap', '#1d4ed8', 'middle', 0, -9)]
+qx0, qx1, xmax = PW + 45, W - 15, 1.3
+body += f"<line x1='{qx0}' x2='{qx1}' y1='{y0 + ph}' y2='{y0 + ph}' stroke='{GRID}'/>"
+for v in (0, 0.5, 1.0):
+    x = qx0 + (qx1 - qx0) * v / xmax; body += f"<line x1='{x}' x2='{x}' y1='{y0}' y2='{y0 + ph}' stroke='{GRID}'/>" + text(x, y0 + ph + 15, f'{v:g}', 11, 'middle', MUTED)
+for i in range(0, 31, 10):
+    y = y0 + ph - ph * i / 30; body += text(qx0 - 6, y + 4, str(i), 11, 'end', MUTED)
+for name, arm, carm, col, anc, dx, dy in pts:
+    x = qx0 + (qx1 - qx0) * C32[carm]['not_per_history'] / xmax; y = y0 + ph - ph * tot(arm) / 30
+    body += f"<circle cx='{x}' cy='{y}' r='5' fill='{col}'/>" + text(x + dx, y + dy, f'{name} ({tot(arm)})', 12, anc, INK)
+body += text((qx0 + qx1) / 2, y0 + ph + 31, 'Non-genuine cards per history', 11, 'middle', MUTED)
+body += text(PW + 18, y0 + ph / 2, 'Cases found of 30', 11, 'middle', MUTED).replace('<text', f"<text transform='rotate(-90 {PW + 18} {y0 + ph / 2})'", 1)
+body += text(qx0, 22, 'Recall against false cards (all 30)', 12, 'start', INK, 'bold')
 open(f'{F}/fig_cases.svg', 'w').write(svg(W, H, body))
+print('frontier', [(n, tot(a), C32[c]['not_per_history']) for n, a, c, *_ in pts])
 print('fig_cases', {s: [get(s) for _, _, get in arms] for s, _, _ in sets})
