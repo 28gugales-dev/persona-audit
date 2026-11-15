@@ -278,3 +278,21 @@ Next round, from these: rewrite the abstract and 4.3 around "both the split and 
 - New: longer excerpts double the rewrite's non-genuine cards (0.5 → 1.0 per history) for one more case (25 → 26). That is a product question the paper should state rather than hide: the 400-character rewrite may be the better operating point. Not changing the product now; flagged in the paper's numbers.
 - Memory: Haiku could not state 10 of the 18 later changes from author, years and question, and what ships found 8 of those 10. Together with masking, memory does not explain the finds.
 - Next: a fresh judge look, then decide whether the remaining asks (a modern non-canonical set; Sonnet as the system under test) are worth the cost before the deadline.
+
+## Round 28
+
+- Belief: a plain prompt would flood writing with no change with cards (naive ≥ 1.5 per history). Evidence: 0.93, but almost all non-genuine; the one-liner 0.7. Change: the false-alarm comparison is now measured on writing with no documented change, not only inferred from labels on change-histories.
+- Surprise: what ships (realX deployed text, longer excerpts) raised the most false cards of any prompt on no-change writing, 1.10 per history, against 0.27 for realX at 400 characters. Together with round 27 (non-genuine 1.0 vs 0.5 on real histories) the longer excerpts cost about 2-4 times the false alarms for one case (Godwin). Belief now: the 400-character rewrite is the better product operating point. Because the deployed text differs from the tested realX text (it adds the shipped output rules), the next round tests the exact candidate (deployed text, 400 characters) with a decision rule written first, before changing the product.
+- A one-line change-of-mind prompt matches the rewrite's recall (25). The rewrite's case rests on precision, with a bootstrap interval that excludes zero, and that is now how the paper argues for it.
+
+## Round 29
+
+- Belief: the longer excerpts caused most of what ships' false alarms, so 400 characters would fix them. Evidence: the deployed text at 400 still raised 0.67 non-genuine cards per history on no-change writing (tested text 0.27) and 0.90 on real histories. Change: the decision rule kept the product as it is, and the paper now attributes the false alarms mainly to the deployed wording's output rules, not to excerpt length. My prediction ("so switch") failed; the rule stopped a product change the data did not support.
+- The cheap next hypothesis: "Return at most 8 pairs, the sharpest first" invites the model to fill the quota. Persona already caps cards at 8 in code, so the line is redundant. Test: the deployed text without that line, at the product's longer excerpts, on the 30 real and 30 no-change histories, with a decision rule written first.
+
+## Round 30
+
+- Belief: the quota line ("at most 8 pairs, the sharpest first") made the model fill the quota. Evidence: removing only that line kept recall at 26 of 30 and cut non-genuine cards from 1.0 to 0.3 per history on real histories and from 1.1 to 0.4 on no-change writing. Change: shipped to Persona under a rule written before the run.
+- This is the paper's cleanest product lesson and it mirrors the first one: a line meant to bound output (an empty-list default, then a pair quota) changed what the model looks for. One made it find almost nothing; the other made it find too much. Neither shows in a demo.
+- Round-29's rule mattered: without it I would have switched to 400 characters, which the round-30 result shows was the wrong fix.
+- Next: one more judge look on the final draft; then the remaining asks are human labels (needs the user) and a non-canonical, modern set, which needs new sourcing. Before the deadline, presentation and consistency matter more than another arm.

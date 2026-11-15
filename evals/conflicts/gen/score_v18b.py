@@ -8,7 +8,7 @@ sys.path.insert(0, f'{ROOT}/evals/conflicts/gen')
 with contextlib.redirect_stdout(io.StringIO()):
     import score_rerun as S
 yes, labelled = set(), set()
-for m, base in (('', 'label__thesis'), ('3', 'label__thesis3'), ('x', 'label__thesisx'), ('x3', 'label__thesisx3'), ('x4', 'label__thesisx4'), ('x5', 'label__thesisx5'), ('x6', 'label__thesisx6'), ('x7', 'label__thesisx7'), ('x8', 'label__thesisx8'), ('x9', 'label__thesisx9'), ('x10', 'label__thesisx10'), ('x11', 'label__thesisx11'), ('x12', 'label__thesisx12'), ('x14', 'label__thesisx14')):
+for m, base in (('', 'label__thesis'), ('3', 'label__thesis3'), ('x', 'label__thesisx'), ('x3', 'label__thesisx3'), ('x4', 'label__thesisx4'), ('x5', 'label__thesisx5'), ('x6', 'label__thesisx6'), ('x7', 'label__thesisx7'), ('x8', 'label__thesisx8'), ('x9', 'label__thesisx9'), ('x10', 'label__thesisx10'), ('x11', 'label__thesisx11'), ('x12', 'label__thesisx12'), ('x14', 'label__thesisx14'), ('x15', 'label__thesisx15'), ('x16', 'label__thesisx16'), ('x17', 'label__thesisx17')):
     if not os.path.exists(f'{R}/thesis_cards_map{m}.json') or not os.path.exists(f'{R}/haiku_raw/{base}.r1.txt'): continue
     L = []
     for f in (base, base + '_s'):
@@ -27,7 +27,7 @@ ARMS = [('production', 'requests_v17.jsonl'), ('naive', 'requests_v14.jsonl'), (
         ('defOnly', 'requests_v22_defonly.jsonl'), ('defNoEmpty', 'requests_v22_defnoempty.jsonl'),
         ('gs1', 'requests_v23_gs1.jsonl'), ('gs2', 'requests_v23_gs2.jsonl'), ('gs3', 'requests_v23_gs3.jsonl'),
         ('prodPara', 'requests_v24_prodpara.jsonl'), ('defNoEmptyPara', 'requests_v24_defnoemptypara.jsonl'), ('genX', 'requests_v24_genx.jsonl'), ('ships', 'requests_v24_ships.jsonl'),
-        ('ships_masked', 'requests_v25_masked_ships.jsonl'), ('production_masked', 'requests_v25_masked_prod.jsonl'), ('naive', 'requests_v25_naive_f1.jsonl'), ('naiveLong', 'requests_v27_naive_long.jsonl')]
+        ('ships_masked', 'requests_v25_masked_ships.jsonl'), ('production_masked', 'requests_v25_masked_prod.jsonl'), ('naive', 'requests_v25_naive_f1.jsonl'), ('naiveLong', 'requests_v27_naive_long.jsonl'), ('naiveChange', 'requests_v28_naivechange.jsonl'), ('dep400', 'requests_v29_dep400.jsonl'), ('depNoCap', 'requests_v30_depnocap.jsonl')]
 SETS = {'': 'dev', '2': 'dev', '3': 'fresh1', '4': 'fresh2', '5': 'fresh3'}
 setof = {c['id']: SETS[s] for s in SETS if os.path.exists(f'{ROOT}/paper/data/realtext_cases{s}.json') for c in json.load(open(f'{ROOT}/paper/data/realtext_cases{s}.json'))}
 out, unl = {}, set()

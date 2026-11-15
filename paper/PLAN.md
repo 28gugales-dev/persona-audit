@@ -551,3 +551,34 @@ Why (round-26 mock judges): is the shipped prompt a design trade-off (on a recal
    - Predictions: Haiku states the documented change and its direction for ≤ 9 of 17; what ships finds ≥ 70% of the later cases it could not state.
 4. **Clustered test** (existing replies): the unseen comparison of what ships against the shipped prompt as a sign test over authors (Lyell's two cases counted once).
    - Prediction: p < 0.05.
+
+## v28: false alarms on writing with no documented change; a one-line change-of-mind prompt; intervals on the precision gap (committed before any v28 request, card or label existed)
+
+Why (round-27 mock judges): the only real-text false-alarm evidence is one control passage per history and Claude "genuine" labels on histories that do contain a change; the rewrite's precision lead over the naive prompt has no interval; the naive prompt asks for views that "cannot both be true", so a one-line prompt asking directly for changes of mind is the fairer simple baseline.
+
+1. **No-change histories**: for each of the 30 cases, the early work's sampled paragraphs only (keyed early and control passages removed), in their original order, redated evenly across six years, so a reader sees an "early" and a "late" half with no documented change between them. One run each, as a user would see it: shipped, naive (400), realX (400), what ships (realX deployed text, longer excerpts), and the change-of-mind prompt below (400). Cards capped at 8, labelled with the round-27 real/not prompt (Haiku + Sonnet, one batch).
+   - Predictions (cards per history): shipped ≤ 0.2; naive ≥ 1.5; realX (400) ≤ 1.0; what ships ≤ 1.5; realX (400) non-genuine cards per history at most half of naive's.
+2. **Change-of-mind one-liner** ("Where has this person changed their mind? List every pair of posts in which a later post gives up, reverses or rejects a view stated in an earlier post", same output format), 30 real histories, 400 characters, 3 runs, case level, blind thesis labels; first-run cards labelled with the round-27 prompt.
+   - Predictions: 22-28 of 30; non-genuine cards per history ≥ 0.8; controls ≤ 1 history per run.
+3. **Bootstrap over histories** (10,000 resamples, round-27 cards): realX (400) minus naive (400) genuine share and non-genuine cards per history.
+   - Prediction: both 95% intervals exclude 0.
+
+## v29: should Persona go back to 400-character excerpts? A product decision with its rule written first (committed before any v29 request existed)
+
+Why (round 28): with longer excerpts, what ships raised 1.10 non-genuine cards per history on writing with no documented change and 1.00 on real histories, against 0.27 and 0.50 for realX at 400 characters, for one case more (26 vs 25). But the 400-character arm used the tested realX text, not the deployed text (which adds the shipped output rules), so the exact candidate is untested.
+
+Candidate: the deployed CONFLICTS_SYSTEM text (realX_deployed) with every excerpt cut to 400 characters, whole history in one call.
+1. Real histories, 30, 3 runs, case level, blind thesis labels; first-run cards labelled with the round-27 real/not prompt.
+2. No-change histories, 30, one run, cards labelled the same way.
+
+Decision rule: switch Persona to 400-character excerpts if and only if the candidate (a) finds ≥ 24 of 30 cases and ≥ 9 of the 12 unseen, (b) raises ≤ 0.7 non-genuine cards per history on the real histories, and (c) raises ≤ 0.5 on the no-change histories. Otherwise keep what ships.
+- Predictions: (a) 24-26 of 30 and 10 of 12 unseen; (b) 0.4-0.7; (c) 0.2-0.5; so the rule says switch.
+
+## v30: does the "at most 8 pairs" line cause the deployed prompt's false alarms? A second product decision with its rule written first (committed before any v30 request existed)
+
+Why (round 29): at 400 characters the deployed text raised 0.67 non-genuine cards per history on no-change writing against 0.27 for the tested text; the deployed text adds "Return at most 8 pairs, the sharpest first." (redundant: Persona already keeps at most 8 cards), the question format and an injection guard.
+
+Candidate (depNoCap): the deployed text with only the line "Return at most 8 pairs, the sharpest first." removed, at the product's longer excerpts (min(1000, 120,000 / posts)), whole history in one call. Real histories 3 runs, case level, blind thesis labels; first-run cards and no-change histories (one run) labelled with the round-27 real/not prompt, one batch.
+
+Decision rule: ship depNoCap if and only if (a) it finds ≥ 25 of 30 cases and ≥ 10 of the 12 unseen, (b) raises ≤ 0.8 non-genuine cards per history on the real histories, and (c) ≤ 0.6 on the no-change histories. Otherwise keep what ships.
+- Predictions: (a) 25-27 and 10-11 unseen; (b) 0.5-0.8; (c) 0.3-0.6; so the rule says ship.

@@ -409,3 +409,36 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 - Closed-book probe, 18 later cases (closedbook__later.r1, closedbook_later_items.json; the plan said 17, the later sets hold 18): Haiku stated the change for 8 (Freud, Gladstone, Lyell antiquity, Besant, Darwin Glen Roy, Sedgwick, Newton, Coleridge); unknown for 10. What ships found 8 of the 10 unknown (missed James, Wordsworth) and 7 of the 8 known (missed Coleridge).
 - Author-level sign test, unseen sets, ships vs shipped (Lyell's two cases once): ships better for Lyell, Darwin, Sedgwick, Newton, Miller, Ruskin, Frazer (7); worse for none; ties Besant, Buckland, Coleridge, Wordsworth. p = 2 × 0.5^7 = 0.016.
 - Predictions: naive-long row failed (20 < 22); cost row failed on shipped (0.13 > 0.1), held otherwise; closed-book row held; sign test held. Appendix F: 61 numeric rows, 28 failed (real text 24 of 45).
+
+## Round 28 (v28, plan eda4f6a0): no-change histories, change-of-mind one-liner, bootstrap on the precision gap
+
+- No-change histories (make_nochange.py; each case's early-work sampled paragraphs only, keyed early and control removed, 32-60 posts, redated evenly 2001-01 to 2006-12; one run per prompt; cards labelled in cost28, one batch with the one-liner's real-history cards; label__cost28_1_s returned as text by its agent and saved verbatim, all 50 cards present):
+
+| Prompt | Cards/history | Both labellers "real" | Not genuine/history |
+|---|---|---|---|
+| shipped (400) | 0.03 | 1/1 | 0.00 |
+| realX (400, tested text) | 0.33 | 2/10 | 0.27 |
+| change-of-mind one-liner (400) | 0.70 | 1/21 | 0.67 |
+| naive (400) | 0.93 | 2/28 | 0.87 |
+| what ships (deployed text, longer) | 1.17 | 2/35 (Haiku alone 21) | 1.10 |
+
+- Change-of-mind one-liner (requests_v28_naivechange.jsonl, 3 runs, labels x15): dev 11, F1 4, F2 6, F3 4 = 25/30; controls 0. First-run cards (cost28): 2.5 per history, 46/75 genuine (61%), 0.97 not genuine per history. Anchors in this batch: keys 25/30 real, controls 6/30.
+- Bootstrap over histories (bootstrap_v28.py, v28_bootstrap.json; round-27 cards): realX (400) minus naive (400) genuine share +0.31 [0.19, 0.44]; non-genuine per history −0.73 [−1.13, −0.33].
+- Predictions: no-change row failed (naive 0.93 < 1.5), held otherwise; one-liner row held; bootstrap row held. Appendix F: 64 numeric rows, 29 failed (real text 25 of 48).
+
+## Round 29 (v29, plan 0b509794): the deployed prompt at 400 characters, a product decision
+
+- requests_v29_dep400.jsonl (3 runs, labels x16) and requests_v29_nochange_dep400.jsonl (same excerpts and dates as round 28, one run); cards in cost29 (one batch; anchors keys 23/30, controls 5/30 real).
+- Real histories: dev 11, F1 4, F2 6, F3 5 = 26/30 (missed Hume, Godwin, James, Coleridge; found Wordsworth); unseen 11/12; controls 0. First run: 3.1 cards per history, 66/93 genuine (71%), 0.90 not genuine per history.
+- No-change histories: 0.80 cards per history, 4/24 genuine, 0.67 not genuine per history.
+- Rule (written before the run): switch only if ≥ 24/30, ≥ 9/12 unseen, ≤ 0.7 non-genuine (real), ≤ 0.5 (no change). (a) holds; (b) 0.90 and (c) 0.67 fail → keep longer excerpts. Prediction row failed.
+- Same length, different text: realX tested text at 400 raised 0.50 (real) and 0.27 (no change); the deployed text at 400 raised 0.90 and 0.67. The deployed text adds "Return at most 8 pairs, the sharpest first", the question format and an injection guard.
+- Appendix F: 65 numeric rows, 30 failed (real text 26 of 49).
+
+## Round 30 (v30, plan fc3f3559): the deployed prompt without "Return at most 8 pairs, the sharpest first", a product decision
+
+- depNoCap = realX_deployed with that one line removed; longer excerpts. requests_v30_depnocap.jsonl (3 runs, labels x17), requests_v30_nochange_depnocap.jsonl (round-28 excerpts, one run); cards in cost30 (anchors keys 25/30, controls 3/30 real).
+- Real histories: dev 10 (missed Hume, Russell), F1 6 (Godwin and James both found on a majority), F2 6, F3 4 (missed Coleridge, Wordsworth) = 26/30; unseen 10/12; controls 0.67 per run on dev. First run: 2.3 cards per history, 60/69 genuine (87%), 0.30 not genuine per history; none over the cap of 8.
+- No-change histories: 0.50 cards per history, 3/15 genuine, 0.40 not genuine per history (what ships: 1.10).
+- Rule: ship if ≥ 25/30, ≥ 10/12 unseen, ≤ 0.8 (real), ≤ 0.6 (no change). All held → shipped: main 2a5e359e (apps/api/src/features/persona/conflicts.ts; the parser still keeps the first 8), API typecheck clean, 1,744 tests pass, deployed with vercel deploy --prebuilt --prod, aliased https://amphi-api.vercel.app, /health 200.
+- Prediction row failed only on (b): 0.30 below the predicted 0.5-0.8. Appendix F: 66 numeric rows, 31 failed (real text 27 of 50).
