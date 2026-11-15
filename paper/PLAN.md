@@ -582,3 +582,13 @@ Candidate (depNoCap): the deployed text with only the line "Return at most 8 pai
 
 Decision rule: ship depNoCap if and only if (a) it finds ≥ 25 of 30 cases and ≥ 10 of the 12 unseen, (b) raises ≤ 0.8 non-genuine cards per history on the real histories, and (c) ≤ 0.6 on the no-change histories. Otherwise keep what ships.
 - Predictions: (a) 25-27 and 10-11 unseen; (b) 0.5-0.8; (c) 0.3-0.6; so the rule says ship.
+
+## v31: what Persona now runs, without the passage that announces the change (committed before any v31 request existed)
+
+Why (judge look 4): the only evidence on how much finding rests on the announcing passage is post-hoc (credit not counting that passage) and on realX at 400 characters, not on what Persona runs; and a post-hoc cut leaves the passage in the model's input, where it may steer which other pairs it returns. A person's record usually holds no sentence saying "I was wrong".
+
+1. **Post-hoc, existing runs**: depNoCap (round 30, 3 runs) credited without any pair that uses the announced passage.
+   - Prediction: 12-16 of 30 (realX at 400: 14).
+2. **Announcement removed from the input**: each of the 30 real histories with its announced post deleted (unannounced and later-work paragraphs kept), depNoCap at the product's longer excerpts, whole history in one call, 3 runs, case level; new cross-era pairs labelled blind (Haiku + Sonnet, thesis prompt, map x18).
+   - Predictions: 12-17 of 30; 4-7 of the 12 unseen; within 2 cases of item 1's count; controls ≤ 1 history per run.
+No product decision rides on this round.

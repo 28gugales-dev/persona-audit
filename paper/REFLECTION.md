@@ -296,3 +296,11 @@ Next round, from these: rewrite the abstract and 4.3 around "both the split and 
 - This is the paper's cleanest product lesson and it mirrors the first one: a line meant to bound output (an empty-list default, then a pair quota) changed what the model looks for. One made it find almost nothing; the other made it find too much. Neither shows in a demo.
 - Round-29's rule mattered: without it I would have switched to 400 characters, which the round-30 result shows was the wrong fix.
 - Next: one more judge look on the final draft; then the remaining asks are human labels (needs the user) and a non-canonical, modern set, which needs new sourcing. Before the deadline, presentation and consistency matter more than another arm.
+
+## After judge look 4
+
+Belief: the headline numbers were tied to the configuration Persona runs. Evidence: the judges found the abstract's precision figure (79%) and "half its finds" both came from realX at 400 characters, a configuration we rejected, and that "same 26" hid a swap of cases. Change: every headline number now names its configuration; the next test should be run on the final configuration itself, not inherited from a sibling. Next: the no-announcement check has only been run on realX at 400 and the shipped prompt, so run it on what Persona now runs (depNoCap) on all 30, with predictions committed first.
+
+## After round 31
+
+Belief: "half the finds rest on the announcing passage" (post-hoc) measured how much Persona depends on a person saying they changed their mind. Evidence: deleting that post from the input gave 16 of 30 and 5 of 12 unseen, against 12 and 1 of 12 from the post-hoc cut; the cut counted pairs the model would have returned if the announcement were not drawing its attention. Prediction "within 2" failed by 2. Change: post-hoc ablations of inputs are lower bounds here; report the input deletion as the number. Caveat: this round's decoy rate was 17% (5 of 30), so the 16 leans generous; a second labelling of x18 decoys or Opus on the 8 credited returned pairs would tighten it. Next: the remaining large gap is unseen sets without announcement (5 of 12); fresh set 3 (retraction-only, 2 of 6) is where Persona is weakest, which is the case a real user most resembles.

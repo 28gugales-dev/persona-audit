@@ -442,3 +442,18 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 - No-change histories: 0.50 cards per history, 3/15 genuine, 0.40 not genuine per history (what ships: 1.10).
 - Rule: ship if ≥ 25/30, ≥ 10/12 unseen, ≤ 0.8 (real), ≤ 0.6 (no change). All held → shipped: main 2a5e359e (apps/api/src/features/persona/conflicts.ts; the parser still keeps the first 8), API typecheck clean, 1,744 tests pass, deployed with vercel deploy --prebuilt --prod, aliased https://amphi-api.vercel.app, /health 200.
 - Prediction row failed only on (b): 0.30 below the predicted 0.5-0.8. Appendix F: 66 numeric rows, 31 failed (real text 27 of 50).
+
+## Judge look 4 (round-30 draft), factual fixes
+
+- Abstract: precision now quoted for what Persona runs (87% genuine, 0.30 non-genuine per history, cost30) beside naive 47% (cost27); "half its finds" replaced by 11 of 25 (realX at 400 without the announced passage).
+- Table 4 caption: Ctrl is mean histories with a control flagged per run (Persona now 0.67 = Spencer in 2 of 3 runs); cards labelled one batch per round, rounds 27-30, anchors keys 23-26, controls 3-5 of 30; GPT strict cards are gs2 only.
+- Final configuration's 26 is not the same 26 as the earlier deployed text: loses Russell (dev), gains James (F1).
+- §3.3 now states Opus accepted 42 of 51 keyed pairs; plan-commit wording made consistent (rounds 18-20 committed after their runs).
+
+## Round 31 (v31, plan e8982646): what Persona runs, without the announcing post
+
+- Post-hoc (round-30 depNoCap runs, credit not counting pairs that use the announced passage; analyze_v25.py → v25_analyses.json): dev 7, F1 4, F2 1, F3 0 = 12/30; unseen 1/12.
+- Announced post deleted from the input (make_noann.py → requests_v31_noann.jsonl; depNoCap, longer excerpts, 3 runs, labels x18: 61 cards, keys 18/21 both-yes, returned 8/10, decoys 5/30 both-yes): dev 7, F1 4, F2 3, F3 2 = 16/30; unseen 5/12; controls 0.33 per run on F1. Lost vs depNoCap with the announcement: Buckland, Darwin (utility, Glen Roy), Franklin, Frazer, Godwin, Mill, Miller, Sedgwick, Spencer; gained none. Of the 9 cases left with no later-passage key (no unannounced passage), 4 were found (Freud, Huxley, Newman, Peirce); of the 21 with one, 12.
+- The post-hoc cut understated: with the announcement present the model spends its pairs on it; removed, it returns other cross-era pairs.
+- Decoys both-yes 5/30 here (17%) against 10/240 before: this round's labels are looser, which favours the 16.
+- Predictions: 12 (12-16) held; 16 (12-17) held; 5 of 12 (4-7) held; within 2 of post-hoc failed (16 vs 12); controls held. Appendix F: 67 numeric rows, 32 failed (real text 28 of 51).
