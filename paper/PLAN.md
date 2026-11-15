@@ -528,3 +528,13 @@ Why (round-24 mock judges, all three): the 10-of-12 unseen result may rest on Ha
    - (a) Without the announcement: case-level credit only from pairs whose later side is not the keyed announced passage. Predictions: realX (400) 12-22 of 30; shipped prompt ≤ 2 of 30.
    - (b) Budget-matched credit: each run keeps only its first 2 returned pairs. Predictions: realX (400) ≥ 20 of 30; ships (unseen, own runs) ≥ 8 of 12.
    - (c) Harness leakage: grep every raw reply and request for answer_key, realtext_cases, "keyed", "announced" or a repository path. Prediction: 0 replies.
+
+## v26: are the labellers right on hard negatives and on the off-key pairs that carry credit? (committed before any v26 card or label existed)
+
+Why (round-24 judges, all three): every case-level number rests on two Claude labellers, calibrated only on keyed pairs and random decoys; credit beyond keyed pairs comes from 116 off-key early x later pairs (in realX, ships, realX_long, naive, prodPara, shipped and masked runs that had no keyed pair).
+
+1. **Hard negatives**: each case's early-work control passage paired with its announced and (where it exists) unannounced passage (51 pairs; same author, same works, a later passage that explicitly changes view on the question, an early passage the sourcing agents coded as conflicting with neither). Haiku and Sonnet, the usual blind label prompt, mixed with the 51 keyed pairs.
+   - Predictions: both-yes on hard negatives ≤ 6/51; keys ≥ 45/51.
+2. **Third judge with evidence**: Opus 5.5 labels, blind and shuffled, the 116 credited off-key pairs, the 51 hard negatives and the 51 keyed pairs, with the same prompt plus: for each yes, copy the words of the later passage that reject or abandon the earlier view. A yes counts only if the quote appears verbatim. Passages are shown up to 1,000 characters.
+   - Predictions: Opus yes on keys ≥ 45/51; on hard negatives ≤ 5/51; on the 116 credited pairs ≥ 80%.
+   - Rescoring with Opus agreement also required on off-key pairs: realX (400) ≥ 23/30; ships unseen ≥ 9/12; shipped ≤ 3; naive ≥ 17/30.

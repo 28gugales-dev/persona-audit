@@ -1,0 +1,547 @@
+=== SYSTEM PROMPT ===
+You check pairs of passages by one author against a documented change of mind. Each card gives the QUESTION the author changed his mind on, an EARLIER passage stating his earlier view, and a LATER passage. Answer "yes" only if the later passage, speaking for the author, rejects, abandons, retracts or contradicts the earlier passage's view on that question (stating the new view, or saying the old one was wrong). Answer "no" if the later passage is on another point, merely mentions the topic, describes someone else's view without taking a side, or is consistent with the earlier view. Judge only from the two passages and the question.
+
+Return only JSON: {"labels": [{"card": "<id>", "label": "yes" | "no"}]} with one entry per card.
+
+For each card you answer "yes", also give "quote": the words of the <later> passage that reject or abandon the earlier view, copied exactly (at most 30 words). Reply as JSON: {"labels": [{"card": "...", "label": "yes"|"no", "quote": "..."}]}
+
+=== USER MESSAGE ===
+<card id="807292d2">
+<question>Whether tragic art gives a metaphysical comfort and expresses Schopenhauerian metaphysics (The Birth of Tragedy, 1872) or whether that was a mistake to be laughed away (1886 'Attempt at a Self-Criticism').</question>
+<earlier>
+The metaphysical comfort,--with which, as I have here intimated, every true tragedy dismisses us--that, in spite of the perpetual change of phenomena, life at bottom is indestructibly powerful and pleasurable, this comfort appears with corporeal lucidity as the satyric chorus, as the chorus of natural beings, who live ineradicable as it were behind all civilisation, and who, in spite of the ceaseless change of generations and the history of nations, remain for ever the same.
+</earlier>
+<later>
+No! ye should first of all learn the art of earthly comfort, ye should learn to _laugh,_ my young friends, if ye are at all determined to remain pessimists: if so, you will perhaps, as laughing ones, eventually send all metaphysical comfortism to the devil--and metaphysics first of all!
+</later>
+</card>
+
+<card id="106db0d7">
+<question>Whether taking part in the African slave trade is morally lawful (Newton's Authentic Narrative, written 1762-63 about his years as a slave-ship captain, says that while engaged in the trade he 'never had the least scruple as to its lawfulness'; his 1788 Thoughts upon the African Slave Trade makes a public confession that he was once 'an active instrument, in a business at which my heart now shudders').</question>
+<earlier>
+Together with these studies, I have kept up a course of reading of the best writers in divinity that have come to my hand, in the Latin and English tongues, and some French ; for I picked up the French at times while I used the sea. But within these two or three years I have accustomed myself chiefly to writing, and have not found time to read many books besides the scriptures.
+</earlier>
+<later>
+Though unwilling to give offence to a single person; in such a cause, I ought not to be afraid of offending many, by declaring the truth; if, indeed, there can be many, whom even interest can prevail upon to contradict the common sense of mankind, by pleading for a commerce, so iniquitous, so cruel, so oppressive, so destructive, as the African Slave Trade!
+</later>
+</card>
+
+<card id="b723e66a">
+<question>Whether ethics (the law of equal freedom and rights) rests on God's will/purpose (Social Statics) or on a purely naturalistic evolutionary account (Justice, Principles of Ethics).</question>
+<earlier>
+On referring back to Chapter IV., we shall find that the denial of rights amounts to a libel on the Deity. For, as we there saw, that which a man has a right to, is that which God intended for him. And to say that man has no right to freedom of action, is to say that God did not mean him to have it.
+</earlier>
+<later>
+This work covers a field which, to a considerable extent, coincides with that covered by Social Statics, published in 1850; though the two differ, alike in extent, in form, and partially in their ideas. One difference is that what there was in my first book of supernaturalistic interpretation has disappeared, and the interpretation has become exclusively naturalistic — that is, evolutionary. With this difference may be joined the concomitant difference, that whereas a biological origin for ethics was, in Social Statics, only indicated, such origin has now been definitely set forth;
+</later>
+</card>
+
+<card id="0369ce2f">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+If, in answer to this statement, it be urged that the peculiar claim set up by Rome to be the true Church to the exclusion of ourselves, is so serious as to perplex the inquirer, and almost to lead him to join himself to her communion as the safest course, whatever be the identity of doctrine between the two systems on greater points, let it be considered whether on the other hand there be not some peculiarities hanging about her, which are sufficient from the same prudential motives to keep us at a distance from her. Our Lord said of false prophets, "By their fruits shall ye know them;" and, however the mind may be entangled theoretically, yet surely it will be struck with certain marks in Rome which seem intended to convey to the simple and honest inquirer a solemn warning to keep clear of her, while she carries them about her. Such are her denying the cup to the laity, her idolatrous worship of the Blessed Virgin, her Image-worship, her recklessness in anathematizing, and her schism
+</earlier>
+<later>
+"May 4, 1843.... At present I fear, as far as I can analyze my own convictions, I consider the Roman Catholic Communion to be the Church of the Apostles, and that what grace is among us (which, through God's mercy, is not little) is extraordinary, and from the overflowings of His dispensation. I am very far more sure that England is in schism, than that the Roman additions to the Primitive Creed may not be developments, arising out of a keen and vivid realizing of the Divine Depositum of Faith.
+</later>
+</card>
+
+<card id="a32407d3">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+1 1 . We have now extracted matter enough to show the general doctrine of the Eighth Book of the Ecclesiastical Polity on the relations between church and state. And thus much at least is clear : there can be no doubt that it teaches, or rather involves, as a basis and precondition of all its particular arguments, the great doctrine that the state is a person, having a conscience, cognizant of matter of religion, and bound by all constitutional and natural means to advance it. It is impossible not to recognise throughout the book a texture of thouglat such as pre-eminently distinguished the great man whose name it bears. And yet, on the other hand, it contains some statements which lead us to rejoice that he is not responsible for it as it stands^ and that it does not carry with it the weight of his plenary authority ; the authority of that noble and sanctified intellect, to ^\■hich Pope Clement VIII., according to Walton, paid so just and eloquent a tribute. f " There is no learning t
+</earlier>
+<later>
+These sentences, I think, give a fair view of Lord Macaulay's philosophy of Church Establishments. It has all the clearness and precision that might be expected from him. But I own myself unable to accept it as it stands. I presume to think that perhaps Lord Macaulay, like myself, made, from a limited induction, a hasty generalisation. The difference was, that his theory was right for the practical purpose of the time, while mine was wrong. Considered, however, in the abstract, that theory appears to me to claim kindred with the ethical code of another writer, not less upright, and not less limpid, so to speak, than Lord Macaulay himself, I mean Dr. Paley. And the upshot of it may be comprised in three words: Government is police. All other functions, except those of police proper, are the accidents of its existence. As if a man should say to his friend when in the country, "I am going up to town; can I take anything for you?" So the State, while busy about protecting life and property
+</later>
+</card>
+
+<card id="9088634c">
+<question>Whether species are primordial, separately created and immutable, or arise by variation from earlier species (Lyell's Principles of Geology concludes that 'species have a real existence in nature' and rejects Lamarckian transmutation; his 1863 Antiquity of Man says 'when I formerly advocated the doctrine that species were primordial creations and not derivative', and goes on to treat natural selection as a far more probable cause of new species).</question>
+<earlier>
+5thly. The intermixture of distinct species is guarded against by the aversion of the individuals composing them to sexual union, or by the sterility of the mule offspring. It does not appear that true hybrid races have ever been perpetuated for several generations, even by the assistance of man; for the cases usually cited relate to the crossing of mules with individuals of pure species, and not to the intermixture of hybrid with hybrid. 6thly. From the above considerations, it appears that species have a real existence in nature; and that each was endowed, at the time of its creation, with the attributes and organization by which it is now distinguished.
+</earlier>
+<later>
+The only secondary cause therefore which has as yet been even conjecturally brought forward, to explain how in the ordinary course of nature a new specific form may be generated is, as Lamarck declared, "variation," and this has been rendered a far more probable hypothesis by the way in which "natural selection" is shown to give intensity and permanency to certain varieties.
+</later>
+</card>
+
+<card id="158bce43">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+If, however, in the exemplification herewith indicated we have rightly associated the evanescence of the Dionysian spirit with a most striking, but hitherto unexplained transformation and degeneration of the Hellene--what hopes must revive in us when the most trustworthy auspices guarantee _the reverse process, the gradual awakening of the Dionysian spirit_ in our modern world! It is impossible for the divine strength of Herakles to languish for ever in voluptuous bondage to Omphale. Out of the Dionysian root of the German spirit a power has arisen which has nothing in common with the primitive conditions of Socratic culture, and can neither be explained nor excused thereby, but is rather regarded by this culture as something terribly inexplicable and overwhelmingly hostile,--namely, _German music_ as we have to understand it, especially in its vast solar orbit from Bach to Beethoven, from Beethoven to Wagner. What even under the most favourable circumstances can the knowledge-craving 
+</earlier>
+<later>
+Wagner was _not_ instinctively a musician. And this he proved by the way in which he abandoned all laws and rules, or, in more precise terms, all style in music, in order to make what he wanted with it, _i.e._, a rhetorical medium for the stage, a medium of expression, a means of accentuating an attitude, a vehicle of suggestion and of the psychologically picturesque. In this department Wagner may well stand as an inventor and an innovator of the first order—_he increased the powers of speech __ of music to an incalculable degree_—he is the Victor Hugo of music as language, provided always we allow that under certain circumstances music may be something which is not music, but speech—instrument—_ancilla dramaturgica_. Wagner’s music, _not_ in the tender care of theatrical taste, which is very tolerant, is simply bad music, perhaps the worst that has ever been composed. When a musician can no longer count up to three, he becomes “dramatic,” he becomes “Wagnerian”.…
+</later>
+</card>
+
+<card id="5e51d781">
+<question>Whether the totem is the receptacle of the external soul of the person who claims it, so that the savage's life is bound up with a particular animal or plant of the totem species (Frazer's Golden Bough, 1890: 'The totem, if I am right, is simply the receptacle in which a man keeps his life'; in Totemism and Exogamy, 1910, he writes only that on such facts he 'formerly based a theory' of the external soul and has since adopted other views of totemism).</question>
+<earlier>
+In some of the examples cited above to establish the meaning of the term "neck" as applied to the last sheaf, the corn -spirit appears in animal form as a gander, a goat, a hare, a cat, and a fox. This introduces us to a new aspect of the corn-spirit, which we must now examine. By doing so we shall not onlyhave fresh examples of killing the god, but may hope also to clear up some points which remain obscure in the myths and worship of Attis, Adonis, Osiris, Dionysus, Demeter, and Virbius.
+</earlier>
+<later>
+This idea of spirit individuals associated with churinga and resident at certain definite spots lies at the root of the present totemic system of the Arunta and kindred tribes. For the natives believe that every living member of the tribe is the reincarnation of one of these spirits.
+</later>
+</card>
+
+<card id="0c2c5372">
+<question>Whether the superficial gravel of the earth was deposited by one general (Noachian) deluge, as Buckland argued (Sedgwick's 1825 paper defends the diluvial classification, rejects explaining the diluvium by many partial, transient inundations, and says his own observations confirm the general views of the Reliquiae Diluvianae; in his 1831 presidential address he calls it 'a philosophic heresy' and publicly reads his 'recantation').</question>
+<earlier>
+In the first place, the cause assigned is inadequate to the effects produced. The physical contour and structure of the central and southern parts of England show the impossibility of any large lakes ever having existed among our secondary strata, capable of producing the enormous and almost continuous beds of gravel which stretch along the eastern coast. Several striking facts connected with this question have fallen under my own observation ; and, as far as they go, confirm the general views given in the ‘ Reliquie Diluviane.”
+</earlier>
+<later>
+Our errors were, however, natural, and of the same kind which led many excellent observers of a former century to refer all the secondary formations of geology to the Noachian deluge. Having been myself a believer, and, to the best of my power, « propagator of what I now regard as a philosophic heresy, and having more than once been quoted for opinions I do not now maintain, | think it right, as one of my last acts before I quit this Chair, thus publicly to read my recantation.
+</later>
+</card>
+
+<card id="e1adfb9b">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+3. Under this complex view, then, let us proceed to declare, as follows, the general doctrine Avhich is em- bodied, as respects our own case, in the phrase " Church and State." That in national societies of men generally the governing body should, in its capacity as such, pro- fess and maintain a religion according to its conscience, both as being composed of individuals who have indivi- dual responsibilities to discharge and individual pur- puses to fulfil, and as being itself, collectively, the seat of a national personality, with national responsibilities to discharge, and national purposes to fulfil : that it must have the extrinsic, and, in proportion as it is a good government, Avill have the intrinsic, qualifications for professing and maintaining such religion : that re- ligion offers sufficient inducements to such a policy : that as, in respect of its extension, it should, for the benefit of the state, be the greatest possible, and we are therefore bound to show, in considerin
+</earlier>
+<later>
+My opinion of the Established Church of Ireland now is the direct opposite of what it was then. I then thought it reconcilable with civil and national justice; I now think the maintenance of it grossly unjust. I then thought its action was favourable to the interests of the religion which it teaches; I now believe it to be opposed to them.
+</later>
+</card>
+
+<card id="2ea9a619">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+If, however, in the exemplification herewith indicated we have rightly associated the evanescence of the Dionysian spirit with a most striking, but hitherto unexplained transformation and degeneration of the Hellene--what hopes must revive in us when the most trustworthy auspices guarantee _the reverse process, the gradual awakening of the Dionysian spirit_ in our modern world! It is impossible for the divine strength of Herakles to languish for ever in voluptuous bondage to Omphale. Out of the Dionysian root of the German spirit a power has arisen which has nothing in common with the primitive conditions of Socratic culture, and can neither be explained nor excused thereby, but is rather regarded by this culture as something terribly inexplicable and overwhelmingly hostile,--namely, _German music_ as we have to understand it, especially in its vast solar orbit from Bach to Beethoven, from Beethoven to Wagner. What even under the most favourable circumstances can the knowledge-craving 
+</earlier>
+<later>
+Perhaps a few people, or at least my friends, will remember that I made my first plunge into life armed with some errors and some exaggerations, but that, in any case, I began with _hope_ in my heart. In the philosophical pessimism of the nineteenth century, I recognised—who knows by what by-paths of personal experience—the symptom of a higher power of thought, a more triumphant plenitude of life, than had manifested itself hitherto in the philosophies of Hume, Kant and Hegel!—I regarded _tragic_ knowledge as the most beautiful luxury of our culture, as its most precious, most noble, most dangerous kind of prodigality; but, nevertheless, in view of its overflowing wealth, as a justifiable _luxury_. In the same way, I began by interpreting Wagner’s music as the expression of a Dionysian powerfulness of soul. In it I thought I heard the earthquake by means of which a primeval life-force, which had been constrained for ages, was seeking at last to burst its bonds, quite indifferent to how
+</later>
+</card>
+
+<card id="cdf19c23">
+<question>Whether taking part in the African slave trade is morally lawful (Newton's Authentic Narrative, written 1762-63 about his years as a slave-ship captain, says that while engaged in the trade he 'never had the least scruple as to its lawfulness'; his 1788 Thoughts upon the African Slave Trade makes a public confession that he was once 'an active instrument, in a business at which my heart now shudders').</question>
+<earlier>
+Together with these studies, I have kept up a course of reading of the best writers in divinity that have come to my hand, in the Latin and English tongues, and some French ; for I picked up the French at times while I used the sea. But within these two or three years I have accustomed myself chiefly to writing, and have not found time to read many books besides the scriptures.
+</earlier>
+<later>
+If my testimony should not be necessary, or serviceable, yet, perhaps, I am bound, in conscience, to take shame to myself by a public confession, which, however sincere, comes too late to prevent, or repair, the misery and mischief to which I have, formerly, been accessary. I hope it will always be a subject of humiliating reflection to me, that I was, once, an active instrument, in a business at which my heart now shudders.
+</later>
+</card>
+
+<card id="f25a64a0">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+Sec. 11. Now the major premiss of this syllogism is inadmissible for two reasons: in the first place, it is assumed that known mind can only be caused by unknown mind; and, in the second place, even if this assumption were granted, it would not explain the existence of Mind as Mind. To take the last of these objections first, in the words of Mr. Mill, "If the mere existence of Mind is supposed to require, as a necessary antecedent, another Mind greater and more powerful, the difficulty is not removed by going one step back: the creating mind stands as much in need of another mind to be the source of its existence as the created mind. Be it remembered that we have no direct knowledge (at least apart from Revelation) of a mind which is even apparently eternal, as Force and Matter are: an eternal mind is, as far as the present argument is concerned, a simple hypothesis to account for the minds which we know to exist. Now it is essential to an hypothesis that, if admitted, it should at lea
+</earlier>
+<later>
+But I now clearly perceive two wellnigh fatal oversights which I then committed. The first was undue confidence in merely syllogistic conclusions, even when derived from sound premises, in regions of such high abstraction. The second was, in not being sufficiently careful in examining the foundations of my criticism, i. e. the validity of its premises.
+</later>
+</card>
+
+<card id="c0a53ef5">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+My friends, ye who believe in Dionysian music, ye know also what tragedy means to us. There we have tragic myth, born anew from music,--and in this latest birth ye can hope for everything and forget what is most afflicting. What is most afflicting to all of us, however, is--the prolonged degradation in which the German genius has lived estranged from house and home in the service of malignant dwarfs. Ye understand my allusion--as ye will also, in conclusion, understand my hopes.
+</earlier>
+<later>
+I place this point of view first and foremost: Wagner’s art is diseased. The problems he sets on the stage are all concerned with hysteria; the convulsiveness of his emotions, his over-excited sensitiveness, his taste which demands ever sharper condimentation, his erraticness which he togged out to look like principles, and, last but not least, his choice of heroes and heroines, considered as physiological types (—a hospital ward!—): the whole represents a morbid picture; of this there can be no doubt.
+</later>
+</card>
+
+<card id="da4b89f2">
+<question>Whether species are primordial, separately created and immutable, or arise by variation from earlier species (Lyell's Principles of Geology concludes that 'species have a real existence in nature' and rejects Lamarckian transmutation; his 1863 Antiquity of Man says 'when I formerly advocated the doctrine that species were primordial creations and not derivative', and goes on to treat natural selection as a far more probable cause of new species).</question>
+<earlier>
+We may imagine some future series of convulsions once more to heave up this stupendous chain, together with the adjoining bed of the sea, so that the mountains of Europe may rival the Andes in elevation; in which case the deltas of the Po, Adige, and Brenta, now encroaching upon the Adriatic, might be uplifted so as to form another exterior belt of considerable height around the southeastern flank of the Alps.
+</earlier>
+<later>
+The only secondary cause therefore which has as yet been even conjecturally brought forward, to explain how in the ordinary course of nature a new specific form may be generated is, as Lamarck declared, "variation," and this has been rendered a far more probable hypothesis by the way in which "natural selection" is shown to give intensity and permanency to certain varieties.
+</later>
+</card>
+
+<card id="41131b3b">
+<question>Whether the superficial gravel of the earth was deposited by one general (Noachian) deluge, as Buckland argued (Sedgwick's 1825 paper defends the diluvial classification, rejects explaining the diluvium by many partial, transient inundations, and says his own observations confirm the general views of the Reliquiae Diluvianae; in his 1831 presidential address he calls it 'a philosophic heresy' and publicly reads his 'recantation').</question>
+<earlier>
+The conclusions which I have attempted to vindicate in the preceding sections, however interesting in themselves, give us but scanty means of speculating on the causes which have produced the diluvial deposits. lt may be asked, by what forces were the diluvian torrents first put in motion? In what direction did they sweep over the earth ? On what part of the earth’s surface have they acted? Did they operate almost simultaneously over all parts of the world, or did they act at intervals and during a long period of time ? What was the condition of the globe puior to their action, and what are the modifications in its external character produced by them? To some of these questions, no answer can be given, and to none of them can we give a complete answer in the present state of our information, If, however, a great many well observed facts seem to point to one conclusion, that conclusion must be considered probable until it is opposed by some other conflicting facts. One thing at least as
+</earlier>
+<later>
+Our errors were, however, natural, and of the same kind which led many excellent observers of a former century to refer all the secondary formations of geology to the Noachian deluge. Having been myself a believer, and, to the best of my power, « propagator of what I now regard as a philosophic heresy, and having more than once been quoted for opinions I do not now maintain, | think it right, as one of my last acts before I quit this Chair, thus publicly to read my recantation.
+</later>
+</card>
+
+<card id="70937e13">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+It may be so; it may be otherwise. In the present condition of our knowledge and of our methods, one verdict--"not proven, and not provable"--must be recorded against all the grand hypotheses of the palaeontologist respecting the general succession of life on the globe. The order and nature of terrestrial life, as a whole, are open questions. Geology at present provides us with most valuable topographical records, but she has not the means of working them into a universal history. Is such a universal history, then, to be regarded as unattainable? Are all the grandest and most interesting problems which offer themselves to the geological student, essentially insoluble? Is he in the position of a scientific Tantalus--doomed always to thirst for a knowledge which he cannot obtain? The reverse is to be hoped; nay, it may not be impossible to indicate the source whence help will come.
+</earlier>
+<later>
+When I addressed you in 1862, I should have been bold indeed had I suggested that palaeontology would before long show us the possibility of a direct transition from the type of the lizard to that of the ostrich. At the present moment, we have, in the _Ornithoscelida_, the intercalary type, which proves that transition to be something more than a possibility; but it is very doubtful whether any of the genera of _Ornithoscelida_ with which we are at present acquainted are the actual linear types by which the transition from the lizard to the bird was effected.
+</later>
+</card>
+
+<card id="c2dbed76">
+<question>Whether every detail of an organism's structure must be explained as useful (adaptive), i.e. as shaped by natural selection (Darwin first says every detail is of use to the organism or its ancestors, later admits structures that are neither beneficial nor injurious and that he over-attributed to natural selection).</question>
+<earlier>
+In a state of nature almost every plant produces seed, and amongst animals there are very few which do not annually pair. Hence we may confidently assert, that all plants and animals are tending to increase at a geometrical ratio, that all would most rapidly stock every station in which they could any how exist, and that the geometrical tendency to increase must be checked by destruction at some period of life.
+</earlier>
+<later>
+We can, in our ignorance of most of the lowest animals, only say that their bright tints result either from the chemical nature or the minute structure of their tissues, independently of any benefit thus derived. Hardly any colour is finer than that of arterial blood; but there is no reason to suppose that the colour of the blood is in itself any advantage; and though it adds to the beauty of the maiden’s cheek, no one will pretend that it has been acquired for this purpose.
+</later>
+</card>
+
+<card id="e258213c">
+<question>Whether knowledge is confined to material nature, so that mind is a product of the brain and nothing is known beyond Nature (Besant's 1870s freethought essays: 'We know nothing beyond Nature'), or whether the Soul exists apart from the body and consciousness does not depend on the brain (her 1893 Autobiography, on her 1889 turn from Materialism to Theosophy).</question>
+<earlier>
+We know nothing beyond Nature; we judge of the future by the present and the past; we are content to work now, and let the work to come wait until it appears as the work to do; we find that our faculties are sufficient for fulfilling the tasks within our reach, and we cannot waste time and strength in gazing into impenetrable darkness. We must needs fight against superstitions, because they hinder the advancement of the race, but we will not fall into the error of opponents and try to define the Undefinable.
+</earlier>
+<later>
+Then followed a brief outline of the cycle of evolution, and I went on: "What part does man play in this vast drama of a universe? Needless to say, he is not the only living form in a Cosmos, which for the most part is uninhabitable by him. As Science has shown living forms everywhere on the material plane, races in each drop of water, life throbbing in every leaf and blade, so the 'Secret Doctrine' points to living forms on higher planes of existence, each suited to its environment, till all space thrills with life, and nowhere is there death, but only change. Amid these myriads are some evolving towards humanity, some evolving away from humanity as we know it, divesting themselves of its grosser parts. For man is regarded as a sevenfold being, four of these parts belonging to the animal body, and perishing at, or soon after, death; while three form his higher self, his true individuality, and these persist and are immortal. These form the Ego, and it is this which passes through many
+</later>
+</card>
+
+<card id="dda02c6a">
+<question>Whether private and domestic attachments may override impartial justice (Political Justice: 'what magic is there in the pronoun my'; the 1799 St. Leon preface says he wishes to modify the earlier chapters because domestic and private affections are inseparable from human nature and compatible with justice).</question>
+<earlier>
+This would not alter the truth of the proposition. The life of Fenelon would still be more valuable than that of the valet ; and justice, pure, unadulterated justice, would still have preferred that which was most valuable. Justice would have taught me to save the life of Fenelon at the expense of the other. What magic is there in the pronoun " my," that should justify us in overturning the decisions of impartial truth ?
+</earlier>
+<later>
+In answer to this objection, all I think it necessary to say on the present occasion is, that, for more than four years, I have been anxious for opportunity and leisure to modify some of the earlier chapters of that work in conformity to the sentiments inculcated in this. Not that I see cause to make any change respecting the principle of justice, or any thing else fundamental to the system there delivered; but that I apprehend domestic and private affections inseparable from the nature of man, and from what may be styled the culture of the heart, and am fully persuaded that they are not incompatible with a profound and active sense of justice in the mind of him that cherishes them.
+</later>
+</card>
+
+<card id="7849c47d">
+<question>Whether vice and virtue are real distinctions (Franklin's 1725 Dissertation argues from God's omnipotence and goodness that nothing is really evil and 'vice and virtue are empty distinctions'; the Autobiography calls the pamphlet an erratum and holds that actions are bad because they harm us).</question>
+<earlier>
+V. If He is all-powerful, there can be nothing either existing or acting in the Universe against or without his Consent; and what He consents to must be good, because He is good; therefore Evil doth not exist.
+</earlier>
+<later>
+and from the attributes of God, his infinite wisdom, goodness and power, concluded that nothing could possibly be wrong in the world, and that vice and virtue were empty distinctions, no such things existing, appear'd now not so clever a performance as I once thought it; and I doubted whether some error had not insinuated itself unperceiv'd into my argument, so as to infect all that follow'd, as is common in metaphysical reasonings.
+</later>
+</card>
+
+<card id="9a1ca0ab">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+Now this I conceive to have been a fully valid argument at the time it was published, and indeed the most convincing of all the arguments in favour of Theism. But, as already so frequently pointed out, the considerations adduced in Chapter IV. of the present work are utterly destructive of this argument. For this argument assumes, rightly enough, that the only alternative we have in choosing our hypothesis concerning the final explanation of things is either to regard that explanation as Intelligence or as Fortuity. This, I say, was a legitimate argument a few months ago, because up to that time no one had shown that strictly natural causes, as distinguished from chances, could conceivably be able to produce a cosmos; and although the several previous writers to whom Professor Flint alludes--and he might have alluded to others in this connection--entertained a dim anticipation of the fact that natural causes might alone be sufficient to produce the observed universe, still these dim an
+</earlier>
+<later>
+As regards the first point, never was any one more arrogant in his claims for pure reason than I was — more arrogant in spirit though not in letter, this being due to contact with science ; without ever considering how opposed to reason itself is the unexpressed assumption of my earlier argument as to God Himself, as if His existence were a merely physical problem to be solved by man's
+</later>
+</card>
+
+<card id="714b9c81">
+<question>Whether mental phenomena are essentially a relation of acquaintance/consciousness between a subject and an object (Problems of Philosophy 1912) or whether that theory is to be refuted (Analysis of Mind 1921, moving to neutral monism).</question>
+<earlier>
+This question of the distinction between act and object in our apprehending of things is vitally important, since our whole power of acquiring knowledge is bound up with it. The faculty of being acquainted with things other than itself is the main characteristic of a mind. Acquaintance with objects essentially consists in a relation between the mind and something other than the mind; it is this that constitutes the mind's power of knowing things. If we say that the things known must be in the mind, we are either unduly limiting the mind's power of knowing, or we are uttering a mere tautology. We are uttering a mere tautology if we mean by '_in_ the mind' the same as by '_before_ the mind', i.e. if we mean merely being apprehended by the mind. But if we mean this, we shall have to admit that what, _in this sense_, is in the mind, may nevertheless be not mental. Thus when we realize the nature of knowledge, Berkeley's argument is seen to be wrong in substance as well as in form, and his 
+</earlier>
+<later>
+In this first lecture I shall be concerned to refute a theory which is widely held, and which I formerly held myself: the theory that the essence of everything mental is a certain quite peculiar something called "consciousness," conceived either as a relation to objects, or as a pervading quality of psychical phenomena.
+</later>
+</card>
+
+<card id="50e20bc4">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+Having fully demonstrated that there is no shadow of a positive argument in support of the theistic theory, there arose the danger that some persons might erroneously conclude that for this reason the theistic theory must be untrue. It therefore became necessary to point out, that although, as far as we can see, nature does not require an Intelligent Cause to account for any of her phenomena, yet it is possible that, if we could see farther, we should see that nature could not be what she is unless she had owed her existence to an Intelligent Cause.
+</earlier>
+<later>
+But I now clearly perceive two wellnigh fatal oversights which I then committed. The first was undue confidence in merely syllogistic conclusions, even when derived from sound premises, in regions of such high abstraction. The second was, in not being sufficiently careful in examining the foundations of my criticism, i. e. the validity of its premises.
+</later>
+</card>
+
+<card id="62024f98">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+Enough has now been said in illustration of errors arising from the exercise of Private Judgment on the text of Scripture. The practical conclusion is obvious. Let those whom it concerns be cautious how they countenance a procedure which has led, not only to Arianism, but to tenets which Protestants of every denomination will agree in condemning,—Purgatory and the Pope's Supremacy [Note 18].
+</earlier>
+<later>
+Supposing then it to be the Will of the Creator to interfere in human affairs, and to make provisions for retaining in the world a knowledge of Himself, so definite and distinct as to be proof against the energy of human scepticism, in such a case,--I am far from saying that there was no other way,--but there is nothing to surprise the mind, if He should think fit to introduce a power into the world, invested with the prerogative of infallibility in religious matters. Such a provision would be a direct, immediate, active, and prompt means of withstanding the difficulty; it would be an instrument suited to the need; and, when I find that this is the very claim of the Catholic Church, not only do I feel no difficulty in admitting the idea, but there is a fitness in it, which recommends it to my mind. And thus I am brought to speak of the Church's infallibility, as a provision, adapted by the mercy of the Creator, to preserve religion in the world, and to restrain that freedom of thought,
+</later>
+</card>
+
+<card id="e5349bcf">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+Perhaps we may lead up to this primitive problem with the question: what æsthetic effect results when the intrinsically separate art-powers, the Apollonian and the Dionysian, enter into concurrent actions? Or, in briefer form: how is music related to image and concept?--Schopenhauer, whom Richard Wagner, with especial reference to this point, accredits with an unsurpassable clearness and perspicuity of exposition, expresses himself most copiously on the subject in the following passage which I shall cite here at full length[21] (_Welt als Wille und Vorstellung,_ I. p. 309): "According to all this, we may regard the phenomenal world, or nature, and music as two different expressions of the same thing,[20] which is therefore itself the only medium of the analogy between these two expressions, so that a knowledge of this medium is required in order to understand that analogy. Music, therefore, if regarded as an expression of the world, is in the highest degree a universal language, which 
+</earlier>
+<later>
+My greatest preoccupation hitherto has been the problem of _decadence_, and I had reasons for this. “Good and evil” form only a playful subdivision of this problem. If one has trained one’s eye to detect the symptoms of decline, one also understands morality,—one understands what lies concealed beneath its holiest names and tables of values: _e.g._, _impoverished_ life, the will to nonentity, great exhaustion. Morality _denies_ life.… In order to undertake such a mission I was obliged to exercise self-discipline:—I had to side against all that was morbid in myself including Wagner, including Schopenhauer, including the whole of modern _humanity_.—A profound estrangement, coldness and soberness towards all that belongs to my age, all that was contemporary: and as the highest wish, Zarathustra’s eye, an eye which surveys the whole phenomenon—mankind—from an enormous distance,—which looks down upon it.—For such a goal—what sacrifice would not have been worth while? What “self-mastery”! Wh
+</later>
+</card>
+
+<card id="d64a3265">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+None of these writers regarded the subject in the aspect most imperatively required by present circumstances : namely, that which shows that governments are, by " dutiful necessity," cognizant of religious truth and falsehood, and bound to the maintenance and propagation of the former.
+</earlier>
+<later>
+My opinion of the Established Church of Ireland now is the direct opposite of what it was then. I then thought it reconcilable with civil and national justice; I now think the maintenance of it grossly unjust. I then thought its action was favourable to the interests of the religion which it teaches; I now believe it to be opposed to them.
+</later>
+</card>
+
+<card id="150690f5">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+Unless it seemed like presumption to interpret the history of religion by a private rule, one might call the circumstances under consideration even providential. Nothing could be better adapted than it to defeat the counsels of human wisdom, or to show to thoughtful inquirers the hollowness of even the most specious counterfeit of divine truth. The theologians of Rome have been able dexterously to smooth over a thousand inconsistencies, and to array the heterogeneous precedents of a course of centuries in the semblance of design and harmony. But they cannot complete their system in its most important and essential point. They can determine in theory the nature, degree, extent, and object of the infallibility which they claim; they cannot agree among themselves where it resides. As {126} in the building of Babel, the Lord hath confounded their language; and the structure stands half finished, a monument at once of human daring and its failure [Note 15].
+</earlier>
+<later>
+Supposing then it to be the Will of the Creator to interfere in human affairs, and to make provisions for retaining in the world a knowledge of Himself, so definite and distinct as to be proof against the energy of human scepticism, in such a case,--I am far from saying that there was no other way,--but there is nothing to surprise the mind, if He should think fit to introduce a power into the world, invested with the prerogative of infallibility in religious matters. Such a provision would be a direct, immediate, active, and prompt means of withstanding the difficulty; it would be an instrument suited to the need; and, when I find that this is the very claim of the Catholic Church, not only do I feel no difficulty in admitting the idea, but there is a fitness in it, which recommends it to my mind. And thus I am brought to speak of the Church's infallibility, as a provision, adapted by the mercy of the Creator, to preserve religion in the world, and to restrain that freedom of thought,
+</later>
+</card>
+
+<card id="a7286fac">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+If, in answer to this statement, it be urged that the peculiar claim set up by Rome to be the true Church to the exclusion of ourselves, is so serious as to perplex the inquirer, and almost to lead him to join himself to her communion as the safest course, whatever be the identity of doctrine between the two systems on greater points, let it be considered whether on the other hand there be not some peculiarities hanging about her, which are sufficient from the same prudential motives to keep us at a distance from her. Our Lord said of false prophets, "By their fruits shall ye know them;" and, however the mind may be entangled theoretically, yet surely it will be struck with certain marks in Rome which seem intended to convey to the simple and honest inquirer a solemn warning to keep clear of her, while she carries them about her. Such are her denying the cup to the laity, her idolatrous worship of the Blessed Virgin, her Image-worship, her recklessness in anathematizing, and her schism
+</earlier>
+<later>
+In 1843, I took two very significant steps:--1. In February, I made a formal Retractation of all the hard things which I had said against the Church of Rome. 2. In September, I resigned the Living of St. Mary's, Littlemore included:--I will speak of these two acts separately.
+</later>
+</card>
+
+<card id="859a7070">
+<question>Whether hysteria is caused by actual sexual seduction or abuse in early childhood (the 1896 paper asserts that at the bottom of every case lie real premature sexual experiences; the 1905 paper says he overestimated their frequency and had mistaken the patients' phantasies for memories).</question>
+<earlier>
+I put forward the proposition, therefore, that at the bottom of every case of hysteria will be found one or more experiences of premature sexual experience, belonging to the first years of childhood, experiences which may be reproduced by analytic work though whole decades have intervened. I believe this to be a momentous revelation, the discovery of a _caput Nili_ of neuropathology, but I hardly know from what point to continue the discussion of the situation.
+</earlier>
+<later>
+I overestimated the frequency of these occurrences, which are otherwise quite authentic, and all the more so since I was not at this period able to discriminate between the deceptive memories of hysterics concerning their childhood and the memory-traces of actual happenings. I have since learned to unravel many a phantasy of seduction and found it to be an attempt at defence against the memory of sexual activities practised by the child himself (masturbation of children).
+</later>
+</card>
+
+<card id="8fda9e24">
+<question>Whether the mind is nothing but a bundle of perceptions with no real connexion among them that can ground personal identity (Hume first asserts the bundle view, then confesses he cannot render his own principles consistent).</question>
+<earlier>
+As a memory alone acquaints us with the continuance and extent of this succession of perceptions, it is to be considered, upon that account chiefly, as the source of personal identity. Had we no memory, we never should have any notion of causation, nor consequently of that chain of causes and effects, which constitute our self or person. But having once acquired this notion of causation from the memory, we can extend the same chain of causes, and consequently the identity of car persons beyond our memory, and can comprehend times, and circumstances, and actions, which we have entirely forgot, but suppose in general to have existed. For how few of our past actions are there, of which we have any memory? Who can tell me, for instance, what were his thoughts and actions on the 1st of January 1715, the 11th of March 1719, and the 3rd of August 1733? Or will he affirm, because he has entirely forgot the incidents of these days, that the present self is not the same person with the self of t
+</earlier>
+<later>
+In short there are two principles, which I cannot render consistent; nor is it in my power to renounce either of them, viz, that all our distinct perceptions are distinct existences, and that the mind never perceives any real connexion among distinct existences. Did our perceptions either inhere in something simple and individual, or did the mind perceive some real connexion among them, there would be no difficulty in the case. For my part, I must plead the privilege of a sceptic, and confess, that this difficulty is too hard for my understanding. I pretend not, however, to pronounce it absolutely insuperable. Others, perhaps, or myself, upon more mature reflections, may discover some hypothesis, that will reconcile those contradictions.
+</later>
+</card>
+
+<card id="ba3ca05b">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+it is plain that what is sensuously thought is the representation of things as they appear, while the intellectual presentations are the representations of things as they are.
+</earlier>
+<later>
+I openly confess, the suggestion of David Hume was the very thing, which many years ago first interrupted my dogmatic slumber, and gave my investigations in the field of speculative philosophy quite a new direction.
+</later>
+</card>
+
+<card id="179056bc">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+3. Under this complex view, then, let us proceed to declare, as follows, the general doctrine Avhich is em- bodied, as respects our own case, in the phrase " Church and State." That in national societies of men generally the governing body should, in its capacity as such, pro- fess and maintain a religion according to its conscience, both as being composed of individuals who have indivi- dual responsibilities to discharge and individual pur- puses to fulfil, and as being itself, collectively, the seat of a national personality, with national responsibilities to discharge, and national purposes to fulfil : that it must have the extrinsic, and, in proportion as it is a good government, Avill have the intrinsic, qualifications for professing and maintaining such religion : that re- ligion offers sufficient inducements to such a policy : that as, in respect of its extension, it should, for the benefit of the state, be the greatest possible, and we are therefore bound to show, in considerin
+</earlier>
+<later>
+Some may say that it is perfectly consistent to have endowed Maynooth anew, and yet to uphold on principle, as a part of the Constitution, the Established Church of Ireland. It may be consistent, for them; it was not consistent, as I have distinctly shown, for me. The moment that I admitted the validity of a claim by the Church of Rome for the gift, by the free act of the Imperial Parliament, of new funds for the education of its clergy, the true basis of the Established Church of Ireland for me was cut away. The one had always been treated by me as exclusive of the other. It is not now the question whether this way of looking at the question was a correct one. There are great authorities against it; while it seems at the same time to have some considerable hold on what may be termed the moral sense of portions, perhaps large portions, of the people. The present question is one of fact. It is enough for the present purpose, that such was my view. From that day forward, I have never to 
+</later>
+</card>
+
+<card id="84f12f3b">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+We must take and deal with things as they are, not as they pretend to be. If we are induced to believe the professions of Rome, and make advances towards her as if a sister or a mother Church, which in theory she is, we shall find too late that we are in the arms of a pitiless and unnatural relative, who will but triumph in the arts which have inveigled us within her reach.
+</earlier>
+<later>
+"May 4, 1843.... At present I fear, as far as I can analyze my own convictions, I consider the Roman Catholic Communion to be the Church of the Apostles, and that what grace is among us (which, through God's mercy, is not little) is extraordinary, and from the overflowings of His dispensation. I am very far more sure that England is in schism, than that the Roman additions to the Primitive Creed may not be developments, arising out of a keen and vivid realizing of the Divine Depositum of Faith.
+</later>
+</card>
+
+<card id="d163b3b0">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+How far the great principle of natural selection may have been instrumental in the evolution of organic forms, is not here, as Mill erroneously imagined, the question; the question is simply as to whether we are to accept the theory of special creation or the theory of organic evolution. And forasmuch as no competent judge at the present time can hesitate for one moment in answering this question, the argument from a proximate teleology must be regarded as no longer having any rational existence.
+</earlier>
+<later>
+Therefore it is as absurd to say that the religious consciousness of minds other than our own can be barred antecedently as evidence, as it is to say that testimony to the miraculous is similarly barred.
+</later>
+</card>
+
+<card id="40906db2">
+<question>Whether mental phenomena are essentially a relation of acquaintance/consciousness between a subject and an object (Problems of Philosophy 1912) or whether that theory is to be refuted (Analysis of Mind 1921, moving to neutral monism).</question>
+<earlier>
+When I am acquainted with 'my seeing the sun', it seems plain that I am acquainted with two different things in relation to each other. On the one hand there is the sense-datum which represents the sun to me, on the other hand there is that which sees this sense-datum. All acquaintance, such as my acquaintance with the sense-datum which represents the sun, seems obviously a relation between the person acquainted and the object with which the person is acquainted.
+</earlier>
+<later>
+The stuff of which the world of our experience is composed is, in my belief, neither mind nor matter, but something more primitive than either. Both mind and matter seem to be composite, and the stuff of which they are compounded lies in a sense between the two, in a sense above them both, like a common ancestor.
+</later>
+</card>
+
+<card id="6e3bb551">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+Yet we have seen that this is a test than which none can be more ultimate. What then shall we say is the final outcome of this discussion concerning the rational standing of the teleological argument? The answer, I think, to this question is, that in strict reasoning the teleological argument, in its every shape, is inadequate to form a basis of Theism; or, in other words, that the logical cogency of this argument is insufficient to justify a wholly impartial mind in accepting the theory of Theism on so insecure a foundation. Nevertheless, if the further question were directly put to me, 'After having heard the pleading both for and against the most refined expression of the argument from teleology, with what degree of strictly rational probability do you accredit it?'--I should reply as follows:--'The question which you put I take to be a question which it is wholly impossible to answer, and this for the simple reason that the degree of even rational probability may here legitimately 
+</earlier>
+<later>
+My own attitude may be here stated. I do not claim any [religious] certainty of an intuitive kind myself; but am nevertheless able to investigate the abstract logic of the matter. And, although this may seem but barren dialectic, it may, I hope, be of practical service if it secures a fair hearing to the reports given by the vast majority of mankind who unquestionably believe them to emanate from some such super-added faculties — numerous and diverse though their religions be. Besides, in my youth I published an essay (the Candid Examination) which excited a good deal of interest at the time, and has been long out of print. In that treatise I have since come to see that I was wrong touching what I constituted the basal argument for my negative conclusion. Therefore I now feel it obligatory on me to publish the following results of my maturer thought, from the same stand-point of pure reason. Even though I have obtained no further light from the side of intuition, I have from that of in
+</later>
+</card>
+
+<card id="6fb6b035">
+<question>Whether the fossil human remains found with extinct mammals in caves and gravels prove that man is much older than geologists had thought (Lyell's Principles of Geology treats the human race as geologically very recent and the cave evidence as no proof of co-existence with extinct species; his 1863 Antiquity of Man says he gave Schmerling's evidence less weight than it deserved and accepts that man co-existed with extinct mammals).</question>
+<earlier>
+The comparatively modern introduction of the human race is proved by the absence of the remains of man and his works, not only from all strata containing a certain proportion of fossil shells of extinct species, but even from a large part of the newest strata, in which all the fossil individuals are referable to species still living.
+</earlier>
+<later>
+The year after this conversation I cited Schmerling's opinions, and the facts bearing on the antiquity of Man, in the 3rd edition of my "Principles of Geology" (page 161, 1834), and in succeeding editions, without pretending to call in question their trustworthiness, but at the same time without giving them the weight which I now consider they were entitled to. He had accumulated ample evidence to prove that Man had been introduced into the earth at an earlier period than geologists were then willing to believe.
+</later>
+</card>
+
+<card id="396b4f7d">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+it is plain that what is sensuously thought is the representation of things as they appear, while the intellectual presentations are the representations of things as they are.
+</earlier>
+<later>
+Hence if the pure concepts of the understanding do not refer to objects of experience but to things in themselves (noumena), they have no signification whatever. They serve, as it were, only to decipher appearances, that we may be able to read them as experience. The principles which arise from their reference to the sensible world, only serve our understanding for empirical use.
+</later>
+</card>
+
+<card id="1c5c196e">
+<question>Whether political power should rest on persons (universal representation, the suffrage of every individual, no property qualification for legislators, as in Wordsworth's republican Letter to the Bishop of Llandaff, 1793) or on property and the existing complex system of representation (his 1821 Letter to a Friend: 'When I was young ... I thought it derogatory to human nature to set up property in preference to person as a title for legislative power. That notion has vanished.'; in 1831 he defends the English constitution against Reform).</question>
+<earlier>
+You seem unconscious of the absurdity of separating what is inseparable even in imagination. Would it have been any consolation to the miserable Romans under the second triumvirate to have been asked insultingly, Is it Octavius, is it Anthony, or is it Lepidus that has caused this bitterness of affliction? and when the answer could not be returned with certainty, to have been reproached that their sufferings were imaginary? The fact is that the King _and_ Lords _and_ Commons, by what is termed the omnipotence of Parliament, have constitutionally the right of enacting whatever laws they please, in defiance of the petitions or remonstrances of the nation. They have the power of doubling our enormous debt of 240 millions, and _may_ pursue measures which could never be supposed the emanation of the general will without concluding the people stripped of reason, of sentiment, and even of that first instinct which prompts them to preserve their own existence.
+</earlier>
+<later>
+The constitution of England, which seems about to be destroyed, offers to my mind the sublimest contemplation which the history of society and government have ever presented to it; and for this cause especially, that its principles have the character of preconceived ideas, archetypes of the pure intellect, while they are, in fact, the results of a humble-minded experience.
+</later>
+</card>
+
+<card id="8839dedb">
+<question>Whether the fossil record gives evidence of progressive modification of animal forms (and so of evolution) among the higher vertebrates (Huxley's 1862 address says palaeontology negatives progressive modification; his 1870 address softens this and finds a clear balance for evolution in the higher vertebrates).</question>
+<earlier>
+It negatives those doctrines; for it either shows us no evidence of any such modification, or demonstrates it to have been very slight; and as to the nature of that modification, it yields no evidence whatsoever that the earlier members of any long-continued group were more generalised in structure than the later ones. To a certain extent, indeed, it may be said that imperfect ossification of the vertebral column is an embryonic character; but, on the other hand, it would be extremely incorrect to suppose that the vertebral columns of the older Vertebrata are in any sense embryonic in their whole structure.
+</earlier>
+<later>
+So far as the Upper Eocene and the Miocene Mammalian Faunae are comparable, their relations are such as in no way to oppose the hypothesis that the older are the progenitors of the more recent forms, while, in some cases, they distinctly favour that hypothesis. The period in tine and the changes in physical geography represented by the nummulitic deposits are undoubtedly very great, while the remains of Middle Eocene and Older Eocene Mammals are comparatively few. The general facies of the Middle Eocene Fauna, however, is quite that of the Upper. The Older Eocene pre-nummulitic mammalian Fauna contains Bats, two genera of _Carivora_, three genera of _Ungulata_ (probably all perissodactyle), and a didelphid Marsupial; all these forms, except perhaps the Bat and the Opossum, belong to genera which are not known to occur out of the Lower Eocene formation. The _Coryphodon_ appears to have been allied to the Miocene and later Tapirs, while _Pliolophus_, in its skull and dentition, curiously
+</later>
+</card>
+
+<card id="434e109f">
+<question>Whether Wagner is the sublime protagonist of the revival of art as the highest metaphysical activity (1871 dedication) or a sickness and symptom of decadence he once took too seriously (1888).</question>
+<earlier>
+We should also have to regard our German character with despair and sorrow, if it had already become inextricably entangled in, or even identical with this culture, in a similar manner as we can observe it to our horror to be the case in civilised France; and that which for a long time was the great advantage of France and the cause of her vast preponderance, to wit, this very identity of people and culture, might compel us at the sight thereof to congratulate ourselves that this culture of ours, which is so questionable, has hitherto had nothing in common with the noble kernel of the character of our people. All our hopes, on the contrary, stretch out longingly towards the perception that beneath this restlessly palpitating civilised life and educational convulsion there is concealed a glorious, intrinsically healthy, primeval power, which, to be sure, stirs vigorously only at intervals in stupendous moments, and then dreams on again in view of a future awakening. It is from this abys
+</earlier>
+<later>
+The following chapters have been selected from past works of mine, and not without care. Some of them date back as far as 1877. Here and there, of course, they will be found to have been made a little more intelligible, but above all, more brief. Read consecutively, they can leave no one in any doubt, either concerning myself, or concerning Wagner: we are antipodes. The reader will come to other conclusions, too, in his perusal of these pages: for instance, that this is an essay for psychologists and _not_ for Germans.… I have my readers everywhere, in Vienna, St Petersburg, Copenhagen, Stockholm, Paris, and New York—but _I have none_ in Europe’s Flat-land—Germany.… And I might even have something to say to Italians whom I love just as much as I … _Quousque tandem, Crispi_ … Triple alliance: a people can only conclude a _mésalliance_ with the “Empire.”…
+</later>
+</card>
+
+<card id="4e393bcf">
+<question>Whether the understanding can know things as they are (Inaugural Dissertation 1770, intellectual presentations represent things as they are) or only objects of possible experience and mere appearances (Prolegomena 1783).</question>
+<earlier>
+Space is not something objective and real, neither sub- stance, nor accident, nor relation ; but subjective and ideal, arising by fixed law from the nature of the mind
+</earlier>
+<later>
+Hence if the pure concepts of the understanding do not refer to objects of experience but to things in themselves (noumena), they have no signification whatever. They serve, as it were, only to decipher appearances, that we may be able to read them as experience. The principles which arise from their reference to the sensible world, only serve our understanding for empirical use.
+</later>
+</card>
+
+<card id="8af9410f">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+3. Under this complex view, then, let us proceed to declare, as follows, the general doctrine Avhich is em- bodied, as respects our own case, in the phrase " Church and State." That in national societies of men generally the governing body should, in its capacity as such, pro- fess and maintain a religion according to its conscience, both as being composed of individuals who have indivi- dual responsibilities to discharge and individual pur- puses to fulfil, and as being itself, collectively, the seat of a national personality, with national responsibilities to discharge, and national purposes to fulfil : that it must have the extrinsic, and, in proportion as it is a good government, Avill have the intrinsic, qualifications for professing and maintaining such religion : that re- ligion offers sufficient inducements to such a policy : that as, in respect of its extension, it should, for the benefit of the state, be the greatest possible, and we are therefore bound to show, in considerin
+</earlier>
+<later>
+Let me now endeavour to state the offence of which I am held guilty. _Ille ego qui quondam_: I, the person who have now accepted a foremost share of the responsibility of endeavouring to put an end to the existence of the Irish Church as an Establishment, am also the person who, of all men in official, perhaps in public life, did, until the year 1841, recommend, upon the highest and most imperious grounds, its resolute maintenance.
+</later>
+</card>
+
+<card id="12f75754">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+80. Nor need our opponents go far for a case in ex- emplification of their propositions. Upon us of this day has fallen (and we shrink not from it, but Avelcome it as a high and glorious though an arduous duty) the de- fence of the Reformed Catholic Church in Ireland, as the religious establishment of the country. The Protestant legislature of the empire maintain in the possession of the church property of Ireland the ministers of a creed professed by one-ninth of its population, regarded with partial favour by scarcely another ninth, and disowned by the remaining seven. And not only does this ano- maly meet us full in view, l>ut we have also to consider and digest the fact, that the maintenance of this church for near three centuries in Ireland has been contempo- raneous with a system of partial and abusive govern- ment, varying in degree of culpability, but rarely until of later years, when we have been forced to look at the subject and to feel it, to be exempted, in common fair- nes
+</earlier>
+<later>
+My opinion of the Established Church of Ireland now is the direct opposite of what it was then. I then thought it reconcilable with civil and national justice; I now think the maintenance of it grossly unjust. I then thought its action was favourable to the interests of the religion which it teaches; I now believe it to be opposed to them.
+</later>
+</card>
+
+<card id="c9b88194">
+<question>Whether an untested diamond that is never scratched is hard only as a matter of usage (1878 pragmatic maxim, nominalist-leaning) or has a real, though never actualised, hardness (1905 realism about real possibilities).</question>
+<earlier>
+There is absolutely no difference between a hard thing and a soft thing so long as they are not brought to the test. Suppose, then, that a diamond could be crystallized in the midst of a cushion of soft cotton, and should remain there until it was finally burned up. Would it be false to say that that diamond was soft?
+</earlier>
+<later>
+The question is, was that diamond really hard? It is certain that no discernible actual fact determined it to be so. But is its hardness not, nevertheless, a real fact? To say, as the article of Jan. 1878 seems to intend, that it is just as an arbitrary “usage of speech” chooses to arrange its thoughts, is as much as to decide against the reality of the property, since the real is that which is such as it is regardless of how it is, at any time, thought to be.
+</later>
+</card>
+
+<card id="ad69af44">
+<question>Whether the Church of Rome is the Anglican's enemy and a corrupt, hostile body (Newman's Anglican view of Rome, which he later renounced on becoming a Catholic).</question>
+<earlier>
+3. The same view of Romanism is implied when we call our ecclesiastical changes in the sixteenth century a Reformation. A building has not been reformed or repaired, when it has been pulled down and built up again; but the word is used when it has been left substantially what it was before, only amended or restored in detail. In like manner, we Anglo-Catholics do not profess a different religion from that of Rome, we profess their Faith all but their corruptions [Note 4].
+</earlier>
+<later>
+Accordingly, I abandoned that old ground and took another. I deliberately quitted the old Anglican ground as untenable; though I did not do so all at once, but as I became more and more convinced of the state of the case. The Jerusalem Bishopric was the ultimate condemnation of the old theory of the Via Media:--if its establishment did nothing else, at least it demolished the sacredness of diocesan rights. If England could be in Palestine, Rome might be in England. But its bearing upon the controversy, as I have shown in the foregoing chapter, was much more serious than this technical ground. From that time the Anglican Church was, in my mind, either not a normal portion of that One Church to which the promises were made, or at least in an abnormal state; and from that time I said boldly (as I did in my Protest, and as indeed I had even intimated in my Letter to the Bishop of Oxford), that the Church in which I found myself had no claim on me, except on condition of its being a portion
+</later>
+</card>
+
+<card id="ec9b2b7b">
+<question>Whether the State should maintain an established church (in particular the Church of Ireland) as the vehicle of religious truth (Gladstone's 1838 book says governments are bound to maintain and propagate religious truth; his 1868 Chapter of Autobiography says he now thinks maintaining the Irish Establishment grossly unjust).</question>
+<earlier>
+80. Nor need our opponents go far for a case in ex- emplification of their propositions. Upon us of this day has fallen (and we shrink not from it, but Avelcome it as a high and glorious though an arduous duty) the de- fence of the Reformed Catholic Church in Ireland, as the religious establishment of the country. The Protestant legislature of the empire maintain in the possession of the church property of Ireland the ministers of a creed professed by one-ninth of its population, regarded with partial favour by scarcely another ninth, and disowned by the remaining seven. And not only does this ano- maly meet us full in view, l>ut we have also to consider and digest the fact, that the maintenance of this church for near three centuries in Ireland has been contempo- raneous with a system of partial and abusive govern- ment, varying in degree of culpability, but rarely until of later years, when we have been forced to look at the subject and to feel it, to be exempted, in common fair- nes
+</earlier>
+<later>
+Let me now endeavour to state the offence of which I am held guilty. _Ille ego qui quondam_: I, the person who have now accepted a foremost share of the responsibility of endeavouring to put an end to the existence of the Irish Church as an Establishment, am also the person who, of all men in official, perhaps in public life, did, until the year 1841, recommend, upon the highest and most imperious grounds, its resolute maintenance.
+</later>
+</card>
+
+<card id="df9d355a">
+<question>Whether a Socialist/Communist organisation of society would destroy individual freedom and so should be opposed (Mill's hostile first-edition treatment of Socialism, later cancelled and replaced by a more favourable one).</question>
+<earlier>
+We may rather compare it to a highly elastic and extensible band, which is hardly ever so violently stretched that it could not possibly be stretched any more, yet the pressure of which is felt long before the final limit is reached, and felt more severely the nearer that limit is approached.
+</earlier>
+<later>
+In the first edition the difficulties of Socialism were stated so strongly, that the tone was on the whole that of opposition to it. In the year or two which followed, much time was given to the study of the best Socialistic writers on the Continent, and to meditation and discussion on the whole range of topics involved in the controversy: and the result was that most of what had been written on the subject in the first edition was cancelled, and replaced by arguments and reflections which represent a more advanced opinion.
+</later>
+</card>
+
+<card id="d4dd6352">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+It is thus, I think, abundantly certain that the present argument must, from its very nature, be powerless as an argument to anyone save its assertor; as a matter of fact, the alleged necessity of thought is not universal; it is peculiar to those who employ the argument.
+</earlier>
+<later>
+Therefore it is as absurd to say that the religious consciousness of minds other than our own can be barred antecedently as evidence, as it is to say that testimony to the miraculous is similarly barred.
+</later>
+</card>
+
+<card id="b241012c">
+<question>Whether many minds or mental states can compound into a single higher consciousness, and hence whether a compound 'absolute' mind is possible (the Principles of Psychology denies it and calls the mind-dust theory untenable; A Pluralistic Universe says the absolute is not the impossible being he once thought).</question>
+<earlier>
+We talk of the 'spirit of the age,' and the 'sentiment of the people,' and in various ways we hypostatize 'public opinion.' But we know this to be symbolic speech, and never dream that the spirit, opinion, sentiment, etc., constitute a consciousness other than, and additional to, that of the several individuals whom the words 'age,' 'people,' or 'public' denote. The private minds do not agglomerate into a higher compound mind.
+</earlier>
+<later>
+In _principle_, then, the real units of our immediately-felt life are unlike the units that intellectualist logic holds to and makes its calculations with. They are not separate from their own others, and you have to take them at widely separated dates to find any two of them that seem unblent. Then indeed they do appear separate even as their concepts are separate; a chasm yawns between them; but the chasm itself is but an intellectualist fiction, got by abstracting from the continuous sheet of experiences with which the intermediary time was filled.
+</later>
+</card>
+
+<card id="96ebd4fe">
+<question>Whether Christ was a mere man and Christianity a Unitarian religion of natural theology whose chief doctrine is immortality 'proved to us by the resurrection of Jesus' (Coleridge's 1795 Addresses to the People), or the incarnate God of Trinitarian doctrine (Biographia Literaria, 1817, where he calls his Unitarian opinions 'in many and most important points erroneous' and says Unitarianism and the Trinitarian faith are opposites).</question>
+<earlier>
+But even these means have proved insufficient ; and the poor wretches, whom hunger had driven or artifice seduced into the deeds of death, have fallen so fast, that crimping has been found necessary. Crimping has been established into a trade, and accompanied with such an apparatus of horrors, as would arm Mercy with the thunderbolt. The Irish* Regiment, recently landed at Pill near this city is a melancholy instance — By long confinement and by filth they have almost ceased to resemble men.
+</earlier>
+<later>
+But this I have said, and shall continue to say: that if the doctrines, the sum of which I believe to constitute the truth in Christ, be Christianity, then Unitarianism is not, and vice versa: and that, in speaking theologically and impersonally, i.e. of Psilanthropism and Theanthropism as schemes of belief, without reference to individuals, who profess either the one or the other, it will be absurd to use a different language as long as it is the dictate of common sense, that two opposites cannot properly be called by the same name.
+</later>
+</card>
+
+<card id="5cf6d794">
+<question>Whether the fossil human remains found with extinct mammals in caves and gravels prove that man is much older than geologists had thought (Lyell's Principles of Geology treats the human race as geologically very recent and the cave evidence as no proof of co-existence with extinct species; his 1863 Antiquity of Man says he gave Schmerling's evidence less weight than it deserved and accepts that man co-existed with extinct mammals).</question>
+<earlier>
+The comparatively modern introduction of the human race is proved by the absence of the remains of man and his works, not only from all strata containing a certain proportion of fossil shells of extinct species, but even from a large part of the newest strata, in which all the fossil individuals are referable to species still living.
+</earlier>
+<later>
+M. Lartet, however, has recently published a circumstantial account of what seems clearly to have been a sepulchral vault of the Pleistocene period, near Aurignac, not far from the foot of the Pyrenees. I have had the advantage of inspecting the fossil bones and works of art obtained by him from that grotto, and of conversing and corresponding with him on the subject, and can see no grounds for doubting the soundness of his conclusions.*
+</later>
+</card>
+
+<card id="21bad163">
+<question>Whether reason and the evidence of nature give any support to theism (the anonymous 1878 Candid Examination finds no evidence and rests on pure syllogistic reasoning; Romanes's own 1890s Notes say that treatise made two 'wellnigh fatal oversights' and that the religious consciousness of human nature is evidence).</question>
+<earlier>
+How far the great principle of natural selection may have been instrumental in the evolution of organic forms, is not here, as Mill erroneously imagined, the question; the question is simply as to whether we are to accept the theory of special creation or the theory of organic evolution. And forasmuch as no competent judge at the present time can hesitate for one moment in answering this question, the argument from a proximate teleology must be regarded as no longer having any rational existence.
+</earlier>
+<later>
+But I now clearly perceive two wellnigh fatal oversights which I then committed. The first was undue confidence in merely syllogistic conclusions, even when derived from sound premises, in regions of such high abstraction. The second was, in not being sufficiently careful in examining the foundations of my criticism, i. e. the validity of its premises.
+</later>
+</card>

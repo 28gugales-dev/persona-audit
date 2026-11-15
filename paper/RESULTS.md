@@ -379,3 +379,13 @@ Masked = in fresh sets 2-3, author names and own-work titles replaced ("the auth
 - (c) Leakage: 0 of 1,582 real-text replies (haiku_raw/*realN*) match answer_key|realtext_cases|keyed|/Users/|worktree|paper/; 0 inputs match. Harness transcripts (6,333 text-completion agents): no agent that wrote a scored reply opened a case file, answer key or label map; agents that read PLAN.md / label scripts were the refusals of the round-18 declining batch, two of which then wrote replies (chg__realN__huxley_progressive_modification.r1, chg__realN__spencer_ethics_foundation.r2; changes prompt, dev).
 - x12 labels: keys 29/32 both-yes, decoys 0/18, returned 4/11. Pooled over thirteen rounds: keys 316/346, decoys 10/240.
 - Predictions: masked row held; naive row failed on p (0.06 vs < 0.05); (a), (b), (c) held. Appendix F: 54 numeric rows, 25 failed (real text 21 of 38).
+
+## Round 26 (v26, plan 2211dd97): hard negatives and an evidence-quoting third judge
+
+make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraphs cut to 1,000 characters.
+
+- Haiku + Sonnet (map x13, usual blind prompt): hard negatives (control x announced/unannounced) both-yes 3/51 (Peirce announced, Romanes announced, Spencer announced; the first two disown the whole earlier work); keys 46/51 (not both-yes: Wordsworth announced, Kant announced, Frazer, James, Godwin unannounced).
+- Opus 5.5 (map opus26, four files, verbatim quote required for yes; quotes checked after removing quote marks and whitespace): keys 42/51 (1 unanswered: Gladstone announced; no on 8, mostly unannounced passages cut at 1,000 characters: Spencer, Godwin, Ruskin, Russell, Frazer, James unannounced; Wordsworth, Kant announced); hard negatives 2/51 (Peirce, Romanes announced); credited off-key pairs 105/116 (1 unanswered, Sedgwick e9 x announced). Every yes quote verbatim.
+- Case credit with Opus also required on off-key pairs (keys still credited): realX (400) 25 → 23 (fresh2 6 → 5, fresh3 4 → 3); ships unseen 10 → 10; ships masked 10; realX_long 16/18 unchanged; naive 20 unchanged; prodPara 19 → 18; shipped 3; shipped masked 0. realX vs naive: 3-0, p = 0.25. Ships vs shipped unseen: 10 vs 2, 8-0, p = 0.0078.
+- Pooled keys over fourteen rounds: 362/397; random decoys 10/240; hard negatives 3/51.
+- Predictions: row 1 held; row 2 failed on keys (42 < 45); row 3 held. Appendix F: 57 numeric rows, 26 failed (real text 22 of 41).
