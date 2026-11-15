@@ -308,3 +308,24 @@ Commits: plan + predictions e083b001 (02:18:52 ET Nov 15), cases cc168613 (02:51
 - x8 labels: keys 9/12 both-yes (Wordsworth keys split 1-1, Frazer unannounced 0-2), decoys 0/6, returned 6/46. Pooled over nine rounds: keys 148/161, decoys 7/132, returned 231/410.
 - Predictions: all held except the necessity test (deployed ≥ realX + 1): 4 vs 4. By the rule written beforehand, the second prompt and longer excerpts are not shown to help on unseen cases. Across both unseen sets: realX 10/12, deployed 10/12. All 30 cases: realX-400 25, deployed 27, shipped 2.
 - Appendix F: 43 numeric rows, 19 failed (real text 15 of 27). Cost: 126 Haiku replies, 2 label calls, one Sonnet sourcing agent.
+
+## Round 22 (v22): definition swap on real text, and the retraction-link probe (plan 6ad576bd, 12:00 ET Nov 15, before any request)
+
+Definition swap (whole history, 400 characters, 3 runs, 30 histories, case level, blind labels map x9). Shipped prompt now has 3 runs on every set (runs 2-3 on fresh sets 1-2 added here).
+
+| Arm | Dev /12 | F1 /6 | F2 /6 | F3 /6 | Total /30 | Controls |
+|---|---|---|---|---|---|---|
+| Shipped prompt | 1 | 0 | 2 (Besant, Buckland) | 0 | 3 | 0 |
+| defOnly (time-anchored definition) | 2 | 2 | 1 | 1 | 6 | 0 |
+| defNoEmpty (that, and no empty-list default) | 5 | 2 | 2 | 2 | 11 | 0 |
+| realX (for comparison) | 11 | 4 | 6 | 4 | 25 | – |
+
+Retraction-link probe (14 cases whose announcement does not state the new view; longer excerpts; told which excerpt retracts; up to 3 candidates; credited if the keyed early passage or a both-labelled early paragraph is in the top 3): 11/14 on a majority of runs (top-1: 10). Missed: Hume 1/3 runs, Kant 0/3, Coleridge 1/3. Wordsworth credited 3/3 (via labelled early paragraphs), though no detection prompt found it.
+
+- x9 labels: keys 48/51 both-yes (1 card missing a label), decoys 2/30, returned 31/39. Pooled over ten rounds: keys 196/212, decoys 9/162, returned 262/449.
+- Predictions: definition-swap row failed (defOnly 6 < 8, defNoEmpty 11 < 14); link row failed on Hume. Appendix F: 45 numeric rows, 21 failed (real text 17 of 29).
+- Shipped-prompt headline updated: 3 of 30 (was 2 of 30 with one run on fresh sets 1-2); fresh set 2: 2 of 6.
+
+## Product change, Nov 15 (main c9a32b4c, API deployed, Aliased amphi-api.vercel.app, health 200)
+
+findConflicts now asks realX (CONFLICTS_SYSTEM, deployed text) once, with longer excerpts; CHANGES_SYSTEM removed. Evidence: realX with longer excerpts 26/30 (dev 11, F1 5, F2 6, F3 4; F2-F3 from the first call of each two-call look) vs two-call 27/30 (only James differs, a tuning case); on the 12 unseen cases 10 each; the second call doubled non-genuine cards (round 20). API tests 55/55, typecheck clean.

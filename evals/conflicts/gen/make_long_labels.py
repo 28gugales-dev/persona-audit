@@ -14,7 +14,7 @@ for f in FILES:
     for l in open(f'{R}/{f}'):
         r = json.loads(l); text[r['case']] = {e['id']: e['text'] for e in r['body']['excerpts']}
 want = {}
-for u in json.load(open(f'{R}/v18b_scores.json'))['unlabelled']:
+for u in json.load(open(f'{R}/v18b_scores.json'))['unlabelled'] + (json.load(open(f'{R}/v22_link_scores.json'))['summary']['unlabelled'] if os.path.exists(f'{R}/v22_link_scores.json') else []):
     arm, c, a, b = u.split('|')
     if (arm in ARM.split(',') if ARM else arm.endswith('_long')) and c in text: want[(c, a, b)] = 'returned'
 for c, t in text.items():

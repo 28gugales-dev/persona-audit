@@ -487,3 +487,12 @@ Predictions:
 - Deployed ≥ 4/6 and ≥ realX-400 + 1 case (the necessity test). If deployed ≤ realX-400, the paper says the second prompt and longer excerpts are not shown to help on unseen cases.
 - beliefshift_style ≥ realX-400.
 - Controls flagged in ≤ 1 history per run or look, every arm.
+
+## v22: cause 2 on real text, and where retractions fail (committed before any v22 request exists)
+
+Why: cause 2 (the shipped definition) was isolated only on planted items; judges asked for the real-text test. And every prompt misses Coleridge and Wordsworth, and realX misses Hume: we do not know whether the model fails to notice the retraction or fails to link it back.
+
+1. **Definition swap on real text.** The shipped prompt with only the planted-item edits (same text as requests_mech2): defOnly ("each excerpt, at the time it was written, stated the person's own view"), defNoEmpty (that, and without "Most themes have none, and an empty list is the right answer then."). Whole history, 400 characters, 3 runs, all 30 histories; plus shipped runs 2-3 on fresh sets 1-2 so every history has 3 shipped runs. Case level, blind thesis labels.
+   - Predictions: shipped ≤ 3/30; defOnly ≥ 8/30; defNoEmpty ≥ 14/30 and ≥ defOnly; both below realX-400's 25/30; controls ≤ 1 history per run each.
+2. **Retraction-link probe** (oracle on the later end). For the 14 cases whose announced passage does not state the new view: the whole history at longer excerpts, and the instruction "Excerpt E<k> is a later passage in which the writer disowns or corrects a view of their own. Which earlier excerpts state the view it disowns? Up to 3, best first." 3 runs. Credit: the keyed early passage, or another early-work paragraph both thesis labellers call a match with the announcement.
+   - Predictions: credited in top 3 on a majority of runs for ≥ 10/14; Hume credited; Coleridge and Wordsworth: at most one of the two credited (if linking fails too, those cases need a different approach than a better detection prompt).
