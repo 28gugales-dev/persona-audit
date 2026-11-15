@@ -602,3 +602,9 @@ Why (judge look 5): the genuine shares in Table 4 come from four labelling batch
 2. **Matched budget**: case credit (existing runs and labels) counting only each run's first returned pair (k = 1) and first two (k = 2), for shipped, naive, one-liner, realX (400) and Persona now.
    - Predictions: at k = 1, Persona now ≥ 22 of 30 and naive ≤ 18; Persona now's lead over naive at k = 1 ≥ its lead with all pairs (6).
 No product decision rides on this round.
+
+## v33: recall split by what the model can state from memory (committed before the split was computed)
+
+Why (judge look 5, round-32 reflection): the cases are famous authors; a prompt could find changes the model already knows about. The closed-book probes (rounds 17 and 27; author, years and question only) split the 30 cases into 14 whose change Haiku stated and 16 it did not (dev: stated Nietzsche x3, Kant, Mill socialism, Russell; later sets: Freud, Gladstone, Lyell antiquity, Besant, Darwin Glen Roy, Sedgwick, Newton, Coleridge).
+- From existing runs and labels (case level, majority of runs), for shipped, naive (400), one-liner, realX (400) and Persona now: cases found among the 14 stated and among the 16 not stated.
+- Predictions: Persona now ≥ 12 of 16 not stated; naive ≤ 10 of 16 not stated; for every prompt the found share among not-stated cases is within 20 points of its share among stated cases (memory is not what the prompts run on).

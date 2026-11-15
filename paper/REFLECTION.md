@@ -308,3 +308,7 @@ Belief: "half the finds rest on the announcing passage" (post-hoc) measured how 
 ## After round 32
 
 Belief: the precision lead might be an artefact of batch drift or of Haiku labelling its own outputs. Evidence: in one shuffled batch labelled only by Sonnet and Opus, every number moved by at most 0.06 per history and the ordering held exactly as predicted (shipped 0.07 ≤ Persona now 0.27 < realX 0.47 < one-liner 0.93 < naive 1.17). Credit at one pair per run barely moved (Persona now 26 → 24, naive 20 → 18), so recall is not bought with extra pairs. Change: the precision claim now rests on the single batch; Table 4 uses it. What remains open is not labeller choice but who the cases are: famous authors and a model that half-knows them. Next: stratify recall by the closed-book probe (cases Haiku can state from memory vs not) for Persona now and naive, from existing files.
+
+## After round 33
+
+Belief: no prompt leans on memory (predicted every gap within 20 points). Evidence: Persona now finds 88% of the changes Haiku cannot state and 86% of those it can; the naive prompt drops from 79% to 56%. Prediction failed for naive only. Change: memory is a weak explanation for Persona's finds but a plausible one for part of the naive prompt's, which strengthens the case that the rewrite reads the text. Caveat: "stated" is Haiku's free recall with a hand-judged direction, and 16 cases is small (one case = 6 points). Next: the remaining open judge points are presentation (plain arm names, a shorter Table 4) and a harness canary for the shipped 3 of 30.

@@ -476,3 +476,17 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 - Agreement Sonnet/Opus: 60-66 of 69-75 per main arm; control anchors Sonnet 8, Opus 3.
 - Matched budget (analyze_v32.py → v32_budget.json; first k pairs per run): shipped 3/3/3; naive 18/20/20; realX (400) 24/25/25; one-liner 24/25/25; Persona now 24/25/26 (k = 1/2/all); unseen at k = 1: 2, 6, 9, 10, 10.
 - Predictions: both rows held. Appendix F: 69 numeric rows, 32 failed (real text 28 of 53).
+
+## Round 33 (v33, plan be99564a): recall split by closed-book memory
+
+- Stated from memory (rounds 17, 27 probes): 14 cases; not stated: 16. From v18b_scores.json (majority of runs); v33_memory_split.json.
+
+| Prompt | Found, stated (14) | Found, not stated (16) | Missed among not stated |
+|---|---|---|---|
+| shipped | 2 | 1 | 15 |
+| naive (400) | 11 (79%) | 9 (56%) | Frazer, Godwin, Hume, James, Miller, Romanes, Wordsworth |
+| one-liner | 13 | 12 | Godwin, Hume, James, Wordsworth |
+| realX (400) | 13 | 12 | Godwin, Hume, James, Wordsworth |
+| Persona now | 12 (86%) | 14 (88%) | Hume, Wordsworth |
+
+- Predictions: Persona now ≥ 12 of 16 held (14); naive ≤ 10 held (9); within 20 points for every prompt failed (naive 23 points). Appendix F: 70 numeric rows, 33 failed (real text 29 of 54).
