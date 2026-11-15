@@ -306,7 +306,7 @@ Commits: plan + predictions e083b001 (02:18:52 ET Nov 15), cases cc168613 (02:51
 | Deployed (realX_deployed + changes, longer; 12/18 looks) | 4 | Coleridge, Wordsworth | 0 |
 
 - x8 labels: keys 9/12 both-yes (Wordsworth keys split 1-1, Frazer unannounced 0-2), decoys 0/6, returned 6/46. Pooled over nine rounds: keys 148/161, decoys 7/132, returned 231/410.
-- Predictions: all held except the necessity test (deployed ≥ realX + 1): 4 vs 4. By the rule written beforehand, the second prompt and longer excerpts are not shown to help on unseen cases. Across both unseen sets: realX 10/12, deployed 10/12. All 30 cases: realX-400 25, deployed 27, shipped 2.
+- Predictions: all held except the necessity test (deployed ≥ realX + 1): 4 vs 4. By the rule written beforehand, the second prompt and longer excerpts are not shown to help on unseen cases. Across both unseen sets: realX 10/12, deployed 10/12. All 30 cases: realX-400 25, deployed 27, shipped 2 (superseded: round 22 reran the shipped prompt on fresh sets 1-2 for three runs; 3 of 30 is the figure used).
 - Appendix F: 43 numeric rows, 19 failed (real text 15 of 27). Cost: 126 Haiku replies, 2 label calls, one Sonnet sourcing agent.
 
 ## Round 22 (v22): definition swap on real text, and the retraction-link probe (plan 6ad576bd, 12:00 ET Nov 15, before any request)
@@ -361,3 +361,21 @@ Whole history, Haiku, 3 runs, case level (majority), blind thesis labels map x11
 - Comparison cells (round 22, 23, earlier): shipped 3, defOnly 6, defNoEmpty 11, realX 25. Paragraph adds +16 (shipped), +10 (defNoEmpty), +12 (genX → realX).
 - x11 labels: keys 47/51 both-yes (same 51 drew 48 in x9, 44 in x10), decoys 0/30, returned 13/23. Pooled over twelve rounds: keys 287/314, decoys 10/222.
 - Predictions: ships row held (10 ≥ 9; p = 0.008 < 0.05; 0 controls). Factorial row failed: prodPara 19 > 12; defNoEmptyPara 21 ≥ 18 held; genX 13 ≤ 15 held; controls held. Appendix F: 49 numeric rows, 24 failed (real text 20 of 33).
+
+## Round 25 (v25, plan 133fb59f): masked unseen histories, naive on all 30, analyses of existing replies
+
+Masked = in fresh sets 2-3, author names and own-work titles replaced ("the author", "an earlier work"; 40 spans, 0 in four histories), dates shifted so each history starts in 2001 with gaps kept (make_masked.py). Names of other people (e.g. Lyell in Darwin's autobiography) left in. Haiku, 3 runs, case level, labels map x12 (judged on original text), score_v18b.py.
+
+| Arm | F2 /6 | F3 /6 | Total | Controls |
+|---|---|---|---|---|
+| ships_masked (realX deployed, longer) | 6 | 4 | 10/12 (same 10 as unmasked; missed Coleridge, Wordsworth) | 0 |
+| production_masked (shipped, 400) | 0 | 0 | 0/12 (unmasked: 2) | 0 |
+
+- McNemar ships_masked vs production_masked: 10-0, p = 0.0020.
+- Naive, fresh set 1 (requests_v25_naive_f1.jsonl): 3/6 (missed Romanes, Godwin, James). Naive all 30: 10 + 3 + 5 + 2 = 20 [0.48, 0.81]. realX (400) 25 vs naive 20: realX-only 5 (Frazer, Lyell antiquity, Miller, Nietzsche Wagner, Romanes), naive-only 0; exact McNemar p = 0.0625.
+- analyze_v25.py (v25_analyses.json), majority of runs:
+  - (a) credit without the keyed announced passage: realX 14/30, shipped 2/30, naive 10/24 (before fresh set 1), ships 5/12, prodPara 6/30 (19 with it), defNoEmptyPara 7/30, genX 7/30, stance 10/30.
+  - (b) first two returned pairs per run only: realX 25/30 (unchanged), ships 10/12 (unchanged), realX_long 14/18 (16 with all), stance 24/30, genX 12/30.
+- (c) Leakage: 0 of 1,582 real-text replies (haiku_raw/*realN*) match answer_key|realtext_cases|keyed|/Users/|worktree|paper/; 0 inputs match. Harness transcripts (6,333 text-completion agents): no agent that wrote a scored reply opened a case file, answer key or label map; agents that read PLAN.md / label scripts were the refusals of the round-18 declining batch, two of which then wrote replies (chg__realN__huxley_progressive_modification.r1, chg__realN__spencer_ethics_foundation.r2; changes prompt, dev).
+- x12 labels: keys 29/32 both-yes, decoys 0/18, returned 4/11. Pooled over thirteen rounds: keys 316/346, decoys 10/240.
+- Predictions: masked row held; naive row failed on p (0.06 vs < 0.05); (a), (b), (c) held. Appendix F: 54 numeric rows, 25 failed (real text 21 of 38).

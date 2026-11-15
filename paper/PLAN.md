@@ -515,3 +515,16 @@ Why (round-23 mock judges): the shipped configuration's unseen numbers are first
    - Predictions: ≥ 9/12; McNemar p < 0.05 against the shipped prompt's 2/12; controls ≤ 1 history per run.
 2. **Factorial cells on real text** (whole history, 400 characters, 3 runs, 30 histories): prodPara = shipped prompt + realX's retraction paragraph after its first line + "(a view the writer says they once held is their own)"; defNoEmptyPara = defNoEmpty + the same two additions; genX = realX without them.
    - Predictions: prodPara ≤ 12/30 (the "asserts both" definition still blocks); defNoEmptyPara ≥ 18/30; genX ≤ 15/30 (the paragraph, not the generic base, carries most of realX's gain); controls ≤ 1 history per run each.
+
+## v25: does the unseen result survive masking, and does the rewrite beat a naive prompt on all 30? (committed before any v25 request or analysis output existed)
+
+Why (round-24 mock judges, all three): the 10-of-12 unseen result may rest on Haiku recognising famous authors from names, titles and dates; the rewrite is compared with a naive prompt on only 24 cases; credit may scale with how many pairs an arm returns; headline cases mostly have an announced passage.
+
+1. **Masked unseen histories** (fresh sets 2-3, 12 histories): in each excerpt the author's names and the titles of their own works are replaced ("the author", "my earlier book"/"an earlier work"), and dates are shifted so each history starts in 2001 with all gaps kept. Same ids, same blind labels (map x12 for new pairs, judged on the original text). Arms, 3 runs each: what ships (realX deployed text, longer excerpts) and the shipped prompt (400 characters).
+   - Predictions: ships masked ≥ 8/12 and loses at most 2 of its 10 unmasked finds; shipped masked ≤ 3/12; exact McNemar ships vs shipped (masked) p < 0.05; controls ≤ 1 history per run.
+2. **Naive prompt on fresh set 1** (400 characters, 3 runs), completing it on all 30.
+   - Predictions: naive ≤ 4/6 on fresh set 1 and ≤ 21/30 overall; realX (400) 25/30 beats it with exact McNemar p < 0.05.
+3. **From existing files, no new model calls**:
+   - (a) Without the announcement: case-level credit only from pairs whose later side is not the keyed announced passage. Predictions: realX (400) 12-22 of 30; shipped prompt ≤ 2 of 30.
+   - (b) Budget-matched credit: each run keeps only its first 2 returned pairs. Predictions: realX (400) ≥ 20 of 30; ships (unseen, own runs) ≥ 8 of 12.
+   - (c) Harness leakage: grep every raw reply and request for answer_key, realtext_cases, "keyed", "announced" or a repository path. Prediction: 0 replies.

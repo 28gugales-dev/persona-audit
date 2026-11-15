@@ -7,11 +7,11 @@ note: "Research conducted at the AI x Epistemics Research Sprint (Apart Research
 
 # Abstract
 
-A tool that shows people where their views have changed can look safe while missing what it exists to find. We audited Persona, a tool we shipped that maps conflicts and changes of mind in a person's writing, against changes of mind documented in public-domain texts: 12 development cases by ten authors, then three sets of six sourced later by agents not shown our prompts.
+A tool that shows people where their views have changed can look safe while missing what it exists to find. We audited Persona, a belief-mapping tool we shipped, against 30 changes of mind documented in public-domain texts, 18 of them sourced by agents never shown our prompts.
 
-The shipped prompt flagged no decoy or control, yet given whole histories it found 3 of 30 changes, and its word-overlap grouping never put a change's two ends together. The audit traced four causes: grouping by shared words; a definition that counts only views asserted at once; a 400-character cut that hid the decisive sentence; and retractions that never restate the old view.
+Given each whole history, the shipped prompt flagged no control and found 3 of 30. We isolated four causes: grouping posts by shared words, which never put a change's two ends together; a definition that counts only views asserted at once; a 400-character excerpt cut; and retractions that never restate the old view. One paragraph telling the model that a retraction counts lifted the shipped prompt to 19 of 30, and a one-line naive prompt found 20; three strict prompts written independently for few false alarms found 1-6.
 
-A rewritten prompt that also counts retractions, given the whole history with longer excerpts, found 16 of 18 cases on its tuning sets and 10 of 12 on two sets sourced after deployment, where the shipped prompt found 2 (p = 0.008), at 3.4 cards per history (73% judged genuine). Persona now runs it. Its paragraph counting retractions alone lifted the shipped prompt from 3 to 19 of 30. Three strict prompts written independently for few false alarms kept nearly every planted reversal yet found 1-6 of the 30 real changes. Our first scorer, crediting only keyed passages, reported 8 of 19 pairs where blind labels show 11 of 12 cases. Twenty-four of 49 numeric predictions failed. User benefit is unmeasured.
+A rewritten prompt, which Persona now runs, found 26 of 30, including 10 of 12 on two sets sourced after it was deployed, where the shipped prompt found 2 (p = 0.008). It found the same 10 with author names, titles and dates masked. Half its finds rest on the passage announcing the change. Our first scorer, crediting only keyed passages, hid most of this. Twenty-five of 54 numeric predictions failed. User benefit is unmeasured.
 
 # 1. Introduction
 
@@ -21,8 +21,8 @@ We audited one such tool that was already shipped. **Persona**, part of Amphi (a
 
 1. **A hidden failure, measured on real records.** On 30 documented changes of mind in four sets, the shipped prompt found 3 even when shown each whole history, with no false flags on controls, and the shipped grouping never placed the two ends of a change together.
 2. **Its four causes**, each isolated: word grouping, the prompt's definition (by crossed ablations with a placebo on planted items, and on real text, where three independently written strict prompts found 1-6 of 30), a 400-character excerpt cut, and retraction-only announcements.
-3. **A repair tested on records it was not tuned on.** Frozen and deployed before either test set existed, it found 6 of 6 changes on one (18 of 18 looks) and 4 of 6 on a second, harder set of mostly retraction-only changes, where the shipped prompt found 2 and 0, with no control flagged. Its one-prompt core (realX, a rewritten prompt) matched it on both sets, so what is shown to generalise is the rewrite; the second prompt helps only on tuning cases, and we removed it from the product. A prompt in the style of document self-contradiction work found 7 of 24 cases, so the failure is not peculiar to our prompt.
-4. **An audit method, including its own failure.** Answer keys from documented changes, blind labels calibrated on known pairs and decoys, predictions written before each run, and three later-sourced test sets, two of them sourced after deployment. Our first scorer, crediting only the keyed passage, scored the best prompt at 8 of 19 pairs where it finds 11 of 12 cases; we report both scores, and every failed prediction (23 of 47).
+3. **A repair tested on records it was not tuned on.** A two-prompt configuration, frozen and deployed before either test set existed, found 6 of 6 changes on one (18 of 18 looks) and 4 of 6 on a second, harder set of mostly retraction-only changes, where the shipped prompt found 2 and 0, with no control flagged. Its one-prompt core (realX, a rewritten prompt) matched it on both sets, so we removed the second prompt from the product after seeing both sets; the rewrite itself was frozen before them, and in its own later runs found the same 10 of 12. A prompt in the style of document self-contradiction work found 7 of 24 cases, so the failure is not peculiar to our prompt.
+4. **An audit method, including its own failure.** Answer keys from documented changes, blind labels calibrated on known pairs and decoys, predictions written before each run, and three later-sourced test sets, two of them sourced after deployment. Our first scorer, crediting only the keyed passage, scored the best prompt at 8 of 19 pairs where it finds 11 of 12 cases; we report both scores, and every failed prediction (25 of 54).
 
 **Table 1. Built before the sprint vs during it (Nov 13-15, 2026).**
 
@@ -70,7 +70,7 @@ Whether each announced passage states the new view or only retracts ("I neither 
 
 ## 3.3 Scoring
 
-**Strict pairs** (earlier rounds): a run counts only if it returns the keyed early passage with the keyed later passage. **By change of mind** (case level): a run finds a case if it returns a keyed pair, or any pair with one side from the early work and one from the later work that two labellers, Haiku and Sonnet, each shown the case's question and the two passages and blind to which prompt produced them, both judge to reject or abandon the earlier view on that question. Over eleven label rounds the labellers called 240 of 263 keyed pairs and 10 of 192 random early-by-later decoy pairs a match. A case is found when a majority of runs (or, for two-call configurations, of looks) find it. Controls flagged count against a configuration.
+**Strict pairs** (earlier rounds): a run counts only if it returns the keyed early passage with the keyed later passage. **By change of mind** (case level): a run finds a case if it returns a keyed pair, or any pair with one side from the early work and one from the later work that two labellers, Haiku and Sonnet, each shown the case's question and the two passages and blind to which prompt produced them, both judge to reject or abandon the earlier view on that question. Over thirteen label rounds the labellers called 316 of 346 keyed pairs and 10 of 240 random early-by-later decoy pairs a match. A case is found when a majority of runs (or, for two-call configurations, of looks) find it. Controls flagged count against a configuration.
 
 ## 3.4 Runs and process
 
@@ -102,33 +102,28 @@ Whether each announced passage states the new view or only retracts ("I neither 
 
 ## 4.3 The repair, on records it was not tuned on
 
-**Table 3. Cases found** (case level; majority of runs, or of looks for two-call configurations; controls flagged per run or look). Development and fresh set 1 chose the configuration; fresh sets 2 and 3 tested it once each. Rows marked † ran after the set-2 test (rounds 19, 22-24) at 400 characters; on fresh sets 2 and 3 the realX row with longer excerpts is its own three runs (round 24). The two prior-work rows are our wording in the spirit of [5, 6], with the shipped output format, not those papers' methods.
+**Table 3. Cases found** (case level: a majority of three or more runs, blind labels; whole history in one call). Development and fresh set 1 chose the rewrite; fresh sets 2 and 3 were sourced after it was deployed. † ran after the fresh-set-2 test. *Masked*: author names and own-work titles replaced, dates shifted to start in 2001. Controls: histories with a control flagged, per run. Every other configuration, including the two-call one frozen before the tests, is in Table 3b (Appendix D).
 
-| Configuration | Calls | Development /12 | Fresh 1 /6 | Fresh 2 /6 | Fresh 3 /6 | Controls |
+| Prompt | Dev /12 | Fresh 1 /6 | Fresh 2 /6 | Fresh 3 /6 | All /30 | Controls |
 |---|---|---|---|---|---|---|
-| Production prompt, whole history | 1 | 1 | 0 | 2 | 0 | 0 |
-| † Production, time-anchored definition | 1 | 2 | 2 | 1 | 1 | 0 |
-| † Production, that and no empty-list default | 1 | 5 | 2 | 2 | 2 | 0 |
-| Naive prompt, whole history | 1 | 10 | – | 5 | 2 | 0.67, 0, 0.33 |
-| realX, whole history | 1 | 11 | 4 | 6 | 4 | 0, 0, 0, 0.33 |
-| Changes, whole history | 1 | 12 | 4 | 6 | 4 | 0.33, 0, 0, 0.33 |
-| † "Cannot both be true" (ContraDoc-style) | 1 | 3 | 2 | 2 | – | 0 |
-| † Belief stance over time (BeliefShift-style) | 1 | 10 | 5 | 6 | 4 | 0 |
-| † Three strict prompts written by GPT for few false alarms | 1 | 0, 3, 1 | 1, 2, 0 | 0, 1, 0 | 0, 0, 0 | 0 |
-| † Production + realX's retraction paragraph | 1 | 8 | 4 | 5 | 2 | 0 |
-| † That, time-anchored, no empty-list default | 1 | 9 | 4 | 5 | 3 | 0 |
-| † realX without that paragraph (genX) | 1 | 7 | 2 | 2 | 2 | 0, 0, 0, 0.33 |
-| **realX, longer excerpts (deployed from Nov 15)** | 1 | 11 | 5 | 6 | 4 | 0 |
-| Changes, longer excerpts, two calls | 2 | 11 | 6 | – | – | 0.5, 1.0 |
-| realX + changes, longer excerpts (deployed Nov 14-15) | 2 | 11 | 6 | **6 (18/18 looks)** | **4 (12/18 looks)** | 0.25, 0.75, **0**, **0** |
+| Shipped | 1 | 0 | 2 | 0 | **3** | 0 |
+| † Shipped + the retraction paragraph | 8 | 4 | 5 | 2 | 19 | 0 |
+| † Three strict prompts by GPT | 0, 3, 1 | 1, 2, 0 | 0, 1, 0 | 0, 0, 0 | 1, 6, 1 | 0 |
+| Naive ("where does this person contradict themselves?") | 10 | 3 | 5 | 2 | 20 | ≤ 0.7 |
+| Rewrite (realX), 400 characters | 11 | 4 | 6 | 4 | 25 | ≤ 0.3 |
+| **Rewrite, longer excerpts (what Persona runs)** | 11 | 5 | 6 | 4 | **26** | 0 |
+| † Rewrite, longer, masked | – | – | 6 | 4 | 10 /12 | 0 |
+| † Shipped, masked | – | – | 0 | 0 | 0 /12 | 0 |
 
-By the pre-set rule, realX + changes (17 of 18) tied changes asked twice and won on fewer control flags, though those "controls" were real changes on other questions (Spencer on women's political rights; Romanes on theism). Frozen and deployed, it found all six fresh-set-2 changes in every look.
+By the pre-set rule, realX + changes (Table 3b; 17 of 18) tied changes asked twice and won on fewer control flags, though those "controls" were real changes on other questions (Spencer on women's political rights; Romanes on theism). Frozen and deployed, it found all six fresh-set-2 changes in every look.
 
 **Fresh set 2 does not separate the repairs** (round 19). There realX alone and changes alone each found 6 of 6 at 400 characters and the naive prompt 5, against the shipped prompt's 2: five of its changes are announced outright and its brief favoured early passages (Section 3.2). Two prompts modelled on prior work bracket the result on 24 cases. Asking only for statements that "cannot both be true", as in document self-contradiction [5], found 7, near the shipped prompt: the strict framing, not our wording, fails. Asking how each belief's stance changed over time, as in belief-drift tracking [6], found 21 (Godwin 3 of 3 runs) and missed James, Hume and Spencer; we wrote it after the repair.
 
 **What the repair costs** (round 20, first run or look, 24 histories). The shipped prompt returned 0.2 cards per history, realX at 400 characters 2.5 and the two-call configuration 5.0. Blind labellers called 83% and 80% of those cards a real change or tension in the author's own views, so the second call doubles non-genuine cards too (0.4 to 1.0 per history). They also called 5 of 24 control-plus-announcement pairs real, so these shares are generous. What Persona now runs (realX, longer excerpts) returns 3.4 cards per history on all 30, 73% judged genuine, 0.9 not (round 23).
 
 **A harder unseen set** (round 21; predictions, brief and cases each committed before any run). Fresh set 3 was sourced with no hint about the tool's reading window and is mostly retraction-only (5 of 6). The shipped prompt found 0 of 6; the naive prompt 2; realX, changes, the stance prompt and the two-call configuration 4 each, the last with no control flagged (each single prompt flagged one, once in three runs). All missed Coleridge, whose early view sits inside a political address, and Wordsworth, whose 1821 retraction ("I should think that I had lived to little purpose if my notions on the subject of government had undergone no modification") names nothing. We had predicted the two-call configuration would win by a case; tied on the unseen sets (10 of 12 each), the second call does not help, its gains resting on Godwin and James. What generalises is the rewritten prompt: over all 30 cases realX finds 25 at 400 characters and 26 with longer excerpts, the two-call configuration 27, the shipped prompt 3. We removed the second call from Persona (Table 1). In its own runs (round 24) what Persona now runs found 10 of 12 unseen cases [0.55, 0.95], the shipped prompt 2 (8-0, exact McNemar p = 0.008).
+
+**Checks on the unseen result** (round 25, predictions committed first). With author names and own-work titles replaced and dates shifted to start in 2001, the rewrite found the same 10 of 12 unseen cases and the shipped prompt none (10-0, exact McNemar p = 0.002). Without the passage announcing the change, the rewrite (400 characters) finds 14 of 30 and the shipped prompt 2; the retraction paragraph's gain on the shipped prompt rests almost wholly on that passage (19 to 6). A one-line naive prompt found 20 of 30; the rewrite found all of those and 5 more (exact McNemar p = 0.06, short of the p < 0.05 we predicted). Most of the shipped failure is over-constraint, which the naive prompt avoids; the rewrite's own gain is the retraction cases.
 
 ## 4.4 The audit's own failure: what the scorer hid
 
@@ -138,7 +133,12 @@ Our scorer through round 17 credited a run only for the keyed later passage. Und
 
 **What this means for epistemic products.** A tool meant to support decisions people later endorse failed on the cases closest to endorsement, changes of mind the author put in print, and the failure was silent: its false-flag rate was zero throughout. Three of its four causes were design choices that look reasonable in isolation (group by shared words; define a conflict strictly; cut excerpts short for cost). Only a test against records with known changes, run end to end, revealed them.
 
-**What generalises.** The specific clauses do not. Three lessons do: (1) splitting a record that fits in one context window throws away the comparison the tool exists to make; (2) prompts tuned for few false alarms (ours and three written independently) can return almost nothing even when the pair is in view, while one paragraph saying a retraction counts recovered much of it (3 to 19 of 30), so recall must be measured end to end on real records; (3) the audit itself needs auditing: score by the change, not by the passage you happened to key, calibrate labellers on known pairs and decoys, and keep a set the configuration has never seen.
+**What generalises: an audit checklist for builders.** The specific clauses do not generalise; these tests do, and each caught something here.
+1. Check that both ends of a known change reach the model together: word themes joined 0 of 19 keyed pairs.
+2. Plant a reversal with and without a sentence announcing it: our prompt went from 36 of 36 to 11 of 36.
+3. Run a one-line naive prompt on real records beside yours: 20 of 30 against the shipped 3. Prompts tuned for few false alarms, ours and three written independently, can return almost nothing with the pair in view.
+4. Read past the excerpt cut on every miss: Godwin's and James's decisive words sat after character 400.
+5. Score by the change, not the passage you keyed, calibrate labellers on decoys, and keep a set the configuration has never seen: our first scorer reported 8 of 19 pairs where blind labels show 11 of 12 cases.
 
 **Limitations** (full list in Appendix A). No users: not shown that people want these cards or that they improve decisions. 30 real cases, famous authors the model largely knows, English, 18th-20th-century prose; fresh set 2 proved easy (5 of 6 announce the new view outright; three texts are OCR). Case-level credit rests on Claude labellers (calibrated, but not people). One model family, in an agent harness, run by the product's author. Histories of 72-124 posts; a person's years of writing are longer, where grouping, not one call, must work.
 
@@ -146,7 +146,7 @@ Our scorer through round 17 credited a run only for the keyed later passage. Und
 
 # 6. Conclusion
 
-On documented changes of mind in real writing, Persona's shipped prompt found 3 of 30 even when shown each whole history, and its word grouping never put the two views together, while raising no false alarms. The causes were a word-based split, a strict definition, a 400-character cut and retractions that never restate the view. A rewritten prompt, the one change that held on two sets sourced after deployment, found 10 of their 12 changes, and is what Persona now runs. Blind spots like these hide behind zero false alarms; real records with known changes of mind find them, provided the scorer is itself checked.
+On documented changes of mind in real writing, Persona's shipped prompt found 3 of 30 even when shown each whole history, and its word grouping never put the two views together, while raising no false alarms. The causes were a word-based split, a strict definition, a 400-character cut and retractions that never restate the view. A rewritten prompt, the one change that held on two sets sourced after deployment, found 10 of their 12 changes, the same 10 with author names and dates masked, and is what Persona now runs. Blind spots like these hide behind zero false alarms; real records with known changes of mind find them, provided the scorer is itself checked.
 
 # Code and data
 
@@ -181,13 +181,14 @@ Everything is at https://github.com/28gugales-dev/persona-audit: the evaluation 
 3. **One model family, in an agent harness.**
    - The production call uses the API with effort "medium" and a real system prompt. Here the prompt reached Haiku inside a subagent, as text.
    - A harness check with a different wrapper and production's effort setting reproduced the contrast (36/36 vs 15/36), but individual borderline items flip between runs (20/36 marked items agree), so the size of the effect in production is uncertain. The direction was consistent across all phrasings, sets and wrappers.
+   - The harness agents had file access in a repository that holds the answer keys. None of 1,582 real-text replies mentions a key, case file or repository path, and no agent that wrote a scored reply opened a case file, answer key or label map; two dev-set replies of the changes prompt came from agents that first read the opening of `PLAN.md` (round 25).
    - Sonnet 5.5 reproduced the drop and the repair, but it is the same family. A cross-family check was planned and cut when the free and subscription quotas for GLM and DeepSeek ran out. We did not use paid capacity.
-4. **Contamination and small n.** Haiku named the author of 9 of the 10 paraphrased cases, and of 26 of the 27 passages from the first 13 real cases shown without names (it took Huxley's 1862 passage for Darwin). Yet from author, years and question alone it stated the documented change for only 7 of those 13 cases, and four of realX's eight strict development finds are in cases it could not recall, so memory does not explain what is found. This should make the real reversals easier to find, so the production prompt's misses are not explained by it; the repairs' recall may be inflated by it. The unseen-case comparisons rest on 12 cases (fresh sets 2 and 3), one of them easy; grouping v2 was tuned on the 6 development histories, and both of its held-out predictions narrowly failed (grouping v1's real-text prediction also failed; Appendix F). The whole-history comparison was added after our mock review asked for it, with three runs per history; its realX arm was predicted before each run (the first threshold equalled the naive baseline's already-seen score), and realX itself was tuned on development pairs shown alone, not on whole histories. Model grouping with the shipped prompt was not run on real text, so "neither fix alone" rests on the two cells we did run (word themes with any prompt; whole histories with the shipped prompt). Our real histories are 72-124 excerpts; a person's years of posts and chats are longer, which is where grouping, not the single call, has to work.
+4. **Contamination and small n.** Haiku named the author of 9 of the 10 paraphrased cases, and of 26 of the 27 passages from the first 13 real cases shown without names (it took Huxley's 1862 passage for Darwin). Yet from author, years and question alone it stated the documented change for only 7 of those 13 cases, and four of realX's eight strict development finds are in cases it could not recall, so memory does not explain what is found; with author names, own-work titles and dates masked, the rewrite found the same 10 of 12 unseen cases (round 25), though the prose itself stays recognisable. This should make the real reversals easier to find, so the production prompt's misses are not explained by it; the repairs' recall may be inflated by it. The unseen-case comparisons rest on 12 cases (fresh sets 2 and 3), one of them easy; grouping v2 was tuned on the 6 development histories, and both of its held-out predictions narrowly failed (grouping v1's real-text prediction also failed; Appendix F). The whole-history comparison was added after our mock review asked for it, with three runs per history; its realX arm was predicted before each run (the first threshold equalled the naive baseline's already-seen score), and realX itself was tuned on development pairs shown alone, not on whole histories. Model grouping with the shipped prompt was not run on real text, so "neither fix alone" rests on the two cells we did run (word themes with any prompt; whole histories with the shipped prompt). Our real histories are 72-124 excerpts; a person's years of posts and chats are longer, which is where grouping, not the single call, has to work.
 5. **The fix.**
    - The fix line was written by the author after seeing failures and frozen before held-out runs (commit times, Appendix C). Because it names the cue, its recovery on marked text is partly instruction-following.
    - The cue-free rewrite avoids this, but was chosen after the ablations, then tested on fresh items, the hand-written sets and end to end (Tables 4, 6).
    - The two-call configuration (realX + changes, longer excerpts; deployed Nov 14-15) was chosen on development and fresh set 1 and tested once, on fresh set 2. Its effect on real users is unmeasured. On development and fresh set 1 it ran with the tested realX text; on fresh set 2 with the deployed text, which adds the shipped output rules (a neutral question, at most 8 pairs). The changes prompt was written by the author from failure analysis on development data. Round 19 found that realX alone, changes alone and a naive prompt also find 5-6 of 6 on fresh set 2, so that test shows the shipped prompt's failure, not that each part of the repair is needed. After round 21 we removed the second prompt from the product (Nov 15, main c9a32b4c); Persona now runs realX with longer excerpts alone (26 of 30 cases here). On fresh set 3, sourced without that bias, the two-call configuration tied realX alone (4 of 6 each), as did changes alone and the stance prompt.
-6. **Scorer and labellers.** Case-level credit rests on two Claude labellers judging pairs against each case's question (keyed pairs 287/314, random decoys 10/222 called a match; the same 51 keyed pairs drew 48, 44 and 47 both-yes in three rounds). They are calibrated, not human, and a decoy rate near 5% means a configuration returning many cross-era pairs could earn some credit by chance; ours returned 2-6 pairs per history. The strict score is reported beside it. Our controls were not clean: two flagged "controls" were real changes on other questions.
+6. **Scorer and labellers.** Case-level credit rests on two Claude labellers judging pairs against each case's question (keyed pairs 316/346, random decoys 10/240 called a match; the same 51 keyed pairs drew 48, 44 and 47 both-yes in three rounds). They are calibrated, not human, and a decoy rate near 5% means a configuration returning many cross-era pairs could earn some credit by chance; ours returned 2-6 pairs per history, and crediting only each run's first two pairs leaves the rewrite at 25 of 30. The strict score is reported beside it. Our controls were not clean: two flagged "controls" were real changes on other questions.
 7. **Round 18's record.** Its plan entries were written before each run but committed together afterwards (commit c8fc24d9); the timestamped evidence for the final test is that the configuration was committed and pushed to main (72823441 / 34bfd61e, 17:24 ET) before fresh set 2 was written (17:38) or run (17:40). Fresh set 2 mostly announces the new view outright (5 of 6), its sourcing brief favoured passages within the first 400 characters of their paragraph, and three of its texts are OCR. Fresh set 3's predictions (e083b001, 02:18 ET Nov 15) and cases (cc168613, 02:51) were committed before its first run; its Ruskin case pairs two volumes of one title, and its Miller and Wordsworth secondary sources are weak.
 8. **Judge.** We corrected four of our own planted labels after the judge disagreed. We report the uncorrected κ (0.69), and the main neutrality claim rests on lean-vs-neutral agreement, which the correction does not affect.
 
@@ -273,10 +274,31 @@ Each arm's design was committed before any of its outputs were written (commit t
 | 6ad576bd | 12:00:08 (Nov 15) | Definition swap on real text and retraction-link probe (v22), before any request existed |
 | e08fae03 | 12:16:22 (Nov 15) | GPT strict prompts on real text and the shipped configuration's card cost (v23), before any request existed |
 | b8d1a401 | 12:30:15 (Nov 15) | What ships on the unseen sets, and the retraction paragraph crossed with the shipped prompt (v24), before any request existed |
+| 133fb59f | 12:48:35 (Nov 15) | Masked unseen histories, naive prompt on fresh set 1, and three analyses of existing replies (v25), before any request or output existed |
 
 Every number in this paper is listed with its source file in `paper/RESULTS.md`; scoring scripts are in `evals/conflicts/gen/`.
 
 # Appendix D. Earlier rounds, paired tests and pipeline losses
+
+**Table 3b. Every whole-history configuration** (case level; majority of runs, or of looks for two-call configurations; controls flagged per run or look). Development and fresh set 1 chose the configuration; fresh sets 2 and 3 tested it once each. Rows marked † ran after the set-2 test (rounds 19, 22-24) at 400 characters; on fresh sets 2 and 3 the realX row with longer excerpts is its own three runs (round 24). The two prior-work rows are our wording in the spirit of [5, 6], with the shipped output format, not those papers' methods.
+
+| Configuration | Calls | Development /12 | Fresh 1 /6 | Fresh 2 /6 | Fresh 3 /6 | Controls |
+|---|---|---|---|---|---|---|
+| Production prompt, whole history | 1 | 1 | 0 | 2 | 0 | 0 |
+| † Production, time-anchored definition | 1 | 2 | 2 | 1 | 1 | 0 |
+| † Production, that and no empty-list default | 1 | 5 | 2 | 2 | 2 | 0 |
+| Naive prompt, whole history | 1 | 10 | 3 | 5 | 2 | 0.67, 0, 0, 0.33 |
+| realX, whole history | 1 | 11 | 4 | 6 | 4 | 0, 0, 0, 0.33 |
+| Changes, whole history | 1 | 12 | 4 | 6 | 4 | 0.33, 0, 0, 0.33 |
+| † "Cannot both be true" (ContraDoc-style) | 1 | 3 | 2 | 2 | – | 0 |
+| † Belief stance over time (BeliefShift-style) | 1 | 10 | 5 | 6 | 4 | 0 |
+| † Three strict prompts written by GPT for few false alarms | 1 | 0, 3, 1 | 1, 2, 0 | 0, 1, 0 | 0, 0, 0 | 0 |
+| † Production + realX's retraction paragraph | 1 | 8 | 4 | 5 | 2 | 0 |
+| † That, time-anchored, no empty-list default | 1 | 9 | 4 | 5 | 3 | 0 |
+| † realX without that paragraph (genX) | 1 | 7 | 2 | 2 | 2 | 0, 0, 0, 0.33 |
+| **realX, longer excerpts (deployed from Nov 15)** | 1 | 11 | 5 | 6 | 4 | 0 |
+| Changes, longer excerpts, two calls | 2 | 11 | 6 | – | – | 0.5, 1.0 |
+| realX + changes, longer excerpts (deployed Nov 14-15) | 2 | 11 | 6 | **6 (18/18 looks)** | **4 (12/18 looks)** | 0.25, 0.75, **0**, **0** |
 
 **Earlier rounds, strict score.** The rounds before round 18 scored only keyed pairs; their results stand as measured and are kept here. In them, "development" means the first 7 cases (6 histories: Hume, Peirce, Nietzsche x2, Kant, Russell, plus Mill on wages without a history) and "held-out" the next 6 (Darwin, Newman, Mill on socialism, Spencer, Huxley, Nietzsche on pity); round 18 treats all 12 histories as development.
 
@@ -446,7 +468,7 @@ Every number in the report is tied to a result file in `paper/RESULTS.md`; numbe
 
 # Appendix F. Every arm and its prediction
 
-Each row through round 16 was committed before its outputs existed (Appendix C); rounds 18-20's rows were written in `PLAN.md` before their runs and committed afterwards; rounds 21-24 were committed before their cases or requests existed. Three rows had no numeric prediction, as marked, and one was untestable. Failed predictions are kept in the paper. Counts in the text take one prediction per row (49 rows with a numeric prediction; 24 failed: 4 of 16 on planted items, 20 of 33 on real text) and count a row as failed if any part of it failed.
+Each row through round 16 was committed before its outputs existed (Appendix C); rounds 18-20's rows were written in `PLAN.md` before their runs and committed afterwards; rounds 21-25 were committed before their cases or requests existed. Three rows had no numeric prediction, as marked, and one was untestable. Failed predictions are kept in the paper. Counts in the text take one prediction per row (54 rows with a numeric prediction; 25 failed: 4 of 16 on planted items, 21 of 38 on real text) and count a row as failed if any part of it failed.
 
 | Round | Arm (Haiku unless stated) | Prediction | Outcome |
 |---|---|---|---|
@@ -503,6 +525,11 @@ Each row through round 16 was committed before its outputs existed (Appendix C);
 | 23 | Card cost of what ships, 30 histories | 2.5-5 cards per history; ≥ 75% judged genuine; keys ≥ 26/30, controls ≤ 6/30 | Held: 3.4; keys 26, controls 4. **Failed**: 73% genuine |
 | 24 | What ships, own runs, 12 unseen histories | ≥ 9/12; McNemar p < 0.05 against the shipped prompt; controls ≤ 1 history per run | Held: 10 [0.55, 0.95]; 8-0, p = 0.008; 0 |
 | 24 | Retraction paragraph crossed with the shipped prompt, 30 histories | Shipped + paragraph ≤ 12; defNoEmpty + paragraph ≥ 18; genX ≤ 15; controls ≤ 1 history per run | **Failed**: 19. Held: 21; 13; ≤ 1 |
+| 25 | Masked unseen histories: what ships and the shipped prompt | Ships ≥ 8/12, losing ≤ 2 of its 10; shipped ≤ 3; McNemar p < 0.05; controls ≤ 1 history per run | Held: 10, lost 0; 0; 10-0, p = 0.002; 0 |
+| 25 | Naive prompt on fresh set 1, then all 30 against realX | Fresh 1 ≤ 4; all ≤ 21; realX 25 better at p < 0.05 | Held: 3; 20. **Failed**: 5-0, p = 0.06 |
+| 25 | Credit without the announced passage (existing replies) | realX 12-22 of 30; shipped ≤ 2 | Held: 14; 2 |
+| 25 | First two returned pairs per run only (existing replies) | realX ≥ 20 of 30; ships ≥ 8 of 12 | Held: 25; 10 |
+| 25 | Replies mentioning answer keys, case files or repository paths | 0 | Held: 0 of 1,582 |
 
 The v12 prediction for model grouping + genX end to end on real text was not tested (version 1 was replaced before any real end-to-end run).
 
