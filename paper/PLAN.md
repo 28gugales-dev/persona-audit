@@ -592,3 +592,13 @@ Why (judge look 4): the only evidence on how much finding rests on the announcin
 2. **Announcement removed from the input**: each of the 30 real histories with its announced post deleted (unannounced and later-work paragraphs kept), depNoCap at the product's longer excerpts, whole history in one call, 3 runs, case level; new cross-era pairs labelled blind (Haiku + Sonnet, thesis prompt, map x18).
    - Predictions: 12-17 of 30; 4-7 of the 12 unseen; within 2 cases of item 1's count; controls ≤ 1 history per run.
 No product decision rides on this round.
+
+## v32: one labelling batch for every main prompt, without Haiku; credit at a matched card budget (committed before any v32 label file existed)
+
+Why (judge look 5): the genuine shares in Table 4 come from four labelling batches (rounds 27-30) whose anchors and decoy rates drift, so 87% (Persona now, round 30) against 47% (naive, round 27) is not like-for-like; and Haiku, the model under test, is one of the two labellers. Case credit may also favour prompts that return more pairs.
+
+1. **Single relabel**: every first-run card (capped at 8) from shipped (400), shipped + paragraph, naive (400), realX (400), change-of-mind one-liner (400) and Persona now (depNoCap, longer) on the 30 real histories, plus their no-change cards (rounds 28 and 30), plus a key and a control anchor per history; one shuffled batch, the round-27 real/not prompt, labelled by Sonnet and by Opus. Genuine = both say real.
+   - Predictions: Persona now genuine share ≥ naive's + 25 points; Persona now non-genuine per history ≤ 0.5 and naive ≥ 1.0 on real histories; the ordering of non-genuine cards per history on real histories is shipped ≤ Persona now < realX (400) < one-liner < naive; key anchors ≥ 25 of 30 real, control anchors ≤ 6 of 30.
+2. **Matched budget**: case credit (existing runs and labels) counting only each run's first returned pair (k = 1) and first two (k = 2), for shipped, naive, one-liner, realX (400) and Persona now.
+   - Predictions: at k = 1, Persona now ≥ 22 of 30 and naive ≤ 18; Persona now's lead over naive at k = 1 ≥ its lead with all pairs (6).
+No product decision rides on this round.

@@ -457,3 +457,22 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 - The post-hoc cut understated: with the announcement present the model spends its pairs on it; removed, it returns other cross-era pairs.
 - Decoys both-yes 5/30 here (17%) against 10/240 before: this round's labels are looser, which favours the 16.
 - Predictions: 12 (12-16) held; 16 (12-17) held; 5 of 12 (4-7) held; within 2 of post-hoc failed (16 vs 12); controls held. Appendix F: 67 numeric rows, 32 failed (real text 28 of 51).
+
+## Round 32 (v32, plan d17c1fd6): one Sonnet + Opus labelling batch; matched card budget
+
+- make_cost_cards32.py → cost32_cards_map.json, 450 cards in 9 files, labelled by Sonnet (_s) and Opus (_o), no Haiku. label__cost32_7_s returned its JSON instead of writing; saved verbatim (50 of 50 cards). cost32_scores.json; bootstrap_v32.py → v32_bootstrap.json.
+
+| Arm | Cards | Both real | Not genuine/history | No-change not genuine/history |
+|---|---|---|---|---|
+| shipped (400) | 6 | 4 (67%) | 0.07 | 0.00 (1 card, real) |
+| shipped + paragraph | 25 | 23 (92%) | 0.07 | – |
+| naive (400) | 70 | 35 (50%) | 1.17 | 0.93 |
+| change-of-mind one-liner (400) | 75 | 47 (63%) | 0.93 | 0.67 |
+| realX (400) | 70 | 56 (80%) | 0.47 | 0.30 |
+| Persona now (depNoCap, longer) | 69 | 61 (88%) | 0.27 | 0.40 |
+| anchors key / control | 30 / 30 | 26 / 3 | | |
+
+- Bootstrap over histories, Persona now minus naive: genuine share +0.38 [0.25, 0.51]; non-genuine per history −0.90 [−1.23, −0.57].
+- Agreement Sonnet/Opus: 60-66 of 69-75 per main arm; control anchors Sonnet 8, Opus 3.
+- Matched budget (analyze_v32.py → v32_budget.json; first k pairs per run): shipped 3/3/3; naive 18/20/20; realX (400) 24/25/25; one-liner 24/25/25; Persona now 24/25/26 (k = 1/2/all); unseen at k = 1: 2, 6, 9, 10, 10.
+- Predictions: both rows held. Appendix F: 69 numeric rows, 32 failed (real text 28 of 53).
