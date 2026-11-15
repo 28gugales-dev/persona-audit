@@ -11,7 +11,7 @@ A tool showing people where their views changed can look safe while missing what
 
 Given each whole history, the shipped prompt flagged no control and found 3 of 30. We isolated four causes: grouping posts by shared words, which never put a change's two ends together; a definition that counts only views asserted at once; a 400-character excerpt cut; and retractions that never restate the old view. Telling the model that a retraction counts lifted the shipped prompt to 19 of 30 with no more false cards, and a one-line naive prompt found 20; three strict prompts written independently for few false alarms found 1-6.
 
-A rewritten prompt found 26 of 30, including 10 of 12 on two sets sourced after it was deployed, where the shipped prompt found 2 (p = 0.008), the same 10 with author names, titles and dates masked. Dropping one deployed line asking for "at most 8 pairs" cut its non-genuine cards from 1.0 to 0.3 per history at 26 of 30 (88% genuine to Sonnet and Opus; a naive prompt's, 50%); Persona now runs that. With each passage announcing the change deleted, it still finds 16 of 30. Our first scorer, crediting only keyed passages, hid most of this. Thirty-three of 70 numeric predictions failed. User benefit is unmeasured.
+A rewritten prompt found 26 of 30, including 10 of 12 on two sets sourced after it was deployed, where the shipped prompt found 2 (p = 0.008), the same 10 with author names, titles and dates masked. Dropping one deployed line asking for "at most 8 pairs" cut its non-genuine cards from 1.0 to 0.3 per history at 26 of 30 (88% genuine to Sonnet and Opus; a naive prompt's, 50%); Persona now runs that. With each passage announcing the change deleted, it still finds 16 of 30. Our first scorer, crediting only keyed passages, hid most of this. Thirty-three of 71 numeric predictions failed. User benefit is unmeasured.
 
 # 1. Introduction
 
@@ -22,7 +22,7 @@ We audited one such tool that was already shipped. **Persona**, part of Amphi (a
 1. **A hidden failure, measured on real records.** On 30 documented changes of mind in four sets, the shipped prompt found 3 even when shown each whole history, with no false flags on controls, and the shipped grouping never placed the two ends of a change together.
 2. **Its four causes**, each isolated: word grouping, the prompt's definition (by crossed ablations with a placebo on planted items, and on real text, where three independently written strict prompts found 1-6 of 30), a 400-character excerpt cut, and retraction-only announcements.
 3. **A repair tested on records it was not tuned on.** A two-prompt configuration, frozen and deployed before either test set existed, found 6 of 6 changes on one (18 of 18 looks) and 4 of 6 on a second, harder set of mostly retraction-only changes, where the shipped prompt found 2 and 0, with no control flagged. Its one-prompt core (realX, a rewritten prompt) matched it on both sets, so we removed the second prompt from the product after seeing both sets; the rewrite itself was frozen before them, and in its own later runs found the same 10 of 12. A prompt in the style of document self-contradiction work found 7 of 24 cases, so the failure is not peculiar to our prompt.
-4. **An audit method, including its own failure.** Answer keys from documented changes, blind labels calibrated on known pairs and decoys, predictions written before each run, and three later-sourced test sets, two of them sourced after deployment. Our first scorer, crediting only the keyed passage, scored the best prompt at 8 of 19 pairs where it finds 11 of 12 cases; we report both scores, and every failed prediction (33 of 70).
+4. **An audit method, including its own failure.** Answer keys from documented changes, blind labels calibrated on known pairs and decoys, predictions written before each run, and three later-sourced test sets, two of them sourced after deployment. Our first scorer, crediting only the keyed passage, scored the best prompt at 8 of 19 pairs where it finds 11 of 12 cases; we report both scores, and every failed prediction (33 of 71).
 
 **Table 1. Built before the sprint vs during it (Nov 13-15, 2026).**
 
@@ -88,7 +88,7 @@ Whether each announced passage states the new view or only retracts ("I neither 
 
 **Grouping.** The word-overlap theme sort put the early and later passage in one theme for 0 of 19 keyed pairs in the development histories. Authors do not reuse their words across decades ("acquainted" in Russell's 1912 view, "widely held" in his 1921 retraction): ranked by TF-IDF similarity to the early passage, the true later partner came a median 59% of the way down its history, and shared no content word with it for 8 of 19.
 
-**The prompt, even with both ends present** (Figure 1). Given each whole history in one call, the production prompt found 1 of 12 development cases (majority of three runs), 0, 2 and 0 of 6 in the three fresh sets, returning 0.0-0.3 pairs per history on average. It flagged no control. Under the strict score it surfaced 0 of the 19 development pairs in each of three runs.
+**The prompt, even with both ends present** (Figure 1). Given each whole history in one call, the production prompt found 1 of 12 development cases (majority of three runs), 0, 2 and 0 of 6 in the three fresh sets, returning 0.0-0.3 pairs per history on average. It flagged no control. Under the strict score it surfaced 0 of the 19 development pairs in each of three runs. It is not the harness: with one planted reversal added to each history, it returned the planted pair in 29 of 30 and still found 1 documented change (round 34).
 
 ## 4.2 Four causes
 
@@ -291,6 +291,7 @@ Each arm's design was committed before any of its outputs were written (commit t
 | e8982646 | 13:52:12 (Nov 15) | Announcing post deleted from the input, with predictions (v31), before any request existed |
 | d17c1fd6 | 14:04:18 (Nov 15) | One Sonnet + Opus relabel of every main prompt's cards and a matched card budget (v32), before any label file existed |
 | be99564a | 14:07:30 (Nov 15) | Recall split by closed-book memory (v33), before the split was computed |
+| 8c7c4779 | 14:08:36 (Nov 15) | Planted canary inside each real history, shipped prompt (v34), before any request existed |
 
 Every number in this paper is listed with its source file in `paper/RESULTS.md`; scoring scripts are in `evals/conflicts/gen/`.
 
@@ -491,7 +492,7 @@ Every number in the report is tied to a result file in `paper/RESULTS.md`; numbe
 
 # Appendix F. Every arm and its prediction
 
-Each row through round 16 was committed before its outputs existed (Appendix C); rounds 18-20's rows were written in `PLAN.md` before their runs and committed afterwards; rounds 21-33 were committed before their cases or requests existed. Three rows had no numeric prediction, as marked, and one was untestable. Failed predictions are kept in the paper. Counts in the text take one prediction per row (70 rows with a numeric prediction; 33 failed: 4 of 16 on planted items, 29 of 54 on real text) and count a row as failed if any part of it failed.
+Each row through round 16 was committed before its outputs existed (Appendix C); rounds 18-20's rows were written in `PLAN.md` before their runs and committed afterwards; rounds 21-34 were committed before their cases or requests existed. Three rows had no numeric prediction, as marked, and one was untestable. Failed predictions are kept in the paper. Counts in the text take one prediction per row (71 rows with a numeric prediction; 33 failed: 4 of 16 on planted items, 29 of 55 on real text) and count a row as failed if any part of it failed.
 
 | Round | Arm (Haiku unless stated) | Prediction | Outcome |
 |---|---|---|---|
@@ -569,6 +570,7 @@ Each row through round 16 was committed before its outputs existed (Appendix C);
 | 32 | One Sonnet + Opus batch for every main prompt's cards | Persona now ≥ naive + 25 points genuine; ≤ 0.5 and ≥ 1.0 non-genuine per history; shipped ≤ Persona now < realX < one-liner < naive; keys ≥ 25, controls ≤ 6 | Held: +38; 0.27, 1.17; 0.07, 0.27, 0.47, 0.93, 1.17; 26, 3 |
 | 32 | Credit from each run's first pair only | Persona now ≥ 22, naive ≤ 18; lead ≥ 6 | Held: 24, 18; 6 |
 | 33 | Recall split by closed-book memory (14 stated, 16 not) | Persona now ≥ 12 of 16 not stated; naive ≤ 10; every prompt within 20 points across the split | **Failed**: naive 79% vs 56%. Held: 14; 9 |
+| 34 | Shipped prompt, planted canary in each real history | Canary on a majority in ≥ 26 of 30; ≤ 4 documented changes; ≤ 1 canary-real pair per run | Held: 29; 1; 0 |
 
 The v12 prediction for model grouping + genX end to end on real text was not tested (version 1 was replaced before any real end-to-end run).
 

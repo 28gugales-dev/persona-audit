@@ -490,3 +490,9 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 | Persona now | 12 (86%) | 14 (88%) | Hume, Wordsworth |
 
 - Predictions: Persona now ≥ 12 of 16 held (14); naive ≤ 10 held (9); within 20 points for every prompt failed (naive 23 points). Appendix F: 70 numeric rows, 33 failed (real text 29 of 54).
+
+## Round 34 (v34, plan 8c7c4779): planted canary inside each real history, shipped prompt
+
+- make_canary.py → requests_v34_canary.jsonl (30 histories; canaries P1, P2, P4 in key order; post a at the 25th-percentile date, b at the 75th), shipped prompt, 400 characters, 3 runs; score_v34.py → v34_scores.json.
+- Canary pair returned on a majority of runs in 29 of 30 histories (any run: 30; missed on majority: Ruskin). Documented changes found: 1 of 30 (Besant). Pairs joining a canary post to a real post: 0 per run. No unlabelled cross-era pairs.
+- Predictions: all held (29 ≥ 26; 1 ≤ 4; 0 ≤ 1). Appendix F: 71 numeric rows, 33 failed (real text 29 of 55).

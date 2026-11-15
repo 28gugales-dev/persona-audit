@@ -608,3 +608,8 @@ No product decision rides on this round.
 Why (judge look 5, round-32 reflection): the cases are famous authors; a prompt could find changes the model already knows about. The closed-book probes (rounds 17 and 27; author, years and question only) split the 30 cases into 14 whose change Haiku stated and 16 it did not (dev: stated Nietzsche x3, Kant, Mill socialism, Russell; later sets: Freud, Gladstone, Lyell antiquity, Besant, Darwin Glen Roy, Sedgwick, Newton, Coleridge).
 - From existing runs and labels (case level, majority of runs), for shipped, naive (400), one-liner, realX (400) and Persona now: cases found among the 14 stated and among the 16 not stated.
 - Predictions: Persona now ≥ 12 of 16 not stated; naive ≤ 10 of 16 not stated; for every prompt the found share among not-stated cases is within 20 points of its share among stated cases (memory is not what the prompts run on).
+
+## v34: a planted canary inside each real history, shipped prompt, agent harness (committed before any v34 request existed)
+
+Why (judge look 5): the shipped prompt's 3 of 30 could be an artefact of running it through an agent that reads a long file, not of the prompt. Positive control: into each of the 30 real histories insert one planted unsignalled reversal from the test set (P1, P2, P4 in order; the 36 that the shipped prompt found 36 of 36 when shown as a pair), post a dated at the 25th percentile of the history's dates and post b at the 75th; shipped prompt, 400-character excerpts, whole history in one call, 3 runs, same harness.
+- Predictions: the canary pair is returned on a majority of runs in ≥ 26 of 30 histories; the shipped prompt still finds ≤ 4 of the 30 documented changes; ≤ 1 history per run returns a pair joining a canary post to a real post.

@@ -312,3 +312,7 @@ Belief: the precision lead might be an artefact of batch drift or of Haiku label
 ## After round 33
 
 Belief: no prompt leans on memory (predicted every gap within 20 points). Evidence: Persona now finds 88% of the changes Haiku cannot state and 86% of those it can; the naive prompt drops from 79% to 56%. Prediction failed for naive only. Change: memory is a weak explanation for Persona's finds but a plausible one for part of the naive prompt's, which strengthens the case that the rewrite reads the text. Caveat: "stated" is Haiku's free recall with a hand-judged direction, and 16 cases is small (one case = 6 points). Next: the remaining open judge points are presentation (plain arm names, a shorter Table 4) and a harness canary for the shipped 3 of 30.
+
+## After round 34
+
+Belief: the shipped prompt's 3 of 30 is the prompt, not the agent harness reading a long file. Evidence: the same prompt, harness and histories return a plain planted reversal in 29 of 30 while finding 1 documented change; it never pairs the planted posts with real ones. Held as predicted. Change: the harness objection is answered in §4.1 in one sentence. Next: presentation only (plain arm names, shorter Table 4), then a final judge look.
