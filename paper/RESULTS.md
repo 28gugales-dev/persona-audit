@@ -277,3 +277,17 @@ Unnamed decoy types (the exclusion list does not name them): GPT-written D6 hypo
 - x7 labels: key pairs 37/39 both-yes, decoys 1/24, returned 23/57. Pooled over eight rounds: keys 139/149, decoys 7/126, returned 225/364.
 - Predictions (PLAN v19): fresh2 simple arms held; contradoc below realX held (3 vs 11, 2 vs 4); beliefshift ≥ realX failed on dev (10 vs 11), held on fresh1 (5 vs 4). Appendix F now 41 numeric rows, 17 failed (real text 13 of 25).
 - Cost: 198 Haiku replies (~19.5M subagent tokens, mostly reading), 2 label calls.
+
+## Round 20 (v20): card cost (existing replies, first run or look, 24 histories, blind real/not labels, Haiku + Sonnet)
+
+| Arm | Cards | Per history | Both "real" | Haiku / Sonnet "real" | Not-real per history |
+|---|---|---|---|---|---|
+| Shipped prompt (400) | 5 | 0.21 | 3 (60%) | 4 / 3 | 0.08 |
+| realX (400) | 60 | 2.5 | 50 (83%) | 52 / 54 | 0.42 |
+| Deployed (realX + changes, longer, capped at 8) | 119 | 4.96 | 95 (80%) | 102 / 103 | 1.0 |
+| Anchor: early + announced | 24 | – | 22 | 23 / 22 | – |
+| Anchor: control + announced | 24 | – | 5 | 8 / 8 | – |
+
+- Deployed exceeded the 8-card cap in 2 of 24 histories. Labeller agreement: realX 54/60, deployed 104/119.
+- Prediction (PLAN v20): all parts held except controls ≤ 3/24 (5). Appendix F: 42 numeric rows, 18 failed (real text 14 of 26).
+- Files: evals/conflicts/gen/make_cost_cards.py, score_cost.py; results/cost_cards_map.json, cost_scores.json.

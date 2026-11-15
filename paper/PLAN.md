@@ -466,3 +466,10 @@ Why (constructive judging after round 18): the fresh-set-2 test compared the dep
 2. **Prior-art-style prompts on all 24 histories** (400 characters, 3 runs): contradoc_style (a document self-contradiction prompt in the spirit of ContraDoc [5]) and beliefshift_style (a belief-tracking prompt in the spirit of BeliefShift [6]); our wording, same JSON output, not the papers' own code.
    - Predictions: contradoc_style finds fewer cases than realX on each set it shares with realX (dev 11, fresh1 4), because "cannot both be true" excludes announced revisions; beliefshift_style finds at least as many as realX on dev and fresh1. Neither flags controls in more than 1 history per run.
 3. New early-by-later pairs labelled blind as before (Haiku and Sonnet, the case's question, the text each model saw), with key pairs and random decoys as anchors.
+
+## v20: what the repair costs in cards (written before any v20 label exists)
+
+Why (round-19 mock judges): recall gains were reported without the cards they cost or the share of those cards that are genuine.
+
+Design: existing replies only, first run (or first look) per history, all 24 histories. Arms: shipped prompt (whole history, 400 characters), realX alone (400), deployed (realX + changes, longer excerpts, one look, merged and capped at 8 as Persona does). Every card (pair) is labelled blind to arm by the earlier card prompt ("a real change or tension in the author's own views": real / not), Haiku and Sonnet, shown the text the model saw. Anchors: per history the keyed early + announced pair (expect real) and the control + announced pair (expect not). Cards are shuffled across arms and split into files of about 50.
+- Predictions: cards per history per look: shipped ≤ 0.5, realX 1.5-3, deployed 3-6; deployed cards hitting the 8 cap in ≤ 3 of 24 histories. Genuine share (both labellers "real"): realX ≥ 70%, deployed ≥ 60%, and deployed within 20 points of realX. Anchors: keys ≥ 20/24 real, control pairs ≤ 3/24 real.
