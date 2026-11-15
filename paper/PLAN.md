@@ -456,3 +456,13 @@ Fresh2 (realtext_cases4.json): Lyell on the antiquity of man, Besant on material
 ### v18c fresh2 results
 
 Final configuration: 6/6 cases on a majority of looks, and in all 3 looks of every history (18/18); controls flagged 0. Production: 1/6 (Buckland), controls 0. Strict key pairs: final 22/27 key-pair-looks; production 1/9. Labels: key 9/9 both-yes, decoys 0/6, returned 25/36. Sensitivity without lyell_species_origin: 5/5 vs 1/5. Applying the product's cap of 8 pairs per look (realX's pairs first, or interleaved) drops 2 pairs in 2 looks but no case (still 18/18 looks). All three predictions held.
+
+## v19: simpler arms on the untouched set, and prior-art-style baselines (written before any v19 run)
+
+Why (constructive judging after round 18): the fresh-set-2 test compared the deployed configuration only with the shipped prompt, so it does not show the two-prompt design is needed; and no prior-art-style method was run on our cases.
+
+1. **Fresh set 2, simpler arms** (400-character excerpts, whole history, 3 runs each): naive, realX_v1, changes_v1. Existing replies already give realX (deployed text) and changes alone at longer excerpts (the two halves of the final configuration's looks). Fresh set 2 is no longer untouched after this; nothing is chosen on it.
+   - Predictions (case level, majority of runs): realX-400 >= 4/6; changes-400 >= 4/6; naive >= 3/6; none beats the deployed configuration's 6/6; controls flagged in <= 1 history per run each.
+2. **Prior-art-style prompts on all 24 histories** (400 characters, 3 runs): contradoc_style (a document self-contradiction prompt in the spirit of ContraDoc [5]) and beliefshift_style (a belief-tracking prompt in the spirit of BeliefShift [6]); our wording, same JSON output, not the papers' own code.
+   - Predictions: contradoc_style finds fewer cases than realX on each set it shares with realX (dev 11, fresh1 4), because "cannot both be true" excludes announced revisions; beliefshift_style finds at least as many as realX on dev and fresh1. Neither flags controls in more than 1 history per run.
+3. New early-by-later pairs labelled blind as before (Haiku and Sonnet, the case's question, the text each model saw), with key pairs and random decoys as anchors.

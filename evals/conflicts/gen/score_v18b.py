@@ -8,7 +8,7 @@ sys.path.insert(0, f'{ROOT}/evals/conflicts/gen')
 with contextlib.redirect_stdout(io.StringIO()):
     import score_rerun as S
 yes, labelled = set(), set()
-for m, base in (('', 'label__thesis'), ('3', 'label__thesis3'), ('x', 'label__thesisx'), ('x3', 'label__thesisx3'), ('x4', 'label__thesisx4'), ('x5', 'label__thesisx5'), ('x6', 'label__thesisx6')):
+for m, base in (('', 'label__thesis'), ('3', 'label__thesis3'), ('x', 'label__thesisx'), ('x3', 'label__thesisx3'), ('x4', 'label__thesisx4'), ('x5', 'label__thesisx5'), ('x6', 'label__thesisx6'), ('x7', 'label__thesisx7')):
     if not os.path.exists(f'{R}/thesis_cards_map{m}.json') or not os.path.exists(f'{R}/haiku_raw/{base}.r1.txt'): continue
     L = []
     for f in (base, base + '_s'):
@@ -19,7 +19,9 @@ for m, base in (('', 'label__thesis'), ('3', 'label__thesis3'), ('x', 'label__th
 side = lambda c, x: 'E' if x == f'{c}_early' or re.fullmatch(f'{c}_e\\d+', x) else 'L' if re.fullmatch(f'{c}_(announced|unannounced|l\\d+)', x) else None
 ARMS = [('production', 'requests_v17.jsonl'), ('naive', 'requests_v14.jsonl'), ('realX', 'requests_v15.jsonl'), ('changes', 'requests_v18.jsonl'), ('changes', 'requests_v18b_chg3.jsonl'),
         ('production', 'requests_v18_3_prod.jsonl'), ('realX', 'requests_v18_3_realX.jsonl'), ('realX_long', 'requests_v18b_long.jsonl'), ('changes_long', 'requests_v18b_chglong.jsonl'),
-        ('production', 'requests_v18c_prod.jsonl'), ('final_realX', 'requests_v18c_realX.jsonl'), ('final_changes', 'requests_v18c_changes.jsonl')]
+        ('production', 'requests_v18c_prod.jsonl'), ('final_realX', 'requests_v18c_realX.jsonl'), ('final_changes', 'requests_v18c_changes.jsonl'),
+        ('naive', 'requests_v19_fresh2_naive.jsonl'), ('realX', 'requests_v19_fresh2_realX.jsonl'), ('changes', 'requests_v19_fresh2_changes.jsonl'),
+        ('contradoc_style', 'requests_v19_contradoc.jsonl'), ('beliefshift_style', 'requests_v19_beliefshift.jsonl')]
 SETS = {'': 'dev', '2': 'dev', '3': 'fresh1', '4': 'fresh2'}
 setof = {c['id']: SETS[s] for s in SETS if os.path.exists(f'{ROOT}/paper/data/realtext_cases{s}.json') for c in json.load(open(f'{ROOT}/paper/data/realtext_cases{s}.json'))}
 out, unl = {}, set()

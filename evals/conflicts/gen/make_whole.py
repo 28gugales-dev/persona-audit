@@ -7,7 +7,7 @@ ROOT, SUF, PROMPT, PREFIX, OUT = sys.argv[1:6]
 CAP, TOTAL = (int(sys.argv[6]), int(sys.argv[7])) if len(sys.argv) > 7 else (400, None)
 
 def system(name):
-    if name in ('realX_v1', 'changes_v1', 'realX_deployed'): return json.load(open(f'{ROOT}/evals/conflicts/gen/real_prompts.json'))[name]
+    if name in ('realX_v1', 'changes_v1', 'realX_deployed', 'naive', 'contradoc_style', 'beliefshift_style'): return json.load(open(f'{ROOT}/evals/conflicts/gen/real_prompts.json'))[name]
     return json.loads(open(f'{ROOT}/paper/results/requests_v17.jsonl').readline())['system']  # the shipped prompt as sent in v17
 
 defuse = lambda t: re.sub(r'<(/?)(excerpt|theme)', lambda m: '‹' + m.group(1) + m.group(2), t, flags=re.I)

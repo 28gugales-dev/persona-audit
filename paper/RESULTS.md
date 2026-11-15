@@ -262,3 +262,18 @@ Unnamed decoy types (the exclusion list does not name them): GPT-written D6 hypo
 | Fresh set 2 counting the two Lyell cases (same two works) as one: deployed 5/5, production 1/5 | v18b_scores.json cases (final, production) |
 | Appendix F tally after round 18: 42 rows; 3 without a numeric prediction, 1 untestable; 38 numeric, 16 failed (planted 4 of 16, real text 12 of 22). The earlier "35 numeric" count was one too many (34) | paper.md Appendix F, counted by script |
 | Production prompt, whole history: mean pairs returned per history 0.3 (dev), 0.0 (fresh 1), 0.2 (fresh 2) | v18b_scores.json pairs_per_history_run |
+
+## Round 19 (v19): simpler arms on fresh set 2, prior-art-style prompts on all 24 (Haiku, 3 runs, 400 characters, case level, blind labels map x7)
+
+| Arm | Dev /12 | Fresh 1 /6 | Fresh 2 /6 | Controls per run |
+|---|---|---|---|---|
+| naive | (10, earlier) | – | 5 (Lyell antiquity 0/3) | 0 |
+| realX_v1 | (11) | (4) | 6 | 0 |
+| changes_v1 | (12) | (4) | 6 | 0 |
+| contradoc_style ("cannot both be true") | 3 | 2 | 2 | 0 |
+| beliefshift_style (stance over time) | 10 (Hume 1/3, Spencer 1/3) | 5 (Godwin 3/3; James 0/3) | 6 | 0 |
+
+- Fresh set 2 does not discriminate between the repaired configurations: single 400-character prompts find 5-6/6 there. The shipped prompt's 1/6 is the finding the set supports.
+- x7 labels: key pairs 37/39 both-yes, decoys 1/24, returned 23/57. Pooled over eight rounds: keys 139/149, decoys 7/126, returned 225/364.
+- Predictions (PLAN v19): fresh2 simple arms held; contradoc below realX held (3 vs 11, 2 vs 4); beliefshift ≥ realX failed on dev (10 vs 11), held on fresh1 (5 vs 4). Appendix F now 41 numeric rows, 17 failed (real text 13 of 25).
+- Cost: 198 Haiku replies (~19.5M subagent tokens, mostly reading), 2 label calls.
