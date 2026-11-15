@@ -332,3 +332,7 @@ Belief: demanding evidence (a verbatim quote) would drop weak cards without cost
 ## After round 37
 
 Belief: the repair generalises to cases chosen with no knowledge of it. Evidence: a fourth set sourced after the current prompt shipped, with no constraints that favour either prompt, gave 6 of 7 against 1, as predicted. Change: the paper now has one fully clean test of what Persona runs, reported apart. It is small (7) and its p-value alone is 0.06, so the claim rests on the pattern across four independently sourced sets, not on any one.
+
+## After judge look 7 and round 39
+
+Belief: "Persona now runs it" described the product. Evidence: the product's 120-post gate would have routed 29 of our 37 test histories to the word-theme fallback that the audit shows fails. Change: the gate is now 124 (the largest tested), shipped; and the paper says plainly that longer records still take the failing path, which is now the most important open product problem. Second belief: the labellers might be producing the shipped-vs-rewrite gap. Evidence: with no labeller at all, exact key pairs give 2 vs 15, and any pair touching a keyed passage 4 vs 25. The gap is not a labeller artefact.

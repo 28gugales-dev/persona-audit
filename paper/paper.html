@@ -39,7 +39,7 @@ code { font-size: 9pt; }
 <tbody>
 <tr>
 <td>Import of posts and AI chats; word-overlap theme sort; on-device detector; opt-in model step and its prompt (Haiku 5.5); conflict cards with verdicts</td>
-<td>"Change of mind" vs live label; this whole evaluation (<code>evals/conflicts</code>, <code>paper/</code>). Deployed: Nov 14 afternoon, whole history in one call with the rewrite (main c27f1622); Nov 14 evening, a second "changes" prompt merged in and excerpts up to 1,000 characters (main 34bfd61e); Nov 15, after round 21, the second prompt removed again (main c9a32b4c); after round 30, its "at most 8 pairs" line removed (main 2a5e359e).</td>
+<td>"Change of mind" vs live label; this whole evaluation (<code>evals/conflicts</code>, <code>paper/</code>). Deployed: Nov 14 afternoon, whole history in one call with the rewrite (main c27f1622); Nov 14 evening, a second "changes" prompt merged in and excerpts up to 1,000 characters (main 34bfd61e); Nov 15, after round 21, the second prompt removed again (main c9a32b4c); after round 30, its "at most 8 pairs" line removed (main 2a5e359e); then the whole-history gate raised from 120 to 124 posts (main cea9afd9).</td>
 </tr>
 </tbody>
 </table></div>
@@ -55,6 +55,7 @@ code { font-size: 9pt; }
 <li><strong>Model step</strong> (opt-in). Per theme, up to 20 excerpts spread over time, each cut to 400 characters, go to Haiku with the production prompt (Appendix B). It has a <strong>definition</strong> ("Count a pair only when the person asserts both as their own view, on the same point, and they clash"), an <strong>exclusion list</strong> ("Do not count: ... questions, doubt ...; describing, quoting or answering someone else's view; ..."), an <strong>empty-list default</strong> ("Most themes have none, and an empty list is the right answer then") and output rules.</li>
 <li><strong>Card</strong>, labelled "change of mind" or "live" (label added Nov 13, during the sprint).</li>
 </ol>
+<p>Since Nov 14 a history short enough goes to the model whole in one call, every post cut to an equal share of 120,000 characters (at most 1,000); longer records still take the theme sort. The gate was 120 posts, which 29 of our 37 test histories (123-124 posts) exceeded; after this audit it is 124, the largest history we ran whole (main cea9afd9).</p>
 <h2>3.2 Answer keys</h2>
 <p><strong>Real writing (main).</strong> Documented changes of mind in public-domain English texts (Gutenberg, Wikisource, archive.org), each with a secondary source, every passage checked by script to appear verbatim. Each case has an <strong>early</strong> passage stating the earlier view, a passage in a later, separate work where the author <strong>announces</strong> the change, a later <strong>unannounced</strong> statement of the new view where one exists, and an early-work <strong>control</strong>. Each case becomes a history: up to 60 paragraphs sampled from the early work and 60 from the later one, dated, plus the passages (72-124 posts). Four sets:</p>
 <ul>
@@ -94,7 +95,7 @@ code { font-size: 9pt; }
 </tbody>
 </table></div>
 <h2>3.3 Scoring</h2>
-<p><strong>Strict pairs</strong> (earlier rounds): a run counts only if it returns the keyed early passage with the keyed later passage. <strong>By change of mind</strong> (case level): a run finds a case if it returns a keyed pair, or any pair with one side from the early work and one from the later work that two labellers, Haiku and Sonnet, each shown the case's question and the two passages and blind to which prompt produced them, both judge to reject or abandon the earlier view on that question. Over fourteen label rounds the labellers called 362 of 397 judgments of the 51 keyed pairs and 10 of 240 random early-by-later decoy pairs a match (pooled with round 31's looser batch, 15 of 270), and 3 of 51 hard negatives (each case's control passage against its later passages; two were announcements that disown the whole earlier book). A third judge, Opus 5.5, required to quote the rejecting words verbatim, confirmed 105 of the 116 off-key pairs that carry credit but accepted only 42 of the 51 keyed pairs (round 26). A case is found when a majority of runs (or, for two-call configurations, of looks) find it. Controls flagged count against a configuration.</p>
+<p><strong>Strict pairs</strong> (earlier rounds): a run counts only if it returns the keyed early passage with the keyed later passage. <strong>By change of mind</strong> (case level): a run finds a case if it returns a keyed pair, or any pair with one side from the early work and one from the later work that two labellers, Haiku and Sonnet, each shown the case's question and the two passages and blind to which prompt produced them, both judge to reject or abandon the earlier view on that question. Over fourteen label rounds the labellers called 362 of 397 judgments of the 51 keyed pairs and 10 of 240 random early-by-later decoy pairs a match (pooled with round 31's looser batch, 15 of 270), and 3 of 51 hard negatives (each case's control passage against its later passages; two were announcements that disown the whole earlier book). A third judge, Opus 5.5, required to quote the rejecting words verbatim, confirmed 105 of the 116 off-key pairs that carry credit but accepted only 42 of the 51 keyed pairs (round 26). A case is found when a majority of runs (or, for two-call configurations, of looks) find it. Controls flagged count against a configuration. The contrast does not depend on the labellers: crediting only the exact key pair, with no labeller, the shipped prompt finds 2 of 30, the naive prompt 11 and Persona's prompt 15; crediting any early-by-later pair that includes a keyed passage, 4, 22 and 25 (an unpredicted check).</p>
 <h2>3.4 Runs and process</h2>
 <p><strong>Model and harness.</strong> Haiku 5.5 through Claude Code subagents, one fresh agent per request; prompts passed verbatim, replies parsed by the production parser. Temperature cannot be set, so real-text arms ran 3-6 times. Each look of a two-call configuration pairs one run of each prompt. Development and fresh set 1 used the rewrite's tested text; on fresh sets 2 and 3 the two-call configuration used the deployed text, which adds the shipped output rules (a neutral question, at most 8 pairs); round 19's single-prompt arms used the tested texts.</p>
 <p><strong>Prompts.</strong> <em>Production</em>: the shipped prompt. <em>Rewrite</em> (realX in code and appendices): a generic "find contradictions" prompt with production's exclusion list, plus one paragraph saying a view the writer formerly held counts. <em>Changes</em>: asks first for each later excerpt where the writer turns against an earlier view of their own, even vaguely ("my former opinions") and without stating the new one, paired with the excerpt that states it, then for opposite sides a year or more apart. <em>Paragraph</em>: the rewrite's retraction paragraph and clause. <em>Naive</em>: "Where does this person contradict themselves?" Full texts in Appendix B.</p>
@@ -141,7 +142,7 @@ code { font-size: 9pt; }
 <p><strong>1. Word grouping</strong> (Section 4.1). Model grouping by question recovers some of this for records too long for one call (Appendix D).</p>
 <p><strong>2. The definition</strong> (planted items, oracle setting). With the production prompt Haiku found every unsignalled planted reversal (36/36). Adding "I used to see this differently, but I've changed my mind." before the later post cut this to 11/36 (25 lost, 0 gained, exact McNemar p = 6×10⁻⁸); a neutral sentence in the same place left it at 36/36; Sonnet dropped from 36 to 14. Crossed ablations (three runs per cell) trace the loss to the definition "asserts both as their own view" and the empty-list default: a time-anchored definition adds 16.7 [11.6, 21.9] of the 36 marked items, dropping the default 14.0 [10.5, 17.7], a placebo rewording of the same length −2.3 [−5.8, 1.3]. The marker cliff is this prompt's: three strict prompts GPT wrote for few false alarms lost 0-4 of 36 when marked, generic prompts none. The real-text failure is not: the same three found 1, 6 and 1 of 30. On real text (400 characters) the definition matters less than the rewrite's paragraph counting retractions and references back, with its clause that a view the writer once held is their own: with them the shipped prompt found 19 and the edited one 21; the rewrite without them 13, with them 25. (We had predicted ≤ 12.)</p>
 <p><strong>3. The 400-character cut.</strong> In fresh set 1 the decisive words sat past character 400: Godwin's announcement is cut before what he would modify (it stops at "Not that I see cause to make any change respecting the principle of justice"), and James's early passage at "The private minds do not agglomerat". Excerpts of min(1000, 120,000 / posts) characters recover Godwin for both prompts and James for the changes prompt (Table 3).</p>
-<p><strong>4. Retraction without restatement.</strong> Hume's announcement ("I neither know how to correct my former opinions, nor how to render them consistent") names no view. The rewrite never paired it with the bundle-theory passage it retracts (0 of 9 runs: 3 at 400 characters, 6 longer); the changes prompt did in 2 of 3 runs at 400 characters but 0 of 4 longer. Every repaired configuration misses it. Told which passage is the retraction and asked what earlier view it disowns (14 retraction-only cases, longer excerpts, three runs), Haiku named a matching early passage in its top three for 11: so for most retractions, Wordsworth's included, the failure is noticing the retraction, not linking it. Hume (1 of 3 runs), Kant (0 of 3) and Coleridge (1 of 3) fail even then.</p>
+<p><strong>4. Retraction without restatement.</strong> Hume's announcement ("I neither know how to correct my former opinions, nor how to render them consistent") names no view. The rewrite never paired it with the bundle-theory passage it retracts (0 of 9 runs: 3 at 400 characters, 6 longer); the changes prompt did in 2 of 3 runs at 400 characters but 0 of 4 longer. Every configuration Persona has run since misses it. Told which passage is the retraction and asked what earlier view it disowns (14 retraction-only cases, longer excerpts, three runs), Haiku named a matching early passage in its top three for 11: so for most retractions, Wordsworth's included, the failure is noticing the retraction, not linking it. Hume (1 of 3 runs), Kant (0 of 3) and Coleridge (1 of 3) fail even then.</p>
 <h2>4.3 The repair, on records it was not tuned on</h2>
 <div class="tbl"><p><strong>Table 4. The repair against baselines</strong> (Haiku; cases found on a majority of three or more runs, credited by blind labels; whole history in one call). <em>Tuning</em>: development and fresh set 1, used to choose the rewrite; <em>unseen</em>: fresh sets 2 and 3, sourced after it was deployed; <em>set 4</em>: sourced after Persona's current prompt shipped, run once. † first run with unseen results in view. <em>Controls</em>: histories with a control flagged, per run. <em>Non-genuine</em>: cards per history on the first run, capped at 8 as Persona does, that Sonnet and Opus did not both judge a real change or tension in the author's own views (one shuffled batch; key anchors 26 and control anchors 3 of 30 judged real; italic: an earlier Haiku + Sonnet batch). <em>No change</em>: the same on 30 histories built from the early works alone. Per-set counts: Figure 1; every other configuration: Table 4b.</p>
 <table>
@@ -219,7 +220,7 @@ code { font-size: 9pt; }
 <td>0.30</td>
 </tr>
 <tr>
-<td>Rewrite, longer (deployed Nov 14-15)</td>
+<td>Rewrite, longer (deployed Nov 15)</td>
 <td>16</td>
 <td>10</td>
 <td>26</td>
@@ -240,7 +241,7 @@ code { font-size: 9pt; }
 </tr>
 </tbody>
 </table></div>
-<p><strong>On the unseen sets.</strong> The rewrite was frozen before fresh sets 2 and 3 existed. On them it found 10 of 12 changes where the shipped prompt found 2 (8-0, exact McNemar p = 0.008; set 3 alone, 4 against 0, p = 0.125). A two-prompt configuration deployed with it tied it (10 of 12), so we removed the second prompt (Table 1). Every prompt missed Coleridge, whose early view sits inside a political address, and Wordsworth, whose 1821 retraction names nothing. The deployed prompt held up under three further checks, each with predictions committed first: with author names and own-work titles replaced and dates shifted to 2001, it found the same 10 and the shipped prompt none (p = 0.002); counted by author, it won for 7 and lost for none (sign test p = 0.016); and on Sonnet 5.5 instead of Haiku, Persona's current prompt found 11 of 12 and the shipped prompt 1 (p = 0.002; a safety classifier blocked 4 of 72 runs, changing no case). On fresh set 4, the one set sourced after Persona's current prompt shipped, it found 6 of 7 and the shipped prompt 1 (5-0, p = 0.06; missed Murchison, whose retraction is in a noisy two-column scan); across the 19 cases sourced after deployment, 16 against 3 (13-0, p = 0.0002).</p>
+<p><strong>On the unseen sets.</strong> The rewrite was frozen before fresh sets 2 and 3 existed. On them it found 10 of 12 changes where the shipped prompt found 2 (8-0, exact McNemar p = 0.008; set 3 alone, 4 against 0, p = 0.125). A two-prompt configuration deployed with it tied it (10 of 12), so we removed the second prompt (Table 1). Every prompt missed Coleridge, whose early view sits inside a political address, and Wordsworth, whose 1821 retraction names nothing. The deployed prompt held up under three further checks, each with predictions committed first: with author names and own-work titles replaced and dates shifted to 2001, it found the same 10 and the shipped prompt none (p = 0.002); counted by author, it won for 7 and lost for none (sign test p = 0.016); and on Sonnet 5.5 instead of Haiku, Persona's current prompt found 11 of 12 and the shipped prompt 1 (p = 0.002; a safety classifier blocked 4 of 72 runs, changing no case). On fresh set 4, the one set sourced after Persona's current prompt shipped, it found 6 of 7 and the shipped prompt 1 (5-0, p = 0.06; missed Murchison, whose retraction is in a noisy two-column scan); across all 19 cases sourced after deployment, 16 against 3 (13-0, p = 0.0002), though sets 2 and 3 were in view when the current prompt was chosen, so only set 4 is a clean test of it.</p>
 <p><strong>Reading, not remembering.</strong> The authors are famous. From author, years and question alone Haiku stated 14 of the 30 changes; Persona's prompt found 14 of the 16 it could not state and 12 of the 14 it could, while the naive prompt fell from 11 of 14 to 9 of 16. With the post announcing each change deleted from the history, Persona's prompt still found 16 of 30 (5 of 12 unseen). Its recall edge over the naive prompt is small: at 400 characters it found all of the naive prompt's 20 and 5 more (exact McNemar p = 0.06).</p>
 <p><strong>What it costs.</strong> The shipped prompt is not a precision trade-off but dominated: with the retraction paragraph it keeps its 0.07 non-genuine cards per history and finds 19 cases, not 3. The rewrite's edge over the naive prompt is precision: 88% of the cards Persona now shows were judged genuine against 50% (38 points higher [25, 51]; 0.90 fewer non-genuine cards per history [0.57, 1.23]; bootstrap over histories), and the "changed their mind?" prompt matched its recall at three times its non-genuine cards. On writing with no documented change (each early work alone, redated over six years), the deployed text raised the most false cards of any prompt, 1.10 per history. One line caused it, "Return at most 8 pairs, the sharpest first": the model filled the quota. Without the line it found 26 cases (losing Russell, gaining James) with 0.27 non-genuine cards per history on real histories and 0.40 on no-change writing, and Persona dropped the line under a rule written before the test (Table 1; its 0.67 control flags are Spencer in 2 of 3 runs). The cost does not vanish: on real two-work histories with the documented change removed, it raised 0.60 non-genuine cards per history (naive 1.17) beside 0.97 genuine ones; with no clear change to report, it reaches for weaker pairs. Requiring a verbatim quote for every card, tested as a product change under a rule written first, cut these to 0.47 but lost two cases (24 of 30, 9 of 12 unseen) and raised false cards on real histories (0.30 against 0.17 for the current prompt in the same batch), so Persona kept its prompt.</p>
 <h2>4.4 The audit's own failure: what the scorer hid</h2>
@@ -255,7 +256,7 @@ code { font-size: 9pt; }
 <li>Read past the excerpt cut on every miss: Godwin's and James's decisive words sat after character 400.</li>
 <li>Score by the change, not the passage you keyed, calibrate labellers on decoys, and keep a set the configuration has never seen: our first scorer reported 8 of 19 pairs where blind labels show 11 of 12 cases.</li>
 </ol>
-<p><strong>Limitations</strong> (full list in Appendix A). No users: not shown that people want these cards or that they improve decisions. 30 real cases by famous authors (Haiku states 14 from memory; Persona's recall is no lower on the other 16), English, 18th-20th-century prose; fresh set 2 proved easy. Case-level credit rests on Claude labellers (calibrated, but not people). One model family (Haiku; Sonnet on the unseen sets only), run by the product's author. Histories of 72-124 posts; a person's years of writing are longer, where grouping, not one call, must work.</p>
+<p><strong>Limitations</strong> (full list in Appendix A). No users: not shown that people want these cards or that they improve decisions. 30 real cases by famous authors (Haiku states 14 from memory; Persona's recall is no lower on the other 16), English, 18th-20th-century prose; fresh set 2 proved easy. Case-level credit rests on Claude labellers (calibrated, but not people). One model family (Haiku; Sonnet on the unseen sets only), run by the product's author. Histories of 72-124 posts; records longer than Persona's 124-post gate still take the word-theme path, which never joined a change's two ends, so for long records the failure in Section 4.1 stands until grouping is fixed.</p>
 <p><strong>Future work.</strong> A consented user study (protocol in Appendix A), long real records, a cross-family replication, human labels.</p>
 <h1>6. Conclusion</h1>
 <p>On documented changes of mind in real writing, Persona's shipped prompt found 3 of 30 even given each whole history, raised no false alarms, and its word grouping never put the two views together. The causes were a word-based split, a strict definition, a 400-character cut and retractions that never restate the view. A rewritten prompt, frozen before two later test sets existed, found 10 of their 12 changes with far fewer false cards than a naive prompt, and is what Persona now runs. Blind spots like these hide behind zero false alarms; real records with known changes of mind find them, provided the scorer is itself checked.</p>
@@ -558,14 +559,19 @@ code { font-size: 9pt; }
 <td>Fresh set 4 brief and predictions (v37), before any case existed</td>
 </tr>
 <tr>
+<td>347186f6</td>
+<td>15:19:37 (Nov 15)</td>
+<td>Quote-required prompt and its decision rule (v38), before any request existed</td>
+</tr>
+<tr>
 <td>41fe2702</td>
 <td>15:47:58 (Nov 15)</td>
 <td>Fresh set 4 cases (7), before any run</td>
 </tr>
 <tr>
-<td>347186f6</td>
-<td>15:19:37 (Nov 15)</td>
-<td>Quote-required prompt and its decision rule (v38), before any request existed</td>
+<td>087671fd</td>
+<td>15:56:08 (Nov 15)</td>
+<td>Whole-history gate raised to the largest tested history (v39), before the product change; shipped as main cea9afd9</td>
 </tr>
 </tbody>
 </table>
@@ -712,13 +718,22 @@ code { font-size: 9pt; }
 <td>0</td>
 </tr>
 <tr>
-<td><strong>realX, longer excerpts (deployed from Nov 15)</strong></td>
+<td>realX, longer excerpts (deployed Nov 15)</td>
 <td>1</td>
 <td>11</td>
 <td>5</td>
 <td>6</td>
 <td>4</td>
 <td>0</td>
+</tr>
+<tr>
+<td><strong>† Persona now (no "at most 8")</strong></td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>6</td>
+<td>4</td>
+<td>0.67, 0, 0, 0</td>
 </tr>
 <tr>
 <td>Changes, longer excerpts, two calls</td>
@@ -1432,7 +1447,7 @@ code { font-size: 9pt; }
 </ul>
 <p>Every number in the report is tied to a result file in <code>paper/RESULTS.md</code>; numbers from before the real-text rounds were re-checked by separate reviewer agents (two full passes). The author is responsible for the content.</p>
 <h1>Appendix F. Every arm and its prediction</h1>
-<p>Each row through round 16 was committed before its outputs existed (Appendix C); rounds 18-20's rows were written in <code>PLAN.md</code> before their runs and committed afterwards; rounds 21-38 were committed before their cases or requests existed. Three rows had no numeric prediction, as marked, and one was untestable. Failed predictions are kept in the paper. Counts in the text take one prediction per row (75 rows with a numeric prediction; 35 failed: 4 of 16 on planted items, 31 of 59 on real text) and count a row as failed if any part of it failed.</p>
+<p>Each row through round 16 was committed before its outputs existed (Appendix C); rounds 18-20's rows were written in <code>PLAN.md</code> before their runs and committed afterwards; rounds 21-38 were committed before their cases or requests existed. Four rows had no numeric prediction, as marked, and one was untestable. Failed predictions are kept in the paper. Counts in the text take one prediction per row (75 rows with a numeric prediction; 35 failed: 4 of 16 on planted items, 31 of 59 on real text) and count a row as failed if any part of it failed.</p>
 <table>
 <thead>
 <tr>
@@ -1916,6 +1931,12 @@ code { font-size: 9pt; }
 <td>Quote required for every card (product decision)</td>
 <td>24-26 and 10 of 12; two-work non-genuine 0.30-0.45; real 0.15-0.30; so ship; quotes ≥ 90% verbatim</td>
 <td><strong>Failed</strong>: 9 of 12; 0.47; rule says keep. Held: 24; 0.30; 96%</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Whole-history gate to 124 posts (product decision, no runs)</td>
+<td>No numeric prediction</td>
+<td>Shipped (main cea9afd9)</td>
 </tr>
 </tbody>
 </table>

@@ -635,3 +635,7 @@ Why (round 36): with no clear change to report, Persona's prompt reaches for wea
 
 Decision rule: ship depQuote if and only if (a) it finds ≥ 25 of 30 and ≥ 10 of the 12 unseen; (b) its non-genuine cards per history on the two-work histories are ≤ 0.45 and lower than the current prompt's in the same batch; (c) on real histories ≤ 0.30. Otherwise keep the current prompt.
 - Predictions: (a) 24-26 and 10 of 12; (b) 0.30-0.45; (c) 0.15-0.30; so the rule says ship. Also: ≥ 90% of returned quotes appear verbatim in the later excerpt.
+
+## v39: Persona's whole-history gate, a product decision (committed before the product change)
+
+Why (judge look 7): Persona sends a history in one call only up to LIMITS.excerpts = 120 posts; past that it falls back to word themes, which joined 0 of 19 keyed pairs. 29 of the 37 test histories have 123-124 posts, so in the product they would have taken the fallback, not the evaluated path. Rule (no new runs): raise the gate to 124, the largest history every result here was measured on, because the per-call cost bound (totalChars, 120,000) is unchanged and per-post excerpts shrink with history size exactly as evaluated (min(1000, 120,000 / posts)). Do not go higher: nothing above 124 posts was tested. The paper states plainly that records longer than the gate still take the word-theme path.
