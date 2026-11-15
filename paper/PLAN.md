@@ -496,3 +496,13 @@ Why: cause 2 (the shipped definition) was isolated only on planted items; judges
    - Predictions: shipped ≤ 3/30; defOnly ≥ 8/30; defNoEmpty ≥ 14/30 and ≥ defOnly; both below realX-400's 25/30; controls ≤ 1 history per run each.
 2. **Retraction-link probe** (oracle on the later end). For the 14 cases whose announced passage does not state the new view: the whole history at longer excerpts, and the instruction "Excerpt E<k> is a later passage in which the writer disowns or corrects a view of their own. Which earlier excerpts state the view it disowns? Up to 3, best first." 3 runs. Credit: the keyed early passage, or another early-work paragraph both thesis labellers call a match with the announcement.
    - Predictions: credited in top 3 on a majority of runs for ≥ 10/14; Hume credited; Coleridge and Wordsworth: at most one of the two credited (if linking fails too, those cases need a different approach than a better detection prompt).
+
+## v23: do independently written strict prompts fail on real text too, and what does the shipped configuration cost? (committed before any v23 request)
+
+Why (round-22 mock judges): the field-level claim ("a prompt tuned for few false alarms can return nothing") rests on our own shipped prompt; the three strict prompts GPT wrote from a brief asking for few false alarms were run only on planted items (they lost 0-4 of 36 when marked). And the paper's card cost is for the two-call configuration, which no longer ships.
+
+1. **GPT strict prompts on real text.** gs1, gs2, gs3 (paper/data/strict_prompts_gpt.json, as run in requests_mech7), whole history, 400 characters, 3 runs, all 30 histories; case level by blind thesis labels.
+   - Predictions: each finds more than the shipped prompt's 3; at least two of the three find ≤ 15/30 (below realX's 25 by ≥ 10), i.e. strict prompts in general lose real changes of mind even when they keep planted ones; controls ≤ 1 history per run.
+   - If all three find ≥ 20/30, the paper says the shipped prompt was an outlier and drops the general claim.
+2. **Card cost of what ships** (realX with longer excerpts, deployed text on fresh sets 2-3): existing first runs, 30 histories, blind real/not card labels as in v20 (Haiku + Sonnet), with keyed and control anchors per history.
+   - Predictions: 2.5-5 cards per history; both labellers "real" on ≥ 75%; anchors: keys ≥ 26/30, controls ≤ 6/30.

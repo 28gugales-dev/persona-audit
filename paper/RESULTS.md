@@ -329,3 +329,19 @@ Retraction-link probe (14 cases whose announcement does not state the new view; 
 ## Product change, Nov 15 (main c9a32b4c, API deployed, Aliased amphi-api.vercel.app, health 200)
 
 findConflicts now asks realX (CONFLICTS_SYSTEM, deployed text) once, with longer excerpts; CHANGES_SYSTEM removed. Evidence: realX with longer excerpts 26/30 (dev 11, F1 5, F2 6, F3 4; F2-F3 from the first call of each two-call look) vs two-call 27/30 (only James differs, a tuning case); on the 12 unseen cases 10 each; the second call doubled non-genuine cards (round 20). API tests 55/55, typecheck clean.
+
+## Round 23 (v23): GPT strict prompts on real text; card cost of what ships (plan e08fae03, 12:16 ET Nov 15, before any request)
+
+GPT's three strict prompts (written from a brief asking for few false alarms; on planted items they kept 36, 30, 31 of 36 and lost 0-4 when marked), whole history, 400 characters, 3 runs, case level, blind labels map x10:
+
+| Prompt | Dev /12 | F1 /6 | F2 /6 | F3 /6 | Total /30 | Controls |
+|---|---|---|---|---|---|---|
+| gs1 | 0 | 1 | 0 | 0 | 1 (Gladstone) | 0 |
+| gs2 | 3 | 2 | 1 | 0 | 6 | 0 |
+| gs3 | 1 | 0 | 0 | 0 | 1 (Peirce) | 0 |
+
+What ships (realX, longer excerpts; first run; 30 histories; blind real/not card labels, cost23_scores.json): 101 cards, 3.37 per history, both "real" 74 (73%), Haiku 83 / Sonnet 80; not real 0.9 per history; none over the 8 cap. Anchors: keys 26/30 real, controls 4/30.
+
+- x10 labels: keys 44/51 both-yes (the same 51 drew 48 in x9), decoys 1/30, returned 1/1. Pooled over eleven rounds: keys 240/263, decoys 10/192.
+- Predictions: strict row failed (gs1 and gs3 below the shipped prompt's 3), its main clause held (all ≤ 15); card row failed on genuine share (73% < 75%). Appendix F: 47 numeric rows, 23 failed (real text 19 of 31).
+- Reproducibility note: make_cost_cards.py keeps an arbitrary 8 cards for histories over the cap (S.pairs returns a set); 2 of 24 histories, 1 card differs between runs; round-20 files restored as committed.

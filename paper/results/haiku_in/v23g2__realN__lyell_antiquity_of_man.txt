@@ -1,0 +1,387 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>everything</theme>
+<excerpt id="E1" written="1853-01">
+On similar grounds we may infer, without much hesitation, that the eruptions of Etna, and the modern earthquakes of Calabria, are a continuation of that action which, at a somewhat earlier period, produced the submarine lavas of the Val di Noto in Sicily. But on the other hand, the lavas of the Euganean hills and the Vicentin, although not wholly beyond the range of earthquakes in Northern Italy, 
+</excerpt>
+<excerpt id="E2" written="1853-01">
+_Constant interchange of land and sea._--I may here conclude my remarks on deltas, observing that, imperfect as is our information of the changes which they have undergone within the last three thousand years, they are sufficient to show how constant an interchange of sea and land is taking place on the face of our globe. In the Mediterranean alone, many flourishing inland towns, and a still great
+</excerpt>
+<excerpt id="E3" written="1853-02">
+Humboldt observes, in his Travels, on the authority of Azzara, that it is believed there exist, in the Pampas of Buenos Ayres, twelve million cows and three million horses, without comprising, in this enumeration, the cattle that have no acknowledged proprietor. In the Llanos of Caraccas, the rich hateros, or proprietors of pastoral farms, are entirely ignorant of the number of cattle they possess
+</excerpt>
+<excerpt id="E4" written="1853-02">
+At the same time every zoologist will be willing to concede, that even if the departure of each species from a single centre had not appeared to be part of the plan of Nature, the range of species in general must have become limited, under the influence of a variety of causes, especially in the class of terrestrial mammalia. Scarcely any one of these could be expected to retain as fair a claim to 
+</excerpt>
+<excerpt id="E5" written="1853-02">
+No part of the Eastern cosmogony, from which these extracts are made, is more interesting to the geologist than the doctrine, so frequently alluded to, of the reiterated submersion of the land beneath the waters of a universal ocean. In the beginning of things, we are told, the First Sole Cause "with a thought created the waters," and then moved upon their surface in the form of Brahma the creator
+</excerpt>
+<excerpt id="E6" written="1853-02">
+In a memoir lately published, a naval officer relates that, as he returned from China by the eastern passage, he fell in, among the Moluccas, with several small floating islands of this kind, covered with mangrove trees interwoven with underwood. The trees and shrubs retained their verdure, receiving nourishment from a stratum of soil which formed a white beach round the margin of each raft, where
+</excerpt>
+<excerpt id="E7" written="1853-02">
+_Savannahs of South America._--We are informed by Humboldt, that during the periodical swellings of the large rivers in South America great numbers of quadrupeds are annually drowned. Of the wild horses, for example, which graze in immense troops in the savannahs, thousands are said to perish when the river Apure, a tributary of the Orinoco, is swollen, before they have time to reach the rising gr
+</excerpt>
+<excerpt id="E8" written="1853-02">
+That the climate of the Northern hemisphere has undergone an important change, and that its mean annual temperature must once have more nearly resembled that now experienced within the tropics, was the opinion of some of the first naturalists who investigated the contents of the ancient strata. Their conjecture became more probable when the shells and corals of the older tertiary and many secondar
+</excerpt>
+<excerpt id="E9" written="1853-02">
+Yet it is no less true, as a late distinguished philosopher has declared, "that none of the works of a mortal being can be eternal."[1097] They are in the first place wrested from the hands of man, and lost as far as regards their subserviency to his use, by the instrumentality of those very causes which place them in situations where they are enabled to endure for indefinite periods. And even whe
+</excerpt>
+<excerpt id="E10" written="1853-03">
+An argument of some weight in corroboration of the theory above explained respecting the geographical condition of the temperate and arctic latitudes of the northern hemisphere in the carboniferous period may also be derived from ah examination of those groups of strata which immediately preceded the coal. The fossils of the Devonian and Silurian strata in Europe and North America have led to the 
+</excerpt>
+<excerpt id="E11" written="1853-03">
+_Changes in physical geography which must occasion extinction of species._--It will almost seem superfluous, after I have thus traced the important modifications in the condition of living beings which flow from changes of trifling extent, to argue that entire revolutions might be brought about, if the climate and physical geography of the whole globe were greatly altered. It has been stated, that
+</excerpt>
+<excerpt id="E12" written="1853-03">
+_Supposed atmosphere of carbonic acid._--Prof. Bischoff in his history of volcanoes,[330] has shown what enormous quantities of carbonic acid gas are exhaled in the vicinity of the extinct craters of the Rhine (in the neighborhood of the Laacher-see, for example, and the Eifel), and also in the mineral springs of Nassau and other countries, where there are no immediate traces of volcanic action. I
+</excerpt>
+<excerpt id="E13" written="1853-03">
+In a voyage of discovery made in the antarctic regions in 1839, a dark-colored angular mass of rock was seen imbedded in an iceberg, drifting along in mid-ocean in lat. 61 degrees S. That part of the rock which was visible was about 12 feet in height, and from 5 to 6 in width, but the dark color of the surrounding ice indicated that much more of the stone was concealed. A sketch made by Mr. Macnab
+</excerpt>
+<excerpt id="E14" written="1853-03">
+To explain the state in which they occur fossil, it seems necessary to suppose that after the eggs were almost hatched in the warm sand, a great wave threw upon them so much more sand as to prevent the rays of the sun from penetrating, so that the yolk was chilled and deprived of vitality. The shells were, perhaps, slightly broken at the same time, so that small grains of sand might gradually be i
+</excerpt>
+<excerpt id="E15" written="1853-03">
+The comparatively modern introduction of the human race is proved by the absence of the remains of man and his works, not only from all strata containing a certain proportion of fossil shells of extinct species, but even from a large part of the newest strata, in which all the fossil individuals are referable to species still living.
+</excerpt>
+<excerpt id="E16" written="1853-04">
+Suppose the climate of the highest part of the woody zone of Etna to be transferred to the sea-shore of the base of the mountain, no botanist would anticipate that the olive, lemon-tree, and prickly pear (_Cactus Opuntia_) would be able to contend with the oak and chestnut, which would begin forthwith to descend to a lower level; or that these last would be able to stand their ground against the p
+</excerpt>
+<excerpt id="E17" written="1853-04">
+Among others of that day, Spada, a priest of Grezzana, in 1737, wrote to prove that the petrified marine bodies near Verona were not diluvian.[73] Mattani drew a similar inference from the shells of Volterra and other places; while Costantini, on the other hand, whose observations on the valley of the Brenta and other districts were not without value, undertook to vindicate the truth of the deluge
+</excerpt>
+<excerpt id="E18" written="1853-04">
+It may be asked why the rivers on our east coast are always deflected southwards, although the tidal current flows alternately from the south and north? The cause is to be found in the superior force of what is commonly called "the flood tide from the north," a tidal wave derived from the Atlantic, a small part of which passes eastward up the English Channel, and through the Straits of Dover and t
+</excerpt>
+<excerpt id="E19" written="1853-04">
+It is for the Lamarckians to explain how it happens that those same savages of Borneo have not themselves acquired, by dint of longing, for many generations, for the power of climbing trees, the elongated arms of the ourang, or even the prehensile tails of some American monkeys: Instead of being reduced to the necessity of subjugating stubborn and untractable brutes, we should naturally have antic
+</excerpt>
+<excerpt id="E20" written="1853-04">
+Currents flowing alternately in opposite directions are occasioned by the rise and fall of the tides. The effect of this cause is, as before observed, most striking in estuaries and channels between islands.
+</excerpt>
+<excerpt id="E21" written="1853-04">
+The nature of these vicissitudes will be explained by the accompanying diagram, which represents a transverse section across the Italian peninsula. The inclined strata A are the disturbed formations of the Apennines, into which the ancient igneous rocks a are supposed to have intruded themselves. At a lower level on each flank of the chain are the more recent shelly beds _b b_, which often contain
+</excerpt>
+<excerpt id="E22" written="1853-05">
+_Cause of the convexity of the plain of Malpais._--Humboldt attributed the convexity of the plain to inflation from below; supposing the ground, for four square miles in extent, to have risen up in the shape of a bladder to the elevation of 550 feet above the plain in the highest part. But Mr. Scrope has suggested that the phenomena may be accounted for far more naturally, by supposing that lava f
+</excerpt>
+<excerpt id="E23" written="1853-05">
+So fresh is the ivory throughout northern Russia, that, according to Tilesius, thousands of fossil tusks have been collected and used in turning; yet others are still procured and sold in great plenty. He declares his belief that the bones still left in northern Russia must greatly exceed in number all the elephants now living on the globe.
+</excerpt>
+<excerpt id="E24" written="1853-05">
+Before concluding this chapter, I shall offer a few observations on the influence of man in modifying the physical geography of the globe; for we must class his agency among the powers of organic nature.
+</excerpt>
+<excerpt id="E25" written="1853-05">
+ANTHRACOTHERIUM. A name given to an extinct quadruped, supposed to belong to the Pachydermata, the bones of which were first found in lignite and coal of the tertiary strata. _Etym._, [Greek: anthrax], _anthrax_, coal, and [Greek: therion], _therion_, wild beast.
+</excerpt>
+<excerpt id="E26" written="1853-05">
+Climate of the Northern Hemisphere formerly different--Direct proofs from the organic remains of the Italian strata--Proofs from analogy derived from extinct quadrupeds--Imbedding of animals in icebergs--Siberian mammoths--Evidence in regard to temperature, from the fossils of tertiary and secondary rocks--From the plants of the coal formation--Northern limit of these fossils--Whether such plants 
+</excerpt>
+<excerpt id="E27" written="1853-05">
+Captain R. Strachey, of the Bengal Engineers, has remarked to me, not only that Ghazepoor, where Mr. Everest's observations were made, is 500 miles from the sea, but that the Ganges has not been joined there by its most important feeders. These drain upon the whole 750 miles of the Himalaya, and no more than 150 miles of that mountain-chain have sent their contributions to the main trunk at Ghazep
+</excerpt>
+<excerpt id="E28" written="1853-06">
+In studying many chains of mountains, we find that the strike or line of outcrop of continuous sets of strata, and the general direction of the chain, may be far from rectilinear. Curves forming angles of 20 degrees or 30 degrees may be found in the same range as in the Alleghanies; just as trains of active volcanoes and the zones throughout which modern earthquakes occur are often linear, without
+</excerpt>
+<excerpt id="E29" written="1853-06">
+Another line of argument is then entered upon, in farther corroboration of the instability of species. In order, it is said, that individuals should perpetuate themselves unaltered by generation, those belonging to one species ought never to ally themselves to those of another; but such sexual unions do take place, both among plants and animals; and although the offspring of such irregular connect
+</excerpt>
+<excerpt id="E30" written="1853-06">
+The leaves and lighter parts of plants are seldom carried out to sea, in any part of the globe, except during tropical hurricanes among islands, and during the agitations of the atmosphere which sometimes accompany earthquakes and volcanic eruptions.
+</excerpt>
+<excerpt id="E31" written="1853-07">
+CONGLOMERATE, or PUDDINGSTONE. Rounded water-worn fragments of rock or pebbles, cemented together by another mineral substance, which may be of a siliceous, calcareous, or argillaceous nature. _Etym._, _con_, together, _glomero_, to heap.
+</excerpt>
+<excerpt id="E32" written="1853-07">
+3dly. Some acquired peculiarities, of form, structure, and instinct, are transmissible to the offspring; but these consist of such qualities and attributes only as are intimately related to the natural wants and propensities of the species.
+</excerpt>
+<excerpt id="E33" written="1853-07">
+There are, however, some coasts where the tides seem to offer an exception to the rule above mentioned; for while there is scarcely any rise in the estuary of the Plata in S. America, there is an extremely high tide on the open coast of Patagonia, farther to the south. Yet even in this region the tides reach their greatest elevation (about fifty feet) in the Straits of Magellan, and so far at leas
+</excerpt>
+<excerpt id="E34" written="1853-07">
+Almost every lichen brought home from the southern hemisphere by the antarctic expedition under Sir James Ross, amounting to no less than 200 species, was ascertained to be also an inhabitant of the northern hemisphere, and almost all of them European.
+</excerpt>
+<excerpt id="E35" written="1853-07">
+As an example of a still larger delta advancing upon the sea in opposition to more powerful tides, I shall next describe that of the Ganges and Brahmapootra (or Burrampooter). These, the two principal rivers of India, descend from the highest mountains in the world, and partially mingle their waters in the low plains of Hindostan, before reaching the head of the Bay of Bengal. The Brahmapootra, so
+</excerpt>
+<excerpt id="E36" written="1853-07">
+SILEX. The name of one of the pure earths, being the Latin word for _flint_, which is wholly composed of that earth. French geologists have applied it as a generic name for all minerals composed entirely of that earth, of which there are many of different external forms.
+</excerpt>
+<excerpt id="E37" written="1853-08">
+"Nature often presents us with this last phenomenon in monsters, but never exhibits the first. Among the various deformities which organized beings may experience, they never pass the limits of their own classes to put on the forms of the class above them. Never does a fish elevate itself so as to assume the form of the brain of a reptile; nor does the latter ever attain that of birds; nor the bir
+</excerpt>
+<excerpt id="E38" written="1853-08">
+Besides the quadrupeds before enumerated, our domestic fowls have also succeeded in the West Indies and America, where they have the common fowl, the goose, the duck, the peacock, the pigeon, and the guinea-fowl. As these were often taken suddenly from the temperate to very hot regions, they were not reared at first without much difficulty: but after a few generations, they became familiarized to 
+</excerpt>
+<excerpt id="E39" written="1853-08">
+In many places, as at Cairo, where artificial excavations have been made, or where the river has undermined its banks, the mud is seen to be thinly stratified, the upper part of each annual layer consisting of earth of a lighter color than the lower, and the whole separating easily from the deposit of the succeeding year. These annual layers are variable in thickness; but, according to the calcula
+</excerpt>
+<excerpt id="E40" written="1853-08">
+But although so many rivers are rapidly converting the Adriatic into land, it appears, by the observations of M. Morlot, that since the time of the Romans, there has been a general subsidence of the coast and bed of this sea in the same region to the amount of five feet, so that the advance of the new-made land has not been so fast as it would have been had the level of the coast remained unaltere
+</excerpt>
+<excerpt id="E41" written="1853-08">
+_Gradual closing in of fissures._--Sir W. Hamilton was shown several deep fissures in the vicinity of Mileto, which, although not one of them was above a foot in breadth, had opened so wide during the earthquake as to swallow an ox and nearly one hundred goats. The Academicians also found, on their return through districts which they had passed at the commencement of their tour, that many rents ha
+</excerpt>
+<excerpt id="E42" written="1853-09">
+Deltas formed under the influence of tides--Basin and delta of the Mississippi--Alluvial plain--River-banks and bluffs--Curves of the river--Natural rafts and snags--New lakes, and effects of earthquakes--Antiquity of the delta--Delta of the Ganges and Brahmapootra--Head of the delta and Sunderbunds--Islands formed and destroyed--Crocodiles--Amount of fluviatile sediment in the water--Artesian bor
+</excerpt>
+<excerpt id="E43" written="1853-09">
+_Fort and village submerged._[640]--The fort and village of Sindree, on the eastern arm of the Indus, above Luckput, are stated by the same writer to have been overflowed; and, after the shock, the tops of the houses and wall were alone to be seen above the water, for the houses, although submerged, were not cast down. Had they been situated, therefore, in the interior, where so many forts were le
+</excerpt>
+<excerpt id="E44" written="1853-09">
+I shall now proceed to inquire in what manner the mortal remains of man and the works of his hands may be permanently preserved in subaqueous strata. Of the many hundred million human beings which perish in the course of every century on the land, every vestige is usually destroyed in the course of a few thousand years; but of the smaller number that perish in the waters, a certain proportion must
+</excerpt>
+<excerpt id="E45" written="1853-10">
+The high inclination of some of the beds, and the firm union of the particles even where there is evidently no cement, is another striking feature in the volcanic tuffs and breccias, which seems at first not very easy of explanation. But the last great eruption afforded ample illustration of the manner in which these strata are formed. Fragments of lava, scoriae, pumice, and sand, when they fall a
+</excerpt>
+<excerpt id="E46" written="1853-10">
+The existence of such rites among the rude nations of South America is most important, as showing what effects may be produced by local catastrophes, recurring at distant intervals of time, on the minds of a barbarous and uncultivated race. I shall point out in the sequel how the tradition of a deluge among the Araucanian Indians may be explained, by reference to great earthquake-waves which have 
+</excerpt>
+<excerpt id="E47" written="1853-10">
+_The migration of plants aided by islands._--Islands, moreover, and even the smallest rocks, play an important part in aiding such migrations; for when seeds alight upon them from the atmosphere, or are thrown up by the surf, they often vegetate, and supply the winds and waves with a repetition of new and uninjured crops of fruit and seeds. These may afterwards pursue their course through the atmo
+</excerpt>
+<excerpt id="E48" written="1853-10">
+_Dorsetshire.--Devonshire._--At Lyme Regis, in Dorsetshire, the "Church Cliffs," as they are called, consisting of lias about one hundred feet in height, gradually fell away at the rate of one yard a year, from 1800 to 1829.[431]
+</excerpt>
+<excerpt id="E49" written="1853-10">
+In the first place, the various groups into which plants and animals may be thrown seem almost invariably, to a beginner, to be so natural, that he is usually convinced at first, as was Linnaeus to the last, "that genera are as much founded in nature as the species which compose them."[800] When by examining the numerous intermediate gradations the student finds all lines of demarcation to be in m
+</excerpt>
+<excerpt id="E50" written="1853-11">
+In the accompanying drawing (fig. 51), the flowing of the lavas of 1811 and 1819, between the rocks Finochio, Capra, and Musara, is represented. The height of the two last-mentioned isolated masses has been much diminished by the elevation of their base, caused by these currents. They may, perhaps, be the remnants of lateral cones which existed before the Val del Bove was formed, and may hereafter
+</excerpt>
+<excerpt id="E51" written="1853-11">
+In reference to the facts here stated, I may mention that the dikes which I saw in the Val del Bove were either vertical, or made almost all of them a near approach to the perpendicular, which could not have been the case had they been the feeders of horizontal beds of lava, and had they consequently joined them originally at right angles, for then the dikes, as at _a_, _b_, _c_, fig. 54, ought su
+</excerpt>
+<excerpt id="E52" written="1853-11">
+_Burnet, 1690._--At the same time Burnet published his "Theory of the Earth."[68] The title is most characteristic of the age,--"The Sacred Theory of the Earth; containing an Account of the Original of the Earth, and of all the general Changes which it hath already undergone, or is to undergo, till the Consummation of all Things." Even Milton had scarcely ventured in his poem to indulge his imagin
+</excerpt>
+<excerpt id="E53" written="1853-11">
+I shall cite the passage referred to, as published by me in 1831:--"It is a remarkable circumstance that there should be so vast an area in Eastern Oceanica, studded with minute islands, without one single spot where there is a wider extent of land than belongs to such islands as Otaheite, Owhyhee, and a few others, which either have been or are still the seats of active volcanoes. If an equilibri
+</excerpt>
+<excerpt id="E54" written="1853-12">
+To pass on to another of the three topics before proposed for discussion, the reader will find, in the account given in the second book of the earthquakes recorded in history, that certain countries have, from time immemorial, been rudely shaken again and again, while others, comprising by far the largest part of the globe, have remained to all appearance motionless. In the regions of convulsion r
+</excerpt>
+<excerpt id="E55" written="1853-12">
+_Chronological computations of the age of deltas._--The capacity of this basin being now ascertained, it would be an interesting subject of inquiry, to determine in what number of years the Leman Lake will be converted into dry land. It would not be very difficult to obtain the elements for such a calculation, so as to approximate at least to the quantity of time required for the accomplishment of
+</excerpt>
+<excerpt id="E56" written="1853-12">
+It is scarcely a century, says Linnaeus, since the Canadian erigeron, or flea-bane, was brought from America to the botanical garden at Paris; and already the seeds have been carried by the winds so that it is diffused over France, the British islands, Italy, Sicily, Holland, and Germany.[868] Several others are mentioned by the Swedish naturalist, as having been dispersed by similar means. The co
+</excerpt>
+<excerpt id="E57" written="1853-12">
+There is still another way in which heat and cold must occasion great movements in the ocean, a cause to which, perhaps, currents are principally due. Whenever the temperature of the surface of the sea is lowered, condensation takes place, and the superficial water, having its specific gravity increased, falls to the bottom, upon which lighter water rises immediately and occupies its place. When t
+</excerpt>
+<excerpt id="E58" written="1853-12">
+_Quito_, 1698.--In Quito, on the 19th of July, 1698, during an earthquake, a great part of the crater and summit of the volcano Carguairazo fell in, and a stream of water and mud issued from the broken sides of the hill.[704]
+</excerpt>
+<excerpt id="E59" written="1853-12">
+Vast troops of the wild ass, or _onager_ of the ancients, which inhabit the mountainous deserts of Great Tartary, feed, during the summer, in the tracts east and north of Lake Aral. In the autumn they collect in herds of hundreds, and even thousands, and direct their course towards Persia, to enjoy a warm retreat during winter.[883] Bands of two or three hundred quaggas, a species of wild ass, are
+</excerpt>
+<excerpt id="E60" written="1853-12">
+The Runn of Cutch is a flat region of a very peculiar character, and no less than 7000 square miles in area: a greater superficial extent than Yorkshire, or about one-fourth the area of Ireland. It is not a desert of moving sand, nor a marsh, but evidently the dried-up bed of an inland sea, which for a great part of every year has a hard and dry bottom uncovered by weeds or grass, and only support
+</excerpt>
+<excerpt id="E61" written="1853-12">
+_Helix putris_ (_Succinea putris_, Lam.), so common in Europe, where it reaches from Norway to Italy, is also said to occur in the United States and in Newfoundland. As this animal inhabits constantly the borders of pools and streams where there is much moisture, it is not impossible that different water-fowl have been the agents of spreading some of its minute eggs, which may have been entangled 
+</excerpt>
+<excerpt id="E62" written="1853-12">
+It was stated that when the lava of 1819 arrived at the head of the Valley of Calanna, after flowing down the Val del Bove, it descended in a cascade. This stream, in fact, like many previous currents of lava which have flowed down successively from the higher regions of Etna, was turned by a great promontory projecting from the southern side of the Val del Bove. This promontory consists of the hi
+</excerpt>
+<excerpt id="E63" written="1863-01">
+I see no reason for supposing that any part of the revolutions in physical geography, to which the maps above described have reference, indicate any catastrophes greater than those which the present generation has witnessed. If Man was in existence when the Cromer forest was becoming submerged, he would have felt no more alarm than the Danish settlers on the east coast of Baffin's Bay, when they f
+</excerpt>
+<excerpt id="E64" written="1863-01">
+In those regions where glaciers reach the sea, and where large masses of ice break off and float away, moraines, such as I have just alluded to, may be transported to indefinite distances, and may be deposited on the bottom of the sea wherever the ice happens to melt. If the liquefaction take place when the berg has run aground and is stationary, and if there be no current, the heap of angular and
+</excerpt>
+<excerpt id="E65" written="1863-01">
+If we ask why this character, though well known to Cuvier and other great anatomists before our time, was not considered by them to entitle Man, physically considered, to claim a more distinct place in the group called Primates than that of a separate order, or, according to others, a separate genus or family only, we shall find the answer thus concisely stated by Professor Huxley in his new work,
+</excerpt>
+<excerpt id="E66" written="1863-01">
+We can scarcely doubt that we should already have traced back the evidence of this class of fossils much farther had not our inquiries been arrested, first by the vast gap between the Tertiary and Secondary formations, and then by the marine nature of the Cretaceous rocks.
+</excerpt>
+<excerpt id="E67" written="1863-01">
+But another important question still remains to be considered, namely, whether the trifling changes which can alone be witnessed by a single generation, can possibly represent the working of that machinery which, in the course of many centuries, has given rise to such mighty revolutions in the forms of speech throughout the world. Everyone may have noticed in his own lifetime the stealing in of so
+</excerpt>
+<excerpt id="E68" written="1863-01">
+Carbonised apples and pears of small size, such as still grow in the Swiss forests, stones of the wild plum, seeds of the raspberry and blackberry, and beech-nuts, also occur in the mud, and hazel-nuts in great plenty.
+</excerpt>
+<excerpt id="E69" written="1863-01">
+The submergence of Wales to the extent of 1400 feet, as proved by glacial shells, would require 56,000 years, at the rate of 2 1/2 feet per century; but taking Professor Ramsay's estimate of 800 feet more, that depression being implied by the position of some of the stratified drift, we must demand an additional period of 32,000 years, amounting in all to 88,000; and the same time would be require
+</excerpt>
+<excerpt id="E70" written="1863-01">
+If therefore the flint knives had not been very widely dispersed, and if one of them had not been at the bottom of the bone-earth, close to the leg of the bear above described, their antiquity relatively to the extinct mammalia might have been questioned. No coprolites were found in the Brixham excavations, and very few gnawed bones. These few may have been brought from some distance before they r
+</excerpt>
+<excerpt id="E71" written="1863-01">
+Hallam, in his "Literature of Europe," after indulging in some profound reflections on "the thoughts of Pascal," and the theological dogmas of his school respecting the fallen nature of Man, thus speaks of Man's place in the creation--"It might be wandering from the proper subject of these volumes if we were to pause, even shortly, to inquire whether, while the creation of a world so full of evil 
+</excerpt>
+<excerpt id="E72" written="1863-02">
+Changes in a river plain, such as those above alluded to, give rise frequently to ponds, swamps, and marshes, marking the course of old beds or branches of the river not yet filled up, and in these depressions shells proper both to running and stagnant water may be preserved, and quadrupeds may be mired. The latest and uppermost deposit of the series will be loam or brick-earth, with land and amph
+</excerpt>
+<excerpt id="E73" written="1863-02">
+Near the northern end of the Moens Klint, at a place called "Taler," more than 300 feet high, are seen similar folds, so sharp that there is an appearance of four distinct alternations of the glacial and Cretaceous formations in vertical or highly inclined beds; the Chalk at one point bending over so that the position of all the beds is reversed.
+</excerpt>
+<excerpt id="E74" written="1863-02">
+Mr. Staring, in his valuable memoir on the "Geological Map of Holland," has attributed the general scarcity of human bones in Dutch peat, notwithstanding the many works of art preserved in it, to the power of the humic and sulphuric acids to dissolve bones, the peat in question being plentifully impregnated with such acids. His theory may be correct, but it is not applicable to the gravel of the v
+</excerpt>
+<excerpt id="E75" written="1863-02">
+More than a dozen flint weapons of the Amiens type have already been found in the basin of the Thames; but the geological position of no one of them has as yet been ascertained with the same accuracy as that of many of the tools dug up in the valley of the Somme.
+</excerpt>
+<excerpt id="E76" written="1863-02">
+"There can be no doubt that, as Professor Schaaffhausen and Mr. Busk have stated, this skull is the most brutal of all known human skulls, resembling those of the apes not only in the prodigious development of the superciliary prominences and the forward extension of the orbits, but still more in the depressed form of the brain-case, in the straightness of the squamosal suture, and in the complete
+</excerpt>
+<excerpt id="E77" written="1863-02">
+M. Lartet, however, has recently published a circumstantial account of what seems clearly to have been a sepulchral vault of the Pleistocene period, near Aurignac, not far from the foot of the Pyrenees. I have had the advantage of inspecting the fossil bones and works of art obtained by him from that grotto, and of conversing and corresponding with him on the subject, and can see no grounds for do
+</excerpt>
+<excerpt id="E78" written="1863-02">
+When we ascend the valley of the Somme, from Abbeville to Amiens, a distance of about 25 miles, we observe a repetition of all the same alluvial phenomena which we have seen exhibited at Menchecourt and its neighbourhood, with the single exception of the absence of marine shells and of Cyrena fluminalis. We find lower-level gravel, such as Number 2, Figure 7, and higher-level alluvium, such as Num
+</excerpt>
+<excerpt id="E79" written="1863-02">
+A space of 520 feet diameter, thus enclosed at Lagore, was divided into sundry timbered compartments, which were found filled up with mud or earth, from which were taken "vast quantities of the bones of oxen, swine, deer, goats, sheep, dogs, foxes, horses, and asses." All these were discovered beneath 16 feet of bog, and were used for manure; but specimens of them are said to be preserved in the m
+</excerpt>
+<excerpt id="E80" written="1863-03">
+The year after this conversation I cited Schmerling's opinions, and the facts bearing on the antiquity of Man, in the 3rd edition of my "Principles of Geology" (page 161, 1834), and in succeeding editions, without pretending to call in question their trustworthiness, but at the same time without giving them the weight which I now consider they were entitled to. He had accumulated ample evidence to
+</excerpt>
+<excerpt id="E81" written="1863-03">
+The manner in which some of the large thigh and shank bones of the rhinoceros and other pachyderms are rounded, while some of the smaller bones of the same creatures, and of the hyaena, bear, and horse, are reduced to pebbles, shows that they were often transported for some distance in the channels of torrents, before they found a resting-place.
+</excerpt>
+<excerpt id="E82" written="1863-03">
+That the growing power of Man may have lent its aid as the destroying cause of many Pleistocene species, must, however, be granted; yet, before the introduction of fire-arms, or even the use of improved weapons of stone, it seems more wonderful that the aborigines were able to hold their own against the cave-lion, hyaena, and wild bull, and to cope with such enemies, than that they failed to bring
+</excerpt>
+<excerpt id="E83" written="1863-03">
+If we suppose that the greater number of the flint implements occurring in the neighbourhood of Abbeville and Amiens were brought by river action into their present position, we can at once explain why so large a proportion of them are found at considerable depths from the surface, for they would naturally be buried in gravel and not in fine sediment, or what may be termed "inundation mud," such a
+</excerpt>
+<excerpt id="E84" written="1863-03">
+As to the absence of any marked changes in the physical configuration of the district since the same grotto was a place of sepulture, we must remember that it is the normal state of the earth's surface to be undergoing great alterations in one place, while other areas, often in close proximity, remain for ages without any modification. In one region, rivers are deepening and widening their channel
+</excerpt>
+<excerpt id="E85" written="1863-03">
+These Chillesford beds are supposed to be somewhat more modern than any of the purely marine strata of the Norwich Crag exhibited by the sections of the Norfolk cliffs north-west of Cromer, which I am about to describe. Yet they probably preceded in date the "Forest Bed" and fluvio-marine deposits of those same cliffs. They are, therefore, of no small importance in reference to the chronology of t
+</excerpt>
+<excerpt id="E86" written="1863-03">
+As examples of such changes of level by which marine deposits of the Recent period have become accessible to human observation, I have adduced the strata near Naples in which the Temple of Serapis at Pozzuoli was entombed.*
+</excerpt>
+<excerpt id="E87" written="1863-03">
+The late Dr. Schmerling of Liege, a skilful anatomist and palaeontologist, after devoting several years to the exploring of the numerous ossiferous caverns which border the valleys of the Meuse and its tributaries, published two volumes descriptive of the contents of more than forty caverns. One of these volumes consisted of an atlas of plates, illustrative of the fossil bones.*
+</excerpt>
+<excerpt id="E88" written="1863-04">
+But if we embrace the theory of glacier-lakes, we must be prepared to assume not only that the sea had nothing to do with the original formation of the "parallel roads," but that it has never, since the disappearance of the lakes, risen in any one of the glens up to the level of the lowest shelf, which is about 850 feet high; for in that case the remarkable persistency and integrity of the roads a
+</excerpt>
+<excerpt id="E89" written="1863-04">
+1. R. megarhinus, Christol, being the original and typical R. leptorhinus of Cuvier, founded on Cortesi's Monte Zago cranium, and the ONLY Pliocene, or Pleistocene European species, that had not a nasal septum.--Gray's Thurrock, etc.
+</excerpt>
+<excerpt id="E90" written="1863-04">
+While in 1832 I argued against Lamarck's doctrine of the gradual transmutation of one species into another, I agreed with him in believing that the system of changes now in progress in the organic world would afford, when fully understood, a complete key to the interpretation of all the vicissitudes of the living creation in past ages. I contended against the doctrine, then very popular, of the su
+</excerpt>
+<excerpt id="E91" written="1863-05">
+Many of the caverns had never before been entered by scientific observers, and their floors were encrusted with unbroken stalagmite. At a very early stage of his investigations, Dr. Schmerling found the bones of Man so rolled and scattered as to preclude all idea of their having been intentionally buried on the spot. He also remarked that they were of the same colour, and in the same condition as 
+</excerpt>
+<excerpt id="E92" written="1863-05">
+The mammalia obtained from the bone-earth consisted of Elephas primigenius, or mammoth; Rhinoceros tichorhinus; Ursus spelaeus; Hyaena spelaea; Felis spelaea, or the cave-lion; Cervus tarandus, or the reindeer; a species of horse, ox, and several rodents, and others not yet determined.
+</excerpt>
+<excerpt id="E93" written="1863-06">
+I should have hesitated to cite the spot as exemplifying convulsions on so grand a scale, of such extremely modern date, had not the island been since thoroughly investigated by a most able and reliable authority, the Danish geologist, Professor Puggaard, who has published a series of detailed sections of the cliffs.
+</excerpt>
+<excerpt id="E94" written="1863-06">
+In 1859, M. Hebert, an original observer of the highest authority, declared to the Geological Society of France that he had, in 1854, or four years before Mr. Prestwich's visit to St. Acheul, seen the sections at Abbeville and Amiens, and had come to the opinion that the hatchets were imbedded in the "lower diluvium," and that their origin was as ancient as that of the mammoth and the rhinoceros. 
+</excerpt>
+<excerpt id="E95" written="1863-06">
+Nor did he omit to notice that the newly acquired peculiarities may be inherited by the offspring for an indefinite series of generations, whether they be brought about naturally--as when a species, on the extreme verge of its geographical range, comes into competition with new antagonists and is subjected to new physical conditions; or artificially--as when by the act of the breeder or horticultu
+</excerpt>
+<excerpt id="E96" written="1863-06">
+a. Interior of left valve, from Gray's Thurrock, Essex. b. Hinge of the same magnified. c. Interior of right valve of a small specimen, from Shacklewell, London. d. Outer surface of right valve, from Erith, Kent.)
+</excerpt>
+<excerpt id="E97" written="1863-06">
+Sir John F. Herschel, in his recent work on "Physical Geography," when speaking of the open sea which is caused in part of the polar regions by the escape of ice through Behring's Straits, and the flow of warmer water northwards through the same channel, observes that these straits, by which the continents of Asia and North America are now parted, "are only thirty miles broad where narrowest and o
+</excerpt>
+<excerpt id="E98" written="1863-06">
+We may compare the persistency of languages, or the tendency of each generation to adopt without change the vocabulary of its predecessor, to the force of inheritance in the organic world, which causes the offspring to resemble its parents. The inventive power which coins new words or modifies old ones, and adapts them to new wants and conditions as often as these arise, answers to the variety-mak
+</excerpt>
+<excerpt id="E99" written="1863-06">
+The primitive people, who co-existed with the elephant and rhinoceros in the valley of the Ouse at Bedford, and who made use of flint tools of the Amiens type, certainly inhabited part of England which had already emerged from the waters of the glacial sea and the fabricators of the flint tools of Hoxne, in Suffolk, were also, as we have seen, post-glacial. We may likewise presume that the people 
+</excerpt>
+<excerpt id="E100" written="1863-07">
+It is impossible to behold such effects of reiterated local movements, all of post-Tertiary date, without reflecting that, but for the accidental presence of the stratified drift, all of which might easily have been missing, where there has been so much denudation, even if it had once existed, we might have referred the verticality and flexures and faults of the rocks to an ancient period, such as
+</excerpt>
+<excerpt id="E101" written="1863-07">
+It is natural, therefore, to encounter a gap in the regular sequence of geological monuments bearing on the past history of Man, wherever we have proofs of glacial action having prevailed with intensity, as it has done over large parts of Europe and North America, in the Pleistocene period. As we advance into more southern latitudes approaching the 50th parallel of latitude in Europe, and the 40th
+</excerpt>
+<excerpt id="E102" written="1863-08">
+Most of the other mammalian bones were found; like these human remains, in or near the gravel, but some of the tusks and teeth of elephants were met with much nearer the surface. I visited the site of these fossils in 1860 in company with M. van Binkhorst, and we found the description of the ground, published by the late Professor Crahay of Louvain, to be very correct.*
+</excerpt>
+<excerpt id="E103" written="1863-08">
+In the limestone are many fissures, one of which, still partially filled with mud and stones, is represented in the section at a c as continuous from the cave to the upper surface of the country. Through this passage the loam, and possibly the human body to which the bones belonged, may have been washed into the cave below. The loam, which covered the uneven bottom of the cave, was sparingly mixed
+</excerpt>
+<excerpt id="E104" written="1863-08">
+(FIGURE 20.* Elephas meridionalis, Nesti. Penultimate molar, lower jaw, right side, one-third of natural size, Newer Pliocene, Saint Prest, near Chartres, and Norwich Crag. Not yet proved to have coexisted with Man.)
+</excerpt>
+<excerpt id="E105" written="1863-08">
+In the same sense the late Edward Forbes declared, in 1846, his conviction that not only the Cervus megaceros, but also the mammoth and other extinct pachyderms and carnivora, had lived in Britain in post-glacial times.*
+</excerpt>
+<excerpt id="E106" written="1863-08">
+In all countries the fundamental rock on which the boulder formation reposes, if it consists of granite, gneiss, marble, or other hard stone capable of permanently retaining any superficial markings which may have been imprinted upon it, is smoothed or polished, and exhibits parallel striae and furrows having a determinate direction. This prevailing direction, both in Europe and North America, is 
+</excerpt>
+<excerpt id="E107" written="1863-08">
+One step at least we gain by the Bedford sections, which those of Amiens and Abbeville had not enabled us to make. They teach us that the fabricators of the antique tools, and the extinct mammalia coeval with them, were all post-glacial.
+</excerpt>
+<excerpt id="E108" written="1863-09">
+In Norway and Sweden, instead of such a subsiding movement, the land is slowly rising; but we have only to suppose that formerly, when it was covered like Greenland with continental ice, it sank at the rate of several feet in a century, and we shall be able to explain why marine deposits are found above the level of the sea, and why these generally overlie polished and striated surfaces of rock.
+</excerpt>
+<excerpt id="E109" written="1863-09">
+To these circumstances and to accidental fires we are probably indebted for the frequent preservation, in the mud around the site of the old settlements, of the most precious tools and works of art, such as would never have been thrown into the Danish "kitchen-middens," which have been aptly compared to a modern dusthole.
+</excerpt>
+<excerpt id="E110" written="1863-09">
+The rate of increase in Denmark may not be applicable to France; because differences in the humidity of the climate, or in the intensity and duration of summer's heat and winter's cold, as well as diversity in the species of plants which most abound, would cause the peat to grow more or less rapidly, not only when we compare two distinct countries in Europe, but the same country at two successive 
+</excerpt>
+<excerpt id="E111" written="1863-09">
+How far the lacustrine strata of North America above mentioned may help to lessen this hiatus, and whether some individuals of the Mastodon giganteus may have come down to the confines of the historical period, is a question not so easily answered as might at first sight be supposed. A geologist might naturally imagine that the fluviatile formation of Goat Island, seen at the falls of Niagara, and
+</excerpt>
+<excerpt id="E112" written="1863-10">
+Fourth. A second retreat of the glaciers took place when they gradually shrank nearly into their present limits, accompanied by another accumulation of stratified gravels which form in many places a series of terraces above the level of the alluvial plains of the existing rivers.
+</excerpt>
+<excerpt id="E113" written="1863-10">
+As to the Engis skull, we must remember that although associated with the elephant, rhinoceros, bear, tiger, and hyaena, all of extinct species, it nevertheless is also accompanied by a bear, stag, wolf, fox, beaver, and many other quadrupeds of species still living. Indeed many eminent palaeontologists, and among them Professor Pictet, think that, numerically considered, the larger portion of the
+</excerpt>
+<excerpt id="E114" written="1863-10">
+In reference to the first of these propositions, the utensils, it is said, of bone and stone indicate a more advanced state of the arts than the flint implements of Abbeville and Amiens. M. Lartet, however, is of opinion that they do not, and thinks that we have no right to assume that the fabricators of the various spear-headed and other tools of the Valley of the Somme possessed no bone instrume
+</excerpt>
+<excerpt id="E115" written="1863-10">
+First. There was a period when the ice was in its greatest excess, when the glacier of the Rhone not only reached the Jura, but climbed to the height of 2015 feet above the Lake of Neufchatel, and 3450 feet above the sea, at which time the Alpine ice actually entered the French territory at some points, penetrating by certain gorges, as through the defile of the Fort de l'Ecluse, among others.
+</excerpt>
+<excerpt id="E116" written="1863-11">
+I long ago suggested the hypothesis, that in the basin of the Thames there are indications of a meeting in the Pleistocene period of a northern and southern fauna. To the northern group may have belonged the mammoth (Elephas primigenius) and the Rhinoceros tichorhinus, both of which Pallas found in Siberia, preserved with their flesh in the ice. With these are occasionally associated the reindeer.
+</excerpt>
+<excerpt id="E117" written="1863-11">
+No decided step in this direction was made until the publication in 1858 of two papers, one by Mr. Darwin and another by Mr. Wallace, followed in 1859 by Mr. Darwin's celebrated work on "The Origin of Species by Means of Natural Selection; or, the Preservation of favoured Races in the Struggle for Life." The author of this treatise had for twenty previous years strongly inclined to believe that va
+</excerpt>
+<excerpt id="E118" written="1863-11">
+The results of chief importance arising out of this inquiry were obtained from two sets of shafts and borings sunk at intervals in lines crossing the great valley from east to west. One of these consisted of no fewer than fifty-one pits and artesian borings, made where the valley is 16 miles wide from side to side between the Arabian and Libyan deserts, in the latitude of Heliopolis, about 8 miles
+</excerpt>
+<excerpt id="E119" written="1863-11">
+The farther this subdivision of function is carried, the more complete and perfect the language becomes, just as species of higher grade have special organs, such as eyes, lungs, and stomach, for seeing, breathing, and digesting, which in simple organisms are all performed by one and the same part of the body.*
+</excerpt>
+<excerpt id="E120" written="1863-11">
+This chalky fragment is only one of many detached masses which have been included in the drift, and forced along with it into their present position. The level surface of the Chalk in situ (d) may be traced for miles along the coast, where it has escaped the violent movements to which the incumbent drift has been exposed.*
+</excerpt>
+<excerpt id="E121" written="1863-12">
+Having offered these general remarks on the alluvium of the Thames, I may now say something of the implements hitherto discovered in it. In the British Museum there is a flint weapon of the spear-headed form, such as is represented in Figure 8, which we are told was found with an elephant's tooth at Black Mary's, near Gray's Inn Lane, London. In a letter dated 1715, printed in Herne's edition of "
+</excerpt>
+<excerpt id="E122" written="1863-12">
+Near Cromer, blocks of granite from 6 to 8 feet in diameter have been met with, and smaller ones of syenite, porphyry, and trap, besides the wreck of the London Clay, Chalk, Oolite, and Lias, mixed with more ancient fossiliferous rocks. Erratics of Scandinavian origin occur chiefly in the lower portions of the till. I came to the conclusion in 1834, that they had really come from Norway and Sweden
+</excerpt>
+<excerpt id="E123" written="1863-12">
+The most southern point to which the marine beds of the Norwich Crag have yet been traced is at Chillesford, near Woodbridge, in Suffolk, about 80 miles north-east of London, where, as Messrs. Prestwich and Searles Wood have pointed out,* they exhibit decided marks of having been deposited in a sea of a much lower temperature than that now prevailing in the same latitude. (* "Quarterly Journal of 
+</excerpt>
+<excerpt id="E124" written="1863-12">
+Dr. Falconer, after aiding in the investigations above alluded to near Torquay, stopped at Abbeville on his way to Sicily, in the autumn of 1858, and saw there the collection of M. Boucher de Perthes. Being at once satisfied that the flints called hatchets had really been fashioned by the hand of Man, he urged Mr. Prestwich, by letter, thoroughly to explore the geology of the valley of the Somme. 
+</excerpt>

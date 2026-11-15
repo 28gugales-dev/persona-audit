@@ -1,0 +1,231 @@
+=== SYSTEM PROMPT ===
+Identify pairs of dated journal excerpts where the writer's own views conflict. Use this checklist for every candidate pair:
+
+1. Establish ownership: both views must be the writer's own, not someone else's view being described.
+2. Establish commitment: both excerpts must express sincere, definite positions. Reject doubt, uncertainty, questions, and jokes.
+3. Match the subject and conditions: compare what each position actually says, including its scope and circumstances. Do not supply missing beliefs or assumptions.
+4. Test incompatibility: could both positions hold as written? If yes, reject the pair. A difference in wording or emphasis does not suffice.
+5. Read the written dates: reject a pair if the later excerpt merely refines or qualifies the earlier one. A clear reversal may qualify, but elapsed time alone proves nothing.
+6. Apply a conservative threshold: report only clear conflicts. If any check is uncertain, omit the pair.
+7. Report each pair once, placing the earlier excerpt's id in a and the later excerpt's id in b. Write tension as one neutral question under 20 words inviting the writer to reflect on the conflict.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, with actual excerpt ids and a question in tension. If no pairs qualify, return {"conflicts":[]}.
+
+=== USER MESSAGE ===
+<theme>everything</theme>
+<excerpt id="E1" written="1896-01">
+You will doubtless have suspected that I should not have developed this last train of thought at such length, if I had not wished to prepare you for the idea that this path alone, after our many delays, can lead us to the goal. For now we really stand at the end of our lengthy and laborious analytic work and find fulfilled here all that we have so far maintained and expected. When we are perseveri
+</excerpt>
+<excerpt id="E2" written="1896-01">
+For let us be quite clear that tracing an hysterical symptom back to a traumatic scene assists our understanding only if the scene in question fulfils two conditions---if it possesses the required _determining quality_ and if we can credit it with the necessary _traumatic power_. Let me give an illustration instead of a mere explanation of terms. Suppose that the symptom in question is that of hys
+</excerpt>
+<excerpt id="E3" written="1896-01">
+I have now come to the end of my subject for today's discussion. I am prepared for contradiction and unbelief, and will therefore say one thing more in support of my position. Whatever you may think of my conclusions, I have the right to ask you not to look upon them as the fruit of idle speculation. They are based on laborious individual examination of patients, which in most cases has taken a hu
+</excerpt>
+<excerpt id="E4" written="1896-01">
+In my opinion it is really astonishing that hysterical symptoms should arise only where memories are at work, especially when we reflect that these memories, according to all the statements of the patients themselves, did not come into consciousness at the moment when the symptom first made its appearance. Here is food for much reflection, but for the present we must not let these problems deflect
+</excerpt>
+<excerpt id="E5" written="1896-01">
+One thing more. It is true that so far I have set aside the relation between recent and infantile ætiology as a theme apart; nevertheless I cannot leave the subject without making at least one remark on this point. You will admit that there is one fact in particular which is apt to mislead us in the understanding of the psychology of hysterical phenomena, which so often seem to warn us not to judg
+</excerpt>
+<excerpt id="E6" written="1896-01">
+(Here I may remark in passing that Breuer's conception of the origin of hysterical symptoms is not affected by the discovery of traumatic scenes which represent experiences in themselves insignificant. For Breuer assumed---in agreement with Charcot---that even a harmless experience may acquire the significance of a trauma and may develop determining power when the subject is in a particular psychi
+</excerpt>
+<excerpt id="E7" written="1896-01">
+Another series of exceedingly common hysterical phenomena---painful bladder pressure, painful sensations in defecation, intestinal disturbances, choking and vomiting, indigestion and nausea---could similarly be recognized in my analyses (and that with surprising regularity) as derivatives of the same childhood-experiences and were explained without difficulty by certain invariable features of thes
+</excerpt>
+<excerpt id="E8" written="1896-01">
+I will not again return to these examples, for I must admit that they are not taken from any case in my experience, but that I invented them, and most probably they are bad inventions; I myself regard such explanations of hysterical symptoms as impossible. But there were several reasons why I had to make up examples, and one reason I can state at once. The real examples are all of them far and awa
+</excerpt>
+<excerpt id="E9" written="1896-02">
+Such occurrences strengthen the impression that patients must actually have experienced what they reproduce under the compulsion of analysis as scenes from childhood, and we have yet another and even more convincing proof when we examine the relation of the infantile scenes to the content of the whole subsequent history of the illness. Just as when putting together children's picture-puzzles, we f
+</excerpt>
+<excerpt id="E10" written="1896-02">
+Now this last attitude on their part seems absolutely decisive. Why should patients assure me so emphatically of their unbelief, if from any motive they had invented the very things that they wish to {200} discredit?
+</excerpt>
+<excerpt id="E11" written="1896-03">
+I am not yet able to give a positive answer to this question. The number of cases I have analysed is not large enough, nor have the conditioning factors been sufficiently various. So far I have noted that obsessional ideas can regularly be shown by analysis to be disguised and transformed self-reproaches for sexual aggressions in childhood, that they are therefore more frequently met with in men {
+</excerpt>
+<excerpt id="E12" written="1896-03">
+(_a_) Anyone who is altogether opposed to the psychological conception of hysteria, who is unwilling to give up the hope of one day tracing its symptoms to 'finer anatomical changes' and has rejected the view that the material foundations of hysterical changes must necessarily be similar in kind to those of our normal mental processes---anyone who adopts this attitude will naturally put no faith i
+</excerpt>
+<excerpt id="E13" written="1896-03">
+We shall reply in the first place that excessive frequency in an ætiological factor cannot possibly be used as an objection to its ætiological significance. Is not the tubercle bacillus ubiquitous, inhaled by many more human beings than suffer from tuberculosis? And is its ætiological significance impaired by the fact that it clearly needs the concurrence of other factors to produce the disease th
+</excerpt>
+<excerpt id="E14" written="1896-03">
+But someone else, less determined to reject psychological theories of hysteria, will when considering our analytical results be tempted to {199} ask what degree of certainty the application of psycho-analysis involves; whether it is not very possible either that the physician forces such scenes upon the docile patient, alleging them to be recollections, or that the patient tells him things which h
+</excerpt>
+<excerpt id="E15" written="1896-03">
+It is less easy to refute the charge that the physician forces reminiscences of this sort upon the patient and influences him by suggestion to imagine and recount them; nevertheless I think this position is just as untenable. I have never yet succeeded in forcing on a patient a scene that I expected to find in such a way that he appeared to live through it again with all the appropriate emotions; 
+</excerpt>
+<excerpt id="E16" written="1896-03">
+You may now rightly object to this justification of the hysterical reaction to psychic stimuli that it is none the less abnormal, for why do healthy people behave differently? Why do not all the long-past excitations in them also combine afresh to operate when there is a real new excitation? We do indeed get the impression that in hysterics all the former experiences, to which there has so often a
+</excerpt>
+<excerpt id="E17" written="1896-03">
+My experience up till now enables me already to answer these questions. Taking a case which presents several symptoms, from whatever symptom we start we arrive by means of analysis at a series of experiences the memories of which are linked together by association. At first the memory-chains are distinct from one another as they lead backwards, but, as we said before, they branch out; from a singl
+</excerpt>
+<excerpt id="E18" written="1896-03">
+I put forward the proposition, therefore, that at the bottom of every case of hysteria will be found one or more experiences of premature sexual experience, belonging to the first years of childhood, experiences which may be reproduced by analytic work though whole decades have intervened. I believe this to be a momentous revelation, the discovery of a _caput Nili_ of neuropathology, but I hardly 
+</excerpt>
+<excerpt id="E19" written="1896-04">
+Since the ego's attempt at defence depends on the whole moral and intellectual development of the person concerned, the fact that hysteria is so much rarer in the lower classes than would follow from its specific ætiology is no longer entirely incomprehensible.
+</excerpt>
+<excerpt id="E20" written="1896-04">
+Of course if infantile sexual activity were an almost universal occurrence, it would prove nothing to find it in every case. But first, such a statement would be a grave exaggeration, and secondly, the ætiological pretensions of infantile scenes rest not only on their {206} constant appearance in the anamnesis of hysterics, but above all on the evidence of the associative and logical connections b
+</excerpt>
+<excerpt id="E21" written="1896-04">
+Moreover, this first disappointment in the practice of Breuer's method is followed immediately by another which must be specially grievous to a physician. Such derivations as these which do not contribute to our understanding of the case in respect of determining quality and traumatic force are also of no therapeutic advantage; the patient keeps his symptoms unaltered, in spite of the first result
+</excerpt>
+<excerpt id="E22" written="1896-04">
+The problem I have just formulated concerns the _mechanism_ of hysterical symptom-formation. But I have to present the causation of these symptoms without taking this mechanism into consideration, and the conclusions are consequently bound to forfeit something in clearness and completeness. Let us go back to the part played by the {211} infantile sexual scenes. I am afraid that I may have misled y
+</excerpt>
+<excerpt id="E23" written="1896-04">
+What are the other factors that are necessary to the 'specific ætiology' of hysteria in order actually to produce the neurosis? Now this is really a theme in itself, one which I do not propose to discuss; today I need only indicate the point of contact at which the sides of the question---the specific and the subsidiary ætiology---fit into one another. Probably a considerable number of factors wil
+</excerpt>
+<excerpt id="E24" written="1896-04">
+So I am inclined to assume that without previous seduction children cannot find the way to acts of sexual aggression. The foundation of the neurosis would accordingly have been laid in childhood by adults, and the children themselves have transmitted to one another the disposition to suffer later from hysteria. I ask you to pause for a moment upon the special frequency of sexual relations in child
+</excerpt>
+<excerpt id="E25" written="1896-04">
+But the most important result arrived at by such a consistent pursuit of analysis is this: whatever case and whatever symptom we take as our starting-point, _in the end we infallibly come to the realm of sexual experience_. So here for the first time we would seem to have discovered an ætiological condition of hysterical symptoms.
+</excerpt>
+<excerpt id="E26" written="1896-04">
+So we have an indication that a certain infantile condition of the psychic functions, as of the sexual system, is necessary in order that a sexual experience occurring within this period should subsequently, in the form of a memory, exercise a pathogenic influence. Still I do not as yet venture to make any more precise statement about the nature of this psychic infantilism and its temporal limits.
+</excerpt>
+<excerpt id="E27" written="1896-05">
+So, the memory-chains having converged, we come at last to sexual things and to some few experiences which for the most part occur at the same period of life, namely, the age of puberty. In these experiences we are to find the ætiology of hysteria and through them learn to understand how hysterical symptoms originate. But here we meet with a fresh disappointment and a grave one. It is true that th
+</excerpt>
+<excerpt id="E28" written="1896-05">
+There is however a whole series of further evidence which vouches for the reality of the infantile sexual scenes. First, they display just the uniformity in certain details that would necessarily follow from the identically-recurring conditions of the existence of these experiences; otherwise we should have to believe in a secret conspiracy between the individual patients. And again, patients ofte
+</excerpt>
+<excerpt id="E29" written="1896-05">
+Let us go back once more to the last group of objections, the answer to which has led us so far afield. We have heard and acknowledged that there are many people who have a very clear recollection of infantile sexual experiences and yet do not suffer from hysteria. This objection has really no weight at all, but it provides an occasion for a valuable comment. People of this type _should_ not (acco
+</excerpt>
+<excerpt id="E30" written="1896-06">
+The value of what we discover in this way is, of course, impaired by all the various circumstances which commonly conceal from a patient the knowledge of his own condition---his lack of scientific understanding of ætiological influences, the fallacy _post hoc_, _ergo propter hoc_, the distress it causes him to think or speak of certain noxiæ and traumas. Hence, in making any such enquiry we adhere
+</excerpt>
+<excerpt id="E31" written="1896-06">
+(_d_) Another of our critics might possibly take exception to the idea that the memory of infantile sexual experiences should have so tremendous a pathogenic effect, while the experience itself had none. True, we are not accustomed to find that a memory-picture has a power that the real impression lacked. Here, however, we note, by the way, with what consistency the proposition that symptoms can o
+</excerpt>
+<excerpt id="E32" written="1896-06">
+There would be yet one more proof, one which is really unassailable, of the genuineness of the childish sexual experiences---namely, the confirmation of the statements of the person analysed by the account of someone else who is, or is not, under treatment. These two persons must have taken part in the same experience in their childhood, perhaps had stood in a sexual relation to one another. Such 
+</excerpt>
+<excerpt id="E33" written="1896-06">
+But now I must not neglect to lay special emphasis on the one conclusion derived, quite unexpectedly, from analytic work by means of these chains of recollections. We have found out that no hysterical symptom can originate in one real experience alone, but that in every instance the memory roused by association co-operates with earlier experiences in causing the symptom. If this conclusion is (as 
+</excerpt>
+<excerpt id="E34" written="1896-06">
+Let us begin our defence with the easier part of our task. It seems to me certain that our children are far oftener exposed to sexual aggressions than we should suppose, judging by the scanty precautions taken by parents in this matter. When I first made enquiries about what was known on the subject, I learnt from colleagues that there are several publications by children's physicians in which the
+</excerpt>
+<excerpt id="E35" written="1896-06">
+Where there had been a relation between two children I was sometimes able to prove that the boy---who played the aggressive part---had previously been seduced by a woman, and that then, urged on by his prematurely aroused libido and in consequence of the obsessive memory, he tried to repeat with the little girl exactly the same practices as he had learnt from the adult, without attempting any inde
+</excerpt>
+<excerpt id="E36" written="1896-07">
+(_b_) Sexual experiences in childhood consisting of stimulation of the genitals, coitus-like activities, etc. are therefore in the final analysis to be recognized as the traumata from which proceed hysterical reactions against experiences at puberty and hysterical symptoms themselves. Two objections which contradict each other are sure to be raised from different quarters against this statement. S
+</excerpt>
+<excerpt id="E37" written="1896-07">
+Imagine that an explorer comes in his travels to a region of which but little is known and that there his interest is aroused by ruins showing remains of walls, fragments of pillars and of tablets with obliterated and illegible inscriptions. He may content himself with inspecting what lies there on the surface and with questioning the people who live near by, perhaps semi-barbaric natives, about w
+</excerpt>
+<excerpt id="E38" written="1896-07">
+Without wishing to lay special stress on the fact, I will add that in a number of cases the therapeutic test also speaks for the genuine nature of the infantile scenes. There are cases in which a complete or partial cure can be achieved without going down as far as the infantile experiences; others in which there is no success at all until the analysis comes to its natural end with the discovery o
+</excerpt>
+<excerpt id="E39" written="1896-08">
+From previous experience I can foresee that it is just against this conclusion or against its universal validity that your opposition will be directed. Perhaps it would be more correct to say: your inclination to opposition, for probably none of you can refer to investigations which, if the same method had been employed, would have yielded a different result. On the actual matter in dispute I will
+</excerpt>
+<excerpt id="E40" written="1896-08">
+Luckily for our explanation, certain of these sexual experiences at puberty display a further inadequacy likely to stimulate us to {196} continue our analytic work. For we find that these experiences may also too lack the determining quality, though this is much rarer than in the traumatic scenes of later life. So, for example, the two patients whom I spoke of above as cases in which the experienc
+</excerpt>
+<excerpt id="E41" written="1896-08">
+That this expectation is justified follows from the fact that Breuer's theses, when put to the test in more numerous cases, prove to be actually correct. But the way from the symptoms of hysteria to its ætiology is longer and introduces us to all sorts of unexpected connections.
+</excerpt>
+<excerpt id="E42" written="1896-09">
+It may happen that the determining power of the infantile scenes disguises itself so effectually that it would certainly be overlooked in a superficial analysis. We imagine that we have found the explanation of a certain symptom in the content of one of the later scenes, but in the course of the analysis we come upon the same content in one of the infantile scenes, so that finally we have to admit
+</excerpt>
+<excerpt id="E43" written="1896-09">
+But one must say to oneself that this is a purely psychological problem, the solution of which may perhaps require certain assumptions about normal psychic processes and the part played in them by consciousness; for the time, however, it may remain unsolved without robbing of its value the insight so far acquired into the ætiology of hysterical phenomena.
+</excerpt>
+<excerpt id="E44" written="1896-09">
+To this psychology, which has yet to be constructed to meet our requirements---the future _pathopsychology_---I must also refer you when in conclusion I tell you something which at first will make you apprehensive lest it should confuse our dawning understanding of the ætiology of hysteria. For I must state that the ætiological rôle of {217} infantile sexual experiences is not confined to hysteria
+</excerpt>
+<excerpt id="E45" written="1896-10">
+In reality, this reaction is proportionate to the exciting stimulus, and therefore normal and psychologically intelligible. We immediately perceive this when analysis has added to the manifest causes of which the patient is conscious those other causes which have contributed to the result, though the patient knows nothing about them and is therefore unable to tell us anything.
+</excerpt>
+<excerpt id="E46" written="1896-10">
+Now let us turn to the other objection which is based upon the very frequency---freely admitted---of infantile sexual experiences and the fact that many people who have not developed hysteria remember such scenes.
+</excerpt>
+<excerpt id="E47" written="1896-11">
+Now apply this train of thought to hysterics. It is not the last, in itself infinitesimal, mortification which produces the fit of crying, the outbreak of despair, the attempted suicide---regardless of the axiom that effect must be proportioned to cause, but this trivial actual mortification has roused and set working the memories of so many, far more intense, previous mortifications, behind all o
+</excerpt>
+<excerpt id="E48" written="1896-11">
+Sometimes it is the accidental circumstances of these infantile sexual scenes which in later years exercise a determining influence upon the symptoms of the neurosis. Thus in one of my cases the circumstance that the child was required to stimulate the genitals of an adult woman with his foot sufficed for years to fix neurotic attention on the legs and their functions and finally to produce an hys
+</excerpt>
+<excerpt id="E49" written="1896-11">
+You might think that those rare instances in which analysis can trace the symptom immediately to a traumatic scene of satisfactory determining quality and traumatic force and, by so tracing it, at the same time remove it (as described in Breuer's history of the case of Anna O.) would surely constitute powerful objections to the general {191} validity of the conclusion just propounded. Certainly it
+</excerpt>
+<excerpt id="E50" written="1896-11">
+I could spend hours demonstrating the validity of this important assertion for the whole range of psychic activity in hysterics, but here I must confine myself to a few examples. You will remember the mental 'hypersensitiveness' so common in hysterics, which leads them {215} to react to the least suggestion of depreciation as to a deadly insult. Now what would you think if you observed such a read
+</excerpt>
+<excerpt id="E51" written="1896-12">
+Lastly, the results of my analysis may speak for themselves. In all the eighteen cases (of pure hysteria and hysteria combined with obsessions: six men and twelve women) I have, as I said, discovered such sexual experiences in childhood. I may divide my cases into three groups, according to the source of the sexual excitation. In the first group it was a question of assaults---single or at any rat
+</excerpt>
+<excerpt id="E52" written="1896-12">
+You will readily admit that it would be desirable to find another way of arriving at the ætiology of hysteria, one in which we should feel less dependent on the statements of the patients themselves. The dermatologist, for instance, is able to recognize the luetic character of a sore from the nature of its edges, of the crust upon it and from its shape, without being misled by the protestation of 
+</excerpt>
+<excerpt id="E53" written="1896-12">
+If one tries in something the same way to let the symptoms of a case of hysteria tell the tale of the development of the disease, we must start from the momentous discovery of J. Breuer: that the symptoms of hysteria (apart from stigmata) are determined by certain experiences of the patient's which operate traumatically and are reproduced in his psychic life as memory-symbols of these experiences.
+</excerpt>
+<excerpt id="E54" written="1896-12">
+But perhaps we only need a fresh inspiration to help us out of our dilemma and lead to valuable results. Here it is:---we know indeed through Breuer that hysterical symptoms may be resolved if, starting from them, we can find our way back to the memory of a traumatic experience. If the memory so revealed does not answer our expectations, possibly we must pursue the same path a little further; perh
+</excerpt>
+<excerpt id="E55" written="1896-12">
+New complications are met if the analysis is pursued further. The chains of associations for the separate symptoms then begin to enter into relation with one another; the family trees intertwine. When we come to a certain experience in the memory-chain which has reference, for instance, to the symptom of vomiting, besides the backward-leading links in this chain, there is revived a memory which be
+</excerpt>
+<excerpt id="E56" written="1896-12">
+It is no part of my intention to-day to treat of the difficult technique of this therapeutic method or the psychological revelations it has achieved. I had to start from this point, simply because analyses conducted on Breuer's method seem at the same time to open up the way to the causes of hysteria. If we subject a large number of symptoms in many people to this analysis, we shall come to know o
+</excerpt>
+<excerpt id="E57" written="1896-12">
+Now let us consider to what extent the traumatic scenes of hysteria which are revealed in analysis fulfil the two above requirements in a large number of symptoms and cases. Here we encounter our first great disappointment. It does sometimes happen that the traumatic scene in which the symptom originated really possesses both properties which we require in order to understand the symptom: determin
+</excerpt>
+<excerpt id="E58" written="1896-12">
+(_c_) If we hold fast to the assumption that infantile sexual experiences are the fundamental condition of hysteria---constitute, if I may say so, the _disposition_ to that disease---they yet do not produce hysterical symptoms directly, for in the first instance they have no effect and exercise a pathogenic influence only later when they are roused after puberty in the form of unconscious memories
+</excerpt>
+<excerpt id="E59" written="1905-01">
+While still maintaining the modifications imposed by the altered conception of the 'infantile sexual traumas', the theory now advanced in a direction which had already been indicated in the publications of the years 1894--96. Already at that time, and even before sexuality had been accorded its proper position in the ætiology, I had put it forward as a condition of the pathogenic effectiveness of 
+</excerpt>
+<excerpt id="E60" written="1905-01">
+This has led us imperceptibly away from the question of the causation of the psychoneuroses to the problem of their nature. On the basis of the knowledge acquired by means of psycho-analysis one can only say {282} that the nature of these maladies lies in disturbances of the sexual processes, of those organic processes which determine the development and form of expression of the sexual craving. O
+</excerpt>
+<excerpt id="E61" written="1905-02">
+I could not expound this part of my theory further without a detailed discussion of my views on the subject of repression. It must suffice to bring the reader's notice at this point to my _Drei Abhandlungen {280} zur Sexualtheorie_, in which I have attempted to throw some light, even if only a meagre ray, on the somatic processes in which the essence of sexuality lies. I have there described how t
+</excerpt>
+<excerpt id="E62" written="1905-02">
+When this theory is described in the statement that the cause of a life-long hysterical neurosis lies in sexual experiences of infancy, usually commonplace in themselves, it may indeed sound strange enough. Yet if allowance is made for the historical development of the theory, if its main content be summarised in the thesis that hysteria is the expression of a peculiar behaviour of the sexual func
+</excerpt>
+<excerpt id="E63" written="1905-03">
+I overestimated the frequency of these occurrences, which are otherwise quite authentic, and all the more so since I was not at this period able to discriminate between the deceptive memories of hysterics concerning their childhood and the memory-traces of actual happenings. I have since learned to unravel many a phantasy of seduction and found it to be an attempt at defence against the memory of 
+</excerpt>
+<excerpt id="E64" written="1905-03">
+The theory originally applied merely to the morbid states embraced under the term neurasthenia; among these, I noticed two which occasionally appeared in a pure form and which I have named 'neurasthenia proper' and 'anxiety-neurosis'. It was indeed always a matter of general knowledge that sexual factors may play a part in the causation of these forms of disease, but neither were these factors fou
+</excerpt>
+<excerpt id="E65" written="1905-04">
+In view of the close relation of the psychoneuroses to the simple neuroses, which can go so far that an unpractised physician often finds it difficult to make a diagnostic distinction, it became inevitable that the knowledge acquired in one field would throw light as well on the other. Moreover, quite apart from such a correlation, closer examination of the psychical mechanism of hysterical sympto
+</excerpt>
+<excerpt id="E66" written="1905-05">
+Reserving for a later, more detailed discussion the question whether the ætiology of hysteria and the obsessional neurosis is to be regarded as contained in the sexual experiences of childhood, I will return to the form the theory assumed in some short preliminary papers published in the years 1895 and 1896[60]. By emphasizing the ætiological factors already inferred, it was possible at that time 
+</excerpt>
+<excerpt id="E67" written="1905-05">
+I am of opinion that the best idea of my theory concerning the ætiological significance of the sexual factor in neurosis is obtained by examining its evolution. For I have no sort of wish to deny that this theory has passed through a process of development and has undergone a transformation during this process. My colleagues could regard this admission as evidence that the doctrine is nothing but 
+</excerpt>
+<excerpt id="E68" written="1905-06">
+After this correction, the 'infantile sexual traumas' were in a sense supplanted by the 'infantilism' of the sexuality in these cases. It was not a far step to a second modification of the original theory. When the frequency of seduction in childhood was no longer assumed, there vanished also the overemphasis on the 'accidental', external influencing of the sexuality to which I had attributed the 
+</excerpt>
+<excerpt id="E69" written="1905-06">
+I consider it worth emphasis that, in spite of all changes in them, my views concerning the ætiology of the psychoneuroses have never yet caused me to disavow or abandon two points of view: namely, the importance of sexuality and of infantilism. In other respects, constitutional factors have supplanted accidental influences; 'sexual repression' has taken the place of the concept of 'defence' which
+</excerpt>
+<excerpt id="E70" written="1905-06">
+At the time that I attributed to sexuality this part in the creation of simple neuroses[58] I still adhered as regards the psychoneuroses (hysteria and obsessions) to a purely psychological doctrine in which sexual factors had no more significance than other sources of emotion. In conjunction with J. Breuer, and based upon observations made by him at least a decade before on an hysterical patient,
+</excerpt>
+<excerpt id="E71" written="1905-08">
+Investigation into the mental life of normal persons then yielded the unexpected discovery that their infantile history in regard to sexual matters was not necessarily different in essentials from that of the neurotic, and that seduction particularly had played the same part in it; the result was that the accidental influences receded still further into the background in favour of the influence of
+</excerpt>
+<excerpt id="E72" written="1905-12">
+Thus, whatever has a harmful effect on the processes serving the sexual function belongs to the ætiology of the neuroses. In the first place, accordingly, there are the noxiæ affecting the sexual function itself, in so far as they are felt to be harmful by the sexual constitution, which varies with social culture and education. In the next place, there are all the other noxiæ and traumas which are
+</excerpt>

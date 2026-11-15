@@ -161,9 +161,9 @@ open(f'{F}/fig0_real.svg', 'w').write(svg(W, H, body))
 # ---------- Figure 1 (round 18): documented changes of mind found, by set (case level, cross-era, blind labels)
 S18 = json.load(open(f'{R}/v18b_scores.json'))['summary']
 sets = [('dev', 'Development', '12 cases, tuned on'), ('fresh1', 'Fresh set 1', '6 cases, diagnosed on'), ('fresh2', 'Fresh set 2', '6 cases, untouched'), ('fresh3', 'Fresh set 3', '6 cases, untouched, hard')]
-arms = [('Shipped prompt, whole history', '#8a8f98', lambda s: S18.get(f'production/{s}', {}).get('single_majority')),
-        ('realX, one call', '#93c5fd', lambda s: S18.get(f'realX/{s}', {}).get('single_majority')),
-        ('Two-call fix', '#1d4ed8', lambda s: S18.get(f'final/{s}' if s in ('fresh2', 'fresh3') else f'realX+changes_long/{s}', {}).get('merged_majority'))]
+arms = [('Shipped prompt', '#8a8f98', lambda s: S18.get(f'production/{s}', {}).get('single_majority')),
+        ('Rewrite, 400 characters', '#93c5fd', lambda s: S18.get(f'realX/{s}', {}).get('single_majority')),
+        ('Rewrite, longer posts (ships now)', '#1d4ed8', lambda s: S18.get(f'final_realX/{s}' if s in ('fresh2', 'fresh3') else f'realX_long/{s}', {}).get('single_majority'))]
 W, H = 640, 250; x0, y0, ph = 70, 40, 130
 body = ''
 for i in range(0, 101, 25):

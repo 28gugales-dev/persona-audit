@@ -1,0 +1,383 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>everything</theme>
+<excerpt id="E1" written="1912-01">
+But are we to say that nothing is knowledge except what is validly deduced from true premisses? Obviously we cannot say this. Such a definition is at once too wide and too narrow. In the first place, it is too wide, because it is not enough that our premisses should be _true_, they must also be _known_. The man who believes that Mr. Balfour was the late Prime Minister may proceed to draw valid ded
+</excerpt>
+<excerpt id="E2" written="1912-01">
+The word 'idea' has acquired, in the course of time, many associations which are quite misleading when applied to Plato's 'ideas'. We shall therefore use the word 'universal' instead of the word 'idea', to describe what Plato meant. The essence of the sort of entity that Plato meant is that it is opposed to the particular things that are given in sensation. We speak of whatever is given in sensati
+</excerpt>
+<excerpt id="E3" written="1912-01">
+But some care is needed in using Descartes' argument. 'I think, therefore I am' says rather more than is strictly certain. It might seem as though we were quite sure of being the same person to-day as we were yesterday, and this is no doubt true in some sense. But the real Self is as hard to arrive at as the real table, and does not seem to have that absolute, convincing certainty that belongs to 
+</excerpt>
+<excerpt id="E4" written="1912-01">
+When we, who did not know Bismarck, make a judgement about him, the description in our minds will probably be some more or less vague mass of historical knowledge--far more, in most cases, than is required to identify him. But, for the sake of illustration, let us assume that we think of him as 'the first Chancellor of the German Empire'. Here all the words are abstract except 'German'. The word '
+</excerpt>
+<excerpt id="E5" written="1912-01">
+With regard to time, our _feeling_ of duration or of the lapse of time is notoriously an unsafe guide as to the time that has elapsed by the clock. Times when we are bored or suffering pain pass slowly, times when we are agreeably occupied pass quickly, and times when we are sleeping pass almost as if they did not exist. Thus, in so far as time is constituted by duration, there is the same necessi
+</excerpt>
+<excerpt id="E6" written="1912-01">
+This illustrates the difference between general propositions known _a priori_ such as 'two and two are four', and empirical generalizations such as 'all men are mortal'. In regard to the former, deduction is the right mode of argument, whereas in regard to the latter, induction is always theoretically preferable, and warrants a greater confidence in the truth of our conclusion, because all empiric
+</excerpt>
+<excerpt id="E7" written="1912-01">
+We saw in the preceding chapter that the principle of induction, while necessary to the validity of all arguments based on experience, is itself not capable of being proved by experience, and yet is unhesitatingly believed by every one, at least in all its concrete applications. In these characteristics the principle of induction does not stand alone. There are a number of other principles which c
+</excerpt>
+<excerpt id="E8" written="1912-02">
+Now this something, which all of us who are not blind know, is not, according to science, really to be found in the outer world: it is something caused by the action of certain waves upon the eyes and nerves and brain of the person who sees the light. When it is said that light _is_ waves, what is really meant is that waves are the physical cause of our sensations of light. But light itself, the t
+</excerpt>
+<excerpt id="E9" written="1912-02">
+Having now seen that there must be such entities as universals, the next point to be proved is that their being is not merely mental. By this is meant that whatever being belongs to them is independent of their being thought of or in any way apprehended by minds. We have already touched on this subject at the end of the preceding chapter, but we must now consider more fully what sort of being it i
+</excerpt>
+<excerpt id="E10" written="1912-02">
+But the newness of the knowledge is much less certain if we take the stock instance of deduction that is always given in books on logic, namely, 'All men are mortal; Socrates is a man, therefore Socrates is mortal.' In this case, what we really know beyond reasonable doubt is that certain men, A, B, C, were mortal, since, in fact, they have died. If Socrates is one of these men, it is foolish to g
+</excerpt>
+<excerpt id="E11" written="1912-02">
+It should be noted that probability is always relative to certain data. In our case, the data are merely the known cases of coexistence of A and B. There may be other data, which _might_ be taken into account, which would gravely alter the probability. For example, a man who had seen a great many white swans might argue, by our principle, that on the data it was _probable_ that all swans were whit
+</excerpt>
+<excerpt id="E12" written="1912-02">
+Another class of intuitive judgements, analogous to those of sense and yet quite distinct from them, are judgements of _memory_. There is some danger of confusion as to the nature of memory, owing to the fact that memory of an object is apt to be accompanied by an image of the object, and yet the image cannot be what constitutes memory. This is easily seen by merely noticing that the image is in t
+</excerpt>
+<excerpt id="E13" written="1912-03">
+In regard to probable opinion, we can derive great assistance from _coherence_, which we rejected as the _definition_ of truth, but may often use as a _criterion_. A body of individually probable opinions, if they are mutually coherent, become more probable than any one of them would be individually. It is in this way that many scientific hypotheses acquire their probability. They fit into a coher
+</excerpt>
+<excerpt id="E14" written="1912-03">
+This question of the distinction between act and object in our apprehending of things is vitally important, since our whole power of acquiring knowledge is bound up with it. The faculty of being acquainted with things other than itself is the main characteristic of a mind. Acquaintance with objects essentially consists in a relation between the mind and something other than the mind; it is this th
+</excerpt>
+<excerpt id="E15" written="1912-03">
+Those who are unaccustomed to philosophical speculation may be inclined to dismiss such a doctrine as obviously absurd. There is no doubt that common sense regards tables and chairs and the sun and moon and material objects generally as something radically different from minds and the contents of minds, and as having an existence which might continue if minds ceased. We think of matter as having e
+</excerpt>
+<excerpt id="E16" written="1912-03">
+Consider such a proposition as 'Edinburgh is north of London'. Here we have a relation between two places, and it seems plain that the relation subsists independently of our knowledge of it. When we come to know that Edinburgh is north of London, we come to know something which has to do only with Edinburgh and London: we do not cause the truth of the proposition by coming to know it, on the contr
+</excerpt>
+<excerpt id="E17" written="1912-03">
+When we say 'the so-and-so exists', we mean that there is just one object which is the so-and-so. The proposition '_a_ is the so-and-so' means that _a_ has the property so-and-so, and nothing else has. 'Mr. A. is the Unionist candidate for this constituency' means 'Mr. A. is a Unionist candidate for this constituency, and no one else is'. 'The Unionist candidate for this constituency exists' means
+</excerpt>
+<excerpt id="E18" written="1912-03">
+We agreed provisionally that physical objects cannot be quite like our sense-data, but may be regarded as _causing_ our sensations. These physical objects are in the space of science, which we may call 'physical' space. It is important to notice that, if our sensations are to be caused by physical objects, there must be a physical space containing these objects and our sense-organs and nerves and 
+</excerpt>
+<excerpt id="E19" written="1912-03">
+The other point is more interesting, and of more philosophical importance. It is, that we may sometimes know a general proposition in cases where we do not know a single instance of it. Take such a case as the following: We know that any two numbers can be multiplied together, and will give a third called their _product_. We know that all pairs of integers the product of which is less than 100 hav
+</excerpt>
+<excerpt id="E20" written="1912-03">
+When I am acquainted with 'my seeing the sun', it seems plain that I am acquainted with two different things in relation to each other. On the one hand there is the sense-datum which represents the sun to me, on the other hand there is that which sees this sense-datum. All acquaintance, such as my acquaintance with the sense-datum which represents the sun, seems obviously a relation between the pe
+</excerpt>
+<excerpt id="E21" written="1912-04">
+One way of discovering what a proposition deals with is to ask ourselves what words we must understand--in other words, what objects we must be acquainted with--in order to see what the proposition means. As soon as we see what the proposition means, even if we do not yet know whether it is true or false, it is evident that we must have acquaintance with whatever is really dealt with by the propos
+</excerpt>
+<excerpt id="E22" written="1912-04">
+Thus all knowledge which, on a basis of experience tells us something about what is not experienced, is based upon a belief which experience can neither confirm nor confute, yet which, at least in its more concrete applications, appears to be as firmly rooted in us as many of the facts of experience. The existence and justification of such beliefs--for the inductive principle, as we shall see, is 
+</excerpt>
+<excerpt id="E23" written="1912-04">
+In almost all our previous discussions we have been concerned in the attempt to get clear as to our data in the way of knowledge of existence. What things are there in the universe whose existence is known to us owing to our being acquainted with them? So far, our answer has been that we are acquainted with our sense-data, and, probably, with ourselves. These we know to exist. And past sense-data 
+</excerpt>
+<excerpt id="E24" written="1912-04">
+Berkeley's view, that obviously the colour must be in the mind, seems to depend for its plausibility upon confusing the thing apprehended with the act of apprehension. Either of these might be called an 'idea'; probably either would have been called an idea by Berkeley. The act is undoubtedly in the mind; hence, when we are thinking of the act, we readily assent to the view that ideas must be in t
+</excerpt>
+<excerpt id="E25" written="1912-04">
+The same thing is exemplified in geometry. If we want to prove some property of _all_ triangles, we draw some one triangle and reason about it; but we can avoid making use of any property which it does not share with all other triangles, and thus, from our particular case, we obtain a general result. We do not, in fact, feel our certainty that two and two are four increased by fresh instances, bec
+</excerpt>
+<excerpt id="E26" written="1912-05">
+These three laws are samples of self-evident logical principles, but are not really more fundamental or more self-evident than various other similar principles: for instance, the one we considered just now, which states that what follows from a true premiss is true. The name 'laws of thought' is also misleading, for what is important is not the fact that we think in accordance with these laws, but
+</excerpt>
+<excerpt id="E27" written="1912-05">
+This principle is really involved--at least, concrete instances of it are involved--in all demonstrations. Whenever one thing which we believe is used to prove something else, which we consequently believe, this principle is relevant. If any one asks: 'Why should I accept the results of valid arguments based on true premisses?' we can only answer by appealing to our principle. In fact, the truth o
+</excerpt>
+<excerpt id="E28" written="1912-05">
+But doubt concerning his own existence was not possible, for if he did not exist, no demon could deceive him. If he doubted, he must exist; if he had any experiences whatever, he must exist. Thus his own existence was an absolute certainty to him. 'I think, therefore I am,' he said (_Cogito, ergo sum_); and on the basis of this certainty he set to work to build up again the world of knowledge whic
+</excerpt>
+<excerpt id="E29" written="1912-06">
+The value of philosophy is, in fact, to be sought largely in its very uncertainty. The man who has no tincture of philosophy goes through life imprisoned in the prejudices derived from common sense, from the habitual beliefs of his age or his nation, and from convictions which have grown up in his mind without the co-operation or consent of his deliberate reason.
+</excerpt>
+<excerpt id="E30" written="1912-06">
+Hence we are driven back to _correspondence with fact_ as constituting the nature of truth. It remains to define precisely what we mean by 'fact', and what is the nature of the correspondence which must subsist between belief and fact, in order that belief may be true.
+</excerpt>
+<excerpt id="E31" written="1912-06">
+For most practical purposes these differences are unimportant, but to the painter they are all-important: the painter has to unlearn the habit of thinking that things seem to have the colour which common sense says they 'really' have, and to learn the habit of seeing things as they appear. Here we have already the beginning of one of the distinctions that cause most trouble in philosophy--the dist
+</excerpt>
+<excerpt id="E32" written="1912-06">
+It will be seen that there are various stages in the removal from acquaintance with particulars: there is Bismarck to people who knew him; Bismarck to those who only know of him through history; the man with the iron mask; the longest-lived of men. These are progressively further removed from acquaintance with particulars; the first comes as near to acquaintance as is possible in regard to another
+</excerpt>
+<excerpt id="E33" written="1912-06">
+All names of places--London, England, Europe, the Earth, the Solar System--similarly involve, when used, descriptions which start from some one or more particulars with which we are acquainted. I suspect that even the Universe, as considered by metaphysics, involves such a connexion with particulars. In logic, on the contrary, where we are concerned not merely with what does exist, but with whatev
+</excerpt>
+<excerpt id="E34" written="1912-06">
+To make our difficulties plain, let us concentrate attention on the table. To the eye it is oblong, brown and shiny, to the touch it is smooth and cool and hard; when I tap it, it gives out a wooden sound. Any one else who sees and feels and hears the table will agree with this description, so that it might seem as if no difficulty would arise; but as soon as we try to be more precise our troubles
+</excerpt>
+<excerpt id="E35" written="1912-06">
+What we have found as regards space is much the same as what we find in relation to the correspondence of the sense-data with their physical counterparts. If one object looks blue and another red, we may reasonably presume that there is some corresponding difference between the physical objects; if two objects both look blue, we may presume a corresponding similarity. But we cannot hope to be acqu
+</excerpt>
+<excerpt id="E36" written="1912-06">
+And this kind of association is not confined to men; in animals also it is very strong. A horse which has been often driven along a certain road resists the attempt to drive him in a different direction. Domestic animals expect food when they see the person who usually feeds them. We know that all these rather crude expectations of uniformity are liable to be misleading. The man who has fed the ch
+</excerpt>
+<excerpt id="E37" written="1912-07">
+The argument which has led us to this conclusion is doubtless less strong than we could wish, but it is typical of many philosophical arguments, and it is therefore worth while to consider briefly its general character and validity. All knowledge, we find, must be built up upon our instinctive beliefs, and if these are rejected, nothing is left. But among our instinctive beliefs some are much stro
+</excerpt>
+<excerpt id="E38" written="1912-07">
+Before taking up the general question of the nature of ideas, we must disentangle two entirely separate questions which arise concerning sense-data and physical objects. We saw that, for various reasons of detail, Berkeley was right in treating the sense-data which constitute our perception of the tree as more or less subjective, in the sense that they depend upon us as much as upon the tree, and 
+</excerpt>
+<excerpt id="E39" written="1912-07">
+In addition to general principles, the other kind of self-evident truths are those immediately derived from sensation. We will call such truths 'truths of perception', and the judgements expressing them we will call 'judgements of perception'. But here a certain amount of care is required in getting at the precise nature of the truths that are self-evident. The actual sense-data are neither true n
+</excerpt>
+<excerpt id="E40" written="1912-08">
+In philosophy, again, it seems not uncommon for two rival hypotheses to be both able to account for all the facts. Thus, for example, it is possible that life is one long dream, and that the outer world has only that degree of reality that the objects of dreams have; but although such a view does not seem inconsistent with known facts, there is no reason to prefer it to the common-sense view, acco
+</excerpt>
+<excerpt id="E41" written="1912-08">
+In one sense it must be admitted that we can never prove the existence of things other than ourselves and our experiences. No logical absurdity results from the hypothesis that the world consists of myself and my thoughts and feelings and sensations, and that everything else is mere fancy. In dreams a very complicated world may seem to be present, and yet on waking we find it was a delusion; that 
+</excerpt>
+<excerpt id="E42" written="1912-08">
+Now such an argument is not hard to follow; and if it is granted that its premisses are true in fact, no one will deny that the conclusion must also be true. But it depends for its truth upon an instance of a general logical principle. The logical principle is as follows: 'Suppose it known that _if_ this is true, then that is true. Suppose it also known that this _is_ true, then it follows that th
+</excerpt>
+<excerpt id="E43" written="1912-08">
+Or again: Suppose we are comparing two shades of colour, one blue and one green. We can be quite sure they are different shades of colour; but if the green colour is gradually altered to be more and more like the blue, becoming first a blue-green, then a greeny-blue, then blue, there will come a moment when we are doubtful whether we can see any difference, and then a moment when we know that we c
+</excerpt>
+<excerpt id="E44" written="1912-08">
+The relation involved in _judging_ or _believing_ must, if falsehood is to be duly allowed for, be taken to be a relation between several terms, not between two. When Othello believes that Desdemona loves Cassio, he must not have before his mind a single object, 'Desdemona's love for Cassio', or 'that Desdemona loves Cassio ', for that would require that there should be objective falsehoods, which
+</excerpt>
+<excerpt id="E45" written="1912-08">
+Thus in regard to any complex fact, there are, theoretically, two ways in which it may be known: (1) by means of a judgement, in which its several parts are judged to be related as they are in fact related; (2) by means of _acquaintance_ with the complex fact itself, which may (in a large sense) be called perception, though it is by no means confined to objects of the senses. Now it will be observ
+</excerpt>
+<excerpt id="E46" written="1912-08">
+Now obviously this point in which the philosophers are agreed--the view that there _is_ a real table, whatever its nature may be--is vitally important, and it will be worth while to consider what reasons there are for accepting this view before we go on to the further question as to the nature of the real table. Our next chapter, therefore, will be concerned with the reasons for supposing that the
+</excerpt>
+<excerpt id="E47" written="1912-08">
+The problem we have to consider is this: Granted that we are certain of our own sense-data, have we any reason for regarding them as signs of the existence of something else, which we can call the physical object? When we have enumerated all the sense-data which we should naturally regard as connected with the table, have we said all there is to say about the table, or is there still something els
+</excerpt>
+<excerpt id="E48" written="1912-09">
+In derivative knowledge our ultimate premisses must have some degree of self-evidence, and so must their connexion with the conclusions deduced from them. Take for example a piece of reasoning in geometry. It is not enough that the axioms from which we start should be self-evident: it is necessary also that, at each step in the reasoning, the connexion of premiss and conclusion should be self-evid
+</excerpt>
+<excerpt id="E49" written="1912-09">
+The fundamental principle in the analysis of propositions containing descriptions is this: _Every proposition which we can understand must be composed wholly of constituents with which we are acquainted_.
+</excerpt>
+<excerpt id="E50" written="1912-10">
+All our knowledge, both knowledge of things and knowledge of truths, rests upon acquaintance as its foundation. It is therefore important to consider what kinds of things there are with which we have acquaintance.
+</excerpt>
+<excerpt id="E51" written="1912-10">
+In daily life, we assume as certain many things which, on a closer scrutiny, are found to be so full of apparent contradictions that only a great amount of thought enables us to know what it is that we really may believe. In the search for certainty, it is natural to begin with our present experiences, and in some sense, no doubt, knowledge is to be derived from them. But any statement as to what 
+</excerpt>
+<excerpt id="E52" written="1912-10">
+The great representative, in modern times, of the kind of view which we wish to examine, was Hegel (1770-1831). Hegel's philosophy is very difficult, and commentators differ as to the true interpretation of it. According to the interpretation I shall adopt, which is that of many, if not most, of the commentators and has the merit of giving an interesting and important type of philosophy, his main 
+</excerpt>
+<excerpt id="E53" written="1912-11">
+It would seem that there are two kinds of self-evident truths of perception, though perhaps in the last analysis the two kinds may coalesce. First, there is the kind which simply asserts the _existence_ of the sense-datum, without in any way analysing it. We see a patch of red, and we judge 'there is such-and-such a patch of red', or more strictly 'there is that'; this is one kind of intuitive jud
+</excerpt>
+<excerpt id="E54" written="1912-11">
+The word 'idealism' is used by different philosophers in somewhat different senses. We shall understand by it the doctrine that whatever exists, or at any rate whatever can be known to exist, must be in some sense mental. This doctrine, which is very widely held among philosophers, has several forms, and is advocated on several different grounds. The doctrine is so widely held, and so interesting 
+</excerpt>
+<excerpt id="E55" written="1912-11">
+To go into this argument fully at our present stage would be impossible, since it raises points requiring a considerable preliminary discussion; but certain reasons for rejecting the argument may be noticed at once. To begin at the end: there is no reason why what cannot have any _practical_ importance for us should not be real. It is true that, if _theoretical_ importance is included, everything 
+</excerpt>
+<excerpt id="E56" written="1912-11">
+But first of all we must examine our knowledge of universals. This consideration will occupy us in the following chapter, where we shall find that it solves the problem of _a priori_ knowledge, from which we were first led to consider universals.
+</excerpt>
+<excerpt id="E57" written="1912-11">
+Take, for example, the beliefs produced by reading. If the newspapers announce the death of the King, we are fairly well justified in believing that the King is dead, since this is the sort of announcement which would not be made if it were false. And we are quite amply justified in believing that the newspaper asserts that the King is dead. But here the intuitive knowledge upon which our belief i
+</excerpt>
+<excerpt id="E58" written="1912-11">
+Thus a belief is _true_ when it _corresponds_ to a certain associated complex, and _false_ when it does not. Assuming, for the sake of definiteness, that the objects of the belief are two terms and a relation, the terms being put in a certain order by the 'sense' of the believing, then if the two terms in that order are united by the relation into a complex, the belief is true; if not, it is false
+</excerpt>
+<excerpt id="E59" written="1912-12">
+Another relation with which we become acquainted in much the same way is resemblance. If I see simultaneously two shades of green, I can see that they resemble each other; if I also see a shade of red: at the same time, I can see that the two greens have more resemblance to each other than either has to the red. In this way I become acquainted with the universal _resemblance_ or _similarity_.
+</excerpt>
+<excerpt id="E60" written="1912-12">
+We must, therefore, admit as derivative knowledge whatever is the result of intuitive knowledge even if by mere association, provided there _is_ a valid logical connexion, and the person in question could become aware of this connexion by reflection. There are in fact many ways, besides logical inference, by which we pass from one belief to another: the passage from the print to its meaning illust
+</excerpt>
+<excerpt id="E61" written="1912-12">
+The criticism aimed at, in a word, is not that which, without reason, determines to reject, but that which considers each piece of apparent knowledge on its merits, and retains whatever still appears to be knowledge when this consideration is completed. That some risk of error remains must be admitted, since human beings are fallible. Philosophy may claim justly that it diminishes the risk of erro
+</excerpt>
+<excerpt id="E62" written="1912-12">
+We may therefore sum up as follows what has been said concerning acquaintance with things that exist. We have acquaintance in sensation with the data of the outer senses, and in introspection with the data of what may be called the inner sense--thoughts, feelings, desires, etc.; we have acquaintance in memory with things which have been data either of the outer senses or of the inner sense. Furthe
+</excerpt>
+<excerpt id="E63" written="1921-01">
+But when I speak of "appearances," I do so only for brevity: I do not mean anything that must "appear" to somebody, but only that happening, whatever it may be, which is connected, at the place in question, with a given physical object--according to the old orthodox theory, it would be a transverse vibration in the aether. Like the different appearances of the table to a number of simultaneous obs
+</excerpt>
+<excerpt id="E64" written="1921-02">
+It is not enough that the content and the belief-feeling should coexist: it is necessary that there should be a specific relation between them, of the sort expressed by saying that the content is what is believed. If this were not obvious, it could be made plain by an argument. If the mere co-existence of the content and the belief-feeling sufficed, whenever we were having (say) a memory-feeling w
+</excerpt>
+<excerpt id="E65" written="1921-02">
+The content of a belief, when expressed in words, is the same thing (or very nearly the same thing) as what in logic is called a "proposition." A proposition is a series of words (or sometimes a single word) expressing the kind of thing that can be asserted or denied. "That all men are mortal," "that Columbus discovered America," "that Charles I died in his bed," "that all philosophers are wise," 
+</excerpt>
+<excerpt id="E66" written="1921-02">
+According to the view that I am suggesting, a physical object or piece of matter is the collection of all those correlated particulars which would be regarded by common sense as its effects or appearances in different places. On the other hand, all the happenings in a given place represent what common sense would regard as the appearances of a number of different objects as viewed from that place.
+</excerpt>
+<excerpt id="E67" written="1921-02">
+But presently the light of the star reaches our atmosphere. It begins to be refracted, and dimmed by mist, and its velocity is slightly diminished. At last it reaches a human eye, where a complicated process takes place, ending in a sensation which gives us our grounds for believing in all that has gone before. Now, the irregular appearances of the star are not, strictly speaking, members of the s
+</excerpt>
+<excerpt id="E68" written="1921-02">
+*For a more exact statement of this law, with the limitations suggested by experiment, see A. Wohlgemuth, "On Memory and the Direction of Associations," "British Journal of Psychology," vol. v, part iv (March, 1913).
+</excerpt>
+<excerpt id="E69" written="1921-02">
+(1) The first theory to be examined is the view that the differentia of belief consists in its causal efficacy I do not wish to make any author responsible for this theory: I wish merely to develop it hypothetically so that we may judge of its tenability.
+</excerpt>
+<excerpt id="E70" written="1921-03">
+In this first lecture I shall be concerned to refute a theory which is widely held, and which I formerly held myself: the theory that the essence of everything mental is a certain quite peculiar something called "consciousness," conceived either as a relation to objects, or as a pervading quality of psychical phenomena.
+</excerpt>
+<excerpt id="E71" written="1921-03">
+* The view that such a criterion exists is generally held by those whose views are in any degree derived from Hegel. It may be illustrated by the following passage from Lossky, "The Intuitive Basis of Knowledge" (Macmillan, 1919), p. 268: "Strictly speaking, a false judgment is not a judgment at all. The predicate does not follow from the subject S alone, but from the subject plus a certain additi
+</excerpt>
+<excerpt id="E72" written="1921-03">
+We may sum up our analysis, in the case of bare assent to a proposition not expressed in words, as follows: (a) We have a proposition, consisting of interrelated images, and possibly partly of sensations; (b) we have the feeling of assent, which is presumably a complex sensation demanding analysis; (c) we have a relation, actually subsisting, between the assent and the proposition, such as is expr
+</excerpt>
+<excerpt id="E73" written="1921-03">
+We may say, speaking somewhat roughly, that a stimulus applied to the nervous system, like a spark to dynamite, is able to take advantage of the stored energy in unstable equilibrium, and thus to produce movements out of proportion to the proximate cause. Movements produced in this way are vital movements, while mechanical movements are those in which the stored energy of a living body is not invo
+</excerpt>
+<excerpt id="E74" written="1921-03">
+The characteristic is not wholly confined to living organisms. For example, magnetized steel looks just like steel which has not been magnetized, but its behaviour is in some ways different. In the case of dead matter, however, such phenomena are less frequent and important than in the case of living organisms, and it is far less difficult to invent satisfactory hypotheses as to the microscopic ch
+</excerpt>
+<excerpt id="E75" written="1921-03">
+It is clear that knowledge is displayed by accuracy of response to certain kinds of stimuli, e.g. examinations. Can we say, conversely, that it consists wholly of such accuracy of response? I do not think we can; but we can go a certain distance in this direction. For this purpose we must define more carefully the kind of accuracy and the kind of response that may be expected where there is knowle
+</excerpt>
+<excerpt id="E76" written="1921-03">
+In such a law as "A, B, C,... in the past, together with X now, cause Y now," we will call A, B, C,... the mnemic cause, X the occasion or stimulus, and Y the reaction. All cases in which experience influences behaviour are instances of mnemic causation.
+</excerpt>
+<excerpt id="E77" written="1921-04">
+When we believe that we desire a certain state of affairs, that often tends to cause a real desire for it. This is due partly to the influence of words upon our emotions, in rhetoric for example, and partly to the general fact that discomfort normally belongs to the belief that we desire such-and-such a thing that we do not possess. Thus what was originally a false opinion as to the object of a de
+</excerpt>
+<excerpt id="E78" written="1921-04">
+This mode of stating the nature of the objective reference of a proposition is necessitated by the circumstance that there are true and false propositions, but not true and false facts. If to-day is Tuesday, there is not a false objective "to-day is not Tuesday," which could be the objective of the false belief "to-day is not Tuesday." This is the reason why two beliefs which are each other's cont
+</excerpt>
+<excerpt id="E79" written="1921-04">
+We all think that, by watching the behaviour of animals, we can discover more or less what they desire. If this is the case--and I fully agree that it is--desire must be capable of being exhibited in actions, for it is only the actions of animals that we can observe. They MAY have minds in which all sorts of things take place, but we can know nothing about their minds except by means of inferences
+</excerpt>
+<excerpt id="E80" written="1921-04">
+Volition, in the emphatic sense, involves something more than voluntary movement. The sort of case I am thinking of is decision after deliberation. Voluntary movements are a part of this, but not the whole. There is, in addition to them, a judgment: "This is what I shall do"; there is also a sensation of tension during doubt, followed by a different sensation at the moment of deciding. I see no re
+</excerpt>
+<excerpt id="E81" written="1921-05">
+These definitions would have all the precision that could be desired if the distinction between physical and psychological causation were clear and sharp. As a matter of fact, however, this distinction is, as yet, by no means sharp. It is possible that, with fuller knowledge, it will be found to be no more ultimate than the distinction between the laws of gases and the laws of rigid bodies. It als
+</excerpt>
+<excerpt id="E82" written="1921-05">
+(2) We might attempt to distinguish images from sensations by our absence of belief in the "physical reality" of images. When we are aware that what we are experiencing is an image, we do not give it the kind of belief that we should give to a sensation: we do not think that it has the same power of producing knowledge of the "external world." Images are "imaginary"; in SOME sense they are "unreal
+</excerpt>
+<excerpt id="E83" written="1921-05">
+I see no reason to doubt the correctness of this view. We shall say, then, that movements which are accompanied by kinaesthetic sensations tend to be caused by the images of those sensations, and when so caused are called VOLUNTARY.
+</excerpt>
+<excerpt id="E84" written="1921-06">
+Very similar considerations apply to memory, if taken as the essence of mind. A recollection is aroused by something which is happening now, but is different from the effect which the present occurrence would have produced if the recollected event had not occurred. This may be accounted for by the physical effect of the past event on the brain, making it a different instrument from that which woul
+</excerpt>
+<excerpt id="E85" written="1921-06">
+(2) Coherence.--Coherence as the definition of truth is advocated by idealists, particularly by those who in the main follow Hegel. It is set forth ably in Mr. Joachim's book, "The Nature of Truth" (Oxford, 1906). According to this view, any set of propositions other than the whole of truth can be condemned on purely logical grounds, as internally inconsistent; a single proposition, if it is what 
+</excerpt>
+<excerpt id="E86" written="1921-06">
+(f) EXPERIENCE.--The word "experience" is often used very vaguely. James, as we saw, uses it to cover the whole primal stuff of the world, but this usage seems objection able, since, in a purely physical world, things would happen without there being any experience. It is only mnemic phenomena that embody experience. We may say that an animal "experiences" an occurrence when this occurrence modifi
+</excerpt>
+<excerpt id="E87" written="1921-06">
+Vagueness and accuracy are important notions, which it is very necessary to understand. Both are a matter of degree. All thinking is vague to some extent, and complete accuracy is a theoretical ideal not practically attainable. To understand what is meant by accuracy, it will be well to consider first instruments of measurement, such as a balance or a thermometer. These are said to be accurate whe
+</excerpt>
+<excerpt id="E88" written="1921-06">
+If the two sorts of causal laws could be sharply distinguished, we could call an occurrence "physical" when it obeys causal laws appropriate to the physical world, and "mental" when it obeys causal laws appropriate to the mental world. Since the mental world and the physical world interact, there would be a boundary between the two: there would be events which would have physical causes and mental
+</excerpt>
+<excerpt id="E89" written="1921-06">
+The stuff of which the world of our experience is composed is, in my belief, neither mind nor matter, but something more primitive than either. Both mind and matter seem to be composite, and the stuff of which they are compounded lies in a sense between the two, in a sense above them both, like a common ancestor.
+</excerpt>
+<excerpt id="E90" written="1921-07">
+I do not myself believe that the analysis of knowledge can be effected entirely by means of purely external observation, such as behaviourists employ. I shall discuss this question in later lectures. In the present lecture I shall attempt the analysis of memory-knowledge, both as an introduction to the problem of knowledge in general, and because memory, in some form, is presupposed in almost all 
+</excerpt>
+<excerpt id="E91" written="1921-07">
+The stuff of the world, so far as we have experience of it, consists, on the view that I am advocating, of innumerable transient particulars such as occur in seeing, hearing, etc., together with images more or less resembling these, of which I shall speak shortly. If physics is true, there are, besides the particulars that we experience, others, probably equally (or almost equally) transient, whic
+</excerpt>
+<excerpt id="E92" written="1921-07">
+On the features which distinguish knowledge from accuracy of response in general, not much can be said from a behaviourist point of view without referring to purpose. But the necessity of SOMETHING besides accuracy of response may be brought out by the following consideration: Suppose two persons, of whom one believed whatever the other disbelieved, and disbelieved whatever the other believed. So 
+</excerpt>
+<excerpt id="E93" written="1921-07">
+This definition is framed for the purposes of biology, and is in some respects unsuited to the needs of psychology. Though perhaps unavoidable, allusion to "the same more or less restricted group of animals" makes it impossible to judge what is instinctive in the behaviour of an isolated individual. Moreover, "the well-being of the individual and the preservation of the race" is only a usual chara
+</excerpt>
+<excerpt id="E94" written="1921-07">
+We can now interpret in terms of our theory the distinction between those mental occurrences which are said to have an external stimulus, and those which are said to be "centrally excited," i.e. to have no stimulus external to the brain. When a mental occurrence can be regarded as an appearance of an object external to the brain, however irregular, or even as a confused appearance of several such 
+</excerpt>
+<excerpt id="E95" written="1921-07">
+* Various arguments in its favour are advanced by A. Wohlgemuth, "On the feelings and their neural correlate, with an examination of the nature of pain," "British Journal of Psychology," viii, 4. (1917). But as these arguments are largely a reductio ad absurdum of other theories, among which that which I am advocating is not included, I cannot regard them as establishing their contention.
+</excerpt>
+<excerpt id="E96" written="1921-07">
+Thus what is called "knowing," in the sense in which we can ascertain what other people "know," is a phenomenon exemplified in their physical behaviour, including spoken and written words. There is no reason--so Watson argues--to suppose that their knowledge IS anything beyond the habits shown in this behaviour: the inference that other people have something nonphysical called "mind" or "thought" 
+</excerpt>
+<excerpt id="E97" written="1921-08">
+in which he explains how he will haunt the poor lady as a ghost, and prevent her from enjoying a moment's peace. But two things stand in the way of your expressing yourself so naturally: on the one hand, your vanity, which will not acknowledge how hard you are hit; on the other hand, your conviction that you are a civilized and humane person, who could not possibly indulge so crude a desire as rev
+</excerpt>
+<excerpt id="E98" written="1921-08">
+Many difficult questions arise in connection with knowledge. It is difficult to define knowledge, difficult to decide whether we have any knowledge, and difficult, even if it is conceded that we sometimes have knowledge to discover whether we can ever know that we have knowledge in this or that particular case. I shall divide the discussion into four parts:
+</excerpt>
+<excerpt id="E99" written="1921-08">
+The same noise may bring into your mind the visual image of a tram, instead of the word "tram." In this case your belief consists of a sensation and an image suitable related. Beliefs of this class are what are called "judgments of perception." As we saw in Lecture VIII, the images associated with a sensation often come with such spontaneity and force that the unsophisticated do not distinguish th
+</excerpt>
+<excerpt id="E100" written="1921-08">
+Besides ways of being conscious there are other things that would ordinarily be called "mental," such as desire and pleasure and pain. These raise problems of their own, which we shall reach in Lecture III. But the hardest problems are those that arise concerning ways of being "conscious." These ways, taken together, are called the "cognitive" elements in mind, and it is these that will occupy us 
+</excerpt>
+<excerpt id="E101" written="1921-08">
+The more complicated forms of belief tend to consist only of words. Often images of various kinds accompany them, but they are apt to be irrelevant, and to form no part of what is actually believed. For example, in thinking of the Solar System, you are likely to have vague images of pictures you have seen of the earth surrounded by clouds, Saturn and his rings, the sun during an eclipse, and so on
+</excerpt>
+<excerpt id="E102" written="1921-08">
+To understand the function that words perform in what is called "thinking," we must understand both the causes and the effects of their occurrence. The causes of the occurrence of words require somewhat different treatment according as the object designated by the word is sensibly present or absent. When the object is present, it may itself be taken as the cause of the word, through association. B
+</excerpt>
+<excerpt id="E103" written="1921-08">
+But we have not yet finished our analysis of the memory-belief. The tense in the belief that "this occurred" is provided by the nature of the belief-feeling involved in memory; the word "this," as we have seen, has a vagueness which we have tried to describe. But we must still ask what we mean by "occurred." The image is, in one sense, occurring now; and therefore we must find some other sense in 
+</excerpt>
+<excerpt id="E104" written="1921-08">
+Professor Watson ("Behavior," pp. 262-3) has an ingenious theory as to the way in which habit arises out of random movements. I think there is a reason why his theory cannot be regarded as alone sufficient, but it seems not unlikely that it is partly correct. Suppose, for the sake of simplicity, that there are just ten random movements which may be made by the animal--say, ten paths down which it 
+</excerpt>
+<excerpt id="E105" written="1921-09">
+Judgments of perception, such as "this buttercup is yellow," are in a quite different position from judgments of logic, and their self-evidence must have a different explanation. In order to arrive at the nucleus of such a judgment, we will eliminate, as far as possible, the use of words which take us beyond the present fact, such as "buttercup" and "yellow." The simplest kind of judgment underlyi
+</excerpt>
+<excerpt id="E106" written="1921-09">
+Corresponding to the supposed duality of matter and mind, there are, in orthodox psychology, two ways of knowing what exists. One of these, the way of sensation and external perception, is supposed to furnish data for our knowledge of matter, the other, called "introspection," is supposed to furnish data for knowledge of our mental processes. To common sense, this distinction seems clear and easy.
+</excerpt>
+<excerpt id="E107" written="1921-09">
+The popular conception of instinct errs by imagining it to be infallible and preternaturally wise, as well as incapable of modification. This is a complete delusion. Instinct, as a rule, is very rough and ready, able to achieve its result under ordinary circumstances, but easily misled by anything unusual. Chicks follow their mother by instinct, but when they are quite young they will follow with 
+</excerpt>
+<excerpt id="E108" written="1921-09">
+But so far we have only considered what may be called the "demonstrative" use of language, to point out some feature in the present environment. This is only one of the ways in which language may be used. There are also its narrative and imaginative uses, as in history and novels. Let us take as an instance the telling of some remembered event.
+</excerpt>
+<excerpt id="E109" written="1921-09">
+It is this greater causal potency of the near appearance that leads physics to state its causal laws in terms of that system of regular appearances to which the nearest appearances increasingly approximate, and that makes it value information derived from the microscope or telescope. It is clear that our sensations, considered as irregular appearances of physical objects, share the causal dependen
+</excerpt>
+<excerpt id="E110" written="1921-10">
+Angell suggests that the display of emotion in such cases may be due to past experience, generating habits which would require only the stimulation of cerebral reflex arcs. Rage and some forms of fear, however, may, he thinks, gain expression without the brain. Rage and fear have been especially studied by Cannon, whose work is of the greatest importance. His results are given in his book, "Bodily
+</excerpt>
+<excerpt id="E111" written="1921-11">
+It would seem that image-propositions are more primitive than word-propositions, and may well ante-date language. There is no reason why memory-images, accompanied by that very simple belief-feeling which we decided to be the essence of memory, should not have occurred before language arose; indeed, it would be rash to assert positively that memory of this sort does not occur among the higher anim
+</excerpt>
+<excerpt id="E112" written="1921-11">
+In Lecture V we found reason to think that the ultimate constituents* of the world do not have the characteristics of either mind or matter as ordinarily understood: they are not solid persistent objects moving through space, nor are they fragments of "consciousness." But we found two ways of grouping particulars, one into "things" or "pieces of matter," the other into series of "perspectives," ea
+</excerpt>
+<excerpt id="E113" written="1921-11">
+James ("Psychology," chap. xxvi) maintains that the only distinctive characteristic of a voluntary act is that it involves an idea of the movement to be performed, made up of memory-images of the kinaesthetic sensations which we had when the same movement occurred on some former occasion. He points out that, on this view, no movement can be made voluntarily unless it has previously occurred involu
+</excerpt>
+<excerpt id="E114" written="1921-11">
+In this lecture we shall be concerned with a very general characteristic which broadly, though not absolutely, distinguishes the behaviour of living organisms from that of dead matter. The characteristic in question is this:
+</excerpt>
+<excerpt id="E115" written="1921-12">
+Having admitted images, we may say that the word "box," in the absence of the box, is caused by an image of the box. This may or may not be true--in fact, it is true in some cases but not in others. Even, however, if it were true in all cases, it would only slightly shift our problem: we should now have to ask what causes an image of the box to arise. We might be inclined to say that desire for th
+</excerpt>
+<excerpt id="E116" written="1921-12">
+Following a suggestion derived from Semon ("Die Mneme," Leipzig, 1904; 2nd edition, 1908, English translation, Allen & Unwin, 1921; "Die mnemischen Empfindungen," Leipzig, 1909), we will give the name of "mnemic phenomena" to those responses of an organism which, so far as hitherto observed facts are concerned, can only be brought under causal laws by including past occurrences in the history of t
+</excerpt>
+<excerpt id="E117" written="1921-12">
+We may generalize this instance so as to cover the causes of many memories. Some present feature of the environment is associated, through past experiences, with something now absent; this absent something comes before us as an image, and is contrasted with present sensation. In cases of this sort, habit (or association) explains why the present feature of the environment brings up the memory-imag
+</excerpt>
+<excerpt id="E118" written="1921-12">
+In regard to memory, as throughout the analysis of knowledge, there are two very distinct problems, namely (1) as to the nature of the present occurrence in knowing; (2) as to the relation of this occurrence to what is known. When we remember, the knowing is now, while what is known is in the past. Our two questions are, in the case of memory:
+</excerpt>
+<excerpt id="E119" written="1921-12">
+I think, however, on grounds of the theory of matter explained in Lectures V and VII, that an ultimate scientific account of what goes on in the world, if it were ascertainable, would resemble psychology rather than physics in what we found to be the decisive difference between them. I think, that is to say, that such an account would not be content to speak, even formally, as though matter, which
+</excerpt>
+<excerpt id="E120" written="1921-12">
+* "Journal of Philosophy, Psychology and Scientific Methods," vol. i, 1904. Reprinted in "Essays in Radical Empiricism" (Longmans, Green & Co., 1912), pp. 1-38, to which references in what follows refer.
+</excerpt>
+<excerpt id="E121" written="1921-12">
+Berkeley and Hume made a vigorous onslaught on "abstract ideas." They meant by an idea approximately what we should call an image. Locke having maintained that he could form an idea of triangle in general, without deciding what sort of triangle it was to be, Berkeley contended that this was impossible. He says:
+</excerpt>
+<excerpt id="E122" written="1921-12">
+In the first lecture we considered the view of Brentano, that "we may define psychical phenomena by saying that they are phenomena which intentionally contain an object." We saw reasons to reject this view in general; we are now concerned to show that it must be rejected in the particular case of sensations. The kind of argument which formerly made me accept Brentano's view in this case was exceed
+</excerpt>
+<excerpt id="E123" written="1921-12">
+He next explains the difference between simple and complex ideas, and explains that a complex idea may occur without any similar complex impression. But as regards simple ideas, he states that "every simple idea has a simple impression, which resembles it, and every simple impression a correspondent idea." He goes on to enunciate the general principle "that all our simple ideas in their first appe
+</excerpt>
+<excerpt id="E124" written="1921-12">
+It is not only by time-relations that the parts of one biography are collected together in the case of living beings. In this case there are the mnemic phenomena which constitute the unity of one "experience," and transform mere occurrences into "experiences." I have already dwelt upon the importance of mnemic phenomena for psychology, and shall not enlarge upon them now, beyond observing that the
+</excerpt>

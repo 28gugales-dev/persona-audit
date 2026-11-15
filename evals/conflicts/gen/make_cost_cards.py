@@ -27,6 +27,7 @@ dB = reqs('requests_v18b_chglong.jsonl', 'requests_v18c_changes.jsonl')
 cards, per = [], {}
 for c in sorted(set(prod) & set(rx) & set(dA) & set(dB)):
     a, b, d1, d2 = pairs(prod[c], 1), pairs(rx[c], 1), pairs(dA[c], 1), pairs(dB[c], 1)
+    # shortcut: S.pairs returns a set, so a history over the 8-card cap keeps an arbitrary 8 (2 of 24 histories, 1 card differs between runs); keep model order to fix
     dep = (d1 or []) + [q for q in (d2 or []) if q not in (d1 or [])]
     per[c] = {'production': len(a or []), 'realX': len(b or []), 'deployed': min(len(dep), 8), 'deployed_uncapped': len(dep),
               'missing': [n for n, x in (('production', a), ('realX', b), ('realX_long', d1), ('changes_long', d2)) if x is None]}

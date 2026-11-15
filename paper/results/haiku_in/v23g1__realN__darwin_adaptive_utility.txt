@@ -1,0 +1,383 @@
+=== SYSTEM PROMPT ===
+Find clear conflicts between this person's own views in dated journal excerpts. Compare pairs by excerpt id. Flag only two sincere, definite positions that cannot both hold about the same thing under the same conditions. Dates may show a changed view, but do not establish a conflict by themselves. Favor no finding over a doubtful one.
+
+Exclude doubt, uncertainty, questions, descriptions of someone else's views, and jokes. Do not flag a later excerpt that merely refines or qualifies an earlier one. Different circumstances or scopes are not enough to establish a conflict. Do not infer a position the writer did not express.
+
+Return each clear pair once, with the earlier excerpt as a and the later as b. Make tension one neutral question under 20 words that invites reflection on the two views without judging either.
+
+Return only JSON exactly like {"conflicts":[{"a":"E1","b":"E4","tension":""}]}, using actual excerpt ids and the question as tension. Return {"conflicts":[]} when there are none.
+
+=== USER MESSAGE ===
+<theme>everything</theme>
+<excerpt id="E1" written="1859-01">
+If we admit that the geological record is imperfect in an extreme degree, then such facts as the record gives, support the theory of descent with modification. New species have come on the stage slowly and at successive intervals; and the amount of change, after equal intervals of time, is widely different in different groups. The extinction of species and of whole groups of species, which has pla
+</excerpt>
+<excerpt id="E2" written="1859-01">
+These observations, however, relate to the marine inhabitants of distant parts of the world: we have not sufficient data to judge whether the productions of the land and of fresh water change at distant points in the same parallel manner. We may doubt whether they have thus changed: if the Megatherium, Mylodon, Macrauchenia, and Toxodon had been brought to Europe from La Plata, without any informa
+</excerpt>
+<excerpt id="E3" written="1859-01">
+Let us see how far these several facts and inferences accord with the theory of descent with modification. As the subject is somewhat complex, I must request the reader to turn to the diagram in the fourth chapter. We may suppose that the numbered letters represent genera, and the dotted lines diverging from them the species in each genus. The diagram is much too simple, too few genera and too few
+</excerpt>
+<excerpt id="E4" written="1859-01">
+Look at a plant in the midst of its range, why does it not double or quadruple its numbers? We know that it can perfectly well withstand a little more heat or cold, dampness or dryness, for elsewhere it ranges into slightly hotter or colder, damper or drier districts. In this case we can clearly see that if we wished in imagination to give the plant the power of increasing in number, we should hav
+</excerpt>
+<excerpt id="E5" written="1859-02">
+In the case of animals with separate sexes, facility in preventing crosses is an important element of success in the formation of new races,—at least, in a country which is already stocked with other races. In this respect enclosure of the land plays a part. Wandering savages or the inhabitants of open plains rarely possess more than one breed of the same species. Pigeons can be mated for life, an
+</excerpt>
+<excerpt id="E6" written="1859-02">
+Any variation which is not inherited is unimportant for us. But the number and diversity of inheritable deviations of structure, both those of slight and those of considerable physiological importance, is endless. Dr. Prosper Lucas’s treatise, in two large volumes, is the fullest and the best on this subject. No breeder doubts how strong is the tendency to inheritance: like produces like is his fu
+</excerpt>
+<excerpt id="E7" written="1859-02">
+All the foregoing rules and aids and difficulties in classification are explained, if I do not greatly deceive myself, on the view that the natural system is founded on descent with modification; that the characters which naturalists consider as showing true affinity between any two or more species, are those which have been inherited from a common parent, and, in so far, all true classification i
+</excerpt>
+<excerpt id="E8" written="1859-02">
+The relations just discussed,—namely, low and slowly-changing organisms ranging more widely than the high,—some of the species of widely-ranging genera themselves ranging widely,—such facts, as alpine, lacustrine, and marsh productions being related (with the exceptions before specified) to those on the surrounding low lands and dry lands, though these stations are so different—the very close rela
+</excerpt>
+<excerpt id="E9" written="1859-02">
+Nor let it be thought that some great deviation of structure would be necessary to catch the fancier’s eye: he perceives extremely small differences, and it is in human nature to value any novelty, however slight, in one’s own possession. Nor must the value which would formerly be set on any slight differences in the individuals of the same species, be judged of by the value which would now be set
+</excerpt>
+<excerpt id="E10" written="1859-03">
+With these facts before me, I believe that natural selection, by acting on the fertile parents, could form a species which should regularly produce neuters, either all of large size with one form of jaw, or all of small size with jaws having a widely different structure; or lastly, and this is our climax of difficulty, one set of workers of one size and structure, and simultaneously another set of
+</excerpt>
+<excerpt id="E11" written="1859-03">
+It is worth while to reflect for a moment on the character of the new species F14, which is supposed not to have diverged much in character, but to have retained the form of (F), either unaltered or altered only in a slight degree. In this case, its affinities to the other fourteen new species will be of a curious and circuitous nature. Having descended from a form which stood between the two pare
+</excerpt>
+<excerpt id="E12" written="1859-03">
+The sterility of first crosses between pure species, which have their reproductive systems perfect, seems to depend on several circumstances; in some cases largely on the early death of the embryo. The sterility of hybrids, which have their reproductive systems imperfect, and which have had this system and their whole organisation disturbed by being compounded of two distinct species, seems closel
+</excerpt>
+<excerpt id="E13" written="1859-03">
+On the theory of descent, the full meaning of the fact of fossil remains from closely consecutive formations, though ranked as distinct species, being closely related, is obvious. As the accumulation of each formation has often been interrupted, and as long blank intervals have intervened between successive formations, we ought not to expect to find, as I attempted to show in the last chapter, in 
+</excerpt>
+<excerpt id="E14" written="1859-03">
+Hence every detail of structure in every living creature (making some little allowance for the direct action of physical conditions) may be viewed, either as having been of special use to some ancestral form, or as being now of special use to the descendants of this form—either directly, or indirectly through the complex laws of growth.
+</excerpt>
+<excerpt id="E15" written="1859-04">
+Finally, looking to all the ascertained facts on the intercrossing of plants and animals, it may be concluded that some degree of sterility, both in first crosses and in hybrids,is an extremely general result; but that it cannot, under our present state of knowledge, be considered as absolutely universal.
+</excerpt>
+<excerpt id="E16" written="1859-04">
+Mr. Waterhouse has remarked that, when a member belonging to one group of animals exhibits an affinity to a quite distinct group, this affinity in most cases is general and not special: thus, according to Mr. Waterhouse, of all Rodents, the bizcacha is most nearly related to Marsupials; but in the points in which it approaches this order, its relations are general, and not to any one marsupial spe
+</excerpt>
+<excerpt id="E17" written="1859-04">
+Numerous instances could be given of characters derived from parts which must be considered of very trifling physiological importance, but which are universally admitted as highly serviceable in the definition of whole groups. For instance, whether or not there is an open passage from the nostrils to the mouth, the only character, according to Owen, which absolutely distinguishes fishes and reptil
+</excerpt>
+<excerpt id="E18" written="1859-04">
+The nature of the bond of correlation is very frequently quite obscure. M. Is. Geoffroy St. Hilaire has forcibly remarked, that certain malconformations very frequently, and that others rarely coexist, without our being able to assign any reason. What can be more singular than the relation between blue eyes and deafness in cats, and the tortoise-shell colour with the female sex; the feathered feet
+</excerpt>
+<excerpt id="E19" written="1859-05">
+I will, however, give one curious and complex case, not indeed as affecting any important character, but from occurring in several species of the same genus, partly under domestication and partly under nature. It is a case apparently of reversion. The ass not rarely has very distinct transverse bars on its legs, like those on the legs of a zebra: it has been asserted that these are plainest in the
+</excerpt>
+<excerpt id="E20" written="1859-05">
+By a similar process of selection, and by careful training, the whole body of English racehorses have come to surpass in fleetness and size the parent Arab stock, so that the latter, by the regulations for the Goodwood Races, are favoured in the weights they carry. Lord Spencer and others have shown how the cattle of England have increased in weight and in early maturity, compared with the stock f
+</excerpt>
+<excerpt id="E21" written="1859-05">
+In discussing this subject, we shall be enabled at the same time to consider a point equally important for us, namely, whether the several distinct species of a genus, which on my theory have all descended from a common progenitor, can have migrated (undergoing modification during some part of their migration) from the area inhabited by their progenitor. If it can be shown to be almost invariably 
+</excerpt>
+<excerpt id="E22" written="1859-05">
+_Summary of the preceding and present Chapters_.—I have attempted to show that the geological record is extremely imperfect; that only a small portion of the globe has been geologically explored with care; that only certain classes of organic beings have been largely preserved in a fossil state; that the number both of specimens and of species, preserved in our museums, is absolutely as nothing co
+</excerpt>
+<excerpt id="E23" written="1859-05">
+A corollary of the highest importance may be deduced from the foregoing remarks, namely, that the structure of every organic being is related, in the most essential yet often hidden manner, to that of all other organic beings, with which it comes into competition for food or residence, or from which it has to escape, or on which it preys. This is obvious in the structure of the teeth and talons of
+</excerpt>
+<excerpt id="E24" written="1859-05">
+Considering how flexible thin wax is, I do not see that there is any difficulty in the bees, whilst at work on the two sides of a strip of wax, perceiving when they have gnawed the wax away to the proper thinness, and then stopping their work. In ordinary combs it has appeared to me that the bees do not always succeed in working at exactly the same rate from the opposite sides; for I have noticed 
+</excerpt>
+<excerpt id="E25" written="1859-05">
+Thus, as I believe, a considerable number of plants, a few terrestrial animals, and some marine productions, migrated during the Glacial period from the northern and southern temperate zones into the intertropical regions, and some even crossed the equator. As the warmth returned, these temperate forms would naturally ascend the higher mountains, being exterminated on the lowlands; those which had
+</excerpt>
+<excerpt id="E26" written="1859-05">
+For any form existing in lesser numbers would, as already remarked, run a greater chance of being exterminated than one existing in large numbers; and in this particular case the intermediate form would be eminently liable to the inroads of closely allied forms existing on both sides of it. But a far more important consideration, as I believe, is that, during the process of further modification, b
+</excerpt>
+<excerpt id="E27" written="1859-05">
+Now let us turn to nature. When a part has been developed in an extraordinary manner in any one species, compared with the other species of the same genus, we may conclude that this part has undergone an extraordinary amount of modification, since the period when the species branched off from the common progenitor of the genus. This period will seldom be remote in any extreme degree, as species ve
+</excerpt>
+<excerpt id="E28" written="1859-05">
+There is another and equally curious branch of the present subject; namely, the comparison not of the same part in different members of a class, but of the different parts or organs in the same individual. Most physiologists believe that the bones of the skull are homologous with—that is correspond in number and in relative connexion with—the elemental parts of a certain number of vertebræ. The an
+</excerpt>
+<excerpt id="E29" written="1859-06">
+In a state of nature almost every plant produces seed, and amongst animals there are very few which do not annually pair. Hence we may confidently assert, that all plants and animals are tending to increase at a geometrical ratio, that all would most rapidly stock every station in which they could any how exist, and that the geometrical tendency to increase must be checked by destruction at some p
+</excerpt>
+<excerpt id="E30" written="1859-06">
+Nothing can be more hopeless than to attempt to explain this similarity of pattern in members of the same class, by utility or by the doctrine of final causes. The hopelessness of the attempt has been expressly admitted by Owen in his most interesting work on the ‘Nature of Limbs.’ On the ordinary view of the independent creation of each being, we can only say that so it is;—that it has so pleased
+</excerpt>
+<excerpt id="E31" written="1859-06">
+We can see why characters derived from the embryo should be of equal importance with those derived from the adult, for our classifications of course include all ages of each species. But it is by no means obvious, on the ordinary view, why the structure of the embryo should be more important for this purpose than that of the adult, which alone plays its full part in the economy of nature. Yet it h
+</excerpt>
+<excerpt id="E32" written="1859-06">
+An argument, as it seems to me, of great weight, and applicable in several other cases, is, that the above-specified breeds, though agreeing generally in constitution, habits, voice, colouring, and in most parts of their structure, with the wild rock-pigeon, yet are certainly highly abnormal in other parts of their structure: we may look in vain throughout the whole great family of Columbidæ for a
+</excerpt>
+<excerpt id="E33" written="1859-06">
+Kölreuter, whose accuracy has been confirmed by every subsequent observer, has proved the remarkable fact, that one variety of the common tobacco is more fertile, when crossed with a widely distinct species, than are the other varieties. He experimentised on five forms, which are commonly reputed to be varieties, and which he tested by the severest trial, namely, by reciprocal crosses, and he foun
+</excerpt>
+<excerpt id="E34" written="1859-06">
+How, then, can we explain these several facts in embryology,—namely the very general, but not universal difference in structure between the embryo and the adult;—of parts in the same individual embryo, which ultimately become very unlike and serve for diverse purposes, being at this early period of growth alike;—of embryos of different species within the same class, generally, but not universally,
+</excerpt>
+<excerpt id="E35" written="1859-06">
+_Embryology_.—It has already been casually remarked that certain organs in the individual, which when mature become widely different and serve for different purposes, are in the embryo exactly alike. The embryos, also, of distinct animals within the same class are often strikingly similar: a better proof of this cannot be given, than a circumstance mentioned by Agassiz, namely, that having forgott
+</excerpt>
+<excerpt id="E36" written="1859-07">
+The principle which determines the general character of the fauna and flora of oceanic islands, namely, that the inhabitants, when not identically the same, yet are plainly related to the inhabitants of that region whence colonists could most readily have been derived,—the colonists having been subsequently modified and better fitted to their new homes,—is of the widest application throughout natu
+</excerpt>
+<excerpt id="E37" written="1859-07">
+As the modified descendants of dominant species, belonging to the larger genera, tend to inherit the advantages, which made the groups to which they belong large and their parents dominant, they are almost sure to spread widely, and to seize on more and more places in the economy of nature. The larger and more dominant groups thus tend to go on increasing in size; and they consequently supplant ma
+</excerpt>
+<excerpt id="E38" written="1859-07">
+To sum up the circumstances favourable and unfavourable to natural selection, as far as the extreme intricacy of the subject permits. I conclude, looking to the future, that for terrestrial productions a large continental area, which will probably undergo many oscillations of level, and which consequently will exist for long periods in a broken condition, will be the most favourable for the produc
+</excerpt>
+<excerpt id="E39" written="1859-07">
+That many and grave objections may be advanced against the theory of descent with modification through natural selection, I do not deny. I have endeavoured to give to them their full force. Nothing at first can appear more difficult to believe than that the more complex organs and instincts should have been perfected, not by means superior to, though analogous with, human reason, but by the accumu
+</excerpt>
+<excerpt id="E40" written="1859-08">
+As all the organic beings, extinct and recent, which have ever lived on this earth have to be classed together, and as all have been connected by the finest gradations, the best, or indeed, if our collections were nearly perfect, the only possible arrangement, would be genealogical. Descent being on my view the hidden bond of connexion which naturalists have been seeking under the term of the natu
+</excerpt>
+<excerpt id="E41" written="1859-08">
+Recapitulation of the difficulties on the theory of Natural Selection. Recapitulation of the general and special circumstances in its favour. Causes of the general belief in the immutability of species. How far the theory of natural selection may be extended. Effects of its adoption on the study of Natural history. Concluding remarks.
+</excerpt>
+<excerpt id="E42" written="1859-08">
+From these and similar considerations, but chiefly from our ignorance of the geology of other countries beyond the confines of Europe and the United States; and from the revolution in our palæontological ideas on many points, which the discoveries of even the last dozen years have effected, it seems to me to be about as rash in us to dogmatize on the succession of organic beings throughout the wor
+</excerpt>
+<excerpt id="E43" written="1859-08">
+The following case is far more remarkable, and seems at first quite incredible; but it is the result of an astonishing number of experiments made during many years on nine species of Verbascum, by so good an observer and so hostile a witness, as Gärtner: namely, that yellow and white varieties of the same species of Verbascum when intercrossed produce less seed, than do either coloured varieties w
+</excerpt>
+<excerpt id="E44" written="1859-08">
+That the general disposition of individuals of the same species, born in a state of nature, is extremely diversified, can be shown by a multitude of facts. Several cases also, could be given, of occasional and strange habits in certain species, which might, if advantageous to the species, give rise, through natural selection, to quite new instincts. But I am well aware that these general statement
+</excerpt>
+<excerpt id="E45" written="1859-09">
+Mammals offer another and similar case. I have carefully searched the oldest voyages, but have not finished my search; as yet I have not found a single instance, free from doubt, of a terrestrial mammal (excluding domesticated animals kept by the natives) inhabiting an island situated above 300 miles from a continent or great continental island; and many islands situated at a much less distance ar
+</excerpt>
+<excerpt id="E46" written="1859-09">
+It is an important fact that rudimentary organs, such as teeth in the upper jaws of whales and ruminants, can often be detected in the embryo, but afterwards wholly disappear. It is also, I believe, a universal rule, that a rudimentary part or organ is of greater size relatively to the adjoining parts in the embryo, than in the adult; so that the organ at this early age is less rudimentary, or eve
+</excerpt>
+<excerpt id="E47" written="1859-09">
+We have seen in this chapter how cautious we should be in concluding that the most different habits of life could not graduate into each other; that a bat, for instance, could not have been formed by natural selection from an animal which at first could only glide through the air.
+</excerpt>
+<excerpt id="E48" written="1859-09">
+There is one other remark connected with this subject worth making. I have given my reasons for believing that all our greater fossiliferous formations were deposited during periods of subsidence; and that blank intervals of vast duration occurred during the periods when the bed of the sea was either stationary or rising, and likewise when sediment was not thrown down quickly enough to embed and p
+</excerpt>
+<excerpt id="E49" written="1859-09">
+Pure species have of course their organs of reproduction in a perfect condition, yet when intercrossed they produce either few or no offspring. Hybrids, on the other hand, have their reproductive organs functionally impotent, as may be clearly seen in the state of the male element in both plants and animals; though the organs themselves are perfect in structure, as far as the microscope reveals. I
+</excerpt>
+<excerpt id="E50" written="1859-10">
+But we may go further than this. The original species of our genus were supposed to resemble each other in unequal degrees, as is so generally the case in nature; species (A) being more nearly related to B, C, and D, than to the other species; and species (I) more to G, H, K, L, than to the others. These two species (A) and (I), were also supposed to be very common and widely diffused species, so 
+</excerpt>
+<excerpt id="E51" written="1859-10">
+When a variation is of the slightest use to a being, we cannot tell how much of it to attribute to the accumulative action of natural selection, and how much to the conditions of life. Thus, it is well known to furriers that animals of the same species have thicker and better fur the more severe the climate is under which they have lived; but who can tell how much of this difference may be due to 
+</excerpt>
+<excerpt id="E52" written="1859-10">
+The existence of closely allied or representative species in any two areas, implies, on the theory of descent with modification, that the same parents formerly inhabited both areas; and we almost invariably find that wherever many closely allied species inhabit two areas, some identical species common to both still exist. Wherever many closely allied yet distinct species occur, many doubtful forms
+</excerpt>
+<excerpt id="E53" written="1859-10">
+I suspect, also, that some of the cases of compensation which have been advanced, and likewise some other facts, may be merged under a more general principle, namely, that natural selection is continually trying to economise in every part of the organisation. If under changed conditions of life a structure before useful becomes less useful, any diminution, however slight, in its development, will 
+</excerpt>
+<excerpt id="E54" written="1859-10">
+During the slowly decreasing warmth of the Pliocene period, as soon as the species in common, which inhabited the New and Old Worlds, migrated south of the Polar Circle, they must have been completely cut off from each other. This separation, as far as the more temperate productions are concerned, took place long ages ago. And as the plants and animals migrated southward, they will have become min
+</excerpt>
+<excerpt id="E55" written="1859-10">
+We have seen that a species may under new conditions of life change its habits, or have diversified habits, with some habits very unlike those of its nearest congeners. Hence we can understand, bearing in mind that each organic being is trying to live wherever it can live, how it has arisen that there are upland geese with webbed feet, ground woodpeckers, diving thrushes, and petrels with the habi
+</excerpt>
+<excerpt id="E56" written="1859-10">
+We should be extremely cautious in concluding that an organ could not have been formed by transitional gradations of some kind. Numerous cases could be given amongst the lower animals of the same organ performing at the same time wholly distinct functions; thus the alimentary canal respires, digests, and excretes in the larva of the dragon-fly and in the fish Cobites. In the Hydra, the animal may 
+</excerpt>
+<excerpt id="E57" written="1859-10">
+Look at the family of squirrels; here we have the finest gradation from animals with their tails only slightly flattened, and from others, as Sir J. Richardson has remarked, with the posterior part of their bodies rather wide and with the skin on their flanks rather full, to the so-called flying squirrels; and flying squirrels have their limbs and even the base of the tail united by a broad expans
+</excerpt>
+<excerpt id="E58" written="1859-11">
+I have made these few remarks because it is highly important for us to gain some notion, however imperfect, of the lapse of years. During each of these years, over the whole world, the land and the water has been peopled by hosts of living forms. What an infinite number of generations, which the mind cannot grasp, must have succeeded each other in the long roll of years! Now turn to our richest ge
+</excerpt>
+<excerpt id="E59" written="1859-11">
+We thus see, that although there is a clear and fundamental difference between the mere adhesion of grafted stocks, and the union of the male and female elements in the act of reproduction, yet that there is a rude degree of parallelism in the results of grafting and of crossing distinct species. And as we must look at the curious and complex laws governing the facility with which trees can be gra
+</excerpt>
+<excerpt id="E60" written="1859-11">
+It is most difficult always to remember that the increase of every living being is constantly being checked by unperceived injurious agencies; and that these same unperceived agencies are amply sufficient to cause rarity, and finally extinction. We see in many cases in the more recent tertiary formations, that rarity precedes extinction; and we know that this has been the progress of events with t
+</excerpt>
+<excerpt id="E61" written="1859-11">
+From the first dawn of life, all organic beings are found to resemble each other in descending degrees, so that they can be classed in groups under groups. This classification is evidently not arbitrary like the grouping of the stars in constellations. The existence of groups would have been of simple signification, if one group had been exclusively fitted to inhabit the land, and another the wate
+</excerpt>
+<excerpt id="E62" written="1859-11">
+On the view here given of the all-important part which selection by man has played, it becomes at once obvious, how it is that our domestic races show adaptation in their structure or in their habits to man’s wants or fancies. We can, I think, further understand the frequently abnormal character of our domestic races, and likewise their differences being so great in external characters and relativ
+</excerpt>
+<excerpt id="E63" written="1871-01">
+It is further established, that the degree of asymmetry of the convolution of the two sides in the human brain is subject to much individual variation; and that, in those individuals of the Bushman race who have been examined, the gyri and sulci of the two hemispheres are considerably less complicated and more symmetrical than in the European brain, while, in some individuals of the chimpanzee, th
+</excerpt>
+<excerpt id="E64" written="1871-01">
+This is a most perplexing subject. It cannot be denied that changed conditions produce some, and occasionally a considerable effect, on organisms of all kinds; and it seems at first probable that if sufficient time were allowed this would be the invariable result. But I have failed to obtain clear evidence in favour of this conclusion; and valid reasons may be urged on the other side, at least as 
+</excerpt>
+<excerpt id="E65" written="1871-01">
+[Fig. 45. Secondary wing-feathers of Pipra deliciosa (from Mr. Sclater, in ‘Proc. Zool. Soc.’ 1860). The three upper feathers, a, b, c, from the male; the three lower corresponding feathers, d, e, f, from the female. a and d, fifth secondary wing-feather of male and female, upper surface. b and e, sixth secondary, upper surface. c and f, seventh secondary, lower surface.]
+</excerpt>
+<excerpt id="E66" written="1871-01">
+Although the existing races of man differ in many respects, as in colour, hair, shape of skull, proportions of the body, etc., yet if their whole structure be taken into consideration they are found to resemble each other closely in a multitude of points. Many of these are of so unimportant or of so singular a nature, that it is extremely improbable that they should have been independently acquire
+</excerpt>
+<excerpt id="E67" written="1871-02">
+One other question ought not to be passed over without notice, namely, whether, as is sometimes assumed, each sub-species or race of man has sprung from a single pair of progenitors. With our domestic animals a new race can readily be formed by carefully matching the varying offspring from a single pair, or even from a single individual possessing some new character; but most of our races have bee
+</excerpt>
+<excerpt id="E68" written="1871-02">
+Besides the primary and secondary sexual differences, such as the foregoing, the males and females of some animals differ in structures related to different habits of life, and not at all, or only indirectly, to the reproductive functions. Thus the females of certain flies (Culicidae and Tabanidae) are blood-suckers, whilst the males, living on flowers, have mouths destitute of mandibles. (1. West
+</excerpt>
+<excerpt id="E69" written="1871-02">
+Many animals, however, certainly sympathise with each other’s distress or danger. This is the case even with birds. Captain Stansbury (13. As quoted by Mr. L.H. Morgan, ‘The American Beaver,’ 1868, p. 272. Capt. Stansbury also gives an interesting account of the manner in which a very young pelican, carried away by a strong stream, was guided and encouraged in its attempts to reach the shore by ha
+</excerpt>
+<excerpt id="E70" written="1871-02">
+It is in itself probable that any character appearing at an early age would tend to be inherited equally by both sexes, for the sexes do not differ much in constitution before the power of reproduction is gained. On the other hand, after this power has been gained and the sexes have come to differ in constitution, the gemmules (if I may again use the language of pangenesis) which are cast off from
+</excerpt>
+<excerpt id="E71" written="1871-02">
+In this Order slight differences in colour, according to sex, are common, but conspicuous differences are rare except in the family of Bees; yet both sexes of certain groups are so brilliantly coloured—for instance in Chrysis, in which vermilion and metallic greens prevail—that we are tempted to attribute the result to sexual selection. In the Ichneumonidae, according to Mr. Walsh (59. ‘Proceeding
+</excerpt>
+<excerpt id="E72" written="1871-02">
+Even with the most pugnacious species it is probable that the pairing does not depend exclusively on the mere strength and courage of the male; for such males are generally decorated with various ornaments, which often become more brilliant during the breeding-season, and which are sedulously displayed before the females. The males also endeavour to charm or excite their mates by love-notes, songs
+</excerpt>
+<excerpt id="E73" written="1871-03">
+Nevertheless, I did not formerly consider sufficiently the existence of structures, which, as far as we can at present judge, are neither beneficial nor injurious; and this I believe to be one of the greatest oversights as yet detected in my work.
+</excerpt>
+<excerpt id="E74" written="1871-03">
+Mr. Swaysland of Brighton has been in the habit, during the last forty years, of catching our migratory birds on their first arrival, and he has never known the females of any species to arrive before their males. During one spring he shot thirty-nine males of Ray’s wagtail (Budytes Raii) before he saw a single female. Mr. Gould has ascertained by the dissection of those snipes which arrive the fi
+</excerpt>
+<excerpt id="E75" written="1871-03">
+Sexual selection acts in a less rigorous manner than natural selection. The latter produces its effects by the life or death at all ages of the more or less successful individuals. Death, indeed, not rarely ensues from the conflicts of rival males. But generally the less successful male merely fails to obtain a female, or obtains a retarded and less vigorous female later in the season, or, if poly
+</excerpt>
+<excerpt id="E76" written="1871-04">
+We have thus far been baffled in all our attempts to account for the differences between the races of man; but there remains one important agency, namely Sexual Selection, which appears to have acted powerfully on man, as on many other animals. I do not intend to assert that sexual selection will account for all the differences between the races. An unexplained residuum is left, about which we can
+</excerpt>
+<excerpt id="E77" written="1871-04">
+Dogs possess some power of self-command, and this does not appear to be wholly the result of fear. As Braubach (17. ‘Die Darwin’sche Art-Lehre,’ 1869, s. 54.) remarks, they will refrain from stealing food in the absence of their master. They have long been accepted as the very type of fidelity and obedience. But the elephant is likewise very faithful to his driver or keeper, and probably considers
+</excerpt>
+<excerpt id="E78" written="1871-04">
+Turning now to domesticated and confined birds, I will commence by giving what little I have learnt respecting the courtship of fowls. I have received long letters on this subject from Messrs. Hewitt and Tegetmeier, and almost an essay from the late Mr. Brent. It will be admitted by every one that these gentlemen, so well known from their published works, are careful and experienced observers. The
+</excerpt>
+<excerpt id="E79" written="1871-04">
+Prof. Faye remarks that “a still greater preponderance of males would be met with, if death struck both sexes in equal proportion in the womb and during birth. But the fact is, that for every 100 still-born females, we have in several countries from 134.6 to 144.9 still-born males. During the first four or five years of life, also, more male children die than females, for example in England, durin
+</excerpt>
+<excerpt id="E80" written="1871-04">
+We may now consider the classes of cases, under which the differences and resemblances between the plumage of the young and the old, in both sexes or in one sex alone, may be grouped. Rules of this kind were first enounced by Cuvier; but with the progress of knowledge they require some modification and amplification. This I have attempted to do, as far as the extreme complexity of the subject perm
+</excerpt>
+<excerpt id="E81" written="1871-05">
+Therefore, looking far enough back in the stream of time, and judging from the social habits of man as he now exists, the most probable view is that he aboriginally lived in small communities, each with a single wife, or if powerful with several, whom he jealously guarded against all other men. Or he may not have been a social animal, and yet have lived with several wives, like the gorilla; for al
+</excerpt>
+<excerpt id="E82" written="1871-05">
+Our great philosopher, Herbert Spencer, has recently explained his views on the moral sense. He says (46. Letter to Mr. Mill in Bain’s ‘Mental and Moral Science,’ 1868, p. 722.), “I believe that the experiences of utility organised and consolidated through all past generations of the human race, have been producing corresponding modifications, which, by continued transmission and accumulation, hav
+</excerpt>
+<excerpt id="E83" written="1871-05">
+In the eighth chapter instances were given, to which many might here be added, of variations occurring at various ages, and inherited at the corresponding age. It was also shewn that variations which occur late in life are commonly transmitted to the same sex in which they first appear; whilst variations occurring early in life are apt to be transmitted to both sexes; not that all the cases of sex
+</excerpt>
+<excerpt id="E84" written="1871-05">
+sexes, or more brilliant in the males—Examples—Not due to the direct action of the conditions of life—Colours adapted for protection—Colours of moths—Display—Perceptive powers of the Lepidoptera—Variability—Causes of the difference in colour between the males and females—Mimicry, female butterflies more brilliantly coloured than the males—Bright colours of caterpillars—Summary and concluding remar
+</excerpt>
+<excerpt id="E85" written="1871-05">
+It has often been said that no animal uses any tool; but the chimpanzee in a state of nature cracks a native fruit, somewhat like a walnut, with a stone. (37. Savage and Wyman in ‘Boston Journal of Natural History,’ vol. iv. 1843-44, p. 383.) Rengger (38. ‘Säugethiere von Paraguay,’ 1830, s. 51-56.) easily taught an American monkey thus to break open hard palm-nuts; and afterwards of its own accor
+</excerpt>
+<excerpt id="E86" written="1871-05">
+It must be called sympathy that leads a courageous dog to fly at any one who strikes his master, as he certainly will. I saw a person pretending to beat a lady, who had a very timid little dog on her lap, and the trial had never been made before; the little creature instantly jumped away, but after the pretended beating was over, it was really pathetic to see how perseveringly he tried to lick his
+</excerpt>
+<excerpt id="E87" written="1871-05">
+With animals belonging to the lower classes, the two sexes are not rarely united in the same individual, and therefore secondary sexual characters cannot be developed. In many cases where the sexes are separate, both are permanently attached to some support, and the one cannot search or struggle for the other. Moreover it is almost certain that these animals have too imperfect senses and much too 
+</excerpt>
+<excerpt id="E88" written="1871-05">
+The voice of the adult male gorilla is tremendous, and he is furnished with a laryngeal sack, as is the adult male orang. (4. Owen ‘Anatomy of Vertebrates,’ vol. iii. p. 600.) The gibbons rank among the noisiest of monkeys, and the Sumatra species (Hylobates syndactylus) is also furnished with an air sack; but Mr. Blyth, who has had opportunities for observation, does not believe that the male is 
+</excerpt>
+<excerpt id="E89" written="1871-06">
+Many of the faculties, which have been of inestimable service to man for his progressive advancement, such as the powers of the imagination, wonder, curiosity, an undefined sense of beauty, a tendency to imitation, and the love of excitement or novelty, could hardly fail to lead to capricious changes of customs and fashions. I have alluded to this point, because a recent writer (73. ‘The Spectator
+</excerpt>
+<excerpt id="E90" written="1871-06">
+The peacock with his long train appears more like a dandy than a warrior, but he sometimes engages in fierce contests: the Rev. W. Darwin Fox informs me that at some little distance from Chester two peacocks became so excited whilst fighting, that they flew over the whole city, still engaged, until they alighted on the top of St. John’s tower.
+</excerpt>
+<excerpt id="E91" written="1871-06">
+The controversy respecting the nature and the extent of the differences in the structure of the brain in man and the apes, which arose some fifteen years ago, has not yet come to an end, though the subject matter of the dispute is, at present, totally different from what it was formerly. It was originally asserted and re-asserted, with singular pertinacity, that the brain of all the apes, even the
+</excerpt>
+<excerpt id="E92" written="1871-06">
+But the truth that the three structures in question are as well developed in apes’ as in human brains, or even better; and that it is characteristic of all the Primates (if we exclude the Lemurs) to have these parts well developed, stands at present on as secure a basis as any proposition in comparative anatomy. Moreover, it is admitted by every one of the long series of anatomists who, of late ye
+</excerpt>
+<excerpt id="E93" written="1871-06">
+So far as the structure of the adult brain is concerned, then, the very considerable additions to our knowledge, which have been made by the researches of so many investigators, during the past ten years, fully justify the statement which I made in 1863. But it has been said, that, admitting the similarity between the adult brains of man and apes, they are nevertheless, in reality, widely differen
+</excerpt>
+<excerpt id="E94" written="1871-06">
+We can, in our ignorance of most of the lowest animals, only say that their bright tints result either from the chemical nature or the minute structure of their tissues, independently of any benefit thus derived. Hardly any colour is finer than that of arterial blood; but there is no reason to suppose that the colour of the blood is in itself any advantage; and though it adds to the beauty of the 
+</excerpt>
+<excerpt id="E95" written="1871-07">
+The free use of the arms and hands, partly the cause and partly the result of man’s erect position, appears to have led in an indirect manner to other modifications of structure. The early male forefathers of man were, as previously stated, probably furnished with great canine teeth; but as they gradually acquired the habit of using stones, clubs, or other weapons, for fighting with their enemies 
+</excerpt>
+<excerpt id="E96" written="1871-07">
+In some few genera and species, as in Galloperdix, Acomus, and the Javan peacock (Pavo muticus), the females, as well as the males, possess well-developed leg-spurs. Are we to infer from this fact that they construct a different sort of nest from that made by their nearest allies, and not liable to be injured by their spurs; so that the spurs have not been removed? Or are we to suppose that the fe
+</excerpt>
+<excerpt id="E97" written="1871-08">
+In the very distinct family of the Cyprinodontidae—inhabitants of the fresh waters of foreign lands—the sexes sometimes differ much in various characters. In the male of the Mollienesia petenensis (16. With respect to this and the following species I am indebted to Dr. Gunther for information: see also his paper on the ‘Fishes of Central America,’ in ‘Transact. Zoological Soc.’ vol. vi. 1868, p. 4
+</excerpt>
+<excerpt id="E98" written="1871-08">
+Again, in the great group of the woodpeckers (25. All the following facts are taken from M. Malherbe’s magnificent ‘Monographie des Picidees,’ 1861.), the sexes are generally nearly alike, but in the Megapicus validus all those parts of the head, neck, and breast, which are crimson in the male are pale brown in the female. As in several woodpeckers the head of the male is bright crimson, whilst th
+</excerpt>
+<excerpt id="E99" written="1871-08">
+From the causes just specified the two sexes can hardly fail to differ somewhat in constitution, at least during the breeding-season; and, although they may be subjected to exactly the same conditions, they will tend to vary in a different manner. If such variations are of no service to either sex, they will not be accumulated and increased by sexual or natural selection. Nevertheless, they may be
+</excerpt>
+<excerpt id="E100" written="1871-08">
+Nevertheless I know of no fact in natural history more wonderful than that the female Argus pheasant should appreciate the exquisite shading of the ball-and-socket ornaments and the elegant patterns on the wing-feather of the male. He who thinks that the male was created as he now exists must admit that the great plumes, which prevent the wings from being used for flight, and which are displayed d
+</excerpt>
+<excerpt id="E101" written="1871-08">
+The decrease of the Maories of New Zealand has been carefully investigated by Mr. Fenton, in an admirable Report, from which all the following statements, with one exception, are taken. (40. ‘Observations on the Aboriginal Inhabitants of New Zealand,’ published by the Government, 1859.) The decrease in number since 1830 is admitted by every one, including the natives themselves, and is still stead
+</excerpt>
+<excerpt id="E102" written="1871-08">
+As soon as some ancient member in the great series of the Primates came to be less arboreal, owing to a change in its manner of procuring subsistence, or to some change in the surrounding conditions, its habitual manner of progression would have been modified: and thus it would have been rendered more strictly quadrupedal or bipedal. Baboons frequent hilly and rocky districts, and only from necess
+</excerpt>
+<excerpt id="E103" written="1871-08">
+Three views of this brain are given in Plate II, figs. 1, 2, 3, of the work cited, shewing the upper, lateral and inferior views of the hemispheres, but not the inner view. It is worthy of note that the figure by no means bears out Gratiolet’s description, inasmuch as the fissure (antero-temporal) on the posterior half of the face of the hemisphere is more marked than any of those vaguely indicate
+</excerpt>
+<excerpt id="E104" written="1871-08">
+The members of this lowly organised order are wingless, dull-coloured, minute insects, with ugly, almost misshapen heads and bodies. Their sexes do not differ, but they are interesting as shewing us that the males pay sedulous court to the females even low down in the animal scale. Sir J. Lubbock (17. ‘Transact. Linnean Soc.’ vol. xxvi. 1868, p. 296.) says: “it is very amusing to see these little 
+</excerpt>
+<excerpt id="E105" written="1871-09">
+Little need here be said, except as to colour. In the Ephemeridae the sexes often differ slightly in their obscure tints (49. B.D. Walsh, the ‘Pseudo-neuroptera of Illinois,’ in ‘Proceedings of the Entomological Society of Philadelphia,’ 1862, p. 361.); but it is not probable that the males are thus rendered attractive to the females. The Libellulidae, or dragon-flies, are ornamented with splendid
+</excerpt>
+<excerpt id="E106" written="1871-10">
+In the family of Bees, especially in the solitary species, as I hear from the same entomologist, the sexes often differ in colour. The males are generally the brighter, and in Bombus as well as in Apathus, much more variable in colour than the females. In Anthophora retusa the male is of a rich fulvous-brown, whilst the female is quite black: so are the females of several species of Xylocopa, the 
+</excerpt>
+<excerpt id="E107" written="1871-10">
+It is certain that associated animals have a feeling of love for each other, which is not felt by non-social adult animals. How far in most cases they actually sympathise in the pains and pleasures of others, is more doubtful, especially with respect to pleasures. Mr. Buxton, however, who had excellent means of observation (11. ‘Annals and Magazine of Natural History,’ November 1868, p. 382.), sta
+</excerpt>
+<excerpt id="E108" written="1871-10">
+The formation of different languages and of distinct species, and the proofs that both have been developed through a gradual process, are curiously parallel. (67. See the very interesting parallelism between the development of species and languages, given by Sir C. Lyell in ‘The Geological Evidences of the Antiquity of Man,’ 1863, chap. xxiii.) But we can trace the formation of many words further 
+</excerpt>
+<excerpt id="E109" written="1871-10">
+As the males of several quadrumanous animals have their vocal organs much more developed than in the females, and as a gibbon, one of the anthropomorphous apes, pours forth a whole octave of musical notes and may be said to sing, it appears probable that the progenitors of man, either the males or females or both sexes, before acquiring the power of expressing their mutual love in articulate langu
+</excerpt>
+<excerpt id="E110" written="1871-10">
+Again, in three species of the Lamellicorn genus Oryctes, we have a nearly parallel case. In the females of O. gryphus and nasicornis the ribs on the rasp of the pro-pygidium are less continuous and less distinct than in the males; but the chief difference is that the whole upper surface of this segment, when held in the proper light, is seen to be clothed with hairs, which are absent or are repre
+</excerpt>
+<excerpt id="E111" written="1871-10">
+From the foregoing facts, more especially from neither sex of certain birds changing colour during either annual moult, or changing so slightly that the change can hardly be of any service to them, and from the females of other species moulting twice yet retaining the same colours throughout the year, we may conclude that the habit of annually moulting twice has not been acquired in order that the
+</excerpt>
+<excerpt id="E112" written="1871-11">
+Von Baer has defined advancement or progress in the organic scale better than any one else, as resting on the amount of differentiation and specialisation of the several parts of a being,—when arrived at maturity, as I should be inclined to add. Now as organisms have become slowly adapted to diversified lines of life by means of natural selection, their parts will have become more and more differe
+</excerpt>
+<excerpt id="E113" written="1871-11">
+As the young of so many species have been but little modified in colour and in other ornaments, we are enabled to form some judgment with respect to the plumage of their early progenitors; and we may infer that the beauty of our existing species, if we look to the whole class, has been largely increased since that period, of which the immature plumage gives us an indirect record. Many birds, espec
+</excerpt>
+<excerpt id="E114" written="1871-11">
+That this result would follow from the above form of infanticide seems almost certain; that is if we assume that a sex-producing tendency is inherited. But as the above numbers are so extremely scanty, I have searched for additional evidence, but cannot decide whether what I have found is trustworthy; nevertheless the facts are, perhaps, worth giving. The Maories of New Zealand have long practised
+</excerpt>
+<excerpt id="E115" written="1871-11">
+From the light afforded by the principle of gradation—from what we know of the laws of variation—from the changes which have taken place in many of our domesticated birds—and, lastly, from the character (as we shall hereafter see more clearly) of the immature plumage of young birds—we can sometimes indicate, with a certain amount of confidence, the probable steps by which the males have acquired t
+</excerpt>
+<excerpt id="E116" written="1871-11">
+Notwithstanding that savages appear to be less prolific than civilised people, they would no doubt rapidly increase if their numbers were not by some means rigidly kept down. The Santali, or hill-tribes of India, have recently afforded a good illustration of this fact; for, as shewn by Mr. Hunter (60. ‘The Annals of Rural Bengal,’ by W.W. Hunter, 1868, p. 259.), they have increased at an extraordi
+</excerpt>
+<excerpt id="E117" written="1871-11">
+With animals of all kinds when the adults differ in colour from the young, and the colours of the latter are not, as far as we can see, of any special service, they may generally be attributed, like various embryological structures, to the retention of a former character. But this view can be maintained with confidence, only when the young of several species resemble each other closely, and likewi
+</excerpt>
+<excerpt id="E118" written="1871-11">
+If the anthropomorphous apes be admitted to form a natural sub-group, then as man agrees with them, not only in all those characters which he possesses in common with the whole Catarrhine group, but in other peculiar characters, such as the absence of a tail and of callosities, and in general appearance, we may infer that some ancient member of the anthropomorphous sub-group gave birth to man. It 
+</excerpt>
+<excerpt id="E119" written="1871-11">
+A most remarkable distinction between the sexes of many beetles is presented by the great horns which rise from the head, thorax, and clypeus of the males; and in some few cases from the under surface of the body. These horns, in the great family of the Lamellicorns, resemble those of various quadrupeds, such as stags, rhinoceroses, etc., and are wonderful both from their size and diversified shap
+</excerpt>
+<excerpt id="E120" written="1871-11">
+Again, the barbs of the feathers in various widely-distinct birds are filamentous or plumose, as with some herons, ibises, birds of paradise, and Gallinaceae. In other cases the barbs disappear, leaving the shafts bare from end to end; and these in the tail of the Paradisea apoda attain a length of thirty-four inches (71. Wallace, in ‘Annals and Magazine of Natural History,’ vol. xx. 1857, p. 416,
+</excerpt>
+<excerpt id="E121" written="1871-12">
+With insects of all kinds the males are commonly smaller than the females; and this difference can often be detected even in the larval state. So considerable is the difference between the male and female cocoons of the silk-moth (Bombyx mori), that in France they are separated by a particular mode of weighing. (13. Robinet, ‘Vers a Soie,’ 1848, p. 207.) In the lower classes of the animal kingdom,
+</excerpt>
+<excerpt id="E122" written="1871-12">
+The plumage of certain birds goes on increasing in beauty during many years after they are fully mature; this is the case with the train of the peacock, with some of the birds of paradise, and with the crest and plumes of certain herons, for instance, the Ardea ludovicana. (40. Jerdon, ‘Birds of India,’ vol. iii. p. 507, on the peacock. Dr. Marshall thinks that the older and more brilliant males o
+</excerpt>
+<excerpt id="E123" written="1871-12">
+These various cases of reversion are so closely related to those of rudimentary organs given in the first chapter, that many of them might have been indifferently introduced either there or here. Thus a human uterus furnished with cornua may be said to represent, in a rudimentary condition, the same organ in its normal state in certain mammals. Some parts which are rudimentary in man, as the os co
+</excerpt>
+<excerpt id="E124" written="1871-12">
+Variability of body and mind in man—Inheritance—Causes of variability—Laws of variation the same in man as in the lower animals—Direct action of the conditions of life—Effects of the increased use and disuse of parts—Arrested development—Reversion—Correlated variation—Rate of increase—Checks to increase—Natural selection—Man the most dominant animal in the world—Importance of his corporeal structu
+</excerpt>

@@ -5,7 +5,7 @@ Run: python3 evals/conflicts/gen/make_whole.py <repo root> <history suffix> <pro
 import json, sys, re, datetime
 
 def system(name):
-    if name in ('realX_v1', 'changes_v1', 'realX_deployed', 'naive', 'contradoc_style', 'beliefshift_style', 'defOnly', 'defNoEmpty'): return json.load(open(f'{ROOT}/evals/conflicts/gen/real_prompts.json'))[name]
+    if name in ('realX_v1', 'changes_v1', 'realX_deployed', 'naive', 'contradoc_style', 'beliefshift_style', 'defOnly', 'defNoEmpty', 'gs1', 'gs2', 'gs3'): return json.load(open(f'{ROOT}/evals/conflicts/gen/real_prompts.json'))[name]
     return json.loads(open(f'{ROOT}/paper/results/requests_v17.jsonl').readline())['system']  # the shipped prompt as sent in v17
 
 defuse = lambda t: re.sub(r'<(/?)(excerpt|theme)', lambda m: '‹' + m.group(1) + m.group(2), t, flags=re.I)
