@@ -623,3 +623,15 @@ Why (judge look 6): every detection run used Haiku; the claim is about prompts, 
 
 Why (judge look 6): the no-change test (round 28) used one work redated across six years; a person's record spans works and years. Here each real history keeps both works but loses its keyed early, announced and unannounced passages (control kept), so no documented change remains, though the later work may hold other, undocumented changes. Persona now (longer excerpts) and naive (400), one run each, whole history; first-run cards (capped at 8) labelled by Sonnet and Opus with the round-27 real/not prompt in one batch, plus a control anchor per history paired with its first later-work paragraph.
 - Predictions: Persona now ≤ 0.5 non-genuine cards per history, naive ≥ 1.0; Persona now's genuine share ≥ naive's + 20 points; Persona now ≥ 0.5 genuine cards per history (undocumented changes the later works do contain).
+
+## v37: fresh set 4, sourced after Persona's current prompt shipped, run once (brief and predictions committed before any case exists)
+
+Why (judge looks 5-6): only 12 cases were unseen when tested, one set easy. A fourth set is sourced by a new agent with no hint about how the tool reads text and no constraint on retraction type (brief: paper/data/fresh4_brief.txt), after main 2a5e359e. Run once: shipped prompt (400 characters) and what Persona runs (longer excerpts), whole history, 3 runs each, Haiku, case level; new cross-era pairs labelled blind (Haiku + Sonnet, thesis prompt). No prompt or configuration will change on this set.
+- Predictions (n = cases kept, 6-10): Persona now finds ≥ 70% of n; shipped ≤ 25% of n; Persona now finds at least 3 more than shipped; controls ≤ 1 history per run for each.
+
+## v38: require a verbatim quote for every card? A product decision with its rule written first (committed before any v38 request existed)
+
+Why (round 36): with no clear change to report, Persona's prompt reaches for weaker pairs (0.60 non-genuine cards per history on two-work histories without the documented change). Asking for evidence may drop the weak ones. Candidate (depQuote): Persona's current prompt plus one field, "quote": the words of the later excerpt that reject, abandon or clash with the earlier view, copied exactly, and "If you cannot quote such words, leave the pair out." Longer excerpts, whole history. Real histories (30, 3 runs, case level, blind thesis labels, map x20) and the round-36 two-work histories (30, one run). First-run cards of depQuote and of Persona's current prompt on both, labelled together in one shuffled Sonnet + Opus batch (round-27 real/not prompt).
+
+Decision rule: ship depQuote if and only if (a) it finds ≥ 25 of 30 and ≥ 10 of the 12 unseen; (b) its non-genuine cards per history on the two-work histories are ≤ 0.45 and lower than the current prompt's in the same batch; (c) on real histories ≤ 0.30. Otherwise keep the current prompt.
+- Predictions: (a) 24-26 and 10 of 12; (b) 0.30-0.45; (c) 0.15-0.30; so the rule says ship. Also: ≥ 90% of returned quotes appear verbatim in the later excerpt.

@@ -510,3 +510,13 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 - Persona now: 47 cards (1.57 per history), 29 both real (62%), 0.60 non-genuine and 0.97 genuine per history. Naive: 54 cards, 19 both real (35%), 1.17 non-genuine, 0.63 genuine per history. Control anchors (control × first later-work paragraph): 0 of 30 real.
 - Predictions: Persona now ≤ 0.5 failed (0.60); naive ≥ 1.0 held; gap ≥ 20 points held (27); Persona now ≥ 0.5 genuine held (0.97). Appendix F: 73 numeric rows, 34 failed (real text 30 of 57).
 - Also this turn: Figure 1 now plots what Persona runs (depNoCap) instead of the pre-Nov-15 deployed text (same total 26, different per-set split) and adds recall against non-genuine cards; contribution 3 and the conclusion now state the precision edge and say the masked result is for the deployed text.
+
+## Round 38 (v38, plan 347186f6): quote required for every card, a product decision
+
+- depQuote = Persona's current prompt plus a "quote" field (later-excerpt words, verbatim, ≤ 25) and "If you cannot quote such words, leave the pair out." requests_v38_quote.jsonl (30 real, longer, 3 runs, labels x20) and requests_v36_v38w.jsonl (30 two-work, one run). check_quotes_v38.py → v38_quotes.json: 158 of 165 quotes verbatim in the later excerpt (96%) on real histories, 40 of 41 (98%) on two-work; none empty.
+- Real histories: dev 10, F1 5, F2 6, F3 3 = 24/30; unseen 9/12; lost James and Miller against the current prompt, gained none; controls 0.
+- One Sonnet + Opus batch (make_cost_cards38.py → cost38_scores.json; label__cost38_0_s returned its JSON instead of writing, saved verbatim, 50 of 50): real, depQuote 56 cards, 47 genuine (84%), 0.30 non-genuine per history; current prompt 69 cards, 64 genuine (93%), 0.17. Two-work: depQuote 41, 27 genuine (66%), 0.47; current 47, 28 genuine (60%), 0.63. Anchors: keys 24, controls 0 of 30 real.
+- Rule: (a) 24 < 25 and 9 < 10 fails; (b) 0.47 > 0.45 fails (though lower than 0.63); (c) 0.30 ≤ 0.30 holds. Keep the current prompt; nothing shipped.
+- Batch drift note: the current prompt's real-history non-genuine rate was 0.27 in round 32's batch and 0.17 here; two-work 0.60 (round 36) and 0.63 here.
+- Predictions: row failed (unseen 9; 0.47; "so ship"). Appendix F: 74 numeric rows, 35 failed (real text 31 of 58).
+- Also this turn: main body rewritten for a fast reader (8aba8a39): plain abstract (222 words), contributions end on the general lesson, Table 4 as tuning vs unseen with plain names, Section 4.3 in three parts, no round numbers in the results.

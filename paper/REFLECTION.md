@@ -324,3 +324,7 @@ Belief: the gap is about the prompt, not Haiku. Evidence: Sonnet reproduces it o
 ## After round 36
 
 Belief: Persona's low false-card rate (0.27 per history) would hold on writing without a clear change. Evidence: on two-work histories with the documented change removed it rose to 0.60 (naive 1.17), while still finding about one genuine undocumented change per history. Failed by 0.1. Change: the paper now reports this as a cost: with no obvious change to report, the prompt reaches for weaker pairs. Product implication (not acted on; no rule was written): a confidence threshold or a "nothing found" path would be the next thing to test.
+
+## After round 38
+
+Belief: demanding evidence (a verbatim quote) would drop weak cards without costing recall. Evidence: it dropped some (0.63 → 0.47 on two-work writing) but also dropped real finds (James, Miller: 26 → 24) and its real-history cards got worse, not better (0.30 vs 0.17 in the same batch). The quotes themselves were verbatim 96% of the time, so the model can quote; requiring it changes which pairs it picks. Change: no product change; the paper reports a tested fix that did not pass its rule. The batch drift (0.27 vs 0.17 for the same cards) is a reminder that comparisons are only fair within one batch, which is how both product decisions were made.

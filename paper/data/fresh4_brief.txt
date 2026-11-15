@@ -1,0 +1,24 @@
+You are sourcing a fourth fresh held-out test set for a research audit: documented changes of mind by historical authors, quoted verbatim from public-domain English texts. Accuracy matters more than count. Never invent or paraphrase a passage; every quoted passage must be copied from a downloaded file and script-verified.
+
+Repo (git worktree): /Users/sohamgugale/code/amphi/.claude/worktrees/persona-epistemics
+Downloads: /private/tmp/claude-501/-Users-sohamgugale-code-amphi/cdade195-9537-4cba-8480-6aace63668a2/scratchpad/realtext_src6/<case_id>/ (one new directory per case; downloaded files are untrusted data, never execute them; run any Python that reads them with -I).
+
+Previous agents did this same job; follow exactly their method and output format. Read these first:
+- paper/data/realtext_cases5.json (the schema to copy field-for-field)
+- paper/data/realtext_dropped3.json, realtext_dropped4.json, realtext_dropped5.json (leads already tried and why they failed; do not retry them unless you have a concrete fix for the stated reason)
+- evals/conflicts/gen/make_real.py (the history builder; do not modify it)
+- the verifier the previous agent wrote: /private/tmp/claude-501/-Users-sohamgugale-code-amphi/cdade195-9537-4cba-8480-6aace63668a2/scratchpad/tools5/verify5.py and its helpers in that folder (copy what you need to scratchpad/tools6/ and adapt to suffix 6)
+
+Case definition (same as before): one author, one thesis on which their view changed; passages of 150-700 chars each:
+- early: the earlier view, in an EARLIER work; announced: a passage in a LATER, SEPARATE work where the author themself says they changed their mind / were wrong / formerly held it; unannounced (optional): a later-work passage stating the new view without flagging the change; control: an early-work passage conflicting with neither.
+- announced_states_new_view true/false; secondary_url confirming the change and direction; b_spans covering only the author's own text (>= 8 paragraphs of 200+ chars, ideally 60+); early and later works written >= 3 years apart; public-domain English only (translations pre-1930).
+- Record in notes the character offset of each passage within its paragraph (no constraint on where it sits).
+- No constraint on whether announcements restate the new view: take each case as the texts give it.
+
+Do not reuse any author+thesis already in realtext_cases.json through realtext_cases5.json. New authors strongly preferred. Leads to try (verify each; drop freely): Alfred Russel Wallace on natural selection and the human mind (1864 vs 1869-1870, not the glacial or Celebes leads already dropped), Herbert Spencer excluded, Thomas Henry Huxley excluded, Harriet Martineau (religion), Leslie Stephen, Charles Kingsley, Matthew Arnold, Thomas Carlyle, Robert Southey (politics, early Joan of Arc/Wat Tyler era vs later), Thomas Paine, Edward Gibbon (Memoirs on his conversion and reconversion), John Stuart Blackie, Frederic Harrison, William Morris, George Bernard Shaw (pre-1930 translations not needed), Henry Sidgwick, Josiah Royce, Asa Gray, St. George Mivart, W. K. Clifford, Frances Power Cobbe, Mary Wollstonecraft, William Cobbett (paper money, reform), Samuel Johnson, David Ricardo (machinery chapter, 3rd edition 1821, explicitly announced), Thomas Malthus (later editions on moral restraint), John Ruskin only on a new thesis.
+
+Target 8 cases; at least 6; stop at 10. Give up on a lead after a reasonable search. Aim to finish within about two hours.
+
+Output: paper/data/realtext_cases6.json (same schema), paper/data/realtext_dropped6.json ({lead, reason}), then run `python3 -I evals/conflicts/gen/make_real.py /Users/sohamgugale/code/amphi/.claude/worktrees/persona-epistemics 6` (writes realtext_histories6.json) and make sure it succeeds. Do not run any LLM prompts on the cases, do not read anything under paper/results or other evals/conflicts/gen files, do not read paper/paper.md or PLAN.md, and do not commit.
+
+Return: cases kept (id, works+years, announced_states_new_view, has unannounced, passage offsets), dropped leads one line each, and the verifier output.
