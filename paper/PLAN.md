@@ -613,3 +613,8 @@ Why (judge look 5, round-32 reflection): the cases are famous authors; a prompt 
 
 Why (judge look 5): the shipped prompt's 3 of 30 could be an artefact of running it through an agent that reads a long file, not of the prompt. Positive control: into each of the 30 real histories insert one planted unsignalled reversal from the test set (P1, P2, P4 in order; the 36 that the shipped prompt found 36 of 36 when shown as a pair), post a dated at the 25th percentile of the history's dates and post b at the 75th; shipped prompt, 400-character excerpts, whole history in one call, 3 runs, same harness.
 - Predictions: the canary pair is returned on a majority of runs in ≥ 26 of 30 histories; the shipped prompt still finds ≤ 4 of the 30 documented changes; ≤ 1 history per run returns a pair joining a canary post to a real post.
+
+## v35: does the result hold on a second model? Sonnet on the 12 unseen cases (committed before any v35 request existed)
+
+Why (judge look 6): every detection run used Haiku; the claim is about prompts, so it should survive a stronger model of the same family. Sonnet 5.5 through the same harness, the 12 unseen histories (fresh sets 2 and 3), shipped prompt (400 characters) and what Persona runs (longer excerpts), 3 runs each, case level; new cross-era pairs labelled blind (Haiku + Sonnet thesis prompt, map x19).
+- Predictions: Persona now ≥ 9 of 12; shipped ≤ 4 of 12; Persona now finds at least 5 more than shipped; controls ≤ 1 history per run for each.

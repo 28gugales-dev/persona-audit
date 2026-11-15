@@ -496,3 +496,10 @@ make_v26_labels.py, score_v26.py (v26_scores.json). Passages = history paragraph
 - make_canary.py → requests_v34_canary.jsonl (30 histories; canaries P1, P2, P4 in key order; post a at the 25th-percentile date, b at the 75th), shipped prompt, 400 characters, 3 runs; score_v34.py → v34_scores.json.
 - Canary pair returned on a majority of runs in 29 of 30 histories (any run: 30; missed on majority: Ruskin). Documented changes found: 1 of 30 (Besant). Pairs joining a canary post to a real post: 0 per run. No unlabelled cross-era pairs.
 - Predictions: all held (29 ≥ 26; 1 ≤ 4; 0 ≤ 1). Appendix F: 71 numeric rows, 33 failed (real text 29 of 55).
+
+## Round 35 (v35, plan 669f2a3e): Sonnet 5.5 on the 12 unseen cases
+
+- make_whole.py rebuilt the requests for sets 4-5 (prompts identical to the Haiku runs; checked against requests_v30_depnocap.jsonl): requests_v35_sonnet_prod.jsonl (shipped, 400), requests_v35_sonnet_now.jsonl (depNoCap, longer); Sonnet subagents, 3 runs; labels x19 (2 new returned pairs, both credited after labelling). v35_scores.json.
+- Sonnet's safety classifier stopped 4 of 72 runs (shipped: Besant r2, Darwin Glen Roy r1 and r3; Persona now: Miller r1). Not retried. 7 agents returned their reply instead of writing it; saved verbatim. The first label workflow hung (> 60 min, no output) and was stopped and rerun.
+- Persona now: 11 of 12 (missed Miller, 0 of 2 runs); shipped: 1 of 12 (Besant, 2 of 2 runs). Counting blocked runs as misses gives the same 11 and 1. Persona-only 10, shipped-only 0: exact McNemar p = 0.002. Controls 0 for both.
+- Predictions: all held. Appendix F: 72 numeric rows, 33 failed (real text 29 of 56).

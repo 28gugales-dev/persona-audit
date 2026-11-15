@@ -316,3 +316,7 @@ Belief: no prompt leans on memory (predicted every gap within 20 points). Eviden
 ## After round 34
 
 Belief: the shipped prompt's 3 of 30 is the prompt, not the agent harness reading a long file. Evidence: the same prompt, harness and histories return a plain planted reversal in 29 of 30 while finding 1 documented change; it never pairs the planted posts with real ones. Held as predicted. Change: the harness objection is answered in §4.1 in one sentence. Next: presentation only (plain arm names, shorter Table 4), then a final judge look.
+
+## After round 35
+
+Belief: the gap is about the prompt, not Haiku. Evidence: Sonnet reproduces it on the unseen sets (11 vs 1 of 12; Haiku: 10 vs 2), and the stronger model does not rescue the shipped prompt. Held as predicted. Change: "one model" narrows to "one model family". New risk noted: Sonnet's classifier blocks some reads of historical text on slavery and religion (4 of 72 runs), which a product on Sonnet would have to handle. Next: the open judge items are framing (endorsement proxy) and a cross-family replication we cannot run here; the paper's measured claims are now as checked as this sprint allows.
