@@ -7,6 +7,12 @@ Persona (part of [Amphi](https://amphi-forum.org)) reads what a person has writt
 
 **Headline:** given each whole history, the shipped prompt found 3 of the 30 changes and flagged no control passage, so the failure was silent. Four causes: grouping posts by shared words, a definition that counts only views held at the same time, cutting each post to 400 characters, and retractions that never restate the old view. A rewritten prompt, frozen before two new test sets were sourced, found 10 of their 12 changes against 2 for the shipped prompt (p = 0.008). With longer excerpts and one output line removed it is the prompt Persona now runs; on a fourth set, sourced after that version shipped and run once, it found 6 of 7 against 1. A one-line naive prompt also finds many changes (20 of 30), but only 50% of its cards were judged genuine, against 88% for the prompt Persona now runs. All 77 pre-written predictions are reported, including the 37 that failed. Whether these cards help people decide is not measured.
 
+## What existed before the sprint
+
+Pre-existing (shipped Nov 1, 2026, before the sprint): the Persona product code under `product/shipped-2026-11-01/` — the import of posts and AI chats, the word-overlap theme sort, the on-device detector, the opt-in model step with its prompt, and the conflict cards.
+
+Written during the sprint (Nov 13-15, 2026): everything under `evals/conflicts/` and `paper/` (the evaluation, data, model replies, scorers and the report), and the product changes under `product/deployed-*`, each of which followed from the audit. The paper's Table 1 gives the same split.
+
 ## Layout
 
 | Path | What |

@@ -189,7 +189,7 @@ body += text(18, y0 + ph / 2, 'Cases found', 11, 'middle', MUTED).replace('<text
 C32 = json.load(open(f'{R}/cost32_scores.json'))
 tot = lambda a: sum(S18[f'{a}/{s}']['single_majority'] for s, _, _ in sets)
 pts = [('Shipped', 'production', 'shipped', '#8a8f98', 'start', 8, 4), ('Shipped + paragraph', 'prodPara', 'prodPara', '#8a8f98', 'start', 8, 4),
-       ('Naive', 'naive', 'naive400', '#c2410c', 'end', -8, 4), ('One-liner', 'naiveChange', 'naiveChange', '#c2410c', 'end', -8, -6),
+       ('Naive', 'naive', 'naive400', '#c2410c', 'end', -8, 4), ('Changed-mind', 'naiveChange', 'naiveChange', '#c2410c', 'middle', 0, -10),
        ('Rewrite, 400', 'realX', 'realX400', '#93c5fd', 'middle', 0, 19), ('Persona now', 'depNoCap', 'depNoCap', '#1d4ed8', 'middle', 0, -9)]
 qx0, qx1, xmax = PW + 45, W - 15, 1.3
 body += f"<line x1='{qx0}' x2='{qx1}' y1='{y0 + ph}' y2='{y0 + ph}' stroke='{GRID}'/>"

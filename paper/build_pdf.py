@@ -42,7 +42,7 @@ h1 { font-size: 13pt; margin: 16px 0 6px; break-after: avoid; } h2 { font-size: 
 p { margin: 4px 0; } li { margin: 1px 0; } ul, ol { margin: 2px 0 3px 16px; padding-left: 4px; } li > ul, li > ol { margin: 0 0 0 14px; }
 table { border-collapse: collapse; font-size: 9pt; margin: 6px 0; width: 100%; }
 th, td { border: 1px solid #999; padding: 3px 6px; vertical-align: top; text-align: left; }
-figure { margin: 8px 0; page-break-inside: avoid; } .tbl { break-inside: avoid; } figure svg { display: block; max-width: 74%; height: auto; margin: 0 auto; }
+figure { margin: 8px 0; page-break-inside: avoid; } .tbl { break-inside: avoid; } figure svg { display: block; max-width: 74%; height: auto; margin: 0 auto; } figure:first-of-type svg { max-width: 100%; }
 figcaption { font-size: 9pt; margin-top: 2px; }
 blockquote { font-size: 9pt; margin: 4px 12px; color: #333; }
 code { font-size: 9pt; }
