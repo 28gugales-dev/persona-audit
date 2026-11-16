@@ -344,3 +344,7 @@ Belief: the whole-history call keeps its quality at twice the length if excerpts
 ## After round 41
 
 Belief: the theme path is quiet on long records, so whole-history's extra false cards are a real cost against it. Evidence: the theme path is not quiet: 0.87 non-genuine cards per history, 24% genuine, while finding 2 of 30; sending the record whole finds 28 at 0.67 and 75% genuine. It sends under half of each record and the earlier passage of the documented change in only 9 of 30, so it cannot find most changes at any prompt. Change: the gate is 244 posts in the product. Lesson for the method: a decision rule needs the status quo as its comparator, not an ideal; round 40's absolute bar would have kept users on the worse path. The rule for round 41 was written after seeing round 40, which the paper states. Next: records over 244 posts (still the theme path), and the 0.67 false-card rate on long records, which is now the largest cost Persona's users see.
+
+## After the human check
+
+Belief: the 88% precision figure might be inflated by Claude labellers being lenient. Evidence: a blind hand check of 20 cards found the opposite direction of error; every card they passed was real, and the only misses were two real cards they rejected. Change: the paper now reports the check and narrows the remaining limitation to case-level labels and a single, non-independent human labeller.
